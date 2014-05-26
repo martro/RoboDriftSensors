@@ -4,8 +4,12 @@ diagrams
     832 440 100 4 0 0
 end
 show_stereotypes
-selected class_ref 128002 // Sensors
+selected attribute_ref 135682 // Members
 open
   class_ref 128002 // Sensors
+  class_ref 128130 // Device
+  class_ref 134658 // Team
+  class_ref 134786 // Leader
+  class_ref 134914 // Member
 end
 end
