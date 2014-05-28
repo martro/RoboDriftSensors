@@ -1,0 +1,11 @@
+window_sizes 1280 672 320 954 522 76
+diagrams
+  active  classdiagram_ref 128002 // uml
+    954 522 110 4 0 0
+end
+show_stereotypes
+selected class_ref 128259 // WindowAdmin
+open
+  class_ref 128002 // Sensors
+end
+end

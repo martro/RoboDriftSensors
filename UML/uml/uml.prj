@@ -1,7 +1,7 @@
 format 74
 "uml"
-  revision 2
-  modified_by 2 "kuba"
+  revision 3
+  modified_by 3 "martro"
 
 
   
@@ -288,6 +288,34 @@ ${inlines}
 	python_decl ""
 	idl_decl ""
       end
+    end
+
+    class 128259 "WindowAdmin"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 128387 "WindowRace"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
     end
   end
 end
