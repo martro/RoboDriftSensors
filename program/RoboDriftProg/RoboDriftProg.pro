@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-05-28T13:10:05
+# Project created by QtCreator 2014-05-28T13:49:17
 #
 #-------------------------------------------------
 
@@ -11,8 +11,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        WindowAdmin.cpp \
+    WindowRace.cpp \
+    Team.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += WindowAdmin.h \
+    WindowRace.h \
+    Team.h
 
-FORMS    += mainwindow.ui
+FORMS    += windowadmin.ui \
+    WindowRace.ui
