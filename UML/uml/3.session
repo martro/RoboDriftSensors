@@ -4,8 +4,13 @@ diagrams
     954 522 110 4 0 0
 end
 show_stereotypes
-selected class_ref 128259 // WindowAdmin
+selected attribute_ref 129283 // ButtonMode
 open
   class_ref 128002 // Sensors
+  class_ref 134658 // Team
+  class_ref 128259 // WindowAdmin
+  class_ref 128387 // WindowRace
+  class_ref 134915 // Car
+  class_ref 135043 // NewRace
 end
 end
