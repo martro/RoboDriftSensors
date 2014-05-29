@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowRace.ui'
 **
-** Created: Wed May 28 22:38:05 2014
+** Created: Wed May 28 22:57:20 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -45,7 +45,7 @@ public:
         lcdNumber->setGeometry(QRect(110, 30, 64, 23));
         textBrowser = new QTextBrowser(WindowRace);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(190, 20, 256, 192));
+        textBrowser->setGeometry(QRect(230, 20, 151, 231));
         textBrowser_2 = new QTextBrowser(WindowRace);
         textBrowser_2->setObjectName(QString::fromUtf8("textBrowser_2"));
         textBrowser_2->setGeometry(QRect(20, 20, 81, 41));
@@ -70,7 +70,7 @@ public:
     void retranslateUi(QFrame *WindowRace)
     {
         WindowRace->setWindowTitle(QApplication::translate("WindowRace", "Frame", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("WindowRace", "GroupBox", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("WindowRace", "TimeLaps", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

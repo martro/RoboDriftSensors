@@ -13,12 +13,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         WindowAdmin.cpp \
     WindowRace.cpp \
-    WindowNewRace.cpp
+    WindowNewRace.cpp \
+    WindowStats.cpp
 
 HEADERS  += WindowAdmin.h \
     WindowRace.h \
-    WindowNewRace.h
+    WindowNewRace.h \
+    WindowStats.h
 
 FORMS    += WindowAdmin.ui \
     WindowRace.ui \
-    WindowNewRace.ui
+    WindowNewRace.ui \
+    WindowStats.ui

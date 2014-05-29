@@ -40,7 +40,7 @@
      <string>New Race</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ButtonStats">
+   <widget class="QPushButton" name="ButtonShowStats">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -50,7 +50,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>Stats</string>
+     <string>Show stats</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonHideStats">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>160</y>
+      <width>98</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hide stats</string>
     </property>
    </widget>
   </widget>

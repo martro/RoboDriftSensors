@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Wed May 28 22:38:05 2014
+** Created: Thu May 29 13:53:22 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -30,7 +30,8 @@ public:
     QWidget *centralWidget;
     QPushButton *ButtonAddTeam;
     QPushButton *ButtonNewRace;
-    QPushButton *ButtonStats;
+    QPushButton *ButtonShowStats;
+    QPushButton *ButtonHideStats;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -48,9 +49,12 @@ public:
         ButtonNewRace = new QPushButton(centralWidget);
         ButtonNewRace->setObjectName(QString::fromUtf8("ButtonNewRace"));
         ButtonNewRace->setGeometry(QRect(10, 110, 98, 27));
-        ButtonStats = new QPushButton(centralWidget);
-        ButtonStats->setObjectName(QString::fromUtf8("ButtonStats"));
-        ButtonStats->setGeometry(QRect(10, 160, 98, 27));
+        ButtonShowStats = new QPushButton(centralWidget);
+        ButtonShowStats->setObjectName(QString::fromUtf8("ButtonShowStats"));
+        ButtonShowStats->setGeometry(QRect(10, 160, 98, 27));
+        ButtonHideStats = new QPushButton(centralWidget);
+        ButtonHideStats->setObjectName(QString::fromUtf8("ButtonHideStats"));
+        ButtonHideStats->setGeometry(QRect(130, 160, 98, 27));
         WindowAdmin->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowAdmin);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -73,7 +77,8 @@ public:
         WindowAdmin->setWindowTitle(QApplication::translate("WindowAdmin", "WindowAdmin", 0, QApplication::UnicodeUTF8));
         ButtonAddTeam->setText(QApplication::translate("WindowAdmin", "Add Team", 0, QApplication::UnicodeUTF8));
         ButtonNewRace->setText(QApplication::translate("WindowAdmin", "New Race", 0, QApplication::UnicodeUTF8));
-        ButtonStats->setText(QApplication::translate("WindowAdmin", "Stats", 0, QApplication::UnicodeUTF8));
+        ButtonShowStats->setText(QApplication::translate("WindowAdmin", "Show stats", 0, QApplication::UnicodeUTF8));
+        ButtonHideStats->setText(QApplication::translate("WindowAdmin", "Hide stats", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

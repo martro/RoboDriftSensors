@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAdmin.h'
 **
-** Created: Wed May 28 22:40:18 2014
+** Created: Thu May 29 13:56:01 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAdmin[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,12 +32,16 @@ static const uint qt_meta_data_WindowAdmin[] = {
 
  // slots: signature, parameters, type, tag, flags
       13,   12,   12,   12, 0x08,
+      40,   12,   12,   12, 0x08,
+      69,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowAdmin[] = {
     "WindowAdmin\0\0on_ButtonNewRace_clicked()\0"
+    "on_ButtonShowStats_clicked()\0"
+    "on_ButtonHideStats_clicked()\0"
 };
 
 void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,6 +51,8 @@ void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         WindowAdmin *_t = static_cast<WindowAdmin *>(_o);
         switch (_id) {
         case 0: _t->on_ButtonNewRace_clicked(); break;
+        case 1: _t->on_ButtonShowStats_clicked(); break;
+        case 2: _t->on_ButtonHideStats_clicked(); break;
         default: ;
         }
     }
@@ -85,9 +91,9 @@ int WindowAdmin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }
