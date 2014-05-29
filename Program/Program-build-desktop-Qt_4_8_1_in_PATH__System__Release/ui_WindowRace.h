@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowRace.ui'
 **
-** Created: Wed May 28 22:57:20 2014
+** Created: Thu May 29 14:29:13 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -69,7 +69,7 @@ public:
 
     void retranslateUi(QFrame *WindowRace)
     {
-        WindowRace->setWindowTitle(QApplication::translate("WindowRace", "Frame", 0, QApplication::UnicodeUTF8));
+        WindowRace->setWindowTitle(QApplication::translate("WindowRace", "WindowRace", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("WindowRace", "TimeLaps", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

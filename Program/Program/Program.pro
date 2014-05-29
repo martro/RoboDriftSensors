@@ -14,14 +14,17 @@ SOURCES += main.cpp\
         WindowAdmin.cpp \
     WindowRace.cpp \
     WindowNewRace.cpp \
-    WindowStats.cpp
+    WindowStats.cpp \
+    WindowAddTeam.cpp
 
 HEADERS  += WindowAdmin.h \
     WindowRace.h \
     WindowNewRace.h \
-    WindowStats.h
+    WindowStats.h \
+    WindowAddTeam.h
 
 FORMS    += WindowAdmin.ui \
     WindowRace.ui \
     WindowNewRace.ui \
-    WindowStats.ui
+    WindowStats.ui \
+    WindowAddTeam.ui

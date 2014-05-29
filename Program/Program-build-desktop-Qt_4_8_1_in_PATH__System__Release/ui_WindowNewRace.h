@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowNewRace.ui'
 **
-** Created: Wed May 28 22:38:05 2014
+** Created: Thu May 29 14:29:13 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -72,7 +72,7 @@ public:
 
     void retranslateUi(QFrame *WindowNewRace)
     {
-        WindowNewRace->setWindowTitle(QApplication::translate("WindowNewRace", "Frame", 0, QApplication::UnicodeUTF8));
+        WindowNewRace->setWindowTitle(QApplication::translate("WindowNewRace", "WindowNewRace", 0, QApplication::UnicodeUTF8));
         ButtonStartRace->setText(QApplication::translate("WindowNewRace", "Start Race", 0, QApplication::UnicodeUTF8));
         ButtonStopRace->setText(QApplication::translate("WindowNewRace", "Stop race", 0, QApplication::UnicodeUTF8));
         ButtonCancel->setText(QApplication::translate("WindowNewRace", "Cancel", 0, QApplication::UnicodeUTF8));

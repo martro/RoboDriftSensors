@@ -31,3 +31,8 @@ void WindowNewRace::on_ButtonStopRace_clicked()
 {
     raceHide();
 }
+
+void WindowNewRace::on_ButtonCancel_clicked()
+{
+    hide();
+}

@@ -22,6 +22,8 @@ private slots:
     void on_ButtonStartRace_clicked();
     void on_ButtonStopRace_clicked();
 
+    void on_ButtonCancel_clicked();
+
 private:
     Ui::WindowNewRace *ui;
     WindowRace WR;

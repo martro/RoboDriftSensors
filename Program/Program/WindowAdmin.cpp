@@ -20,12 +20,17 @@ void WindowAdmin::newRaceShow()
 
 void WindowAdmin::statsShow()
 {
-    this->S.show();
+    this->WS.show();
 }
 
 void WindowAdmin::statsHide()
 {
-    this->S.hide();
+    this->WS.hide();
+}
+
+void WindowAdmin::addTeamShow()
+{
+    this->WAT.show();
 }
 
 void WindowAdmin::on_ButtonNewRace_clicked()
@@ -41,4 +46,9 @@ void WindowAdmin::on_ButtonShowStats_clicked()
 void WindowAdmin::on_ButtonHideStats_clicked()
 {
     this->statsHide();
+}
+
+void WindowAdmin::on_ButtonAddTeam_clicked()
+{
+    this->addTeamShow();
 }

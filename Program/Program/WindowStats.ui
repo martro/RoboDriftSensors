@@ -11,13 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Frame</string>
+   <string>WindowStats</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
   </property>
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
+  </property>
+  <property name="midLineWidth">
+   <number>0</number>
   </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">

@@ -4,15 +4,12 @@ diagrams
     1040 550 100 4 0 0
 end
 show_stereotypes
-selected attribute_ref 129155 // ButtonHideStats
+selected attribute_ref 150530 // lineMemberSurname
 open
   class_ref 128002 // Sensors
   class_ref 128130 // Device
   class_ref 134658 // Team
   class_ref 134786 // Leader
-  class_ref 134914 // Member
-  class_ref 128259 // WindowAdmin
-  class_ref 135043 // WindowNewRace
-  class_ref 141442 // WindowStats
+  class_ref 147970 // WindowAddTeam
 end
 end

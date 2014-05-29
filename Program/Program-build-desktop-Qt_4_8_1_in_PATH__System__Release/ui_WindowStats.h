@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowStats.ui'
 **
-** Created: Thu May 29 13:53:22 2014
+** Created: Thu May 29 14:30:49 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -34,7 +34,8 @@ public:
         if (WindowStats->objectName().isEmpty())
             WindowStats->setObjectName(QString::fromUtf8("WindowStats"));
         WindowStats->resize(400, 300);
-        WindowStats->setFrameShape(QFrame::StyledPanel);
+        WindowStats->setWindowOpacity(1);
+        WindowStats->setFrameShape(QFrame::NoFrame);
         WindowStats->setFrameShadow(QFrame::Raised);
         textBrowser = new QTextBrowser(WindowStats);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
@@ -56,7 +57,7 @@ public:
 
     void retranslateUi(QFrame *WindowStats)
     {
-        WindowStats->setWindowTitle(QApplication::translate("WindowStats", "Frame", 0, QApplication::UnicodeUTF8));
+        WindowStats->setWindowTitle(QApplication::translate("WindowStats", "WindowStats", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("WindowStats", "Stats", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
