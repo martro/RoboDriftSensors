@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowStats.ui'
 **
-** Created: Thu May 29 14:30:49 2014
+** Created: Fri May 30 11:28:09 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,8 +35,9 @@ public:
             WindowStats->setObjectName(QString::fromUtf8("WindowStats"));
         WindowStats->resize(400, 300);
         WindowStats->setWindowOpacity(1);
-        WindowStats->setFrameShape(QFrame::NoFrame);
+        WindowStats->setFrameShape(QFrame::StyledPanel);
         WindowStats->setFrameShadow(QFrame::Raised);
+        WindowStats->setMidLineWidth(0);
         textBrowser = new QTextBrowser(WindowStats);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(20, 30, 111, 251));

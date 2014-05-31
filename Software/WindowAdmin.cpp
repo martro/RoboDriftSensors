@@ -1,5 +1,5 @@
 #include "WindowAdmin.h"
-#include "ui_windowadmin.h"
+#include "ui_WindowAdmin.h"
 
 WindowAdmin::WindowAdmin(QWidget *parent) :
     QMainWindow(parent),
@@ -12,5 +12,3 @@ WindowAdmin::~WindowAdmin()
 {
     delete ui;
 }
-
-
