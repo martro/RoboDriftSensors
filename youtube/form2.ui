@@ -15,18 +15,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>22222</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="text">
-      <string>form dwa</string>
-     </property>
-    </widget>
+    <widget class="QComboBox" name="comboBox"/>
    </item>
   </layout>
  </widget>

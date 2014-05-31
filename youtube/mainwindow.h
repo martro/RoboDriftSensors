@@ -3,11 +3,13 @@
 
 #define BUTTON_RACE 1
 #define BUTTON_DUPA 2
+#define BUTTON_DIALOG 3
 
 #include <QMainWindow>
 #include "form.h"
 #include "form2.h"
 #include <QMessageBox>
+#include "dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,9 +28,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
-    QWidget *form;
+    QObject *form;
+
     int WhatsClicked;
 };
 

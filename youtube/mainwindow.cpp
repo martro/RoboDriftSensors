@@ -39,3 +39,15 @@ void MainWindow::on_pushButton_2_clicked()
         this->form=form;
     }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    if (WhatsClicked!=BUTTON_DIALOG)
+    {
+        WhatsClicked=BUTTON_DIALOG;
+        delete this->form;
+        Dialog *form = new Dialog;
+        ui->gridLayout->addWidget(form,0,0);
+        this->form=form;
+    }
+}
