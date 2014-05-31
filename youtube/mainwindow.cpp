@@ -6,9 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    WhatsClicked=0;
 
-    QHBoxLayout* row = new QHBoxLayout();
-    row->addWidget(new MyWidget);
+    //delete this->form;
 }
 
 MainWindow::~MainWindow()
@@ -18,20 +18,24 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    MyWidget *widget = new MyWidget;
-    ui->verticalLayout->addWidget(widget);
-    this->widget=widget;
+    if (WhatsClicked!=BUTTON_RACE)
+    {
+        WhatsClicked=BUTTON_RACE;
+        delete this->form;
+        Form *form = new Form;
+        ui->gridLayout->addWidget(form,0,0);
+        this->form=form;
+    }
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    if (widget)
-    ui->verticalLayout->removeWidget(widget);
-
-    if (widget)
-    delete widget;
-
-    ui->verticalLayout->update();
-
-    //widget=0;
+    if (WhatsClicked!=BUTTON_DUPA)
+    {
+        WhatsClicked=BUTTON_DUPA;
+        delete this->form;
+        Form2 *form = new Form2;
+        ui->gridLayout->addWidget(form,0,0);
+        this->form=form;
+    }
 }

@@ -1,8 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#define BUTTON_RACE 1
+#define BUTTON_DUPA 2
+
 #include <QMainWindow>
-#include "mywidget.h"
+#include "form.h"
+#include "form2.h"
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -21,12 +26,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-
 private:
     Ui::MainWindow *ui;
-    MyWidget *widget;
-    MyWidget prev_widget;
-
+    QWidget *form;
+    int WhatsClicked;
 };
 
 #endif // MAINWINDOW_H
