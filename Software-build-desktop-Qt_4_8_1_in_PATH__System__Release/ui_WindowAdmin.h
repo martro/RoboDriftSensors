@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Sat May 31 15:10:52 2014
+** Created: Sat May 31 16:58:36 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -44,7 +44,6 @@ public:
     QPushButton *ButtonAddEditTeam;
     QPushButton *ButtonStats;
     QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayoutCurrent;
     QGridLayout *CurrentWindow;
     QMenuBar *menuBar;
     QMenu *menuFile;
@@ -69,6 +68,7 @@ public:
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setSizeConstraint(QLayout::SetFixedSize);
         verticalLayoutMenu = new QVBoxLayout();
         verticalLayoutMenu->setSpacing(6);
         verticalLayoutMenu->setObjectName(QString::fromUtf8("verticalLayoutMenu"));
@@ -107,17 +107,11 @@ public:
 
         horizontalLayout_2->addLayout(verticalLayoutMenu);
 
-        verticalLayoutCurrent = new QVBoxLayout();
-        verticalLayoutCurrent->setSpacing(6);
-        verticalLayoutCurrent->setObjectName(QString::fromUtf8("verticalLayoutCurrent"));
         CurrentWindow = new QGridLayout();
         CurrentWindow->setSpacing(6);
         CurrentWindow->setObjectName(QString::fromUtf8("CurrentWindow"));
 
-        verticalLayoutCurrent->addLayout(CurrentWindow);
-
-
-        horizontalLayout_2->addLayout(verticalLayoutCurrent);
+        horizontalLayout_2->addLayout(CurrentWindow);
 
         horizontalLayout_2->setStretch(0, 1);
         horizontalLayout_2->setStretch(1, 2);

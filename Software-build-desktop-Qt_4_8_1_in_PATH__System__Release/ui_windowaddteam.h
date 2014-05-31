@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Sat May 31 15:10:52 2014
+** Created: Sat May 31 16:57:29 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,6 +17,7 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
@@ -29,12 +30,14 @@ class Ui_WindowAddTeam
 public:
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label;
+    QComboBox *comboBox;
     QPushButton *ButtonAddLeader;
     QPushButton *ButtonAddMembers;
     QPushButton *pushButton;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_2;
-    QComboBox *comboBox;
 
     void setupUi(QWidget *WindowAddTeam)
     {
@@ -45,6 +48,21 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        label = new QLabel(WindowAddTeam);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_3->addWidget(label);
+
+        comboBox = new QComboBox(WindowAddTeam);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        horizontalLayout_3->addWidget(comboBox);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
         ButtonAddLeader = new QPushButton(WindowAddTeam);
         ButtonAddLeader->setObjectName(QString::fromUtf8("ButtonAddLeader"));
 
@@ -69,14 +87,11 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        comboBox = new QComboBox(WindowAddTeam);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-
-        verticalLayout_2->addWidget(comboBox);
-
 
         horizontalLayout_2->addLayout(verticalLayout_2);
 
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
 
         retranslateUi(WindowAddTeam);
 
@@ -86,7 +101,12 @@ public:
     void retranslateUi(QWidget *WindowAddTeam)
     {
         WindowAddTeam->setWindowTitle(QApplication::translate("WindowAddTeam", "Form", 0, QApplication::UnicodeUTF8));
-        ButtonAddLeader->setText(QApplication::translate("WindowAddTeam", "Add Leader", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("WindowAddTeam", "Choose team:", 0, QApplication::UnicodeUTF8));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QString()
+        );
+        ButtonAddLeader->setText(QApplication::translate("WindowAddTeam", "Add/Edit Leader", 0, QApplication::UnicodeUTF8));
         ButtonAddMembers->setText(QApplication::translate("WindowAddTeam", "Add Members", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("WindowAddTeam", "Add Cars", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
