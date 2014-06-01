@@ -24,3 +24,6 @@ HEADERS  += WindowAdmin.h \
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
     windowaddleader.ui
+
+RESOURCES += \
+    resources.qrc

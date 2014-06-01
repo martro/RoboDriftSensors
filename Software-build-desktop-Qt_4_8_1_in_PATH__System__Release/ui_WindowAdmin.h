@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Sun Jun 1 11:45:59 2014
+** Created: Sun Jun 1 11:58:49 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,10 +14,10 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QGraphicsView>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
@@ -48,7 +48,7 @@ public:
     QSpacerItem *verticalSpacer;
     QTextBrowser *textBrowser;
     QGridLayout *CurrentWindow;
-    QGraphicsView *graphicsView;
+    QLabel *label;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuAbout;
@@ -119,10 +119,12 @@ public:
         CurrentWindow = new QGridLayout();
         CurrentWindow->setSpacing(6);
         CurrentWindow->setObjectName(QString::fromUtf8("CurrentWindow"));
-        graphicsView = new QGraphicsView(centralWidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/mainLogo.jpg")));
+        label->setScaledContents(true);
 
-        CurrentWindow->addWidget(graphicsView, 0, 0, 1, 1);
+        CurrentWindow->addWidget(label, 0, 0, 1, 1);
 
 
         horizontalLayout_2->addLayout(CurrentWindow);
@@ -165,6 +167,7 @@ public:
         ButtonNewRace->setText(QApplication::translate("WindowAdmin", "New Race", 0, QApplication::UnicodeUTF8));
         ButtonAddEditTeam->setText(QApplication::translate("WindowAdmin", "Add/Edit Team", 0, QApplication::UnicodeUTF8));
         ButtonStats->setText(QApplication::translate("WindowAdmin", "Stats", 0, QApplication::UnicodeUTF8));
+        label->setText(QString());
         menuFile->setTitle(QApplication::translate("WindowAdmin", "File", 0, QApplication::UnicodeUTF8));
         menuAbout->setTitle(QApplication::translate("WindowAdmin", "About", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

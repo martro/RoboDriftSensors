@@ -17,6 +17,7 @@ WindowAdmin::~WindowAdmin()
 
 void WindowAdmin::on_ButtonAddEditTeam_clicked()
 {
+    ui->CurrentWindow->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
         if(WhatsClicked != 0)
