@@ -2,16 +2,18 @@
 #define TEAM_H
 
 #include <string>
+#include <QString>
+
 using namespace std;
 
 class Team
 {
 public:
     Team();
-    void setName(string Name);
-    string getName();
+    void setName(QString Name);
+    QString getName();
 private:
-    string Name;
+    QString Name;
 };
 
 

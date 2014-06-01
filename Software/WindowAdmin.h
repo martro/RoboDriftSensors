@@ -9,7 +9,10 @@
 #include "windowaddteam.h"
 #include <vector>
 #include "team.h"
+#include "windownewrace.h"
 #include <QMessageBox>
+
+using namespace std;
 
 namespace Ui {
 class WindowAdmin;
@@ -22,15 +25,24 @@ class WindowAdmin : public QMainWindow
 public:
     explicit WindowAdmin(QWidget *parent = 0);
     ~WindowAdmin();
-    vector<Team> listOfTeams;
     
 private slots:
     void on_ButtonAddEditTeam_clicked();
+
+    void on_ButtonNewRace_clicked();
+
+public slots:
+    void onSaveButtonClicked(Team tempTeam);
+
+signals:
+    void ButtonAddEditTeam(vector<Team> listOfTeams);
+
 
 private:
     Ui::WindowAdmin *ui;
     int WhatsClicked;
     QObject *CurrentWidget;
+    vector<Team> listOfTeams;
 };
 
 #endif // WINDOWADMIN_H

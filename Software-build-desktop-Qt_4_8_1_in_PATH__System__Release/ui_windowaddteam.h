@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Sat May 31 23:24:36 2014
+** Created: Sun Jun 1 17:28:25 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,11 +15,12 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
-#include <QtGui/QGraphicsView>
+#include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
@@ -32,15 +33,20 @@ class Ui_WindowAddTeam
 public:
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_3;
+    QFormLayout *formLayout;
     QLabel *label;
+    QLineEdit *lineNewTeamName;
+    QLabel *label_2;
     QComboBox *comboBox;
     QPushButton *ButtonAddLeader;
     QPushButton *ButtonAddMembers;
-    QPushButton *pushButton;
+    QPushButton *ButtonAddCars;
+    QPushButton *ButtonEditTeam;
     QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *ButtonSave;
+    QPushButton *ButtonCancel;
     QGridLayout *CurrentWindow;
-    QGraphicsView *graphicsView;
 
     void setupUi(QWidget *WindowAddTeam)
     {
@@ -51,20 +57,33 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         label = new QLabel(WindowAddTeam);
         label->setObjectName(QString::fromUtf8("label"));
 
-        horizontalLayout_3->addWidget(label);
+        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+
+        lineNewTeamName = new QLineEdit(WindowAddTeam);
+        lineNewTeamName->setObjectName(QString::fromUtf8("lineNewTeamName"));
+        lineNewTeamName->setEnabled(false);
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, lineNewTeamName);
+
+        label_2 = new QLabel(WindowAddTeam);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
         comboBox = new QComboBox(WindowAddTeam);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setEnabled(true);
+        comboBox->setDuplicatesEnabled(false);
 
-        horizontalLayout_3->addWidget(comboBox);
+        formLayout->setWidget(0, QFormLayout::FieldRole, comboBox);
 
 
-        verticalLayout->addLayout(horizontalLayout_3);
+        verticalLayout->addLayout(formLayout);
 
         ButtonAddLeader = new QPushButton(WindowAddTeam);
         ButtonAddLeader->setObjectName(QString::fromUtf8("ButtonAddLeader"));
@@ -76,30 +95,45 @@ public:
 
         verticalLayout->addWidget(ButtonAddMembers);
 
-        pushButton = new QPushButton(WindowAddTeam);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        ButtonAddCars = new QPushButton(WindowAddTeam);
+        ButtonAddCars->setObjectName(QString::fromUtf8("ButtonAddCars"));
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(ButtonAddCars);
+
+        ButtonEditTeam = new QPushButton(WindowAddTeam);
+        ButtonEditTeam->setObjectName(QString::fromUtf8("ButtonEditTeam"));
+
+        verticalLayout->addWidget(ButtonEditTeam);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        ButtonSave = new QPushButton(WindowAddTeam);
+        ButtonSave->setObjectName(QString::fromUtf8("ButtonSave"));
+
+        horizontalLayout->addWidget(ButtonSave);
+
+        ButtonCancel = new QPushButton(WindowAddTeam);
+        ButtonCancel->setObjectName(QString::fromUtf8("ButtonCancel"));
+
+        horizontalLayout->addWidget(ButtonCancel);
+
+
+        verticalLayout->addLayout(horizontalLayout);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
 
         CurrentWindow = new QGridLayout();
         CurrentWindow->setObjectName(QString::fromUtf8("CurrentWindow"));
-        graphicsView = new QGraphicsView(WindowAddTeam);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-
-        CurrentWindow->addWidget(graphicsView, 0, 0, 1, 1);
-
 
         horizontalLayout_2->addLayout(CurrentWindow);
 
         horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(1, 4);
 
         retranslateUi(WindowAddTeam);
 
@@ -110,13 +144,17 @@ public:
     {
         WindowAddTeam->setWindowTitle(QApplication::translate("WindowAddTeam", "Form", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("WindowAddTeam", "Choose team:", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("WindowAddTeam", "New team name", 0, QApplication::UnicodeUTF8));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
-         << QString()
+         << QApplication::translate("WindowAddTeam", "New team", 0, QApplication::UnicodeUTF8)
         );
         ButtonAddLeader->setText(QApplication::translate("WindowAddTeam", "Add/Edit Leader", 0, QApplication::UnicodeUTF8));
         ButtonAddMembers->setText(QApplication::translate("WindowAddTeam", "Add Members", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("WindowAddTeam", "Add Cars", 0, QApplication::UnicodeUTF8));
+        ButtonAddCars->setText(QApplication::translate("WindowAddTeam", "Add Cars", 0, QApplication::UnicodeUTF8));
+        ButtonEditTeam->setText(QApplication::translate("WindowAddTeam", "Edit team", 0, QApplication::UnicodeUTF8));
+        ButtonSave->setText(QApplication::translate("WindowAddTeam", "Save", 0, QApplication::UnicodeUTF8));
+        ButtonCancel->setText(QApplication::translate("WindowAddTeam", "Cancel", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

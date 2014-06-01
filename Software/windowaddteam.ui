@@ -26,17 +26,33 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineNewTeamName"/>
+        <widget class="QLineEdit" name="lineNewTeamName">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Add new team</string>
+          <string>New team name</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="comboBox"/>
+        <widget class="QComboBox" name="comboBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>New team</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </item>

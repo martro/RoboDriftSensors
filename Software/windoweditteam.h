@@ -18,14 +18,14 @@ public:
     explicit WindowEditTeam(QWidget *parent = 0);
     ~WindowEditTeam();
 
-//public slots:
-  //  void on_NewTeamNameEntered(const QString &teamName);
-    
 private slots:
-    void on_lineTeamNameEdit_returnPressed();
+    //void on_lineTeamNameEdit_returnPressed();
+
+public slots:
+    void onEditTeam(Team tempTeam);
 
 signals:
-    void newTeamNameEntered(const QString &teamname);
+   // void newTeamNameEntered(const QString &teamname);
 
 private:
     Ui::WindowEditTeam *ui;

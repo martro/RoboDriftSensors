@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAdmin.h'
 **
-** Created: Sun Jun 1 11:48:48 2014
+** Created: Sun Jun 1 18:26:41 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,21 +23,30 @@ static const uint qt_meta_data_WindowAdmin[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      25,   13,   12,   12, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x08,
+      57,   12,   12,   12, 0x08,
+      88,   12,   12,   12, 0x08,
+     124,  115,   12,   12, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowAdmin[] = {
-    "WindowAdmin\0\0on_ButtonAddEditTeam_clicked()\0"
+    "WindowAdmin\0\0listOfTeams\0"
+    "ButtonAddEditTeam(vector<Team>)\0"
+    "on_ButtonAddEditTeam_clicked()\0"
+    "on_ButtonNewRace_clicked()\0tempTeam\0"
+    "onSaveButtonClicked(Team)\0"
 };
 
 void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,11 +55,13 @@ void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_ASSERT(staticMetaObject.cast(_o));
         WindowAdmin *_t = static_cast<WindowAdmin *>(_o);
         switch (_id) {
-        case 0: _t->on_ButtonAddEditTeam_clicked(); break;
+        case 0: _t->ButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
+        case 1: _t->on_ButtonAddEditTeam_clicked(); break;
+        case 2: _t->on_ButtonNewRace_clicked(); break;
+        case 3: _t->onSaveButtonClicked((*reinterpret_cast< Team(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData WindowAdmin::staticMetaObjectExtraData = {
@@ -85,10 +96,17 @@ int WindowAdmin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
+}
+
+// SIGNAL 0
+void WindowAdmin::ButtonAddEditTeam(vector<Team> _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

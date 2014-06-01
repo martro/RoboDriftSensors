@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'windowaddleader.h'
+** Meta object code from reading C++ file 'windownewrace.h'
 **
-** Created: Sun Jun 1 16:00:59 2014
+** Created: Sun Jun 1 18:26:42 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Software/windowaddleader.h"
+#include "../Software/windownewrace.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'windowaddleader.h' doesn't include <QObject>."
+#error "The header file 'windownewrace.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_WindowAddLeader[] = {
+static const uint qt_meta_data_WindowNewRace[] = {
 
  // content:
        6,       // revision
@@ -33,11 +33,11 @@ static const uint qt_meta_data_WindowAddLeader[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_WindowAddLeader[] = {
-    "WindowAddLeader\0"
+static const char qt_meta_stringdata_WindowNewRace[] = {
+    "WindowNewRace\0"
 };
 
-void WindowAddLeader::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void WindowNewRace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -45,33 +45,33 @@ void WindowAddLeader::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData WindowAddLeader::staticMetaObjectExtraData = {
+const QMetaObjectExtraData WindowNewRace::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject WindowAddLeader::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_WindowAddLeader,
-      qt_meta_data_WindowAddLeader, &staticMetaObjectExtraData }
+const QMetaObject WindowNewRace::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_WindowNewRace,
+      qt_meta_data_WindowNewRace, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &WindowAddLeader::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &WindowNewRace::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *WindowAddLeader::metaObject() const
+const QMetaObject *WindowNewRace::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *WindowAddLeader::qt_metacast(const char *_clname)
+void *WindowNewRace::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_WindowAddLeader))
-        return static_cast<void*>(const_cast< WindowAddLeader*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_WindowNewRace))
+        return static_cast<void*>(const_cast< WindowNewRace*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int WindowAddLeader::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int WindowNewRace::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

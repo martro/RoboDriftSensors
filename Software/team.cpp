@@ -6,11 +6,11 @@ Team::Team()
 {
 }
 
-void Team::setName(string Name)
+void Team::setName(QString Name)
 {
     this->Name = Name;
 }
-string Team::getName()
+QString Team::getName()
 {
     return this->Name;
 }
