@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Sat May 31 16:57:29 2014
+** Created: Sat May 31 23:24:36 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,6 +15,8 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
+#include <QtGui/QGraphicsView>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -37,7 +39,8 @@ public:
     QPushButton *ButtonAddMembers;
     QPushButton *pushButton;
     QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_2;
+    QGridLayout *CurrentWindow;
+    QGraphicsView *graphicsView;
 
     void setupUi(QWidget *WindowAddTeam)
     {
@@ -85,10 +88,15 @@ public:
 
         horizontalLayout_2->addLayout(verticalLayout);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        CurrentWindow = new QGridLayout();
+        CurrentWindow->setObjectName(QString::fromUtf8("CurrentWindow"));
+        graphicsView = new QGraphicsView(WindowAddTeam);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
 
-        horizontalLayout_2->addLayout(verticalLayout_2);
+        CurrentWindow->addWidget(graphicsView, 0, 0, 1, 1);
+
+
+        horizontalLayout_2->addLayout(CurrentWindow);
 
         horizontalLayout_2->setStretch(0, 1);
         horizontalLayout_2->setStretch(1, 1);

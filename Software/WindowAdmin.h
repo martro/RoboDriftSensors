@@ -9,7 +9,7 @@
 #include "windowaddteam.h"
 #include <vector>
 #include "team.h"
-
+#include <QMessageBox>
 
 namespace Ui {
 class WindowAdmin;

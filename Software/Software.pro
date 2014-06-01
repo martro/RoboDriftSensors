@@ -13,11 +13,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         WindowAdmin.cpp \
     windowaddteam.cpp \
-    team.cpp
+    team.cpp \
+    windowaddleader.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
-    team.h
+    team.h \
+    windowaddleader.h
 
 FORMS    += WindowAdmin.ui \
-    windowaddteam.ui
+    windowaddteam.ui \
+    windowaddleader.ui

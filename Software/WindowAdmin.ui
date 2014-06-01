@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2">
     <property name="sizeConstraint">
-     <enum>QLayout::SetFixedSize</enum>
+     <enum>QLayout::SetMaximumSize</enum>
     </property>
     <item>
      <layout class="QVBoxLayout" name="verticalLayoutMenu" stretch="1,3">
@@ -59,12 +59,19 @@
           </property>
          </spacer>
         </item>
+        <item>
+         <widget class="QTextBrowser" name="textBrowser"/>
+        </item>
        </layout>
       </item>
      </layout>
     </item>
     <item>
-     <layout class="QGridLayout" name="CurrentWindow"/>
+     <layout class="QGridLayout" name="CurrentWindow">
+      <item row="0" column="0">
+       <widget class="QGraphicsView" name="graphicsView"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

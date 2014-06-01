@@ -73,7 +73,11 @@
     </layout>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2"/>
+    <layout class="QGridLayout" name="CurrentWindow">
+     <item row="0" column="0">
+      <widget class="QGraphicsView" name="graphicsView"/>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

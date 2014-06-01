@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Sat May 31 16:58:36 2014
+** Created: Sun Jun 1 11:45:59 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QGraphicsView>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
@@ -23,6 +24,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStatusBar>
+#include <QtGui/QTextBrowser>
 #include <QtGui/QToolBar>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -44,7 +46,9 @@ public:
     QPushButton *ButtonAddEditTeam;
     QPushButton *ButtonStats;
     QSpacerItem *verticalSpacer;
+    QTextBrowser *textBrowser;
     QGridLayout *CurrentWindow;
+    QGraphicsView *graphicsView;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuAbout;
@@ -68,7 +72,7 @@ public:
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setSizeConstraint(QLayout::SetFixedSize);
+        horizontalLayout_2->setSizeConstraint(QLayout::SetMaximumSize);
         verticalLayoutMenu = new QVBoxLayout();
         verticalLayoutMenu->setSpacing(6);
         verticalLayoutMenu->setObjectName(QString::fromUtf8("verticalLayoutMenu"));
@@ -99,6 +103,11 @@ public:
 
         verticalLayoutButtons->addItem(verticalSpacer);
 
+        textBrowser = new QTextBrowser(centralWidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+
+        verticalLayoutButtons->addWidget(textBrowser);
+
 
         verticalLayoutMenu->addLayout(verticalLayoutButtons);
 
@@ -110,6 +119,11 @@ public:
         CurrentWindow = new QGridLayout();
         CurrentWindow->setSpacing(6);
         CurrentWindow->setObjectName(QString::fromUtf8("CurrentWindow"));
+        graphicsView = new QGraphicsView(centralWidget);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+
+        CurrentWindow->addWidget(graphicsView, 0, 0, 1, 1);
+
 
         horizontalLayout_2->addLayout(CurrentWindow);
 
