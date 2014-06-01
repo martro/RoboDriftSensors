@@ -13,26 +13,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,4">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
-       <item>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
           <string>Choose team:</string>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QComboBox" name="comboBox">
-         <item>
-          <property name="text">
-           <string/>
-          </property>
-         </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineNewTeamName"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Add new team</string>
+         </property>
         </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBox"/>
        </item>
       </layout>
      </item>
@@ -51,9 +55,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="ButtonAddCars">
        <property name="text">
         <string>Add Cars</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ButtonEditTeam">
+       <property name="text">
+        <string>Edit team</string>
        </property>
       </widget>
      </item>
@@ -70,14 +81,28 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="ButtonSave">
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="ButtonCancel">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
     </layout>
    </item>
    <item>
-    <layout class="QGridLayout" name="CurrentWindow">
-     <item row="0" column="0">
-      <widget class="QGraphicsView" name="graphicsView"/>
-     </item>
-    </layout>
+    <layout class="QGridLayout" name="CurrentWindow"/>
    </item>
   </layout>
  </widget>

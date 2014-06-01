@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Sun Jun 1 12:07:30 2014
+** Created: Sun Jun 1 14:17:51 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -40,8 +40,8 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayoutMenu;
-    QWidget *widget;
     QVBoxLayout *verticalLayoutButtons;
+    QLabel *LogoRD;
     QPushButton *ButtonNewRace;
     QPushButton *ButtonAddEditTeam;
     QPushButton *ButtonStats;
@@ -76,14 +76,16 @@ public:
         verticalLayoutMenu = new QVBoxLayout();
         verticalLayoutMenu->setSpacing(6);
         verticalLayoutMenu->setObjectName(QString::fromUtf8("verticalLayoutMenu"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-
-        verticalLayoutMenu->addWidget(widget);
-
         verticalLayoutButtons = new QVBoxLayout();
         verticalLayoutButtons->setSpacing(6);
         verticalLayoutButtons->setObjectName(QString::fromUtf8("verticalLayoutButtons"));
+        LogoRD = new QLabel(centralWidget);
+        LogoRD->setObjectName(QString::fromUtf8("LogoRD"));
+        LogoRD->setPixmap(QPixmap(QString::fromUtf8(":/images/images/RD_logo-e1392478122173.png")));
+        LogoRD->setScaledContents(true);
+
+        verticalLayoutButtons->addWidget(LogoRD);
+
         ButtonNewRace = new QPushButton(centralWidget);
         ButtonNewRace->setObjectName(QString::fromUtf8("ButtonNewRace"));
 
@@ -111,8 +113,6 @@ public:
 
         verticalLayoutMenu->addLayout(verticalLayoutButtons);
 
-        verticalLayoutMenu->setStretch(0, 1);
-        verticalLayoutMenu->setStretch(1, 3);
 
         horizontalLayout_2->addLayout(verticalLayoutMenu);
 
@@ -130,7 +130,7 @@ public:
         horizontalLayout_2->addLayout(CurrentWindow);
 
         horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 2);
+        horizontalLayout_2->setStretch(1, 4);
         WindowAdmin->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowAdmin);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -164,6 +164,7 @@ public:
         actionExit->setText(QApplication::translate("WindowAdmin", "Exit", 0, QApplication::UnicodeUTF8));
         actionAuthors->setText(QApplication::translate("WindowAdmin", "Authors", 0, QApplication::UnicodeUTF8));
         actionQT->setText(QApplication::translate("WindowAdmin", "QT", 0, QApplication::UnicodeUTF8));
+        LogoRD->setText(QString());
         ButtonNewRace->setText(QApplication::translate("WindowAdmin", "New Race", 0, QApplication::UnicodeUTF8));
         ButtonAddEditTeam->setText(QApplication::translate("WindowAdmin", "Add/Edit Team", 0, QApplication::UnicodeUTF8));
         ButtonStats->setText(QApplication::translate("WindowAdmin", "Stats", 0, QApplication::UnicodeUTF8));

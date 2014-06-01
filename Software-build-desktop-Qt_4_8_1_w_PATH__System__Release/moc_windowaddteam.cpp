@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windowaddteam.h'
 **
-** Created: Sun Jun 1 12:08:14 2014
+** Created: Sun Jun 1 15:54:20 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAddTeam[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,12 +32,16 @@ static const uint qt_meta_data_WindowAddTeam[] = {
 
  // slots: signature, parameters, type, tag, flags
       15,   14,   14,   14, 0x08,
+      44,   14,   14,   14, 0x08,
+      81,   72,   14,   14, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowAddTeam[] = {
     "WindowAddTeam\0\0on_ButtonAddLeader_clicked()\0"
+    "on_ButtonEditTeam_clicked()\0teamname\0"
+    "onNewTeamNameEntered(QString)\0"
 };
 
 void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,10 +51,11 @@ void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         WindowAddTeam *_t = static_cast<WindowAddTeam *>(_o);
         switch (_id) {
         case 0: _t->on_ButtonAddLeader_clicked(); break;
+        case 1: _t->on_ButtonEditTeam_clicked(); break;
+        case 2: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData WindowAddTeam::staticMetaObjectExtraData = {
@@ -85,9 +90,9 @@ int WindowAddTeam::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

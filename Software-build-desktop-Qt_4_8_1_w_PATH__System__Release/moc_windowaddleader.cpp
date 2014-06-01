@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windowaddleader.h'
 **
-** Created: Sun Jun 1 12:08:15 2014
+** Created: Sun Jun 1 12:16:59 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

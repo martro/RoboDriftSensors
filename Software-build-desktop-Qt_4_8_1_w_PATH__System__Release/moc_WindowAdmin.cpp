@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAdmin.h'
 **
-** Created: Sun Jun 1 12:08:13 2014
+** Created: Sun Jun 1 15:54:19 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -14,17 +14,27 @@
    <string>WindowAdmin</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2">
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,4">
     <property name="sizeConstraint">
      <enum>QLayout::SetMaximumSize</enum>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayoutMenu" stretch="1,3">
-      <item>
-       <widget class="QWidget" name="widget" native="true"/>
-      </item>
+     <layout class="QVBoxLayout" name="verticalLayoutMenu" stretch="0">
       <item>
        <layout class="QVBoxLayout" name="verticalLayoutButtons">
+        <item>
+         <widget class="QLabel" name="LogoRD">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="resources.qrc">:/images/images/RD_logo-e1392478122173.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QPushButton" name="ButtonNewRace">
           <property name="text">

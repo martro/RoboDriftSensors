@@ -14,16 +14,19 @@ SOURCES += main.cpp\
         WindowAdmin.cpp \
     windowaddteam.cpp \
     team.cpp \
-    windowaddleader.cpp
+    windowaddleader.cpp \
+    windoweditteam.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
     team.h \
-    windowaddleader.h
+    windowaddleader.h \
+    windoweditteam.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
-    windowaddleader.ui
+    windowaddleader.ui \
+    windoweditteam.ui
 
 RESOURCES += \
     resources.qrc
