@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windowaddteam.h'
 **
-** Created: Sun Jun 1 18:23:12 2014
+** Created: Mon Jun 2 13:17:38 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAddTeam[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -41,7 +41,8 @@ static const uint qt_meta_data_WindowAddTeam[] = {
      149,  144,   14,   14, 0x08,
      180,   14,   14,   14, 0x08,
      213,  204,   14,   14, 0x08,
-     265,  253,   14,   14, 0x0a,
+     262,  253,   14,   14, 0x0a,
+     304,  292,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -54,7 +55,8 @@ static const char qt_meta_stringdata_WindowAddTeam[] = {
     "on_comboBox_activated(QString)\0"
     "on_ButtonSave_clicked()\0tempText\0"
     "on_lineNewTeamName_textChanged(QString)\0"
-    "listOfTeams\0on_ButtonAddEditTeam(vector<Team>)\0"
+    "teamname\0onNewTeamNameEntered(QString)\0"
+    "listOfTeams\0onButtonAddEditTeam(vector<Team>)\0"
 };
 
 void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -71,7 +73,8 @@ void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 5: _t->on_comboBox_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 6: _t->on_ButtonSave_clicked(); break;
         case 7: _t->on_lineNewTeamName_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->on_ButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
+        case 8: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->onButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -109,9 +112,9 @@ int WindowAddTeam::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

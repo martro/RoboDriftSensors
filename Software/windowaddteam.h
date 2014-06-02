@@ -27,16 +27,13 @@ public:
 private slots:
     void on_ButtonAddLeader_clicked();
     void on_ButtonEditTeam_clicked();
-
     void on_comboBox_activated(const QString &arg1);
-
     void on_ButtonSave_clicked();
-
     void on_lineNewTeamName_textChanged(const QString &tempText);
 
 public slots:
-    //void onNewTeamNameEntered(const QString &teamname);
-    void on_ButtonAddEditTeam(vector<Team> listOfTeams);
+    void onNewTeamNameEntered(const QString &teamname);
+    void onButtonAddEditTeam(vector<Team> listOfTeams);
 
 
 signals:

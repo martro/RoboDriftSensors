@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WindowAdmin.ui'
 **
-** Created: Sun Jun 1 16:00:54 2014
+** Created: Mon Jun 2 12:44:36 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

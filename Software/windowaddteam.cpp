@@ -44,11 +44,10 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
     }
 }
 
-/* obsługa przycisku
 void WindowAddTeam::onNewTeamNameEntered(const QString &teamname)
 {
     this->tempTeam.setName(teamname);
-} */
+}
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
@@ -78,7 +77,7 @@ void WindowAddTeam::on_ButtonSave_clicked()
     tempListOfTeams.push_back(tempTeam);
 }
 
-void WindowAddTeam::on_ButtonAddEditTeam(vector<Team> listOfTeams)
+void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
 {
     tempListOfTeams.clear();
     tempListOfTeams = listOfTeams;

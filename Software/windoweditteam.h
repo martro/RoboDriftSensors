@@ -25,7 +25,7 @@ public slots:
     void onEditTeam(Team tempTeam);
 
 signals:
-   // void newTeamNameEntered(const QString &teamname);
+    void newTeamNameEntered(const QString &teamname);
 
 private:
     Ui::WindowEditTeam *ui;

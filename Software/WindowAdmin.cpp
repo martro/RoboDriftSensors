@@ -27,9 +27,10 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
         WhatsClicked = BUTTON_ADD_TEAM;
         WindowAddTeam *team = new WindowAddTeam;
 
-        connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), team, SLOT(on_ButtonAddEditTeam(vector<Team>)));
-
+        connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), team, SLOT(onButtonAddEditTeam(vector<Team>)));
+        emit this->ButtonAddEditTeam(listOfTeams);
         connect(team, SIGNAL(saveButtonClicked(Team)), this, SLOT(onSaveButtonClicked(Team)));
+
 
         ui->CurrentWindow->addWidget(team, 0,0);
         this->CurrentWidget=team;
