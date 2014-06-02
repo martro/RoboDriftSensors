@@ -13,10 +13,6 @@ WindowEditTeam::~WindowEditTeam()
     delete ui;
 }
 
-/*void WindowEditTeam::on_lineTeamNameEdit_returnPressed() to jest do obsługi przyscisku
-{
-    emit this->newTeamNameEntered(this->ui->lineTeamNameEdit->text());
-}*/
 void WindowEditTeam::onEditTeam(Team tempTeam)
 {
     this->ui->lineTeamNameEdit->setText(tempTeam.getName());

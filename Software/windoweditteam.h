@@ -18,9 +18,6 @@ public:
     explicit WindowEditTeam(QWidget *parent = 0);
     ~WindowEditTeam();
 
-private slots:
-    //void on_lineTeamNameEdit_returnPressed();
-
 public slots:
     void onEditTeam(Team tempTeam);
 

@@ -81,9 +81,13 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
 {
     tempListOfTeams.clear();
     tempListOfTeams = listOfTeams;
+    if(listOfTeams.size() != 0)
+    {
+        for(int x=0; x<listOfTeams.size(); x++)
+        {
+            this->ui->comboBox->addItem(listOfTeams.at(x).getName());
+        }
+    }
+
 }
 
-void WindowAddTeam::on_lineNewTeamName_textChanged(const QString &tempText)
-{
-
-}
