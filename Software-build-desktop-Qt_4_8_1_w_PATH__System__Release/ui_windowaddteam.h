@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Sun Jun 1 15:57:01 2014
+** Created: Mon Jun 2 14:41:36 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,9 +35,11 @@ public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label;
-    QLineEdit *lineNewTeamName;
-    QLabel *label_2;
     QComboBox *comboBox;
+    QLabel *label_2;
+    QHBoxLayout *NewTeamNameLayout;
+    QLineEdit *lineNewTeamName;
+    QLabel *label_3;
     QPushButton *ButtonAddLeader;
     QPushButton *ButtonAddMembers;
     QPushButton *ButtonAddCars;
@@ -59,25 +61,39 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label = new QLabel(WindowAddTeam);
         label->setObjectName(QString::fromUtf8("label"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
-        lineNewTeamName = new QLineEdit(WindowAddTeam);
-        lineNewTeamName->setObjectName(QString::fromUtf8("lineNewTeamName"));
+        comboBox = new QComboBox(WindowAddTeam);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setEnabled(true);
+        comboBox->setDuplicatesEnabled(false);
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineNewTeamName);
+        formLayout->setWidget(0, QFormLayout::FieldRole, comboBox);
 
         label_2 = new QLabel(WindowAddTeam);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
-        comboBox = new QComboBox(WindowAddTeam);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        NewTeamNameLayout = new QHBoxLayout();
+        NewTeamNameLayout->setObjectName(QString::fromUtf8("NewTeamNameLayout"));
+        lineNewTeamName = new QLineEdit(WindowAddTeam);
+        lineNewTeamName->setObjectName(QString::fromUtf8("lineNewTeamName"));
+        lineNewTeamName->setEnabled(false);
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, comboBox);
+        NewTeamNameLayout->addWidget(lineNewTeamName);
+
+        label_3 = new QLabel(WindowAddTeam);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        NewTeamNameLayout->addWidget(label_3);
+
+
+        formLayout->setLayout(1, QFormLayout::FieldRole, NewTeamNameLayout);
 
 
         verticalLayout->addLayout(formLayout);
@@ -141,7 +157,12 @@ public:
     {
         WindowAddTeam->setWindowTitle(QApplication::translate("WindowAddTeam", "Form", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("WindowAddTeam", "Choose team:", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("WindowAddTeam", "Add new team", 0, QApplication::UnicodeUTF8));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("WindowAddTeam", "New team", 0, QApplication::UnicodeUTF8)
+        );
+        label_2->setText(QApplication::translate("WindowAddTeam", "New team name", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("WindowAddTeam", "TextLabel", 0, QApplication::UnicodeUTF8));
         ButtonAddLeader->setText(QApplication::translate("WindowAddTeam", "Add/Edit Leader", 0, QApplication::UnicodeUTF8));
         ButtonAddMembers->setText(QApplication::translate("WindowAddTeam", "Add Members", 0, QApplication::UnicodeUTF8));
         ButtonAddCars->setText(QApplication::translate("WindowAddTeam", "Add Cars", 0, QApplication::UnicodeUTF8));

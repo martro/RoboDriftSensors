@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windoweditteam.h'
 **
-** Created: Sun Jun 1 15:40:34 2014
+** Created: Mon Jun 2 14:41:44 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -34,15 +34,15 @@ static const uint qt_meta_data_WindowEditTeam[] = {
       25,   16,   15,   15, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      53,   15,   15,   15, 0x08,
+      62,   53,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowEditTeam[] = {
     "WindowEditTeam\0\0teamname\0"
-    "newTeamNameEntered(QString)\0"
-    "on_lineTeamNameEdit_returnPressed()\0"
+    "newTeamNameEntered(QString)\0tempTeam\0"
+    "onEditTeam(Team)\0"
 };
 
 void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -52,7 +52,7 @@ void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         WindowEditTeam *_t = static_cast<WindowEditTeam *>(_o);
         switch (_id) {
         case 0: _t->newTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 1: _t->on_lineTeamNameEdit_returnPressed(); break;
+        case 1: _t->onEditTeam((*reinterpret_cast< Team(*)>(_a[1]))); break;
         default: ;
         }
     }

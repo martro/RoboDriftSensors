@@ -112,3 +112,8 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
 
 }
 
+
+void WindowAddTeam::on_lineNewTeamName_textChanged(const QString &TeamName)
+{
+
+}
