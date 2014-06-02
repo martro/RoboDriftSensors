@@ -44,6 +44,7 @@ signals:
 private:
     Ui::WindowAddTeam *ui;
     int WhatsClicked;
+    int WidgetExists;
     QObject *CurrentWidget;
     Team tempTeam;
     vector<Team> tempListOfTeams;

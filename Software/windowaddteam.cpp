@@ -9,6 +9,7 @@ WindowAddTeam::WindowAddTeam(QWidget *parent) :
 {
     ui->setupUi(this);
     WhatsClicked = 0;
+    WidgetExists = 0;
 }
 WindowAddTeam::~WindowAddTeam()
 {
@@ -19,8 +20,11 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
 {
     if(WhatsClicked != BUTTON_ADD_LEADER)
     {
-        if(WhatsClicked != 0)
+        if(WidgetExists != 0)
             delete this->CurrentWidget;
+
+        WidgetExists=1;
+
         WhatsClicked = BUTTON_ADD_LEADER;
         WindowAddLeader *leader = new WindowAddLeader;
         ui->CurrentWindow->addWidget(leader, 0,0);
@@ -32,12 +36,19 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
 {
     if(WhatsClicked != BUTTON_EDIT_TEAM)
     {
-        if(WhatsClicked != 0)
+        if(WidgetExists != 0)
             delete this->CurrentWidget;
+
+        WidgetExists=1;
+
         WhatsClicked = BUTTON_EDIT_TEAM;
         WindowEditTeam *team = new WindowEditTeam;
         QObject::connect(team,SIGNAL(newTeamNameEntered(QString)),this,SLOT(onNewTeamNameEntered(QString)));
         QObject::connect(this, SIGNAL(EditTeam(Team)), team, SLOT(onEditTeam(Team)) );
+
+        int IndexNumber = ui->comboBox->currentIndex()-1;
+        tempTeam.setName( tempListOfTeams.at(IndexNumber).getName() );
+
         emit EditTeam(tempTeam);
         ui->CurrentWindow->addWidget(team, 0,0);
         this->CurrentWidget=team;
@@ -51,6 +62,13 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &teamname)
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
+    if(WidgetExists)
+    {
+        delete this->CurrentWidget;
+        WidgetExists=0;
+        WhatsClicked=0;
+    }
+
     if(TeamName == "New team")
     {
         this->ui->lineNewTeamName->setEnabled(true);
@@ -58,6 +76,11 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
     }
     else
     {
+        int IndexNumber = ui->comboBox->currentIndex()-1;
+        tempTeam = tempListOfTeams.at(IndexNumber);
+
+       // delete this->CurrentWidget;
+
         this->ui->lineNewTeamName->clear();
         this->ui->lineNewTeamName->setDisabled(true);
         this->ui->ButtonEditTeam->setEnabled(true);
