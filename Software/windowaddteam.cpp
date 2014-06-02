@@ -79,8 +79,6 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
         int IndexNumber = ui->comboBox->currentIndex()-1;
         tempTeam = tempListOfTeams.at(IndexNumber);
 
-       // delete this->CurrentWidget;
-
         this->ui->lineNewTeamName->clear();
         this->ui->lineNewTeamName->setDisabled(true);
         this->ui->ButtonEditTeam->setEnabled(true);
