@@ -2,5 +2,7 @@
     <qresource prefix="/images">
         <file>images/mainLogo.jpg</file>
         <file>images/RD_logo-e1392478122173.png</file>
+        <file>images/text_ok.png</file>
+        <file>images/text_bad.png</file>
     </qresource>
 </RCC>

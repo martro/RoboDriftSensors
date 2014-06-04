@@ -1,13 +1,16 @@
 #include "windowaddteam.h"
 #include "ui_windowaddteam.h"
 
-
+#define NO 0;
+#define YES 1;
 
 WindowAddTeam::WindowAddTeam(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WindowAddTeam)
 {
     ui->setupUi(this);
+    ui->NameOK->hide();
+    ui->NameBad->hide();
     WhatsClicked = 0;
     WidgetExists = 0;
 }
@@ -96,6 +99,8 @@ void WindowAddTeam::on_ButtonSave_clicked()
     this->ui->lineNewTeamName->clear();
     ui->lineNewTeamName->setDisabled(true);
     tempListOfTeams.push_back(tempTeam);
+    this->ui->NameOK->hide();
+    this->ui->NameBad->hide();
 }
 
 void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
@@ -104,10 +109,41 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
     tempListOfTeams = listOfTeams;
     if(listOfTeams.size() != 0)
     {
-        for(int x=0; x<listOfTeams.size(); x++)
+        for(unsigned int x=0; x<listOfTeams.size(); x++)
         {
             this->ui->comboBox->addItem(listOfTeams.at(x).getName());
         }
     }
 
+}
+
+void WindowAddTeam::on_lineNewTeamName_textChanged(const QString &TempText)
+{
+    int Found = NO;
+    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
+    for(unsigned int x=0; x<tempListOfTeams.size(); x++)
+    {
+        if(tempListOfTeams.at(x).getName() == TempText)
+        {
+            Found = YES;
+        }
+    }
+    if(Found)
+    {
+        ui->NameOK->hide();
+        ui->NameBad->show();
+        ui->ButtonSave->setDisabled(true);
+    }
+    else
+    {
+        ui->NameOK->show();
+        ui->NameBad->hide();
+        ui->ButtonSave->setEnabled(true);
+    }
+
+}
+
+void WindowAddTeam::on_ButtonCancel_clicked()
+{
+          //ui->NameBad->show();
 }

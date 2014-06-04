@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Mon Jun 2 16:55:02 2014
+** Created: Wed Jun 4 13:06:25 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -39,7 +39,8 @@ public:
     QLabel *label_2;
     QHBoxLayout *NewTeamNameLayout;
     QLineEdit *lineNewTeamName;
-    QLabel *label_3;
+    QLabel *NameOK;
+    QLabel *NameBad;
     QPushButton *ButtonAddLeader;
     QPushButton *ButtonAddMembers;
     QPushButton *ButtonAddCars;
@@ -87,10 +88,21 @@ public:
 
         NewTeamNameLayout->addWidget(lineNewTeamName);
 
-        label_3 = new QLabel(WindowAddTeam);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        NameOK = new QLabel(WindowAddTeam);
+        NameOK->setObjectName(QString::fromUtf8("NameOK"));
+        NameOK->setMaximumSize(QSize(20, 20));
+        NameOK->setPixmap(QPixmap(QString::fromUtf8(":/images/images/text_ok.png")));
+        NameOK->setScaledContents(true);
 
-        NewTeamNameLayout->addWidget(label_3);
+        NewTeamNameLayout->addWidget(NameOK);
+
+        NameBad = new QLabel(WindowAddTeam);
+        NameBad->setObjectName(QString::fromUtf8("NameBad"));
+        NameBad->setMaximumSize(QSize(20, 20));
+        NameBad->setPixmap(QPixmap(QString::fromUtf8(":/images/images/text_bad.png")));
+        NameBad->setScaledContents(true);
+
+        NewTeamNameLayout->addWidget(NameBad);
 
 
         formLayout->setLayout(1, QFormLayout::FieldRole, NewTeamNameLayout);
@@ -162,7 +174,8 @@ public:
          << QApplication::translate("WindowAddTeam", "New team", 0, QApplication::UnicodeUTF8)
         );
         label_2->setText(QApplication::translate("WindowAddTeam", "New team name", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("WindowAddTeam", "TextLabel", 0, QApplication::UnicodeUTF8));
+        NameOK->setText(QString());
+        NameBad->setText(QString());
         ButtonAddLeader->setText(QApplication::translate("WindowAddTeam", "Add/Edit Leader", 0, QApplication::UnicodeUTF8));
         ButtonAddMembers->setText(QApplication::translate("WindowAddTeam", "Add Members", 0, QApplication::UnicodeUTF8));
         ButtonAddCars->setText(QApplication::translate("WindowAddTeam", "Add Cars", 0, QApplication::UnicodeUTF8));

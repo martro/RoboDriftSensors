@@ -29,6 +29,9 @@ private slots:
     void on_ButtonEditTeam_clicked();
     void on_comboBox_activated(const QString &arg1);
     void on_ButtonSave_clicked();
+    void on_lineNewTeamName_textChanged(const QString &TempText);
+
+    void on_ButtonCancel_clicked();
 
 public slots:
     void onNewTeamNameEntered(const QString &teamname);
