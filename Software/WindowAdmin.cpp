@@ -21,26 +21,29 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
-
         if(WhatsClicked != 0)
              delete this->CurrentWidget;
         WhatsClicked = BUTTON_ADD_TEAM;
-        WindowAddTeam *team = new WindowAddTeam;
+        WindowAddTeam *Window_Add_Team = new WindowAddTeam;
 
-        connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), team, SLOT(onButtonAddEditTeam(vector<Team>)));
+        ui->CurrentWindow->addWidget(Window_Add_Team, 0,0);
+        this->CurrentWidget=Window_Add_Team;
+
+        connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), Window_Add_Team, SLOT(onButtonAddEditTeam(vector<Team>)));
         emit this->ButtonAddEditTeam(this->listOfTeams);
-        connect(team, SIGNAL(saveButtonClicked(Team)), this, SLOT(onSaveButtonClicked(Team)));
-
-
-        ui->CurrentWindow->addWidget(team, 0,0);
-        this->CurrentWidget=team;
+        connect(Window_Add_Team, SIGNAL(saveButtonClicked(vector<Team>)), this, SLOT(onSaveButtonClicked(vector<Team>)));
     }
 }
 
-void WindowAdmin::onSaveButtonClicked(Team tempTeam)
+void WindowAdmin::onSaveButtonClicked(vector<Team> tempListOfTeams)
 {
-    listOfTeams.push_back(tempTeam);
-    this->ui->textBrowser->append(listOfTeams.back().getName());
+    listOfTeams = tempListOfTeams;
+    for(unsigned int x=0; x<listOfTeams.size();x++)
+    {
+        this->ui->textBrowser->append(listOfTeams.at(x).getName());
+    }
+    this->ui->textBrowser->append(" ");
+    emit this->ButtonAddEditTeam(listOfTeams); //wysyła z powrotem aktualna listedo okna add team
 }
 
 

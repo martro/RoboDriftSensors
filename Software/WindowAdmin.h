@@ -32,7 +32,7 @@ private slots:
     void on_ButtonNewRace_clicked();
 
 public slots:
-    void onSaveButtonClicked(Team tempTeam);
+    void onSaveButtonClicked(vector<Team> tempListOfTeams);
 
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);

@@ -15,15 +15,11 @@ WindowEditTeam::~WindowEditTeam()
     delete ui;
 }
 
-void WindowEditTeam::onEditTeam(Team tempTeam)
+void WindowEditTeam::onSendCurrentTeam(Team tempTeam)
 {
-    this->ui->lineTeamNameEdit->setText(tempTeam.getName());
+    this->ui->lineTeamNameEdit->setText(tempTeam.getName()); //otrzymuje aktualnego tempteama i wyswietla jego nazwe
 }
 
-void WindowEditTeam::on_lineTeamNameEdit_textEdited(const QString &TempText)
-{
-    emit newTeamNameEntered(TempText);
-}
 void WindowEditTeam::onCheckName(int Flag)
 {
     if(Flag)
@@ -36,4 +32,9 @@ void WindowEditTeam::onCheckName(int Flag)
         ui->NameBad->hide();
         ui->NameOK->show();
     }
+}
+
+void WindowEditTeam::on_lineTeamNameEdit_textChanged(const QString &TempText)
+{
+    emit this->newTeamNameEntered(TempText); //emituje zeby sprawdzic czy nazwa jest ok
 }

@@ -43,62 +43,6 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>New team name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <layout class="QHBoxLayout" name="NewTeamNameLayout">
-         <item>
-          <widget class="QLineEdit" name="lineNewTeamName">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="NameOK">
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="resources.qrc">:/images/images/text_ok.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="NameBad">
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="resources.qrc">:/images/images/text_bad.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
       </layout>
      </item>
      <item>
@@ -111,21 +55,21 @@
      <item>
       <widget class="QPushButton" name="ButtonAddMembers">
        <property name="text">
-        <string>Add Members</string>
+        <string>Add/Edit Members</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="ButtonAddCars">
        <property name="text">
-        <string>Add Cars</string>
+        <string>Add/Edit Cars</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="ButtonEditTeam">
        <property name="text">
-        <string>Edit team</string>
+        <string>Add/Edit Team Name</string>
        </property>
       </widget>
      </item>
@@ -167,8 +111,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

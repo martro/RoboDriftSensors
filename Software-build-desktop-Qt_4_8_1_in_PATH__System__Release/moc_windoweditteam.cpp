@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windoweditteam.h'
 **
-** Created: Wed Jun 4 14:38:32 2014
+** Created: Thu Jun 5 00:47:25 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,17 +35,18 @@ static const uint qt_meta_data_WindowEditTeam[] = {
 
  // slots: signature, parameters, type, tag, flags
       62,   53,   15,   15, 0x0a,
-      84,   79,   15,   15, 0x0a,
-     110,  101,   15,   15, 0x08,
+      91,   86,   15,   15, 0x0a,
+     108,   16,   15,   15, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowEditTeam[] = {
-    "WindowEditTeam\0\0teamname\0"
+    "WindowEditTeam\0\0TempText\0"
     "newTeamNameEntered(QString)\0tempTeam\0"
-    "onEditTeam(Team)\0Flag\0onCheckName(int)\0"
-    "TempText\0on_lineTeamNameEdit_textEdited(QString)\0"
+    "onSendCurrentTeam(Team)\0Flag\0"
+    "onCheckName(int)\0"
+    "on_lineTeamNameEdit_textChanged(QString)\0"
 };
 
 void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -55,9 +56,9 @@ void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         WindowEditTeam *_t = static_cast<WindowEditTeam *>(_o);
         switch (_id) {
         case 0: _t->newTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 1: _t->onEditTeam((*reinterpret_cast< Team(*)>(_a[1]))); break;
+        case 1: _t->onSendCurrentTeam((*reinterpret_cast< Team(*)>(_a[1]))); break;
         case 2: _t->onCheckName((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->on_lineTeamNameEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->on_lineTeamNameEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }

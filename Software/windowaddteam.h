@@ -29,19 +29,17 @@ private slots:
     void on_ButtonEditTeam_clicked();
     void on_comboBox_activated(const QString &arg1);
     void on_ButtonSave_clicked();
-    void on_lineNewTeamName_textChanged(const QString &TempText);
-
     void on_ButtonCancel_clicked();
 
 public slots:
-    void onNewTeamNameEntered(const QString &teamname);
+    void onNewTeamNameEntered(const QString &TempText);
     void onButtonAddEditTeam(vector<Team> listOfTeams);
 
 
 signals:
-    void saveButtonClicked(const Team tempTeam);
+    void saveButtonClicked(const vector<Team> tempListOfTeams);
     void editButtonClicked(const Team tempTeam);
-    void EditTeam(const Team tempTeam);
+    void sendCurrentTeam(const Team tempTeam);
     void checkName(const int Flag);
 
 
@@ -50,6 +48,7 @@ private:
     int WhatsClicked;
     int WidgetExists;
     QObject *CurrentWidget;
+    QString EditedTeamName;
     Team tempTeam;
     vector<Team> tempListOfTeams;
 };

@@ -4,6 +4,7 @@
 //----------------------TEAM----------------------//
 Team::Team()
 {
+    Name = "No name";
 }
 
 void Team::setName(QString Name)

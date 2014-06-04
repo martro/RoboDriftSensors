@@ -1,18 +1,18 @@
 #include "windowaddteam.h"
 #include "ui_windowaddteam.h"
 
-#define NO 0;
-#define YES 1;
+#define NO 0
+#define YES 1
 
 WindowAddTeam::WindowAddTeam(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WindowAddTeam)
 {
     ui->setupUi(this);
-    ui->NameOK->hide();
-    ui->NameBad->hide();
     WhatsClicked = 0;
     WidgetExists = 0;
+    ui->ButtonSave->setDisabled(true);
+    ui->ButtonEditTeam->setDisabled(true);
 }
 WindowAddTeam::~WindowAddTeam()
 {
@@ -43,49 +43,58 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
             delete this->CurrentWidget;
 
         WidgetExists=1;
-
         WhatsClicked = BUTTON_EDIT_TEAM;
-        WindowEditTeam *team = new WindowEditTeam;
-        QObject::connect(team,SIGNAL(newTeamNameEntered(QString)),this,SLOT(onNewTeamNameEntered(QString)));
-        QObject::connect(this, SIGNAL(EditTeam(Team)), team, SLOT(onEditTeam(Team)) );
-        QObject::connect(this, SIGNAL(checkName(int)), team, SLOT(onCheckName(int)) ); //do wysyłania info czy nazwajest ok
 
-        int IndexNumber = ui->comboBox->currentIndex()-1;
-        tempTeam.setName( tempListOfTeams.at(IndexNumber).getName() );
 
-        emit EditTeam(tempTeam);
-        ui->CurrentWindow->addWidget(team, 0,0);
-        this->CurrentWidget=team;
+        WindowEditTeam *Edit_Team_Name = new WindowEditTeam; //tworzenie widgetu(okna z edycją nazwy)
+
+        connect(Edit_Team_Name, SIGNAL(newTeamNameEntered(QString)), this, SLOT(onNewTeamNameEntered(QString)));
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Edit_Team_Name, SLOT(onSendCurrentTeam(Team)) );
+        connect(this, SIGNAL(checkName(int)), Edit_Team_Name, SLOT(onCheckName(int)) ); //do wysyłania info czy nazwajest ok
+
+        ui->CurrentWindow->addWidget(Edit_Team_Name, 0,0); //tworznie okna educji nazwy teamu
+        this->CurrentWidget=Edit_Team_Name;
+
+        emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
     }
 }
 
-void WindowAddTeam::onNewTeamNameEntered(const QString &teamname)
+void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
 {
-    int Found = NO;
-    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
+    WindowAddTeam w;
+    w.show();
+
+    int Found = NO;    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
     for(unsigned int x=0; x<tempListOfTeams.size(); x++)
     {
-        if(tempListOfTeams.at(x).getName() == teamname)
+        if(tempListOfTeams.at(x).getName() == TempText)
         {
             Found = YES;
+            x = tempListOfTeams.size()+1; //wyjscie z pętli for()
         }
     }
-    if(ui->comboBox->currentText() == teamname) //sprawdza czy nowa nazwa nie jest taka sama jak przed edycją
+    if(ui->comboBox->currentText() == TempText) //sprawdza czy nowa nazwa nie jest taka sama jak przed edycją
             Found = NO;
 
-    emit checkName(Found);
-    if(!Found)
+    emit checkName(Found); //emituje info czy nazwa jest ok -> okno edit team pokazuje to na indicatorze
+    if(Found == NO) //to dobrze, mozna zapisac
     {
-        this->tempTeam.setName(teamname);
+        this->EditedTeamName = TempText;
         ui->ButtonSave->setEnabled(true);
     }
     else
+    {
         ui->ButtonSave->setDisabled(true);
+    }
 
 }
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
+    //tempteam.clear(); zrobic taką funkcje
+    ui->ButtonSave->setEnabled(true);
+    ui->ButtonEditTeam->setEnabled(true);
+
     if(WidgetExists)
     {
         delete this->CurrentWidget;
@@ -93,75 +102,42 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
         WhatsClicked=0;
     }
 
-    if(TeamName == "New team")
+    if(ui->comboBox->currentText() != "New team") //jeżeli juz cos mamy w wektorze to zmieniamy tempteam na ten wybrany w comboboxie
     {
-        this->ui->lineNewTeamName->setEnabled(true);
-        this->ui->ButtonEditTeam->setDisabled(true);
-    }
-    else
-    {
-        int IndexNumber = ui->comboBox->currentIndex()-1;
-        tempTeam = tempListOfTeams.at(IndexNumber);
-
-        this->ui->lineNewTeamName->clear();
-        this->ui->lineNewTeamName->setDisabled(true);
-        this->ui->ButtonEditTeam->setEnabled(true);
+        for(unsigned int x=0; x<tempListOfTeams.size(); x++)
+        {
+            if(tempListOfTeams.at(x).getName() == TeamName)
+                tempTeam.setName(tempListOfTeams.at(x).getName()); //a tutaj tempTeam jest wybrany -> na nim pracujemy
+            //powinno byc kopiowanie, naraize tylko nazawa teamu!!
+        }
     }
 }
 
 void WindowAddTeam::on_ButtonSave_clicked()
 {
-    tempTeam.setName(this->ui->lineNewTeamName->text());
-    ui->comboBox->addItem(tempTeam.getName());
-    int number = ui->comboBox->findText(tempTeam.getName());
-    ui->comboBox->setCurrentIndex(number);
-    ui->ButtonEditTeam->setEnabled(true);
-    emit this->saveButtonClicked(tempTeam);
-    this->ui->lineNewTeamName->clear();
-    ui->lineNewTeamName->setDisabled(true);
-    tempListOfTeams.push_back(tempTeam);
-    this->ui->NameOK->hide();
-    this->ui->NameBad->hide();
+    this->tempTeam.setName(this->EditedTeamName);
+
+    for(unsigned int x=0; x<tempListOfTeams.size();x++)
+    {
+        if(EditedTeamName == tempListOfTeams.at(x).getName())
+            tempListOfTeams.erase(tempListOfTeams.begin()+x);
+    }
+    tempListOfTeams.push_back(tempTeam); //zapisuje nowy team do temp.vektora
+
+    emit this->saveButtonClicked(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
 }
 
-void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams)
+void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na ilikniecie w admin window add.edit team
 {
-    tempListOfTeams.clear();
-    tempListOfTeams = listOfTeams;
-    if(listOfTeams.size() != 0)
-    {
-        for(unsigned int x=0; x<listOfTeams.size(); x++)
-        {
-            this->ui->comboBox->addItem(listOfTeams.at(x).getName());
-        }
-    }
+    tempListOfTeams.clear(); //czyscpi poprzedni
+    tempListOfTeams = listOfTeams; //zastepuje go oficjalnym, tym z windowadmin
 
-}
-
-void WindowAddTeam::on_lineNewTeamName_textChanged(const QString &TempText)
-{
-    int Found = NO;
-    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
-    for(unsigned int x=0; x<tempListOfTeams.size(); x++)
+    ui->comboBox->clear();
+    ui->comboBox->addItem("New team");
+    for(unsigned int x=0; x<listOfTeams.size(); x++)
     {
-        if(tempListOfTeams.at(x).getName() == TempText)
-        {
-            Found = YES;
-        }
+        this->ui->comboBox->addItem(tempListOfTeams.at(x).getName());
     }
-    if(Found)
-    {
-        ui->NameOK->hide();
-        ui->NameBad->show();
-        ui->ButtonSave->setDisabled(true);
-    }
-    else
-    {
-        ui->NameOK->show();
-        ui->NameBad->hide();
-        ui->ButtonSave->setEnabled(true);
-    }
-
 }
 
 void WindowAddTeam::on_ButtonCancel_clicked()

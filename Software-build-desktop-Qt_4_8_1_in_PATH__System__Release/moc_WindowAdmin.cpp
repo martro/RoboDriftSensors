@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAdmin.h'
 **
-** Created: Wed Jun 4 14:38:31 2014
+** Created: Thu Jun 5 00:47:24 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -36,7 +36,7 @@ static const uint qt_meta_data_WindowAdmin[] = {
  // slots: signature, parameters, type, tag, flags
       57,   12,   12,   12, 0x08,
       88,   12,   12,   12, 0x08,
-     124,  115,   12,   12, 0x0a,
+     131,  115,   12,   12, 0x0a,
 
        0        // eod
 };
@@ -45,8 +45,8 @@ static const char qt_meta_stringdata_WindowAdmin[] = {
     "WindowAdmin\0\0listOfTeams\0"
     "ButtonAddEditTeam(vector<Team>)\0"
     "on_ButtonAddEditTeam_clicked()\0"
-    "on_ButtonNewRace_clicked()\0tempTeam\0"
-    "onSaveButtonClicked(Team)\0"
+    "on_ButtonNewRace_clicked()\0tempListOfTeams\0"
+    "onSaveButtonClicked(vector<Team>)\0"
 };
 
 void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -58,7 +58,7 @@ void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->ButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         case 1: _t->on_ButtonAddEditTeam_clicked(); break;
         case 2: _t->on_ButtonNewRace_clicked(); break;
-        case 3: _t->onSaveButtonClicked((*reinterpret_cast< Team(*)>(_a[1]))); break;
+        case 3: _t->onSaveButtonClicked((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         default: ;
         }
     }
