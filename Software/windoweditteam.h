@@ -20,13 +20,16 @@ public:
 
 public slots:
     void onEditTeam(Team tempTeam);
+    void onCheckName(int Flag);
 
 signals:
     void newTeamNameEntered(const QString &teamname);
 
+private slots:
+    void on_lineTeamNameEdit_textEdited(const QString &TempText);
+
 private:
     Ui::WindowEditTeam *ui;
-
 };
 
 #endif // WINDOWEDITTEAM_H

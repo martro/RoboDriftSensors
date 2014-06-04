@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windowaddteam.h'
 **
-** Created: Wed Jun 4 13:54:06 2014
+** Created: Wed Jun 4 14:38:32 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,27 +23,28 @@ static const uint qt_meta_data_WindowAddTeam[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       24,   15,   14,   14, 0x05,
       48,   15,   14,   14, 0x05,
       72,   15,   14,   14, 0x05,
+      92,   87,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      87,   14,   14,   14, 0x08,
-     116,   14,   14,   14, 0x08,
-     149,  144,   14,   14, 0x08,
-     180,   14,   14,   14, 0x08,
-     213,  204,   14,   14, 0x08,
-     253,   14,   14,   14, 0x08,
-     288,  279,   14,   14, 0x0a,
-     330,  318,   14,   14, 0x0a,
+     107,   14,   14,   14, 0x08,
+     136,   14,   14,   14, 0x08,
+     169,  164,   14,   14, 0x08,
+     200,   14,   14,   14, 0x08,
+     233,  224,   14,   14, 0x08,
+     273,   14,   14,   14, 0x08,
+     308,  299,   14,   14, 0x0a,
+     350,  338,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -51,7 +52,7 @@ static const uint qt_meta_data_WindowAddTeam[] = {
 static const char qt_meta_stringdata_WindowAddTeam[] = {
     "WindowAddTeam\0\0tempTeam\0saveButtonClicked(Team)\0"
     "editButtonClicked(Team)\0EditTeam(Team)\0"
-    "on_ButtonAddLeader_clicked()\0"
+    "Flag\0checkName(int)\0on_ButtonAddLeader_clicked()\0"
     "on_ButtonEditTeam_clicked()\0arg1\0"
     "on_comboBox_activated(QString)\0"
     "on_ButtonSave_clicked()\0TempText\0"
@@ -70,14 +71,15 @@ void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 0: _t->saveButtonClicked((*reinterpret_cast< const Team(*)>(_a[1]))); break;
         case 1: _t->editButtonClicked((*reinterpret_cast< const Team(*)>(_a[1]))); break;
         case 2: _t->EditTeam((*reinterpret_cast< const Team(*)>(_a[1]))); break;
-        case 3: _t->on_ButtonAddLeader_clicked(); break;
-        case 4: _t->on_ButtonEditTeam_clicked(); break;
-        case 5: _t->on_comboBox_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 6: _t->on_ButtonSave_clicked(); break;
-        case 7: _t->on_lineNewTeamName_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->on_ButtonCancel_clicked(); break;
-        case 9: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 10: _t->onButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
+        case 3: _t->checkName((*reinterpret_cast< const int(*)>(_a[1]))); break;
+        case 4: _t->on_ButtonAddLeader_clicked(); break;
+        case 5: _t->on_ButtonEditTeam_clicked(); break;
+        case 6: _t->on_comboBox_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: _t->on_ButtonSave_clicked(); break;
+        case 8: _t->on_lineNewTeamName_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->on_ButtonCancel_clicked(); break;
+        case 10: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->onButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -115,9 +117,9 @@ int WindowAddTeam::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }
@@ -141,5 +143,12 @@ void WindowAddTeam::EditTeam(const Team _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void WindowAddTeam::checkName(const int _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_END_MOC_NAMESPACE

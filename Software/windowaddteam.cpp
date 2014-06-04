@@ -48,6 +48,7 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
         WindowEditTeam *team = new WindowEditTeam;
         QObject::connect(team,SIGNAL(newTeamNameEntered(QString)),this,SLOT(onNewTeamNameEntered(QString)));
         QObject::connect(this, SIGNAL(EditTeam(Team)), team, SLOT(onEditTeam(Team)) );
+        QObject::connect(this, SIGNAL(checkName(int)), team, SLOT(onCheckName(int)) ); //do wysyłania info czy nazwajest ok
 
         int IndexNumber = ui->comboBox->currentIndex()-1;
         tempTeam.setName( tempListOfTeams.at(IndexNumber).getName() );
@@ -60,7 +61,27 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
 
 void WindowAddTeam::onNewTeamNameEntered(const QString &teamname)
 {
-    this->tempTeam.setName(teamname);
+    int Found = NO;
+    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
+    for(unsigned int x=0; x<tempListOfTeams.size(); x++)
+    {
+        if(tempListOfTeams.at(x).getName() == teamname)
+        {
+            Found = YES;
+        }
+    }
+    if(ui->comboBox->currentText() == teamname) //sprawdza czy nowa nazwa nie jest taka sama jak przed edycją
+            Found = NO;
+
+    emit checkName(Found);
+    if(!Found)
+    {
+        this->tempTeam.setName(teamname);
+        ui->ButtonSave->setEnabled(true);
+    }
+    else
+        ui->ButtonSave->setDisabled(true);
+
 }
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
@@ -145,5 +166,5 @@ void WindowAddTeam::on_lineNewTeamName_textChanged(const QString &TempText)
 
 void WindowAddTeam::on_ButtonCancel_clicked()
 {
-          //ui->NameBad->show();
+
 }

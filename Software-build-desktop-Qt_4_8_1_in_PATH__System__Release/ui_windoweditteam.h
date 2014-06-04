@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windoweditteam.ui'
 **
-** Created: Mon Jun 2 16:55:02 2014
+** Created: Wed Jun 4 14:15:18 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,7 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QFormLayout>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -28,11 +28,12 @@ class Ui_WindowEditTeam
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QFormLayout *formLayout;
-    QLabel *label;
+    QGridLayout *gridLayout;
     QLineEdit *lineTeamNameEdit;
+    QLabel *label;
     QSpacerItem *verticalSpacer;
-    QSpacerItem *verticalSpacer_2;
+    QLabel *NameBad;
+    QLabel *NameOK;
 
     void setupUi(QWidget *WindowEditTeam)
     {
@@ -41,29 +42,40 @@ public:
         WindowEditTeam->resize(400, 302);
         horizontalLayout = new QHBoxLayout(WindowEditTeam);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        label = new QLabel(WindowEditTeam);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        formLayout->setWidget(1, QFormLayout::LabelRole, label);
-
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         lineTeamNameEdit = new QLineEdit(WindowEditTeam);
         lineTeamNameEdit->setObjectName(QString::fromUtf8("lineTeamNameEdit"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineTeamNameEdit);
+        gridLayout->addWidget(lineTeamNameEdit, 0, 3, 1, 1);
+
+        label = new QLabel(WindowEditTeam);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        formLayout->setItem(2, QFormLayout::FieldRole, verticalSpacer);
+        gridLayout->addItem(verticalSpacer, 1, 3, 1, 1);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        NameBad = new QLabel(WindowEditTeam);
+        NameBad->setObjectName(QString::fromUtf8("NameBad"));
+        NameBad->setMaximumSize(QSize(20, 20));
+        NameBad->setPixmap(QPixmap(QString::fromUtf8(":/images/images/text_bad.png")));
+        NameBad->setScaledContents(true);
 
-        formLayout->setItem(2, QFormLayout::LabelRole, verticalSpacer_2);
+        gridLayout->addWidget(NameBad, 0, 5, 1, 1);
+
+        NameOK = new QLabel(WindowEditTeam);
+        NameOK->setObjectName(QString::fromUtf8("NameOK"));
+        NameOK->setMaximumSize(QSize(20, 20));
+        NameOK->setPixmap(QPixmap(QString::fromUtf8(":/images/images/text_ok.png")));
+        NameOK->setScaledContents(true);
+
+        gridLayout->addWidget(NameOK, 0, 4, 1, 1);
 
 
-        horizontalLayout->addLayout(formLayout);
+        horizontalLayout->addLayout(gridLayout);
 
 
         retranslateUi(WindowEditTeam);
@@ -75,6 +87,8 @@ public:
     {
         WindowEditTeam->setWindowTitle(QApplication::translate("WindowEditTeam", "Form", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("WindowEditTeam", "Team name", 0, QApplication::UnicodeUTF8));
+        NameBad->setText(QString());
+        NameOK->setText(QString());
     } // retranslateUi
 
 };

@@ -42,6 +42,7 @@ signals:
     void saveButtonClicked(const Team tempTeam);
     void editButtonClicked(const Team tempTeam);
     void EditTeam(const Team tempTeam);
+    void checkName(const int Flag);
 
 
 private:

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windoweditteam.h'
 **
-** Created: Mon Jun 2 16:55:21 2014
+** Created: Wed Jun 4 14:38:32 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowEditTeam[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,8 @@ static const uint qt_meta_data_WindowEditTeam[] = {
 
  // slots: signature, parameters, type, tag, flags
       62,   53,   15,   15, 0x0a,
+      84,   79,   15,   15, 0x0a,
+     110,  101,   15,   15, 0x08,
 
        0        // eod
 };
@@ -42,7 +44,8 @@ static const uint qt_meta_data_WindowEditTeam[] = {
 static const char qt_meta_stringdata_WindowEditTeam[] = {
     "WindowEditTeam\0\0teamname\0"
     "newTeamNameEntered(QString)\0tempTeam\0"
-    "onEditTeam(Team)\0"
+    "onEditTeam(Team)\0Flag\0onCheckName(int)\0"
+    "TempText\0on_lineTeamNameEdit_textEdited(QString)\0"
 };
 
 void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -53,6 +56,8 @@ void WindowEditTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->newTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 1: _t->onEditTeam((*reinterpret_cast< Team(*)>(_a[1]))); break;
+        case 2: _t->onCheckName((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->on_lineTeamNameEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -90,9 +95,9 @@ int WindowEditTeam::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
 }
