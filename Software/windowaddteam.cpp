@@ -31,12 +31,55 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
             delete this->CurrentWidget;
 
         WidgetExists=1;
+        ui->ButtonSave->setEnabled(true); //enable save button
 
         WhatsClicked = BUTTON_ADD_LEADER;
-        WindowAddLeader *leader = new WindowAddLeader;
-        ui->CurrentWindow->addWidget(leader, 0,0);
-        this->CurrentWidget=leader;
+        WindowAddLeader *Window_Add_Leader = new WindowAddLeader;
+        ui->CurrentWindow->addWidget(Window_Add_Leader, 0,0);
+        this->CurrentWidget=Window_Add_Leader;
+
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Leader, SLOT(onSendCurrentTeam(Team))); //posyłam teama aby wyswietli dane
+
+        connect(Window_Add_Leader, SIGNAL(newLeaderNameEntered(QString)), this, SLOT(onNewLeaderNameEntered(QString))); //odbierana name
+        connect(Window_Add_Leader, SIGNAL(newLeaderSurnameEnterned(QString)), this, SLOT(onNewLeaderSurnameEntered(QString))); //get Surname
+        connect(Window_Add_Leader, SIGNAL(newLeaderPhoneEnterned(QString)), this, SLOT(onNewLeaderPhoneEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderCityEnterned(QString)), this, SLOT(onNewLeaderCityEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderEmailEnterned(QString)), this, SLOT(onNewLeaderEmailEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderOrganizationEnterned(QString)), this, SLOT(onNewLeaderOrganizationEnterned(QString)));
+
+        emit sendCurrentTeam(tempTeam); //posyła tempteama do okna add leader
+
     }
+}
+
+void WindowAddTeam::onNewLeaderSurnameEntered(const QString &NewLeaderSurname)
+{
+    tempTeam.LeaderInfo.setSurname(NewLeaderSurname);
+}
+
+void WindowAddTeam::onNewLeaderNameEntered(const QString &NewLeaderName)
+{
+    tempTeam.LeaderInfo.setName(NewLeaderName);
+}
+
+void WindowAddTeam::onNewLeaderPhoneEntered(const QString &NewLeaderPhone)
+{
+    tempTeam.LeaderInfo.setPhone(NewLeaderPhone);
+}
+
+void WindowAddTeam::onNewLeaderCityEntered(const QString &NewLeaderCity)
+{
+    tempTeam.LeaderInfo.setCity(NewLeaderCity);
+}
+
+void WindowAddTeam::onNewLeaderEmailEntered(const QString &NewLeaderEmail)
+{
+    tempTeam.LeaderInfo.setEmail(NewLeaderEmail);
+}
+
+void WindowAddTeam::onNewLeaderOrganizationEnterned(const QString &NewLeaderOrganization)
+{
+    tempTeam.LeaderInfo.setOrganization(NewLeaderOrganization);
 }
 
 void WindowAddTeam::on_ButtonEditTeam_clicked()
@@ -93,8 +136,7 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
-    //tempteam.clear(); zrobic taką funkcje
-    tempTeam.setName("No name");//narazie tylko tak czyszcze tempteama
+    tempTeam.clear(); //czysci tempTeama
 
     ui->ButtonSave->setDisabled(true); //aktywacja wszystkich przycisków
     ui->ButtonEditTeam->setEnabled(true);
@@ -131,6 +173,13 @@ void WindowAddTeam::on_ButtonSave_clicked()
     }
     tempListOfTeams.push_back(tempTeam); //zapisuje nowy team do temp.vektora
 
+    if(WidgetExists)
+    {
+        delete this->CurrentWidget;
+        WidgetExists=0;
+        WhatsClicked=0;
+        tempTeam.clear(); //czyszczenie tempteam
+    }
     emit this->saveButtonClicked(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
 }
 
@@ -147,7 +196,38 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na
     }
 }
 
-void WindowAddTeam::on_ButtonCancel_clicked()
+void WindowAddTeam::on_ButtonAddMembers_clicked()
 {
+    if(WhatsClicked != BUTTON_ADD_MEMBER)
+    {
+        if(WidgetExists != 0)
+            delete this->CurrentWidget;
 
+        WidgetExists=1;
+        WhatsClicked = BUTTON_ADD_MEMBER;
+        ui->ButtonSave->setEnabled(true);
+
+        WindowAddMembers *Window_Add_Members = new WindowAddMembers; //tworzenie widgetu(okna z edycją nazwy)
+
+        connect(Window_Add_Members, SIGNAL(newMemberAdded(vector<Member>)), this, SLOT(onNewMemberAdded(vector<Member>)));
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) );
+
+        ui->CurrentWindow->addWidget(Window_Add_Members, 0,0); //tworznie okna educji nazwy teamu
+        this->CurrentWidget=Window_Add_Members;
+
+        emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+    }
+}
+
+void WindowAddTeam::onNewMemberAdded(vector<Member> NewListOfMembers)
+{
+    tempTeam.ListOfMembers = NewListOfMembers; //zapis dodanego membera do lity
+    delete this->CurrentWidget; //usuwanie okna
+    WindowAddMembers *Window_Add_Members = new WindowAddMembers; //tworzenie widgetu do dodania
+    ui->CurrentWindow->addWidget(Window_Add_Members, 0,0); //tworznie okna educji nazwy teamu
+    this->CurrentWidget=Window_Add_Members;
+
+    connect(Window_Add_Members, SIGNAL(newMemberAdded(vector<Member>)), this, SLOT(onNewMemberAdded(vector<Member>)));
+    connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
+    emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
 }
