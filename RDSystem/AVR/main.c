@@ -14,7 +14,7 @@ int main(void)
     DDRB |= 0b11111;
     PORTB = 0;
 
-    DDRC |= 0b00000;
+    DDRC |= 0b100000;
     PORTC = 0b11111;
     //PORTC |=0b100000;//enable usart mode diode
 
@@ -25,7 +25,7 @@ int main(void)
 
     while(1)
     {
-    	diody(collectData());
+    	diody();
         USART_Transmit(collectData());
     }
 

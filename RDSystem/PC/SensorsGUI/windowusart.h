@@ -27,6 +27,8 @@ private:
     Ui::WindowUSART *ui;
     QPalette* palette;
     QString dataToString(char data);
+
+    void leds(char data);
 };
 
 #endif // WINDOWUSART_H

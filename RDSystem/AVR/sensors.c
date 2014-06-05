@@ -2,6 +2,6 @@
 
 int collectData()
 {
-	return (PINC);
+	return (PINC&0b111111);
 
 }

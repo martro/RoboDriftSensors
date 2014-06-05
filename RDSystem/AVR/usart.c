@@ -38,16 +38,16 @@ ISR ( USART_RXC_vect )
     char ReceivedByte;
     ReceivedByte = USART_Receive(); // Fetch the received byte value into the variable " ByteReceived "
 
-   // Mode=ReceivedByte&0b11100000;
-   // if (Mode)
-   // 	PORTC|=0b100000;
-   // else
-   // 	PORTC&=0b011111;
+    Mode=ReceivedByte&0b11100000;
+    if (Mode)
+    	PORTC|=_BV(5);
+    else
+    	PORTC&=~_BV(5);
 
     diody(ReceivedByte);
 }
 
-void diody(uint8_t dane)
+void diody()
 {
-	PORTB=dane;
+	PORTB=PINC&0b11111;
 }
