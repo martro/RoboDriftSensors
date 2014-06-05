@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::WindowUSART *ui;
+    QPalette* palette;
 };
 
 #endif // WINDOWUSART_H

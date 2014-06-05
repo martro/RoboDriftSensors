@@ -39,19 +39,36 @@ ISR ( USART_RXC_vect )
     diody(ReceivedByte);
 }
 
-void diody(char bajt)
+void diody(uint8_t bajt)
 {
 	switch (bajt){
 
-	case 'a':
-		PORTB=1;
+	case 1:
+		PORTB=0b00000001;
 		break;
-	case 'b':
-		PORTB=2;
+	case 0b10:
+		PORTB=0b00000010;
 		break;
-	default:
-		PORTB=0;
+	/*
+	case 'c':
+		PORTB=0b00000100;
 		break;
+	case 'd':
+		PORTB=0b00001000;
+		break;
+	case 'e':
+		PORTB=0b00010000;
+		break;
+	case 'f':
+		PORTB=0b00100000;
+		break;
+	case 'g':
+		PORTB=0b01000000;
+		break;
+	case 'h':
+		PORTB=0b10000000;
+		break;	*/
+
 	}
     USART_Transmit(bajt);
 }
