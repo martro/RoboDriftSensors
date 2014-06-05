@@ -1,56 +1,48 @@
 #ifndef TEAM_H
 #define TEAM_H
 
-#include <string>
 #include <QString>
+#include <QString>
+#include <vector>
 
 using namespace std;
-
-class Team
-{
-public:
-    Team();
-    void setName(QString Name);
-    QString getName();
-private:
-    QString Name;
-};
-
 
 class Member
 {
 public:
     Member();
-    string getName();
-    void setName(string Name);
-    string getSurname();
-    void setSurname(string Surname);
+    QString getName();
+    void setName(QString Name);
+    QString getSurname();
+    void setSurname(QString Surname);
 private:
-    string Name;
-    string Surname;
+    QString Name;
+    QString Surname;
 };
 
-class Leader : Member
+class Leader : public Member
 {
 public:
     Leader();
-    void setEmail(string Email);
-    string getEmail();
+    void clear();
 
-    void setPhone(string Phone);
-    string getPhone();
+    void setEmail(QString Email);
+    QString getEmail();
 
-    void setCity(string City);
-    string getCity();
+    void setPhone(QString Phone);
+    QString getPhone();
 
-    void setOrganization(string Organization);
-    string getOrganization();
+    void setCity(QString City);
+    QString getCity();
+
+    void setOrganization(QString Organization);
+    QString getOrganization();
 
 private:
-    string Email;
-    string Phone;
-    string City;
-    string Organization;
+    QString Email;
+    QString Phone;
+    QString City;
+    QString Organization;
 };
 
 class Car
@@ -58,8 +50,8 @@ class Car
 public:
     Car();
 
-    void setName(string Name);
-    string getName();
+    void setName(QString Name);
+    QString getName();
 
     void setID(int ID);
     int getID();
@@ -73,10 +65,24 @@ public:
     int checkTA();
     int checkFR();
 private:
-    string Name;
+    QString Name;
     int ID;
     int RC, MO, RD;
     int TA, FR;
+};
+
+class Team
+{
+public:
+    Team();
+    void setName(QString Name);
+    void clear();
+    QString getName();
+    QString Name;
+    vector<Member> List_Of_Members;
+    vector<Car> List_Of_Cars;
+    Leader LeaderInfo;
+private:
 };
 
 #endif // TEAM_H

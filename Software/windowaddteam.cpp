@@ -33,10 +33,27 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
         WidgetExists=1;
 
         WhatsClicked = BUTTON_ADD_LEADER;
-        WindowAddLeader *leader = new WindowAddLeader;
-        ui->CurrentWindow->addWidget(leader, 0,0);
-        this->CurrentWidget=leader;
+        WindowAddLeader *Window_Add_Leader = new WindowAddLeader;
+        ui->CurrentWindow->addWidget(Window_Add_Leader, 0,0);
+        this->CurrentWidget=Window_Add_Leader;
+
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Leader, SLOT(onSendCurrentTeam(Team))); //posyłam teama aby wyswietli dane
+        connect(Window_Add_Leader, SIGNAL(newLeaderNameEntered(QString)), this, SLOT(onNewLeaderNameEntered(QString))); //odbierana name
+        connect(Window_Add_Leader, SIGNAL(newLeaderSurnameEnterned(QString)), this, SLOT(onNewLeaderSurnameEntered(QString))); //get Surname
+
+        emit sendCurrentTeam(tempTeam); //posyła tempteama do okna add leader
+
     }
+}
+
+void WindowAddTeam::onNewLeaderSurnameEntered(const QString &NewLeaderSurname)
+{
+    tempTeam.LeaderInfo.setSurname(NewLeaderSurname);
+}
+
+void WindowAddTeam::onNewLeaderNameEntered(const QString &NewLeaderName)
+{
+    tempTeam.LeaderInfo.setName(NewLeaderName);
 }
 
 void WindowAddTeam::on_ButtonEditTeam_clicked()
@@ -93,8 +110,7 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
 
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
-    //tempteam.clear(); zrobic taką funkcje
-    tempTeam.setName("No name");//narazie tylko tak czyszcze tempteama
+    tempTeam.clear(); //czysci tempTeama
 
     ui->ButtonSave->setDisabled(true); //aktywacja wszystkich przycisków
     ui->ButtonEditTeam->setEnabled(true);
@@ -131,6 +147,13 @@ void WindowAddTeam::on_ButtonSave_clicked()
     }
     tempListOfTeams.push_back(tempTeam); //zapisuje nowy team do temp.vektora
 
+    if(WidgetExists)
+    {
+        delete this->CurrentWidget;
+        WidgetExists=0;
+        WhatsClicked=0;
+        tempTeam.clear(); //czyszczenie tempteam
+    }
     emit this->saveButtonClicked(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
 }
 
@@ -145,9 +168,4 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na
     {
         this->ui->comboBox->addItem(tempListOfTeams.at(x).getName());
     }
-}
-
-void WindowAddTeam::on_ButtonCancel_clicked()
-{
-
 }

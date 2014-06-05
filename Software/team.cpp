@@ -15,46 +15,71 @@ QString Team::getName()
 {
     return this->Name;
 }
+void Team::clear()
+{
+    LeaderInfo.clear(); //leader ma domyślne warosci
+    setName("no name"); //nazwa teamu ma domyślme warotści
+}
 
 
 //------------------------------------------------//
 //---------------------LEADER---------------------//
-void Leader::setEmail(string Email)
+Leader::Leader()
+{
+    setCity("no city");
+    setEmail("no email");
+    setName("no name");
+    setOrganization("no org");
+    setPhone("no number");
+    setSurname("no surname");
+}
+
+void Leader::clear()
+{
+    setCity("no city");
+    setEmail("no email");
+    setName("no name");
+    setOrganization("no org");
+    setPhone("no number");
+    setSurname("no surname");
+}
+
+void Leader::setEmail(QString Email)
 {
     this->Email = Email;
 }
 
-string Leader::getEmail()
+QString Leader::getEmail()
 {
     return this->Email;
 }
 
-void Leader::setPhone(string Phone)
+void Leader::setPhone(QString Phone)
 {
     this->Phone = Phone;
 }
 
-string Leader::getPhone()
+QString Leader::getPhone()
 {
     return this->Phone;
 }
 
-void Leader::setCity(string City)
+void Leader::setCity(QString City)
 {
     this->City = City;
 }
 
-string Leader::getCity()
+QString Leader::getCity()
 {
     return this->City;
 }
 
-void Leader::setOrganization(string Organization)
+void Leader::setOrganization(QString Organization)
 {
     this->Organization = Organization;
 }
 
-string Leader::getOrganization()
+QString Leader::getOrganization()
 {
     return this->Organization;
 }
@@ -64,19 +89,19 @@ string Leader::getOrganization()
 Member::Member()
 {
 }
-string Member::getName()
+QString Member::getName()
 {
     return this->Name;
 }
-void Member::setName(string Name)
+void Member::setName(QString Name)
 {
     this->Name = Name;
 }
-string Member::getSurname()
+QString Member::getSurname()
 {
     return this->Surname;
 }
-void Member::setSurname(string Surname)
+void Member::setSurname(QString Surname)
 {
     this->Surname = Surname;
 }
@@ -92,12 +117,12 @@ Car::Car()
     FR = 0;
 }
 
-void Car::setName(string Name)
+void Car::setName(QString Name)
 {
     this->Name = Name;
 }
 
-string Car::getName()
+QString Car::getName()
 {
     return this->Name;
 }
