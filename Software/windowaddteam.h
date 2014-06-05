@@ -48,7 +48,6 @@ private:
     int WhatsClicked;
     int WidgetExists;
     QObject *CurrentWidget;
-    QString EditedTeamName;
     Team tempTeam;
     vector<Team> tempListOfTeams;
 };

@@ -45,7 +45,6 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
         WidgetExists=1;
         WhatsClicked = BUTTON_EDIT_TEAM;
 
-
         WindowEditTeam *Edit_Team_Name = new WindowEditTeam; //tworzenie widgetu(okna z edycją nazwy)
 
         connect(Edit_Team_Name, SIGNAL(newTeamNameEntered(QString)), this, SLOT(onNewTeamNameEntered(QString)));
@@ -61,9 +60,6 @@ void WindowAddTeam::on_ButtonEditTeam_clicked()
 
 void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
 {
-    WindowAddTeam w;
-    w.show();
-
     int Found = NO;    //if name of team already exists,function  sets flag "Found", changes image and sets ButtonSave disabled.
     for(unsigned int x=0; x<tempListOfTeams.size(); x++)
     {
@@ -79,11 +75,13 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
     emit checkName(Found); //emituje info czy nazwa jest ok -> okno edit team pokazuje to na indicatorze
     if(Found == NO) //to dobrze, mozna zapisac
     {
-        this->EditedTeamName = TempText;
+        this->tempTeam.setName(TempText); //jeżeli nazwa jeset ok, do daj ja do tempteama
+
         ui->ButtonSave->setEnabled(true);
     }
     else
     {
+        this->tempTeam.setName("No name");//jezele zła to zeruje nazwe
         ui->ButtonSave->setDisabled(true);
     }
 
@@ -92,6 +90,7 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
 void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
     //tempteam.clear(); zrobic taką funkcje
+    tempTeam.setName("No name");//narazie tylko tak czyszcze tempteama
     ui->ButtonSave->setEnabled(true);
     ui->ButtonEditTeam->setEnabled(true);
 
@@ -107,20 +106,20 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
         for(unsigned int x=0; x<tempListOfTeams.size(); x++)
         {
             if(tempListOfTeams.at(x).getName() == TeamName)
-                tempTeam.setName(tempListOfTeams.at(x).getName()); //a tutaj tempTeam jest wybrany -> na nim pracujemy
-            //powinno byc kopiowanie, naraize tylko nazawa teamu!!
+                tempTeam=tempListOfTeams.at(x); //a tutaj tempTeam jest wybrany -> na nim pracujemy
         }
     }
 }
 
 void WindowAddTeam::on_ButtonSave_clicked()
 {
-    this->tempTeam.setName(this->EditedTeamName);
-
-    for(unsigned int x=0; x<tempListOfTeams.size();x++)
+    if( ui->comboBox->currentText() != "New team") //jezelei nie jest wybrana opcja new team
     {
-        if(EditedTeamName == tempListOfTeams.at(x).getName())
-            tempListOfTeams.erase(tempListOfTeams.begin()+x);
+        for(unsigned int x=0; x<tempListOfTeams.size();x++)
+        {
+            if(ui->comboBox->currentText() == tempListOfTeams.at(x).getName()) //znajdź team w wektorze o wybranej w CB nazwie
+                tempListOfTeams.erase(tempListOfTeams.begin()+x); //usuń go zeby potem wgrać nowy
+        }
     }
     tempListOfTeams.push_back(tempTeam); //zapisuje nowy team do temp.vektora
 
