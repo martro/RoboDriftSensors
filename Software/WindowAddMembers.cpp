@@ -61,6 +61,17 @@ void WindowAddMembers::on_lineSurname_textChanged(const QString &CurrnetSurname)
 
 void WindowAddMembers::on_ButtonAdd_clicked()
 {
+    if(ui->comboBox->currentText() != "New member")
+    {
+        for(unsigned int x=0; x<TempListOfMembers.size();x++)
+        {
+            if(TempListOfMembers.at(x).getName() == ui->comboBox->currentText())
+            {
+                TempListOfMembers.erase(TempListOfMembers.begin()+x);
+                x=TempListOfMembers.size()+1; //wyjscei z petli for
+            }
+        }
+    }
     TempListOfMembers.push_back(TempMember);
     TempMember.clear();
     emit newMemberAdded(TempListOfMembers);
