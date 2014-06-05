@@ -11,6 +11,7 @@ class Member
 {
 public:
     Member();
+    void clear();
     QString getName();
     void setName(QString Name);
     QString getSurname();
@@ -79,8 +80,8 @@ public:
     void clear();
     QString getName();
     QString Name;
-    vector<Member> List_Of_Members;
-    vector<Car> List_Of_Cars;
+    vector<Member> ListOfMembers;
+    vector<Car> ListOfCars;
     Leader LeaderInfo;
 private:
 };

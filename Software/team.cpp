@@ -19,6 +19,8 @@ void Team::clear()
 {
     LeaderInfo.clear(); //leader ma domyślne warosci
     setName("no name"); //nazwa teamu ma domyślme warotści
+    ListOfCars.clear();
+    ListOfMembers.clear();
 }
 
 
@@ -26,22 +28,22 @@ void Team::clear()
 //---------------------LEADER---------------------//
 Leader::Leader()
 {
-    setCity("no city");
-    setEmail("no email");
-    setName("no name");
-    setOrganization("no org");
-    setPhone("no number");
-    setSurname("no surname");
+    setCity("city");
+    setEmail("email");
+    setName("name");
+    setOrganization("org");
+    setPhone("number");
+    setSurname("surname");
 }
 
 void Leader::clear()
 {
-    setCity("no city");
-    setEmail("no email");
+    setCity("city");
+    setEmail("email");
     setName("no name");
-    setOrganization("no org");
-    setPhone("no number");
-    setSurname("no surname");
+    setOrganization("org");
+    setPhone("number");
+    setSurname("surname");
 }
 
 void Leader::setEmail(QString Email)
@@ -88,7 +90,15 @@ QString Leader::getOrganization()
 //---------------------MEMBER---------------------//
 Member::Member()
 {
+    Name = "name";
+    Surname = "surname";
 }
+void Member::clear()
+{
+    Name = "name";
+    Surname = "surname";
+}
+
 QString Member::getName()
 {
     return this->Name;

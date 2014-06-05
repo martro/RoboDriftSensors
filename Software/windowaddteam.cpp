@@ -31,6 +31,7 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
             delete this->CurrentWidget;
 
         WidgetExists=1;
+        ui->ButtonSave->setEnabled(true); //enable save button
 
         WhatsClicked = BUTTON_ADD_LEADER;
         WindowAddLeader *Window_Add_Leader = new WindowAddLeader;
@@ -193,4 +194,40 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na
     {
         this->ui->comboBox->addItem(tempListOfTeams.at(x).getName());
     }
+}
+
+void WindowAddTeam::on_ButtonAddMembers_clicked()
+{
+    if(WhatsClicked != BUTTON_ADD_MEMBER)
+    {
+        if(WidgetExists != 0)
+            delete this->CurrentWidget;
+
+        WidgetExists=1;
+        WhatsClicked = BUTTON_ADD_MEMBER;
+        ui->ButtonSave->setEnabled(true);
+
+        WindowAddMembers *Window_Add_Members = new WindowAddMembers; //tworzenie widgetu(okna z edycją nazwy)
+
+        connect(Window_Add_Members, SIGNAL(newMemberAdded(vector<Member>)), this, SLOT(onNewMemberAdded(vector<Member>)));
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) );
+
+        ui->CurrentWindow->addWidget(Window_Add_Members, 0,0); //tworznie okna educji nazwy teamu
+        this->CurrentWidget=Window_Add_Members;
+
+        emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+    }
+}
+
+void WindowAddTeam::onNewMemberAdded(vector<Member> NewListOfMembers)
+{
+    tempTeam.ListOfMembers = NewListOfMembers; //zapis dodanego membera do lity
+    delete this->CurrentWidget; //usuwanie okna
+    WindowAddMembers *Window_Add_Members = new WindowAddMembers; //tworzenie widgetu do dodania
+    ui->CurrentWindow->addWidget(Window_Add_Members, 0,0); //tworznie okna educji nazwy teamu
+    this->CurrentWidget=Window_Add_Members;
+
+    connect(Window_Add_Members, SIGNAL(newMemberAdded(vector<Member>)), this, SLOT(onNewMemberAdded(vector<Member>)));
+    connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
+    emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
 }

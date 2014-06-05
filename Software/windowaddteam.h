@@ -2,7 +2,7 @@
 #define WINDOWADDTEAM_H
 
 #define BUTTON_ADD_LEADER 21
-#define BUTTON_ADD_MEMNER 22
+#define BUTTON_ADD_MEMBER 22
 #define BUTTON_ADD_CAR 23
 #define BUTTON_EDIT_TEAM 24
 
@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include "windowaddleader.h"
 #include "windoweditteam.h"
+#include "WindowAddMembers.h"
 #include "team.h"
 
 namespace Ui {
@@ -30,6 +31,8 @@ private slots:
     void on_comboBox_activated(const QString &arg1);
     void on_ButtonSave_clicked();
 
+    void on_ButtonAddMembers_clicked();
+
 public slots:
     //ADMIN_WINDOW
     void onButtonAddEditTeam(vector<Team> listOfTeams);
@@ -44,6 +47,9 @@ public slots:
     void onNewLeaderEmailEntered(const QString &NewLeaderEmail);
     void onNewLeaderCityEntered(const QString &NewLeaderCity);
     void onNewLeaderOrganizationEnterned(const QString &NewLeaderOrganization);
+
+    //ADD_MEMBERS
+    void onNewMemberAdded(vector<Member> NewListOfMembers);
 
 
 signals:
