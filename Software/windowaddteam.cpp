@@ -13,6 +13,10 @@ WindowAddTeam::WindowAddTeam(QWidget *parent) :
     WidgetExists = 0;
     ui->ButtonSave->setDisabled(true);
     ui->ButtonEditTeam->setDisabled(true);
+    ui->ButtonAddCars->setDisabled(true);
+    ui->ButtonAddLeader->setDisabled(true);
+    ui->ButtonAddMembers->setDisabled(true);
+
 }
 WindowAddTeam::~WindowAddTeam()
 {
@@ -91,8 +95,12 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
     //tempteam.clear(); zrobic taką funkcje
     tempTeam.setName("No name");//narazie tylko tak czyszcze tempteama
-    ui->ButtonSave->setEnabled(true);
+
+    ui->ButtonSave->setDisabled(true); //aktywacja wszystkich przycisków
     ui->ButtonEditTeam->setEnabled(true);
+    ui->ButtonAddCars->setEnabled(true);
+    ui->ButtonAddLeader->setEnabled(true);
+    ui->ButtonAddMembers->setEnabled(true);
 
     if(WidgetExists)
     {
