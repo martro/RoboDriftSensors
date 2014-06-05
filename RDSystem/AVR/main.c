@@ -14,8 +14,9 @@ int main(void)
     DDRB |= 0b11111;
     PORTB = 0;
 
-    DDRC |= 0b11111;
+    DDRC |= 0b00000;
     PORTC = 0b11111;
+    //PORTC |=0b100000;//enable usart mode diode
 
     USART_Init(MYUBRR);
 
@@ -25,6 +26,7 @@ int main(void)
     while(1)
     {
     	diody(collectData());
+        USART_Transmit(collectData());
     }
 
     return 0;

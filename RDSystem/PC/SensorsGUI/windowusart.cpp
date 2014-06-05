@@ -30,7 +30,7 @@ WindowUSART::~WindowUSART()
 
 void WindowUSART::on_pushButton_clicked() //a
 {
-    char temp=0b1;
+    char temp=0;
     serial->write(&temp,1);
     palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
     ui->Sensor1->setAutoFillBackground(true);
@@ -47,7 +47,7 @@ void WindowUSART::on_pushButton_clicked() //a
 
 void WindowUSART::on_pushButton_2_clicked()//b
 {
-    char temp=0b10;
+    char temp=0b10000000;
     serial->flush();
     serial->write(&temp,1);
 

@@ -34,13 +34,20 @@ unsigned char USART_Receive( void )
 //Przerwanie na RXC
 ISR ( USART_RXC_vect )
 {
+	int Mode=0;
     char ReceivedByte;
     ReceivedByte = USART_Receive(); // Fetch the received byte value into the variable " ByteReceived "
+
+   // Mode=ReceivedByte&0b11100000;
+   // if (Mode)
+   // 	PORTC|=0b100000;
+   // else
+   // 	PORTC&=0b011111;
+
     diody(ReceivedByte);
 }
 
-void diody(uint8_t bajt)
+void diody(uint8_t dane)
 {
-	PORTB=bajt;
-    USART_Transmit(bajt);
+	PORTB=dane;
 }
