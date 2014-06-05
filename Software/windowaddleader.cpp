@@ -32,3 +32,23 @@ void WindowAddLeader::on_lineSurname_textChanged(const QString &NewLeaderSurname
 {
     emit newLeaderSurnameEnterned(NewLeaderSurname);
 }
+
+void WindowAddLeader::on_linePhone_textChanged(const QString &NewLeaderPhone)
+{
+    emit newLeaderPhoneEnterned(NewLeaderPhone);
+}
+
+void WindowAddLeader::on_lineEmail_textChanged(const QString &NewLeaderEmail)
+{
+    emit newLeaderEmailEnterned(NewLeaderEmail);
+}
+
+void WindowAddLeader::on_lineOrganization_textChanged(const QString &NewLeaderOrganization)
+{
+    emit newLeaderOrganizationEnterned(NewLeaderOrganization);
+}
+
+void WindowAddLeader::on_lineCity_textChanged(const QString &NewLeaderCity)
+{
+    emit newLeaderCityEnterned(NewLeaderCity);
+}

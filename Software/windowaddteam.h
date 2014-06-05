@@ -40,6 +40,10 @@ public slots:
     //ADD_LEADER
     void onNewLeaderNameEntered(const QString &NewLeaderName);
     void onNewLeaderSurnameEntered(const QString &NewLeaderSurname);
+    void onNewLeaderPhoneEntered(const QString &NewLeaderPhone);
+    void onNewLeaderEmailEntered(const QString &NewLeaderEmail);
+    void onNewLeaderCityEntered(const QString &NewLeaderCity);
+    void onNewLeaderOrganizationEnterned(const QString &NewLeaderOrganization);
 
 
 signals:

@@ -38,8 +38,13 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
         this->CurrentWidget=Window_Add_Leader;
 
         connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Leader, SLOT(onSendCurrentTeam(Team))); //posyłam teama aby wyswietli dane
+
         connect(Window_Add_Leader, SIGNAL(newLeaderNameEntered(QString)), this, SLOT(onNewLeaderNameEntered(QString))); //odbierana name
         connect(Window_Add_Leader, SIGNAL(newLeaderSurnameEnterned(QString)), this, SLOT(onNewLeaderSurnameEntered(QString))); //get Surname
+        connect(Window_Add_Leader, SIGNAL(newLeaderPhoneEnterned(QString)), this, SLOT(onNewLeaderPhoneEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderCityEnterned(QString)), this, SLOT(onNewLeaderCityEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderEmailEnterned(QString)), this, SLOT(onNewLeaderEmailEntered(QString)));
+        connect(Window_Add_Leader, SIGNAL(newLeaderOrganizationEnterned(QString)), this, SLOT(onNewLeaderOrganizationEnterned(QString)));
 
         emit sendCurrentTeam(tempTeam); //posyła tempteama do okna add leader
 
@@ -54,6 +59,26 @@ void WindowAddTeam::onNewLeaderSurnameEntered(const QString &NewLeaderSurname)
 void WindowAddTeam::onNewLeaderNameEntered(const QString &NewLeaderName)
 {
     tempTeam.LeaderInfo.setName(NewLeaderName);
+}
+
+void WindowAddTeam::onNewLeaderPhoneEntered(const QString &NewLeaderPhone)
+{
+    tempTeam.LeaderInfo.setPhone(NewLeaderPhone);
+}
+
+void WindowAddTeam::onNewLeaderCityEntered(const QString &NewLeaderCity)
+{
+    tempTeam.LeaderInfo.setCity(NewLeaderCity);
+}
+
+void WindowAddTeam::onNewLeaderEmailEntered(const QString &NewLeaderEmail)
+{
+    tempTeam.LeaderInfo.setEmail(NewLeaderEmail);
+}
+
+void WindowAddTeam::onNewLeaderOrganizationEnterned(const QString &NewLeaderOrganization)
+{
+    tempTeam.LeaderInfo.setOrganization(NewLeaderOrganization);
 }
 
 void WindowAddTeam::on_ButtonEditTeam_clicked()
