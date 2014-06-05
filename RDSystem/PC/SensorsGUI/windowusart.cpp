@@ -66,5 +66,33 @@ void WindowUSART::on_pushButton_2_clicked()//b
 
 void WindowUSART::serialReceived()
 {
-    this->ui->Sensor1->setText(serial->readAll());
+  //  this->ui->data->setText(serial->readAll());
+
+    QByteArray dane;
+    char a;
+
+    dane=serial->readAll();
+
+    a=dane.at(0);
+
+    this->ui->data->setText(dataToString(a));
+
+}
+
+QString WindowUSART::dataToString(char data)
+{
+    QString DataStr;
+    int mask=0b10000000;
+
+    for(int i=0; i<8;i++)
+    {
+        if ((data&mask)==mask)
+            DataStr+="1";
+        else
+            DataStr+="0";
+
+        mask=mask>>1;
+    }
+
+    return DataStr;
 }
