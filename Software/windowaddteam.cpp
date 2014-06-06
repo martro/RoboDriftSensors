@@ -239,6 +239,7 @@ void WindowAddTeam::on_ButtonAddCars_clicked()
         if(WidgetExists != 0)
             delete this->CurrentWidget;
 
+        ui->ButtonSave->setEnabled(true);
         WidgetExists=1;
         WhatsClicked = BUTTON_ADD_CAR;
 

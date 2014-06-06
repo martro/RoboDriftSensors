@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAddMembers.h'
 **
-** Created: Fri Jun 6 15:35:13 2014
+** Created: Fri Jun 6 16:13:52 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAddMembers[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -39,6 +39,7 @@ static const uint qt_meta_data_WindowAddMembers[] = {
      155,  143,   17,   17, 0x08,
      203,  188,   17,   17, 0x08,
      239,   17,   17,   17, 0x08,
+     262,   17,   17,   17, 0x08,
 
        0        // eod
 };
@@ -50,7 +51,7 @@ static const char qt_meta_stringdata_WindowAddMembers[] = {
     "on_comboBox_activated(QString)\0"
     "CurrnetName\0on_lineName_textChanged(QString)\0"
     "CurrnetSurname\0on_lineSurname_textChanged(QString)\0"
-    "on_ButtonAdd_clicked()\0"
+    "on_ButtonAdd_clicked()\0on_ButtonDelete_clicked()\0"
 };
 
 void WindowAddMembers::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -65,6 +66,7 @@ void WindowAddMembers::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 3: _t->on_lineName_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 4: _t->on_lineSurname_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 5: _t->on_ButtonAdd_clicked(); break;
+        case 6: _t->on_ButtonDelete_clicked(); break;
         default: ;
         }
     }
@@ -102,9 +104,9 @@ int WindowAddMembers::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

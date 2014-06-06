@@ -47,6 +47,7 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
     if(CurrentText != "New car")
     {
         ui->ButtonDelete->setEnabled(true); //włączenie mżliwości usuwania teamu
+
         for(unsigned int x=0; x<TempListOfCars.size();x++)
         {
             if(TempListOfCars.at(x).getName() == CurrentText)
@@ -59,6 +60,14 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
                 this->ui->checkBoxCompetitionTA->setChecked(TempListOfCars.at(x).checkTA());
                 this->ui->lineName->setText(TempListOfCars.at(x).getName() );
                 this->ui->lineID->setText(TempListOfCars.at(x).getID() );
+
+                //i danie ich do tempa
+                TempCar.setCategoryMO(ui->checkBoxCategoryMO->checkState());
+                TempCar.setCategoryRC(ui->checkBoxCategoryRC->checkState());
+                TempCar.setCategoryRD(ui->checkBoxCategoryRD->checkState());
+
+                TempCar.setCompetitionFR(ui->checkBoxCompetitionFR->checkState());
+                TempCar.setCompetitionTA(ui->checkBoxCompetitionTA->checkState());
             }
         }
     }

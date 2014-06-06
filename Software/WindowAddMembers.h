@@ -26,6 +26,8 @@ private slots:
     void on_lineSurname_textChanged(const QString &CurrnetSurname);
     void on_ButtonAdd_clicked();
 
+    void on_ButtonDelete_clicked();
+
 signals:
     void newMemberAdded(const vector<Member> TempListOfMembers);
 
