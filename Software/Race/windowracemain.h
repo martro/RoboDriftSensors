@@ -6,6 +6,8 @@
 #define BUTTON_COMMUNICATION 3
 
 #include <QWidget>
+#include "windowrace.h"
+#include "windowusermain.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -19,9 +21,18 @@ public:
     explicit WindowRaceMain(QWidget *parent = 0);
     ~WindowRaceMain();
 
+private slots:
+    void on_buttonRace_clicked();
+
+signals:
+    void buttonRaceClicked();
+
+
 private:
     Ui::WindowRaceMain *ui;
+    QObject *CurrentWidget;
     int WhatsClicked;
+    WindowUserMain windowusertemp;
 };
 
 #endif // WINDOWRACEMAIN_H

@@ -13,7 +13,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     WindowRaceMain w;
     w.show();
-    WindowUserMain u;
-    u.show();
+
+    //WindowUserMain u;
+
+    //u.show();
+
+
     return a.exec();
 }

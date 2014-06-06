@@ -6,9 +6,18 @@ WindowUserMain::WindowUserMain(QWidget *parent) :
     ui(new Ui::WindowUserMain)
 {
     ui->setupUi(this);
+    WhatsClicked = 0;
+
+    //WindowUserMain *windowusertemp = new WindowUserMain;
 }
 
 WindowUserMain::~WindowUserMain()
 {
     delete ui;
 }
+
+void WindowUserMain::onButtonRaceClicked()
+    {
+    this->ui->label->hide();
+    //this->ui->CentralWindow->
+    }

@@ -473,10 +473,10 @@ compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../Software/resources.qrc \
-		../Software/images/text_ok.png \
 		../Software/images/mainLogo.jpg \
+		../Software/images/RD_logo-e1392478122173.png \
 		../Software/images/text_bad.png \
-		../Software/images/RD_logo-e1392478122173.png
+		../Software/images/text_ok.png
 	/home/martro/Qt5/5.3/gcc_64/bin/rcc -name resources ../Software/resources.qrc -o qrc_resources.cpp
 
 compiler_moc_header_make_all: moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_windownewrace.cpp moc_WindowAddMembers.cpp

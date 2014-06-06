@@ -17,21 +17,21 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="labelRace">
+      <widget class="QPushButton" name="buttonRace">
        <property name="text">
         <string>Race</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="labelRaceSettings">
+      <widget class="QPushButton" name="buttonRaceSettings">
        <property name="text">
         <string>Race Settings</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="labelConnection">
+      <widget class="QPushButton" name="buttonConnection">
        <property name="text">
         <string>Connection</string>
        </property>

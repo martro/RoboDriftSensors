@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QVBoxLayout>
@@ -25,7 +26,8 @@ class Ui_WindowUserMain
 public:
     QVBoxLayout *verticalLayout;
     QLabel *logo;
-    QWidget *widget;
+    QGridLayout *CentralWindow;
+    QLabel *label;
 
     void setupUi(QWidget *WindowUserMain)
     {
@@ -41,10 +43,17 @@ public:
 
         verticalLayout->addWidget(logo);
 
-        widget = new QWidget(WindowUserMain);
-        widget->setObjectName(QStringLiteral("widget"));
+        CentralWindow = new QGridLayout();
+        CentralWindow->setObjectName(QStringLiteral("CentralWindow"));
+        label = new QLabel(WindowUserMain);
+        label->setObjectName(QStringLiteral("label"));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/kabanos.jpeg")));
+        label->setScaledContents(true);
 
-        verticalLayout->addWidget(widget);
+        CentralWindow->addWidget(label, 0, 0, 1, 1);
+
+
+        verticalLayout->addLayout(CentralWindow);
 
         verticalLayout->setStretch(0, 1);
         verticalLayout->setStretch(1, 5);
@@ -58,6 +67,7 @@ public:
     {
         WindowUserMain->setWindowTitle(QApplication::translate("WindowUserMain", "User Main WIndow", 0));
         logo->setText(QString());
+        label->setText(QString());
     } // retranslateUi
 
 };

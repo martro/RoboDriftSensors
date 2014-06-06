@@ -29,9 +29,9 @@ class Ui_WindowRaceMain
 public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
-    QPushButton *labelRace;
-    QPushButton *labelRaceSettings;
-    QPushButton *labelConnection;
+    QPushButton *buttonRace;
+    QPushButton *buttonRaceSettings;
+    QPushButton *buttonConnection;
     QSpacerItem *verticalSpacer;
     QGridLayout *CurrentWindow;
     QLabel *image;
@@ -45,20 +45,20 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        labelRace = new QPushButton(WindowRaceMain);
-        labelRace->setObjectName(QStringLiteral("labelRace"));
+        buttonRace = new QPushButton(WindowRaceMain);
+        buttonRace->setObjectName(QStringLiteral("buttonRace"));
 
-        verticalLayout->addWidget(labelRace);
+        verticalLayout->addWidget(buttonRace);
 
-        labelRaceSettings = new QPushButton(WindowRaceMain);
-        labelRaceSettings->setObjectName(QStringLiteral("labelRaceSettings"));
+        buttonRaceSettings = new QPushButton(WindowRaceMain);
+        buttonRaceSettings->setObjectName(QStringLiteral("buttonRaceSettings"));
 
-        verticalLayout->addWidget(labelRaceSettings);
+        verticalLayout->addWidget(buttonRaceSettings);
 
-        labelConnection = new QPushButton(WindowRaceMain);
-        labelConnection->setObjectName(QStringLiteral("labelConnection"));
+        buttonConnection = new QPushButton(WindowRaceMain);
+        buttonConnection->setObjectName(QStringLiteral("buttonConnection"));
 
-        verticalLayout->addWidget(labelConnection);
+        verticalLayout->addWidget(buttonConnection);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -87,9 +87,9 @@ public:
     void retranslateUi(QWidget *WindowRaceMain)
     {
         WindowRaceMain->setWindowTitle(QApplication::translate("WindowRaceMain", "Form", 0));
-        labelRace->setText(QApplication::translate("WindowRaceMain", "Race", 0));
-        labelRaceSettings->setText(QApplication::translate("WindowRaceMain", "Race Settings", 0));
-        labelConnection->setText(QApplication::translate("WindowRaceMain", "Connection", 0));
+        buttonRace->setText(QApplication::translate("WindowRaceMain", "Race", 0));
+        buttonRaceSettings->setText(QApplication::translate("WindowRaceMain", "Race Settings", 0));
+        buttonConnection->setText(QApplication::translate("WindowRaceMain", "Connection", 0));
         image->setText(QString());
     } // retranslateUi
 

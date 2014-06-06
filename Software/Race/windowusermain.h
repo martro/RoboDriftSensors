@@ -1,7 +1,10 @@
 #ifndef WINDOWUSERMAIN_H
 #define WINDOWUSERMAIN_H
 
+#define WIDGET_RACE 1
+
 #include <QWidget>
+
 
 namespace Ui {
 class WindowUserMain;
@@ -15,7 +18,12 @@ public:
     explicit WindowUserMain(QWidget *parent = 0);
     ~WindowUserMain();
 
+public slots:
+    void onButtonRaceClicked();
+
 private:
     Ui::WindowUserMain *ui;
+    QObject *CurrentWidget;
+    int WhatsClicked;
 };
 #endif // WINDOWUSERMAIN_H
