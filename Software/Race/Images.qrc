@@ -1,1 +1,5 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/images">
+        <file>track.gif</file>
+    </qresource>
+</RCC>

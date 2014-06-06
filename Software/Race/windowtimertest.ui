@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>WindowUSART</class>
- <widget class="QMainWindow" name="WindowUSART">
+ <class>WindowTimerTest</class>
+ <widget class="QMainWindow" name="WindowTimerTest">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,94 +11,80 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>WindowUSART</string>
+   <string>WindowTimerTest</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
-      <width>99</width>
-      <height>27</height>
+      <y>90</y>
+      <width>101</width>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>a</string>
+     <string>Time elapsed:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QLabel" name="time">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>40</y>
-      <width>99</width>
-      <height>27</height>
+      <x>160</x>
+      <y>90</y>
+      <width>67</width>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>b</string>
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>70</y>
+      <width>101</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="digitCount">
+     <number>1</number>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>160</y>
-      <width>160</width>
-      <height>31</height>
+      <x>20</x>
+      <y>0</y>
+      <width>269</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="Sensor1">
+      <widget class="QPushButton" name="Start">
        <property name="text">
-        <string/>
+        <string>Start</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="Sensor2">
+      <widget class="QPushButton" name="Stop">
        <property name="text">
-        <string/>
+        <string>Stop</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="Sensor3">
+      <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="Sensor4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="Sensor5">
-       <property name="text">
-        <string/>
+        <string>Clear</string>
        </property>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="data">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>120</y>
-      <width>231</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Data</string>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,11 +13,22 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        windowrace.cpp
+        windowrace.cpp \
+    measurement.cpp \
+    windowraceuser.cpp \
+    windowusart.cpp
 
-HEADERS  += windowrace.h
+HEADERS  += windowrace.h \
+    measurement.h \
+    windowraceuser.h \
+    windowusart.h
 
-FORMS    += windowrace.ui
+FORMS    += windowrace.ui \
+    windowraceuser.ui \
+    windowusart.ui
 
 RESOURCES += \
     Images.qrc
+
+SUBDIRS += \
+    ../../RDSystemPC/SensorsGUI/SensorsGUI.pro

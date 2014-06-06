@@ -2,6 +2,8 @@
 #define WINDOWRACE_H
 
 #include <QMainWindow>
+#include <vector>
+#include "measurement.h"
 
 namespace Ui {
 class WindowRace;
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::WindowRace *ui;
+    vector <Measurement> Measurements;
 };
 
 #endif // WINDOWRACE_H
