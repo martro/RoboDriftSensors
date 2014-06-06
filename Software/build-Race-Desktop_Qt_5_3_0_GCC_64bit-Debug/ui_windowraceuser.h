@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
@@ -24,8 +23,6 @@ class Ui_WindowRaceUser
 {
 public:
     QLabel *track;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
     QLabel *Sensor1;
     QLabel *Sensor2;
     QLabel *Sensor3;
@@ -39,40 +36,24 @@ public:
         WindowRaceUser->resize(400, 300);
         track = new QLabel(WindowRaceUser);
         track->setObjectName(QStringLiteral("track"));
-        track->setGeometry(QRect(30, 130, 331, 141));
+        track->setGeometry(QRect(20, 30, 331, 201));
         track->setPixmap(QPixmap(QString::fromUtf8(":/images/track.gif")));
         track->setScaledContents(true);
-        horizontalLayoutWidget = new QWidget(WindowRaceUser);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(150, 80, 160, 31));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        Sensor1 = new QLabel(horizontalLayoutWidget);
+        Sensor1 = new QLabel(WindowRaceUser);
         Sensor1->setObjectName(QStringLiteral("Sensor1"));
-
-        horizontalLayout->addWidget(Sensor1);
-
-        Sensor2 = new QLabel(horizontalLayoutWidget);
+        Sensor1->setGeometry(QRect(170, 90, 27, 29));
+        Sensor2 = new QLabel(WindowRaceUser);
         Sensor2->setObjectName(QStringLiteral("Sensor2"));
-
-        horizontalLayout->addWidget(Sensor2);
-
-        Sensor3 = new QLabel(horizontalLayoutWidget);
+        Sensor2->setGeometry(QRect(60, 80, 35, 29));
+        Sensor3 = new QLabel(WindowRaceUser);
         Sensor3->setObjectName(QStringLiteral("Sensor3"));
-
-        horizontalLayout->addWidget(Sensor3);
-
-        Sensor4 = new QLabel(horizontalLayoutWidget);
+        Sensor3->setGeometry(QRect(80, 170, 31, 29));
+        Sensor4 = new QLabel(WindowRaceUser);
         Sensor4->setObjectName(QStringLiteral("Sensor4"));
-
-        horizontalLayout->addWidget(Sensor4);
-
-        Sensor5 = new QLabel(horizontalLayoutWidget);
+        Sensor4->setGeometry(QRect(220, 160, 31, 29));
+        Sensor5 = new QLabel(WindowRaceUser);
         Sensor5->setObjectName(QStringLiteral("Sensor5"));
-
-        horizontalLayout->addWidget(Sensor5);
-
+        Sensor5->setGeometry(QRect(270, 120, 31, 29));
 
         retranslateUi(WindowRaceUser);
 
@@ -83,11 +64,11 @@ public:
     {
         WindowRaceUser->setWindowTitle(QApplication::translate("WindowRaceUser", "User Window", 0));
         track->setText(QString());
-        Sensor1->setText(QString());
-        Sensor2->setText(QString());
-        Sensor3->setText(QString());
-        Sensor4->setText(QString());
-        Sensor5->setText(QString());
+        Sensor1->setText(QApplication::translate("WindowRaceUser", "1", 0));
+        Sensor2->setText(QApplication::translate("WindowRaceUser", "2", 0));
+        Sensor3->setText(QApplication::translate("WindowRaceUser", "3", 0));
+        Sensor4->setText(QApplication::translate("WindowRaceUser", "4", 0));
+        Sensor5->setText(QApplication::translate("WindowRaceUser", "5", 0));
     } // retranslateUi
 
 };

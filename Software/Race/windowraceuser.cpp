@@ -8,6 +8,8 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     ui->setupUi(this);
     palette = new QPalette();
     palette->setColor(ui->Sensor1->foregroundRole(),Qt::transparent);
+    leds(0);
+    //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
 }
 
 WindowRaceUser::~WindowRaceUser()
@@ -79,4 +81,9 @@ void WindowRaceUser::leds(char data)
     }
     ui->Sensor5->update();
         this->ui->Sensor5->setPalette(*palette);
+}
+
+void WindowRaceUser::onbyteReceived(char data)
+{
+
 }

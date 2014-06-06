@@ -16,6 +16,8 @@ public:
     explicit WindowUSART(QWidget *parent = 0);
     ~WindowUSART();
 
+signals:
+    void byteReceived(char data);
 private slots:
     void on_pushButton_clicked();
 
@@ -25,10 +27,7 @@ private slots:
 
 private:
     Ui::WindowUSART *ui;
-    QPalette* palette;
     QString dataToString(char data);
-
-    void leds(char data);
 };
 
 #endif // WINDOWUSART_H
