@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WindowAddCar.h'
 **
-** Created: Fri Jun 6 15:41:15 2014
+** Created: Fri Jun 6 16:00:01 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAddCar[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,6 +43,7 @@ static const uint qt_meta_data_WindowAddCar[] = {
      279,  199,   13,   13, 0x08,
      315,  199,   13,   13, 0x08,
      354,  199,   13,   13, 0x08,
+     393,   13,   13,   13, 0x08,
 
        0        // eod
 };
@@ -59,6 +60,7 @@ static const char qt_meta_stringdata_WindowAddCar[] = {
     "on_checkBoxCategoryRD_clicked(bool)\0"
     "on_checkBoxCompetitionTA_clicked(bool)\0"
     "on_checkBoxCompetitionFR_clicked(bool)\0"
+    "on_ButtonDelete_clicked()\0"
 };
 
 void WindowAddCar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -77,6 +79,7 @@ void WindowAddCar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 7: _t->on_checkBoxCategoryRD_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 8: _t->on_checkBoxCompetitionTA_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 9: _t->on_checkBoxCompetitionFR_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: _t->on_ButtonDelete_clicked(); break;
         default: ;
         }
     }
@@ -114,9 +117,9 @@ int WindowAddCar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

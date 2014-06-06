@@ -32,6 +32,8 @@ private slots:
     void on_checkBoxCompetitionTA_clicked(bool checked);
     void on_checkBoxCompetitionFR_clicked(bool checked);
 
+    void on_ButtonDelete_clicked();
+
 private:
     Ui::WindowAddCar *ui;
     vector<Car> TempListOfCars;

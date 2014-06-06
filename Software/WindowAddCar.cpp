@@ -13,7 +13,8 @@ WindowAddCar::WindowAddCar(QWidget *parent) :
     ui->checkBoxCategoryRC->setDisabled(true);
     ui->checkBoxCompetitionFR->setDisabled(true);
     ui->checkBoxCompetitionTA->setDisabled(true);
-
+    ui->ButtonDelete->setDisabled(true);
+    ui->ButtonAdd->setDisabled(true);
     TempCar.clear();
 }
 
@@ -41,9 +42,11 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
     ui->checkBoxCategoryRC->setEnabled(true);
     ui->checkBoxCompetitionFR->setEnabled(true);
     ui->checkBoxCompetitionTA->setEnabled(true);
+    ui->ButtonAdd->setEnabled(true);
 
     if(CurrentText != "New car")
     {
+        ui->ButtonDelete->setEnabled(true); //włączenie mżliwości usuwania teamu
         for(unsigned int x=0; x<TempListOfCars.size();x++)
         {
             if(TempListOfCars.at(x).getName() == CurrentText)
@@ -64,6 +67,20 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
         this->ui->lineName->setText(TempCar.getName() );
         this->ui->lineID->setText(TempCar.getID() );
     }
+}
+
+void WindowAddCar::on_ButtonDelete_clicked()
+{
+    for(unsigned int x=0; x<TempListOfCars.size();x++)
+    {
+        if(TempListOfCars.at(x).getName() == ui->comboBox->currentText() )
+        {
+            TempListOfCars.erase(TempListOfCars.begin()+x);
+            x=TempListOfCars.size()+1; //wyjscie z petli for
+        }
+    }
+    TempCar.clear();
+    emit newCarAdded(TempListOfCars);
 }
 
 void WindowAddCar::on_ButtonAdd_clicked()
