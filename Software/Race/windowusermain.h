@@ -18,5 +18,4 @@ public:
 private:
     Ui::WindowUserMain *ui;
 };
-
 #endif // WINDOWUSERMAIN_H

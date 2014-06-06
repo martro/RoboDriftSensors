@@ -2,5 +2,6 @@
     <qresource prefix="/images">
         <file>track.gif</file>
         <file>RD_logo-e1392478122173.png</file>
+        <file>../images/kabanos.jpeg</file>
     </qresource>
 </RCC>

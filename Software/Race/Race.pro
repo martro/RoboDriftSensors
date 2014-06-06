@@ -17,21 +17,27 @@ SOURCES += main.cpp\
     measurement.cpp \
     windowraceuser.cpp \
     windowusart.cpp \
-    windowusermain.cpp
+    windowusermain.cpp \
+    windowracemain.cpp
 
 HEADERS  += windowrace.h \
     measurement.h \
     windowraceuser.h \
     windowusart.h \
-    windowusermain.h
+    windowusermain.h \
+    windowracemain.h
 
 FORMS    += windowrace.ui \
     windowraceuser.ui \
     windowusart.ui \
-    windowusermain.ui
+    windowusermain.ui \
+    windowracemain.ui
 
 RESOURCES += \
     Images.qrc
 
 SUBDIRS += \
     ../../RDSystemPC/SensorsGUI/SensorsGUI.pro
+
+OTHER_FILES += \
+    ../images/kabanos.jpeg

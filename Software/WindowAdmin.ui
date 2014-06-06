@@ -28,7 +28,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="resources.qrc">:/images/images/RD_logo-e1392478122173.png</pixmap>
+           <pixmap>:/images/images/RD_logo-e1392478122173.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -77,21 +77,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QGridLayout" name="CurrentWindow">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="resources.qrc">:/images/images/mainLogo.jpg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QGridLayout" name="CurrentWindow"/>
     </item>
    </layout>
   </widget>
@@ -146,8 +132,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
