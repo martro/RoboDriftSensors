@@ -22,11 +22,18 @@ int main(void)
 
     sei();
 
+    int olddata=0;
+    int newdata=0;
+
 
     while(1)
     {
     	diody();
-        USART_Transmit(collectData());
+
+    	olddata=newdata;
+    	newdata=collectData();
+    	if (olddata!=newdata)
+    		USART_Transmit(newdata);
     }
 
     return 0;

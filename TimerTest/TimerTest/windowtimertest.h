@@ -1,8 +1,11 @@
 #ifndef WINDOWTIMERTEST_H
 #define WINDOWTIMERTEST_H
 
+#define COUNTDOWN_TIME 3
+
 #include <QMainWindow>
 #include <QElapsedTimer>
+#include <QTimer>
 
 namespace Ui {
 class WindowTimerTest;
@@ -21,9 +24,15 @@ private slots:
 
     void on_Stop_clicked();
 
+    void countdown();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::WindowTimerTest *ui;
-    QElapsedTimer timer;
+    QElapsedTimer Timer;
+    QTimer CountDownTimer;
+    int countdowntime;
 };
 
 #endif // WINDOWTIMERTEST_H

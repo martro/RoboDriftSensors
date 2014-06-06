@@ -14,8 +14,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        windowusart.cpp
+        windowusart.cpp \
+    timer.cpp
 
-HEADERS  += windowusart.h
+HEADERS  += windowusart.h \
+    timer.h
 
-FORMS    += windowusart.ui
+FORMS    += windowusart.ui \
+    timer.ui
