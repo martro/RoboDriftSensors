@@ -12,3 +12,18 @@ WindowTimerTest::~WindowTimerTest()
 {
     delete ui;
 }
+
+void WindowTimerTest::on_Start_clicked()
+{
+    timer.start();
+}
+
+void WindowTimerTest::on_Stop_clicked()
+{
+    int nMilliseconds = timer.elapsed();
+    QString str;
+
+    str.append(QString("%1").arg(nMilliseconds));
+
+    this->ui->time->setText(str);
+}
