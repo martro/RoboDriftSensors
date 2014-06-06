@@ -11,6 +11,7 @@
 #include "team.h"
 #include "windownewrace.h"
 #include <QMessageBox>
+#include "pugixml.hpp"
 
 using namespace std;
 
@@ -25,14 +26,14 @@ class WindowAdmin : public QMainWindow
 public:
     explicit WindowAdmin(QWidget *parent = 0);
     ~WindowAdmin();
+    void saveToXML();
     
 private slots:
     void on_ButtonAddEditTeam_clicked();
-
     void on_ButtonNewRace_clicked();
 
 public slots:
-    void onSaveButtonClicked(vector<Team> tempListOfTeams);
+    void onSendCurrentListOfTeams(vector<Team> tempListOfTeams);
 
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);

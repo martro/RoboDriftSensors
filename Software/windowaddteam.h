@@ -25,16 +25,16 @@ class WindowAddTeam : public QWidget
 public:
     explicit WindowAddTeam(QWidget *parent = 0);
     ~WindowAddTeam();
+    void checkSaveButton();
     
 private slots:
     void on_ButtonAddLeader_clicked();
     void on_ButtonEditTeam_clicked();
     void on_comboBox_activated(const QString &arg1);
     void on_ButtonSave_clicked();
-
     void on_ButtonAddMembers_clicked();
-
     void on_ButtonAddCars_clicked();
+    void on_ButtonDelete_clicked();
 
 public slots:
     //ADMIN_WINDOW
@@ -59,7 +59,7 @@ public slots:
 
 
 signals:
-    void saveButtonClicked(const vector<Team> tempListOfTeams);
+    void sendCurrentListOfTeams(const vector<Team> tempListOfTeams);
     void editButtonClicked(const Team tempTeam);
     void sendCurrentTeam(const Team tempTeam);
     void checkName(const int Flag);

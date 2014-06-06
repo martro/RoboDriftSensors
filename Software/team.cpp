@@ -4,7 +4,7 @@
 //----------------------TEAM----------------------//
 Team::Team()
 {
-    Name = "No name";
+    Name = "name";
 }
 
 void Team::setName(QString Name)
@@ -18,7 +18,7 @@ QString Team::getName()
 void Team::clear()
 {
     LeaderInfo.clear(); //leader ma domyślne warosci
-    setName("no name"); //nazwa teamu ma domyślme warotści
+    setName("name"); //nazwa teamu ma domyślme warotści
     ListOfCars.clear();
     ListOfMembers.clear();
 }
@@ -40,7 +40,7 @@ void Leader::clear()
 {
     setCity("city");
     setEmail("email");
-    setName("no name");
+    setName("name");
     setOrganization("org");
     setPhone("number");
     setSurname("surname");

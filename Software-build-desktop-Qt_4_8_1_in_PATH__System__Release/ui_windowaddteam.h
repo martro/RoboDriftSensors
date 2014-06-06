@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowaddteam.ui'
 **
-** Created: Fri Jun 6 13:18:04 2014
+** Created: Fri Jun 6 17:29:24 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -42,7 +42,7 @@ public:
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QPushButton *ButtonSave;
-    QPushButton *ButtonCancel;
+    QPushButton *ButtonDelete;
     QGridLayout *CurrentWindow;
 
     void setupUi(QWidget *WindowAddTeam)
@@ -103,10 +103,10 @@ public:
 
         horizontalLayout->addWidget(ButtonSave);
 
-        ButtonCancel = new QPushButton(WindowAddTeam);
-        ButtonCancel->setObjectName(QString::fromUtf8("ButtonCancel"));
+        ButtonDelete = new QPushButton(WindowAddTeam);
+        ButtonDelete->setObjectName(QString::fromUtf8("ButtonDelete"));
 
-        horizontalLayout->addWidget(ButtonCancel);
+        horizontalLayout->addWidget(ButtonDelete);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -140,7 +140,7 @@ public:
         ButtonAddCars->setText(QApplication::translate("WindowAddTeam", "Add/Edit Cars", 0, QApplication::UnicodeUTF8));
         ButtonEditTeam->setText(QApplication::translate("WindowAddTeam", "Add/Edit Team Name", 0, QApplication::UnicodeUTF8));
         ButtonSave->setText(QApplication::translate("WindowAddTeam", "Save", 0, QApplication::UnicodeUTF8));
-        ButtonCancel->setText(QApplication::translate("WindowAddTeam", "Cancel", 0, QApplication::UnicodeUTF8));
+        ButtonDelete->setText(QApplication::translate("WindowAddTeam", "Delete", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

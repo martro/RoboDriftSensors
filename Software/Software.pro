@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     windoweditteam.cpp \
     windownewrace.cpp \
     WindowAddMembers.cpp \
-    WindowAddCar.cpp
+    WindowAddCar.cpp \
+    pugixml.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \

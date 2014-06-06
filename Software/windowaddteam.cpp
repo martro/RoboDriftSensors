@@ -11,11 +11,13 @@ WindowAddTeam::WindowAddTeam(QWidget *parent) :
     ui->setupUi(this);
     WhatsClicked = 0;
     WidgetExists = 0;
+
     ui->ButtonSave->setDisabled(true);
     ui->ButtonEditTeam->setDisabled(true);
     ui->ButtonAddCars->setDisabled(true);
     ui->ButtonAddLeader->setDisabled(true);
     ui->ButtonAddMembers->setDisabled(true);
+    ui->ButtonDelete->setDisabled(true);
 
 }
 WindowAddTeam::~WindowAddTeam()
@@ -31,7 +33,7 @@ void WindowAddTeam::on_ButtonAddLeader_clicked()
             delete this->CurrentWidget;
 
         WidgetExists=1;
-        ui->ButtonSave->setEnabled(true); //enable save button
+        checkSaveButton();
 
         WhatsClicked = BUTTON_ADD_LEADER;
         WindowAddLeader *Window_Add_Leader = new WindowAddLeader;
@@ -128,7 +130,7 @@ void WindowAddTeam::onNewTeamNameEntered(const QString &TempText)
     }
     else
     {
-        this->tempTeam.setName("No name");//jezele zła to zeruje nazwe
+        this->tempTeam.setName("name");//jezele zła to zeruje nazwe
         ui->ButtonSave->setDisabled(true);
     }
 
@@ -138,7 +140,9 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 {
     tempTeam.clear(); //czysci tempTeama
 
-    ui->ButtonSave->setDisabled(true); //aktywacja wszystkich przycisków
+    checkSaveButton();
+
+    //aktywacja wszystkich przycisków
     ui->ButtonEditTeam->setEnabled(true);
     ui->ButtonAddCars->setEnabled(true);
     ui->ButtonAddLeader->setEnabled(true);
@@ -153,11 +157,16 @@ void WindowAddTeam::on_comboBox_activated(const QString &TeamName)
 
     if(ui->comboBox->currentText() != "New team") //jeżeli juz cos mamy w wektorze to zmieniamy tempteam na ten wybrany w comboboxie
     {
+        ui->ButtonDelete->setEnabled(true);
         for(unsigned int x=0; x<tempListOfTeams.size(); x++)
         {
             if(tempListOfTeams.at(x).getName() == TeamName)
                 tempTeam=tempListOfTeams.at(x); //a tutaj tempTeam jest wybrany -> na nim pracujemy
         }
+    }
+    else
+    {
+        ui->ButtonDelete->setDisabled(true); //po wybraniu opcji NEW NEAM nie mozna wybrac opcji delete
     }
 }
 
@@ -168,19 +177,22 @@ void WindowAddTeam::on_ButtonSave_clicked()
         for(unsigned int x=0; x<tempListOfTeams.size();x++)
         {
             if(ui->comboBox->currentText() == tempListOfTeams.at(x).getName()) //znajdź team w wektorze o wybranej w CB nazwie
+            {
                 tempListOfTeams.erase(tempListOfTeams.begin()+x); //usuń go zeby potem wgrać nowy
+                x = tempListOfTeams.size()+1;
+            }
         }
     }
     tempListOfTeams.push_back(tempTeam); //zapisuje nowy team do temp.vektora
 
+    tempTeam.clear(); //czyszczenie tempteam
     if(WidgetExists)
     {
         delete this->CurrentWidget;
         WidgetExists=0;
         WhatsClicked=0;
-        tempTeam.clear(); //czyszczenie tempteam
     }
-    emit this->saveButtonClicked(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
+    emit this->sendCurrentListOfTeams(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
 }
 
 void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na ilikniecie w admin window add.edit team
@@ -190,7 +202,7 @@ void WindowAddTeam::onButtonAddEditTeam(vector<Team> listOfTeams) //odpowiedz na
 
     ui->comboBox->clear();
     ui->comboBox->addItem("New team");
-    for(unsigned int x=0; x<listOfTeams.size(); x++)
+    for(unsigned int x=0; x<tempListOfTeams.size(); x++)
     {
         this->ui->comboBox->addItem(tempListOfTeams.at(x).getName());
     }
@@ -205,7 +217,7 @@ void WindowAddTeam::on_ButtonAddMembers_clicked()
 
         WidgetExists=1;
         WhatsClicked = BUTTON_ADD_MEMBER;
-        ui->ButtonSave->setEnabled(true);
+        checkSaveButton();
 
         WindowAddMembers *Window_Add_Members = new WindowAddMembers; //tworzenie widgetu(okna z edycją nazwy)
 
@@ -227,9 +239,30 @@ void WindowAddTeam::onNewMemberAdded(vector<Member> NewListOfMembers)
     ui->CurrentWindow->addWidget(Window_Add_Members, 0,0); //tworznie okna educji nazwy teamu
     this->CurrentWidget=Window_Add_Members;
 
+    checkSaveButton();
     connect(Window_Add_Members, SIGNAL(newMemberAdded(vector<Member>)), this, SLOT(onNewMemberAdded(vector<Member>)));
     connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
     emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+}
+
+void WindowAddTeam::checkSaveButton()
+{
+    int Found = NO;
+    if(ui->comboBox->currentText() == "New team" ) // jezeli dodaje nowy team
+    {
+        for(unsigned int x=0;x<tempListOfTeams.size();x++)
+        {
+             if( tempListOfTeams.at(x).getName() == tempTeam.getName())
+             {
+                 ui->ButtonSave->setDisabled(true);
+                 Found = YES;
+             }
+        }
+    }
+    if(!Found) //jezeli edytuje to zawsze moge kliknac save
+    {
+        ui->ButtonSave->setEnabled(true);
+    }
 }
 
 void WindowAddTeam::on_ButtonAddCars_clicked()
@@ -239,7 +272,7 @@ void WindowAddTeam::on_ButtonAddCars_clicked()
         if(WidgetExists != 0)
             delete this->CurrentWidget;
 
-        ui->ButtonSave->setEnabled(true);
+        checkSaveButton();
         WidgetExists=1;
         WhatsClicked = BUTTON_ADD_CAR;
 
@@ -266,4 +299,25 @@ void WindowAddTeam::onNewCarAdded(vector<Car> NewListOfCars)
     connect(Window_Add_Car, SIGNAL(newCarAdded(vector<Car>)), this, SLOT(onNewCarAdded(vector<Car>)));
     connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Car, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
     emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+}
+
+void WindowAddTeam::on_ButtonDelete_clicked()
+{
+    for(unsigned int x=0; x<tempListOfTeams.size();x++)
+    {
+        if(tempListOfTeams.at(x).getName() == ui->comboBox->currentText() )
+        {
+            tempListOfTeams.erase(tempListOfTeams.begin()+x);
+            x=tempListOfTeams.size()+1; //wyjscie z petli for
+        }
+    }
+    tempTeam.clear(); //czyszczenie tempteam
+    if(WidgetExists) //zamykanie okna z prawej strony
+    {
+        delete this->CurrentWidget;
+        WidgetExists=0;
+        WhatsClicked=0;
+    }
+    ui->ButtonDelete->setDisabled(true); //deaktywaca przycisku delete
+    emit sendCurrentListOfTeams(tempListOfTeams);
 }

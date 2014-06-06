@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'windowaddteam.h'
 **
-** Created: Fri Jun 6 16:13:51 2014
+** Created: Fri Jun 6 20:15:28 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_WindowAddTeam[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,34 +32,35 @@ static const uint qt_meta_data_WindowAddTeam[] = {
 
  // signals: signature, parameters, type, tag, flags
       31,   15,   14,   14, 0x05,
-      72,   63,   14,   14, 0x05,
-      96,   63,   14,   14, 0x05,
-     123,  118,   14,   14, 0x05,
+      77,   68,   14,   14, 0x05,
+     101,   68,   14,   14, 0x05,
+     128,  123,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     138,   14,   14,   14, 0x08,
-     167,   14,   14,   14, 0x08,
-     200,  195,   14,   14, 0x08,
-     231,   14,   14,   14, 0x08,
-     255,   14,   14,   14, 0x08,
-     285,   14,   14,   14, 0x08,
-     324,  312,   14,   14, 0x0a,
-     367,  358,   14,   14, 0x0a,
-     411,  397,   14,   14, 0x0a,
-     460,  443,   14,   14, 0x0a,
-     510,  495,   14,   14, 0x0a,
-     558,  543,   14,   14, 0x0a,
-     605,  591,   14,   14, 0x0a,
-     659,  637,   14,   14, 0x0a,
-     717,  700,   14,   14, 0x0a,
-     764,  750,   14,   14, 0x0a,
+     143,   14,   14,   14, 0x08,
+     172,   14,   14,   14, 0x08,
+     205,  200,   14,   14, 0x08,
+     236,   14,   14,   14, 0x08,
+     260,   14,   14,   14, 0x08,
+     290,   14,   14,   14, 0x08,
+     317,   14,   14,   14, 0x08,
+     355,  343,   14,   14, 0x0a,
+     398,  389,   14,   14, 0x0a,
+     442,  428,   14,   14, 0x0a,
+     491,  474,   14,   14, 0x0a,
+     541,  526,   14,   14, 0x0a,
+     589,  574,   14,   14, 0x0a,
+     636,  622,   14,   14, 0x0a,
+     690,  668,   14,   14, 0x0a,
+     748,  731,   14,   14, 0x0a,
+     795,  781,   14,   14, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WindowAddTeam[] = {
     "WindowAddTeam\0\0tempListOfTeams\0"
-    "saveButtonClicked(vector<Team>)\0"
+    "sendCurrentListOfTeams(vector<Team>)\0"
     "tempTeam\0editButtonClicked(Team)\0"
     "sendCurrentTeam(Team)\0Flag\0checkName(int)\0"
     "on_ButtonAddLeader_clicked()\0"
@@ -67,7 +68,8 @@ static const char qt_meta_stringdata_WindowAddTeam[] = {
     "on_comboBox_activated(QString)\0"
     "on_ButtonSave_clicked()\0"
     "on_ButtonAddMembers_clicked()\0"
-    "on_ButtonAddCars_clicked()\0listOfTeams\0"
+    "on_ButtonAddCars_clicked()\0"
+    "on_ButtonDelete_clicked()\0listOfTeams\0"
     "onButtonAddEditTeam(vector<Team>)\0"
     "TempText\0onNewTeamNameEntered(QString)\0"
     "NewLeaderName\0onNewLeaderNameEntered(QString)\0"
@@ -87,7 +89,7 @@ void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         Q_ASSERT(staticMetaObject.cast(_o));
         WindowAddTeam *_t = static_cast<WindowAddTeam *>(_o);
         switch (_id) {
-        case 0: _t->saveButtonClicked((*reinterpret_cast< const vector<Team>(*)>(_a[1]))); break;
+        case 0: _t->sendCurrentListOfTeams((*reinterpret_cast< const vector<Team>(*)>(_a[1]))); break;
         case 1: _t->editButtonClicked((*reinterpret_cast< const Team(*)>(_a[1]))); break;
         case 2: _t->sendCurrentTeam((*reinterpret_cast< const Team(*)>(_a[1]))); break;
         case 3: _t->checkName((*reinterpret_cast< const int(*)>(_a[1]))); break;
@@ -97,16 +99,17 @@ void WindowAddTeam::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 7: _t->on_ButtonSave_clicked(); break;
         case 8: _t->on_ButtonAddMembers_clicked(); break;
         case 9: _t->on_ButtonAddCars_clicked(); break;
-        case 10: _t->onButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
-        case 11: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 12: _t->onNewLeaderNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 13: _t->onNewLeaderSurnameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 14: _t->onNewLeaderPhoneEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 15: _t->onNewLeaderEmailEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 16: _t->onNewLeaderCityEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 17: _t->onNewLeaderOrganizationEnterned((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 18: _t->onNewMemberAdded((*reinterpret_cast< vector<Member>(*)>(_a[1]))); break;
-        case 19: _t->onNewCarAdded((*reinterpret_cast< vector<Car>(*)>(_a[1]))); break;
+        case 10: _t->on_ButtonDelete_clicked(); break;
+        case 11: _t->onButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
+        case 12: _t->onNewTeamNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: _t->onNewLeaderNameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 14: _t->onNewLeaderSurnameEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 15: _t->onNewLeaderPhoneEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 16: _t->onNewLeaderEmailEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 17: _t->onNewLeaderCityEntered((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 18: _t->onNewLeaderOrganizationEnterned((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 19: _t->onNewMemberAdded((*reinterpret_cast< vector<Member>(*)>(_a[1]))); break;
+        case 20: _t->onNewCarAdded((*reinterpret_cast< vector<Car>(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -144,15 +147,15 @@ int WindowAddTeam::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 21;
     }
     return _id;
 }
 
 // SIGNAL 0
-void WindowAddTeam::saveButtonClicked(const vector<Team> _t1)
+void WindowAddTeam::sendCurrentListOfTeams(const vector<Team> _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

@@ -8,14 +8,19 @@ WindowUSART::WindowUSART(QWidget *parent) :
     ui(new Ui::WindowUSART)
 {
     ui->setupUi(this);
+
     serial = new QSerialPort(this);
     serial->setPortName("ttyUSB0");
-    serial->setBaudRate(QSerialPort::Baud4800);
+    serial->setBaudRate(QSerialPort::Baud9600);
     serial->setDataBits(QSerialPort::Data8);
     serial->setParity(QSerialPort::NoParity);
     serial->setStopBits(QSerialPort::TwoStop);
     serial->setFlowControl(QSerialPort::NoFlowControl);
     serial->open(QIODevice::ReadWrite);
+    if( serial->isOpen() == false )
+    {
+        ui->textBrowser->append("GOWNO");
+    }
     connect(serial,SIGNAL(readyRead()),this,SLOT(serialReceived()));
 
     palette = new QPalette();

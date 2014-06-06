@@ -1,6 +1,5 @@
 #include <QtGui/QApplication>
 #include "WindowAdmin.h"
-#include "windowaddteam.h"
 
 int main(int argc, char *argv[])
 {
