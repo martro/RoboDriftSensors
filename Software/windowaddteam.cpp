@@ -231,3 +231,38 @@ void WindowAddTeam::onNewMemberAdded(vector<Member> NewListOfMembers)
     connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Members, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
     emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
 }
+
+void WindowAddTeam::on_ButtonAddCars_clicked()
+{
+    if(WhatsClicked != BUTTON_ADD_CAR)
+    {
+        if(WidgetExists != 0)
+            delete this->CurrentWidget;
+
+        WidgetExists=1;
+        WhatsClicked = BUTTON_ADD_CAR;
+
+        WindowAddCar *Window_Add_Car = new WindowAddCar; //tworzenie widgetu
+
+        connect(Window_Add_Car, SIGNAL(newCarAdded(vector<Car>)), this, SLOT(onNewCarAdded(vector<Car>)));
+        connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Car, SLOT(onSendCurrentTeam(Team)) );
+
+        ui->CurrentWindow->addWidget(Window_Add_Car, 0,0); //tworznie okna educji nazwy teamu
+        this->CurrentWidget=Window_Add_Car;
+
+        emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+    }
+}
+
+void WindowAddTeam::onNewCarAdded(vector<Car> NewListOfCars)
+{
+    tempTeam.ListOfCars = NewListOfCars; //zapis dodanego cara do lity
+    delete this->CurrentWidget; //usuwanie okna
+    WindowAddCar *Window_Add_Car = new WindowAddCar; //tworzenie widgetu do dodania
+    ui->CurrentWindow->addWidget(Window_Add_Car, 0,0); //tworznie okna educji
+    this->CurrentWidget=Window_Add_Car;
+
+    connect(Window_Add_Car, SIGNAL(newCarAdded(vector<Car>)), this, SLOT(onNewCarAdded(vector<Car>)));
+    connect(this, SIGNAL(sendCurrentTeam(Team)), Window_Add_Car, SLOT(onSendCurrentTeam(Team)) ); //połączeine z oknem dodawania memberów
+    emit sendCurrentTeam(tempTeam); //wyswietlanie aktualnie wybranej nazwy w linii wpisyania nazwy teamu
+}

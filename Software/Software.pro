@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     windowaddleader.cpp \
     windoweditteam.cpp \
     windownewrace.cpp \
-    WindowAddMembers.cpp
+    WindowAddMembers.cpp \
+    WindowAddCar.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
@@ -25,14 +26,16 @@ HEADERS  += WindowAdmin.h \
     windowaddleader.h \
     windoweditteam.h \
     windownewrace.h \
-    WindowAddMembers.h
+    WindowAddMembers.h \
+    WindowAddCar.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
     windowaddleader.ui \
     windoweditteam.ui \
     windownewrace.ui \
-    WindowAddMembers.ui
+    WindowAddMembers.ui \
+    WindowAddCar.ui
 
 RESOURCES += \
     resources.qrc

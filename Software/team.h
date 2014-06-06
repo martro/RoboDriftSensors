@@ -54,22 +54,27 @@ public:
     void setName(QString Name);
     QString getName();
 
-    void setID(int ID);
-    int getID();
+    void clear();
 
-    void setCategory(int RC, int MO, int RD); //RC-radio controlled, MO- mobile open, RD -RoboDrift
-    int checkRC();
-    int checkMO();
-    int checkRD();
+    void setID(QString ID);
+    QString getID();
 
-    void setCompetition(int TA, int FR);//TA- time attack, FR - freestyle
-    int checkTA();
-    int checkFR();
+    void setCategoryRC(bool RC); //RC-radio controlled, MO- mobile open, RD -RoboDrift
+    void setCategoryMO(bool MO);
+    void setCategoryRD(bool RD);
+    bool checkRC();
+    bool checkMO();
+    bool checkRD();
+
+    void setCompetitionTA(bool TA);//TA- time attack, FR - freestyle
+    void setCompetitionFR(bool FR);
+    bool checkTA();
+    bool checkFR();
 private:
     QString Name;
-    int ID;
-    int RC, MO, RD;
-    int TA, FR;
+    QString ID;
+    bool RC, MO, RD; //categories
+    bool TA, FR; //competition
 };
 
 class Team

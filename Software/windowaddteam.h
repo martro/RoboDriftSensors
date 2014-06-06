@@ -11,6 +11,7 @@
 #include "windowaddleader.h"
 #include "windoweditteam.h"
 #include "WindowAddMembers.h"
+#include "WindowAddCar.h"
 #include "team.h"
 
 namespace Ui {
@@ -33,6 +34,8 @@ private slots:
 
     void on_ButtonAddMembers_clicked();
 
+    void on_ButtonAddCars_clicked();
+
 public slots:
     //ADMIN_WINDOW
     void onButtonAddEditTeam(vector<Team> listOfTeams);
@@ -50,6 +53,9 @@ public slots:
 
     //ADD_MEMBERS
     void onNewMemberAdded(vector<Member> NewListOfMembers);
+
+    //ADD_CAR
+    void onNewCarAdded(vector<Car> NewListOfCars);
 
 
 signals:

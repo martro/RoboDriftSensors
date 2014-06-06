@@ -24,7 +24,6 @@ private slots:
     void on_comboBox_activated(const QString &CurrentText);
     void on_lineName_textChanged(const QString &CurrnetName);
     void on_lineSurname_textChanged(const QString &CurrnetSurname);
-
     void on_ButtonAdd_clicked();
 
 signals:

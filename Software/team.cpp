@@ -120,11 +120,23 @@ void Member::setSurname(QString Surname)
 //----------------------CAR-----------------------//
 Car::Car()
 {
-    RC = 0;
-    MO = 0;
-    RD = 0;
-    TA = 0;
-    FR = 0;
+    RC = false;
+    MO = false;
+    RD = false;
+    TA = false;
+    FR = false;
+    ID = "ID";
+    Name = "name";
+}
+void Car::clear()
+{
+    RC = false;
+    MO = false;
+    RD = false;
+    TA = false;
+    FR = false;
+    ID = "ID";
+    Name = "name";
 }
 
 void Car::setName(QString Name)
@@ -137,50 +149,59 @@ QString Car::getName()
     return this->Name;
 }
 
-void Car::setID(int ID)
+void Car::setID(QString ID)
 {
     this->ID = ID;
 }
 
-int Car::getID()
+QString Car::getID()
 {
     return this->ID;
 }
-
-void Car::setCategory(int RC, int MO, int RD) //RC-radio controlled, MO- mobile open, RD -RoboDrift
+void Car::setCategoryMO(bool MO)
+{
+    this->MO = MO;
+}
+void Car::setCategoryRC(bool RC)
 {
     this->RC = RC;
-    this->MO = MO;
+}
+void Car::setCategoryRD(bool RD)
+{
     this->RD = RD;
 }
 
-int Car::checkRC()
+void Car::setCompetitionFR(bool FR)
+{
+    this->FR = FR;
+}
+
+void Car::setCompetitionTA(bool TA)
+{
+    this->TA = TA;
+}
+
+bool Car::checkRC()
 {
     return this->RC;
 }
 
-int Car::checkMO()
+bool Car::checkMO()
 {
     return this->MO;
 }
 
-int Car::checkRD()
+bool Car::checkRD()
 {
     return this->RD;
 }
 
-void Car::setCompetition(int TA, int FR)//TA- time attack, FR - freestyle
-{
-    this->TA = TA;
-    this->FR = FR;
-}
-
-int Car::checkTA()
+bool Car::checkTA()
 {
     return this->TA;
 }
 
-int Car::checkFR()
+bool Car::checkFR()
 {
     return this->FR;
 }
