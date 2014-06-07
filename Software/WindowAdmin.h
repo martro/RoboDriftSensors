@@ -14,6 +14,7 @@
 #include "pugixml.hpp"
 
 using namespace std;
+using namespace pugi;
 
 namespace Ui {
 class WindowAdmin;

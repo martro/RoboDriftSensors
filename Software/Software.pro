@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 
 TARGET = Software
 TEMPLATE = app
@@ -28,7 +30,9 @@ HEADERS  += WindowAdmin.h \
     windoweditteam.h \
     windownewrace.h \
     WindowAddMembers.h \
-    WindowAddCar.h
+    WindowAddCar.h \
+    pugiconfig.hpp \
+    pugixml.hpp
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \

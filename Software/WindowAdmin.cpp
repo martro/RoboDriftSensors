@@ -18,6 +18,12 @@ WindowAdmin::~WindowAdmin()
 
 void WindowAdmin::on_ButtonAddEditTeam_clicked()
 {
+    /*
+    QMessageBox x;
+    x.setText("das");
+    x.show();
+    saveToXML(); */
+
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
@@ -37,8 +43,9 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
 
 void WindowAdmin::onSendCurrentListOfTeams(vector<Team> tempListOfTeams)
 {
-    //saveToXML();
     listOfTeams = tempListOfTeams;
+    saveToXML(); //zapis do XML
+
     for(unsigned int x=0; x<listOfTeams.size();x++)
     {
         this->ui->textBrowser->append(listOfTeams.at(x).getName());
@@ -52,8 +59,8 @@ void WindowAdmin::onSendCurrentListOfTeams(vector<Team> tempListOfTeams)
 
     connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), Window_Add_Team, SLOT(onButtonAddEditTeam(vector<Team>)));
     connect(Window_Add_Team, SIGNAL(sendCurrentListOfTeams(vector<Team>)), this, SLOT(onSendCurrentListOfTeams(vector<Team>)));
-    emit this->ButtonAddEditTeam(this->listOfTeams);
 
+    emit this->ButtonAddEditTeam(this->listOfTeams);
 }
 
 
@@ -72,35 +79,26 @@ void WindowAdmin::on_ButtonNewRace_clicked()
         this->CurrentWidget=race;
     }
 }
-using namespace pugi;
 void WindowAdmin::saveToXML()
 {
+
     xml_document doc;
+    xml_node bib=doc.append_child("Biblioteka");
+    bib.append_attribute("Adres")="ul. Ćwiartki 3/4, 50-400 Wrocaw";
+    xml_node regal=bib.append_child("Regal");
+    regal.append_attribute("Description")="Science";
+    xml_node ksiazka=regal.append_child("Ksiazka");
+    ksiazka.append_attribute("Author")="Jan Kowalski";
+    ksiazka.append_attribute("Title")="Z kamera wśród studentw";
 
-    xml_node XMLListOfTeams = doc.append_child("List of teams");
 
-    /*
-    for(unsigned int x = 0; x<lista_regal.size(); x++)
-    {
-        xml_node regal = biblioteka.append_child("regal");
-        regal.append_attribute("numer") = x+1;
-        regal.append_attribute("gatunek") = get_genre_regal(x).c_str();
+    ksiazka=regal.append_child("Ksiazka");
+    ksiazka.append_attribute("Author")="Jan Brzechwa";
+    ksiazka.append_attribute("Title")="Wszyscy studenci dostan pi";
 
-        for(unsigned int y=0; y<lista_regal.at(x).r_ks_size(); y++)
-        {
-            xml_node ksiazka = regal.append_child("ksiazka");
-            ksiazka.append_attribute("tytul") = lista_regal.at(x).r_get_ks_title(y).c_str();
-            ksiazka.append_attribute("autor") = lista_regal.at(x).r_get_author(y).c_str();
-            ksiazka.append_attribute("nr_karty_bibliotecznej") = lista_regal.at(x).r_get_ks_number(y);
-        }
-        for(unsigned int y=0; y<lista_regal.at(x).r_cz_size(); y++)
-        {
-            xml_node czasopismo = regal.append_child("czasopismo");
-            czasopismo.append_attribute("tytul") = lista_regal.at(x).r_get_cz_title(y).c_str();
-            czasopismo.append_attribute("numer") = lista_regal.at(x).r_get_number(y);
-            czasopismo.append_attribute("nr_karty_bibliotecznej") = lista_regal.at(x).r_get_cz_number(y);
-        }
-    }
-    */
-    doc.save_file("List Of Teams.xml");
+    regal=bib.append_child("Regal");
+    ksiazka=regal.append_child("Ksiazka");
+        ksiazka.append_attribute("Author")="Jan Nowak";
+        ksiazka.append_attribute("Title")="Studenci potrafi";
+    doc.save_file("biblioteka.txt");
 }

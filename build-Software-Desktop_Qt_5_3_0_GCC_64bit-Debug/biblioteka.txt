@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Biblioteka Adres="ul. Ćwiartki 3/4, 50-400 Wrocaw">
+	<Regal Description="Science">
+		<Ksiazka Author="Jan Kowalski" Title="Z kamera wśród studentw" />
+		<Ksiazka Author="Jan Brzechwa" Title="Wszyscy studenci dostan pi" />
+	</Regal>
+	<Regal>
+		<Ksiazka Author="Jan Nowak" Title="Studenci potrafi" />
+	</Regal>
+</Biblioteka>
