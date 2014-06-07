@@ -27,7 +27,7 @@ public slots:
 
 private:
     Ui::WindowUserMain *ui;
-    QObject *CurrentWidget;
+    QWidget *CurrentWidget;
     int WhatsClicked;
     int WidgetExists;
 };

@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceMain_t {
     QByteArrayData data[10];
-    char stringdata[196];
+    char stringdata[183];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,16 +36,16 @@ QT_MOC_LITERAL(3, 34, 21),
 QT_MOC_LITERAL(4, 56, 26),
 QT_MOC_LITERAL(5, 83, 21),
 QT_MOC_LITERAL(6, 105, 29),
-QT_MOC_LITERAL(7, 135, 27),
-QT_MOC_LITERAL(8, 163, 15),
-QT_MOC_LITERAL(9, 179, 16)
+QT_MOC_LITERAL(7, 135, 15),
+QT_MOC_LITERAL(8, 151, 16),
+QT_MOC_LITERAL(9, 168, 14)
     },
     "WindowRaceMain\0buttonRaceClicked\0\0"
     "buttonSettingsClicked\0buttonCommunicationClicked\0"
     "on_buttonRace_clicked\0"
     "on_buttonRaceSettings_clicked\0"
-    "on_buttonConnection_clicked\0onconnection_ON\0"
-    "onconnection_OFF"
+    "onconnection_ON\0onconnection_OFF\0"
+    "onbyteReceived"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
  // slots: name, argc, parameters, tag, flags
        5,    0,   57,    2, 0x08 /* Private */,
        6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
+       7,    0,   59,    2, 0x0a /* Public */,
        8,    0,   60,    2, 0x0a /* Public */,
        9,    0,   61,    2, 0x0a /* Public */,
 
@@ -99,9 +99,9 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 2: _t->buttonCommunicationClicked(); break;
         case 3: _t->on_buttonRace_clicked(); break;
         case 4: _t->on_buttonRaceSettings_clicked(); break;
-        case 5: _t->on_buttonConnection_clicked(); break;
-        case 6: _t->onconnection_ON(); break;
-        case 7: _t->onconnection_OFF(); break;
+        case 5: _t->onconnection_ON(); break;
+        case 6: _t->onconnection_OFF(); break;
+        case 7: _t->onbyteReceived(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

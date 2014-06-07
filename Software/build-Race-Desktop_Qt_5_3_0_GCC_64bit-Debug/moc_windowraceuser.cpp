@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceUser_t {
-    QByteArrayData data[4];
-    char stringdata[36];
+    QByteArrayData data[3];
+    char stringdata[31];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,10 +31,9 @@ static const qt_meta_stringdata_WindowRaceUser_t qt_meta_stringdata_WindowRaceUs
     {
 QT_MOC_LITERAL(0, 0, 14),
 QT_MOC_LITERAL(1, 15, 14),
-QT_MOC_LITERAL(2, 30, 0),
-QT_MOC_LITERAL(3, 31, 4)
+QT_MOC_LITERAL(2, 30, 0)
     },
-    "WindowRaceUser\0onbyteReceived\0\0data"
+    "WindowRaceUser\0onbyteReceived\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -52,10 +51,10 @@ static const uint qt_meta_data_WindowRaceUser[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x0a /* Public */,
+       1,    0,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Char,    3,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -65,10 +64,11 @@ void WindowRaceUser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     if (_c == QMetaObject::InvokeMetaMethod) {
         WindowRaceUser *_t = static_cast<WindowRaceUser *>(_o);
         switch (_id) {
-        case 0: _t->onbyteReceived((*reinterpret_cast< char(*)>(_a[1]))); break;
+        case 0: _t->onbyteReceived(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject WindowRaceUser::staticMetaObject = {

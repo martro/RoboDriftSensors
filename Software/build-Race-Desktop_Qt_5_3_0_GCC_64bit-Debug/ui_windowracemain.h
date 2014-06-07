@@ -27,22 +27,27 @@ QT_BEGIN_NAMESPACE
 class Ui_WindowRaceMain
 {
 public:
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
     QPushButton *buttonRace;
     QPushButton *buttonRaceSettings;
     QPushButton *buttonConnection;
     QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout_2;
     QGridLayout *CurrentWindow;
     QLabel *image;
+    QGridLayout *Communication;
 
     void setupUi(QWidget *WindowRaceMain)
     {
         if (WindowRaceMain->objectName().isEmpty())
             WindowRaceMain->setObjectName(QStringLiteral("WindowRaceMain"));
-        WindowRaceMain->resize(400, 300);
-        horizontalLayout = new QHBoxLayout(WindowRaceMain);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        WindowRaceMain->resize(581, 414);
+        verticalLayout_3 = new QVBoxLayout(WindowRaceMain);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         buttonRace = new QPushButton(WindowRaceMain);
@@ -65,8 +70,10 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        horizontalLayout_2->addLayout(verticalLayout);
 
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         CurrentWindow = new QGridLayout();
         CurrentWindow->setObjectName(QStringLiteral("CurrentWindow"));
         image = new QLabel(WindowRaceMain);
@@ -76,7 +83,18 @@ public:
         CurrentWindow->addWidget(image, 0, 0, 1, 1);
 
 
-        horizontalLayout->addLayout(CurrentWindow);
+        verticalLayout_2->addLayout(CurrentWindow);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
+
+        Communication = new QGridLayout();
+        Communication->setObjectName(QStringLiteral("Communication"));
+
+        verticalLayout_3->addLayout(Communication);
 
 
         retranslateUi(WindowRaceMain);

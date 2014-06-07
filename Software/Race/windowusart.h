@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QSerialPort>
+#include <QMessageBox>
 
 namespace Ui {
 class WindowUSART;
@@ -17,7 +18,7 @@ public:
     ~WindowUSART();
 
 signals:
-    void byteReceived(char data);
+    void byteReceived();
     void connection_ON();
     void connection_OFF();
 
@@ -33,6 +34,7 @@ private slots:
 private:
     Ui::WindowUSART *ui;
     QString dataToString(char data);
+    QSerialPort *serial;
 };
 
 #endif // WINDOWUSART_H

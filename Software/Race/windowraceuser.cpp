@@ -83,7 +83,7 @@ void WindowRaceUser::leds(char data)
         this->ui->Sensor5->setPalette(*palette);
 }
 
-void WindowRaceUser::onbyteReceived(char data)
+void WindowRaceUser::onbyteReceived()
 {
 
 }

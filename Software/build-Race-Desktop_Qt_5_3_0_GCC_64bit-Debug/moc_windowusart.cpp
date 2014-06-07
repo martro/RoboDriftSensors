@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowUSART_t {
-    QByteArrayData data[11];
-    char stringdata[152];
+    QByteArrayData data[10];
+    char stringdata[147];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,20 +32,18 @@ static const qt_meta_stringdata_WindowUSART_t qt_meta_stringdata_WindowUSART = {
 QT_MOC_LITERAL(0, 0, 11),
 QT_MOC_LITERAL(1, 12, 12),
 QT_MOC_LITERAL(2, 25, 0),
-QT_MOC_LITERAL(3, 26, 4),
-QT_MOC_LITERAL(4, 31, 13),
-QT_MOC_LITERAL(5, 45, 14),
-QT_MOC_LITERAL(6, 60, 21),
-QT_MOC_LITERAL(7, 82, 23),
-QT_MOC_LITERAL(8, 106, 14),
-QT_MOC_LITERAL(9, 121, 22),
-QT_MOC_LITERAL(10, 144, 7)
+QT_MOC_LITERAL(3, 26, 13),
+QT_MOC_LITERAL(4, 40, 14),
+QT_MOC_LITERAL(5, 55, 21),
+QT_MOC_LITERAL(6, 77, 23),
+QT_MOC_LITERAL(7, 101, 14),
+QT_MOC_LITERAL(8, 116, 22),
+QT_MOC_LITERAL(9, 139, 7)
     },
-    "WindowUSART\0byteReceived\0\0data\0"
-    "connection_ON\0connection_OFF\0"
-    "on_pushButton_clicked\0on_pushButton_2_clicked\0"
-    "serialReceived\0on_radioButton_clicked\0"
-    "checked"
+    "WindowUSART\0byteReceived\0\0connection_ON\0"
+    "connection_OFF\0on_pushButton_clicked\0"
+    "on_pushButton_2_clicked\0serialReceived\0"
+    "on_radioButton_clicked\0checked"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,18 +61,18 @@ static const uint qt_meta_data_WindowUSART[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   49,    2, 0x06 /* Public */,
-       4,    0,   52,    2, 0x06 /* Public */,
-       5,    0,   53,    2, 0x06 /* Public */,
+       1,    0,   49,    2, 0x06 /* Public */,
+       3,    0,   50,    2, 0x06 /* Public */,
+       4,    0,   51,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   54,    2, 0x08 /* Private */,
-       7,    0,   55,    2, 0x08 /* Private */,
-       8,    0,   56,    2, 0x08 /* Private */,
-       9,    1,   57,    2, 0x08 /* Private */,
+       5,    0,   52,    2, 0x08 /* Private */,
+       6,    0,   53,    2, 0x08 /* Private */,
+       7,    0,   54,    2, 0x08 /* Private */,
+       8,    1,   55,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Char,    3,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -82,7 +80,7 @@ static const uint qt_meta_data_WindowUSART[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   10,
+    QMetaType::Void, QMetaType::Bool,    9,
 
        0        // eod
 };
@@ -92,7 +90,7 @@ void WindowUSART::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     if (_c == QMetaObject::InvokeMetaMethod) {
         WindowUSART *_t = static_cast<WindowUSART *>(_o);
         switch (_id) {
-        case 0: _t->byteReceived((*reinterpret_cast< char(*)>(_a[1]))); break;
+        case 0: _t->byteReceived(); break;
         case 1: _t->connection_ON(); break;
         case 2: _t->connection_OFF(); break;
         case 3: _t->on_pushButton_clicked(); break;
@@ -105,7 +103,7 @@ void WindowUSART::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (WindowUSART::*_t)(char );
+            typedef void (WindowUSART::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowUSART::byteReceived)) {
                 *result = 0;
             }
@@ -162,10 +160,9 @@ int WindowUSART::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void WindowUSART::byteReceived(char _t1)
+void WindowUSART::byteReceived()
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 
 // SIGNAL 1

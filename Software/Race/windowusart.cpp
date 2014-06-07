@@ -1,7 +1,7 @@
 #include "windowusart.h"
 #include "ui_windowusart.h"
 
-QSerialPort *serial;
+
 
 WindowUSART::WindowUSART(QWidget *parent) :
     QMainWindow(parent),
@@ -15,14 +15,12 @@ WindowUSART::WindowUSART(QWidget *parent) :
     serial->setParity(QSerialPort::NoParity);
     serial->setStopBits(QSerialPort::TwoStop);
     serial->setFlowControl(QSerialPort::NoFlowControl);
-    serial->open(QIODevice::ReadWrite);
     connect(serial,SIGNAL(readyRead()),this,SLOT(serialReceived()));
 
 }
 
 WindowUSART::~WindowUSART()
 {
-    serial->close();
     delete ui;
 }
 
@@ -42,15 +40,18 @@ void WindowUSART::on_pushButton_2_clicked()//b
 void WindowUSART::serialReceived()
 {
   //  this->ui->data->setText(serial->readAll());
-
+/*
     QByteArray dane;
     char a;
 
     dane=serial->readAll();
     a=dane.at(0);
+*/
+    QMessageBox m;
+    m.setText("dupa");
+    m.exec();
 
-    emit byteReceived(a);
-
+    emit byteReceived();
 }
 
 QString WindowUSART::dataToString(char data)
@@ -74,7 +75,13 @@ QString WindowUSART::dataToString(char data)
 void WindowUSART::on_radioButton_clicked(bool checked)
 {
     if (checked)
+    {
+        serial->open(QIODevice::ReadWrite);
         emit connection_ON();
+    }
     else
+    {
+        serial->close();
         emit connection_OFF();
+    }
 }

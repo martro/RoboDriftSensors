@@ -15,6 +15,11 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     connect(this, SIGNAL(buttonRaceClicked()),windowusertemp,SLOT(onButtonRaceClicked()));
     connect(this, SIGNAL(buttonSettingsClicked()),windowusertemp,SLOT(onButtonSettingsClicked()));
     connect(this, SIGNAL(buttonCommunicationClicked()),windowusertemp,SLOT(onButtonCommunicationClicked()));
+    connect(&Window_USART, SIGNAL(connection_ON()),this,SLOT(onconnection_ON()));
+    connect(&Window_USART, SIGNAL(connection_OFF()),this,SLOT(onconnection_OFF()));
+    connect(&Window_USART,SIGNAL(byteReceived()),this,SLOT(onbyteReceived()));
+
+    ui->Communication->addWidget(&Window_USART, 0,0);
 }
 
 WindowRaceMain::~WindowRaceMain()
@@ -30,11 +35,15 @@ void WindowRaceMain::on_buttonRace_clicked()
         if(WhatsClicked != 0)
              delete this->CurrentWidget;
 
+
+
         WhatsClicked = BUTTON_RACE;
         WindowRace *Window_Race = new WindowRace;
 
+        CurrentWidget=Window_Race;
+
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
-        this->CurrentWidget=Window_Race;
+
 
         emit buttonRaceClicked();
     }
@@ -49,35 +58,19 @@ void WindowRaceMain::on_buttonRaceSettings_clicked()
         if(WhatsClicked != 0)
             delete this->CurrentWidget;
 
+
+
         WhatsClicked = BUTTON_SETTINGS;
         WindowRaceSettings *Window_Race_Settings = new WindowRaceSettings;
 
+        CurrentWidget=Window_Race_Settings;
+
         ui->CurrentWindow->addWidget(Window_Race_Settings, 0,0);
-        this->CurrentWidget=Window_Race_Settings;
 
         emit buttonSettingsClicked();
     }
 }
 
-void WindowRaceMain::on_buttonConnection_clicked()
-{
-    ui->image->hide();
-    if(WhatsClicked != BUTTON_COMMUNICATION)
-    {
-        if(WhatsClicked != 0)
-            delete this->CurrentWidget;
-
-        WhatsClicked = BUTTON_COMMUNICATION;
-        WindowUSART *Window_USART = new WindowUSART;
-
-        ui->CurrentWindow->addWidget(Window_USART, 0,0);
-        this->CurrentWidget=Window_USART;
-
-        connect(Window_USART, SIGNAL(connection_ON()),this,SLOT(onconnection_ON()));
-        connect(Window_USART, SIGNAL(connection_OFF()),this,SLOT(onconnection_OFF()));
-        emit buttonCommunicationClicked();
-    }
-}
 
 void WindowRaceMain::onconnection_ON()
 {
@@ -93,4 +86,11 @@ void WindowRaceMain::onconnection_OFF()
     m.setText("connection off");
     m.exec();
     ConnectionEstablished=0;
+}
+
+void WindowRaceMain::onbyteReceived()
+{
+    QMessageBox m;
+    m.setText("okokok");
+    m.exec();
 }

@@ -29,11 +29,10 @@ private slots:
 
     void on_buttonRaceSettings_clicked();
 
-    void on_buttonConnection_clicked();
-
 public slots:
     void onconnection_ON();
     void onconnection_OFF();
+    void onbyteReceived();
 
 
 signals:
@@ -44,10 +43,11 @@ signals:
 
 private:
     Ui::WindowRaceMain *ui;
-    QObject *CurrentWidget;
+    QWidget *CurrentWidget;
     int WhatsClicked;
     WindowUserMain windowusertemp;
     bool ConnectionEstablished;
+    WindowUSART Window_USART;
 };
 
 #endif // WINDOWRACEMAIN_H
