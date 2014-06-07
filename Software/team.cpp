@@ -125,7 +125,7 @@ Car::Car()
     RD = false;
     TA = false;
     FR = false;
-    ID = "ID";
+    ID = "0";
     Name = "name";
 }
 void Car::clear()
@@ -135,7 +135,7 @@ void Car::clear()
     RD = false;
     TA = false;
     FR = false;
-    ID = "ID";
+    ID = "0";
     Name = "name";
 }
 

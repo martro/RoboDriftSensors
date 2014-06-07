@@ -8,6 +8,7 @@ WindowAdmin::WindowAdmin(QWidget *parent) :
 {
     ui->setupUi(this);
     WhatsClicked = 0;
+    HighestID = 0;
 }
 
 WindowAdmin::~WindowAdmin()
@@ -38,15 +39,19 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
 }
 
 void WindowAdmin::onSendCurrentListOfTeams(vector<Team> tempListOfTeams)
-{
+{    
     listOfTeams = tempListOfTeams;
+
+    //nadanie numeru ID
+    setIDs(listOfTeams);
+
     saveToXML(); //zapis do XML
 
-    for(unsigned int x=0; x<listOfTeams.size();x++)
+    /*for(unsigned int x=0; x<listOfTeams.size();x++)
     {
-        this->ui->textBrowser->append(listOfTeams.at(x).getName());
+        this->ui->textBrowser->append(listOfTeams.at(x)));
     }
-    this->ui->textBrowser->append(" ");
+    this->ui->textBrowser->append(" "); */
 
     delete this->CurrentWidget; //usuwanie okna
     WindowAddTeam *Window_Add_Team = new WindowAddTeam;
@@ -61,6 +66,28 @@ void WindowAdmin::onSendCurrentListOfTeams(vector<Team> tempListOfTeams)
     emit this->ButtonAddEditTeam(this->listOfTeams);
 }
 
+void WindowAdmin::setIDs(vector<Team> listOfTeams)
+{
+    int IDAdded = YES;
+    do
+    {
+        IDAdded = NO;
+        for(unsigned int counter=0; counter<listOfTeams.size();counter++)
+        {
+            for(unsigned  int c=0; c<listOfTeams.at(counter).ListOfCars.size(); c++)
+            {
+                if( listOfTeams.at(counter).ListOfCars.at(c).getID() == "0")
+                {
+                    HighestID += 1;
+                    listOfTeams.at(counter).ListOfCars.at(c).setID(QString::number(HighestID));
+                    IDAdded = YES; //wiec trzeba przelecie jeszcze raz cała procedure
+                }
+            }
+        }
+    } while(IDAdded == YES);
+
+    this->listOfTeams = listOfTeams;
+}
 
 void WindowAdmin::on_ButtonNewRace_clicked()
 {
@@ -106,7 +133,7 @@ void WindowAdmin::saveToXML()
         {
             xml_node Car = Team.append_child("Car");
             Car.append_attribute("Name") = listOfTeams.at(x).ListOfCars.at(c).getName().toStdString().c_str();
-            Car.append_attribute("ID") = listOfTeams.at(x).ListOfCars.at(c).getID().toStdString().c_str();
+            Car.append_attribute("ID") = listOfTeams.at(x).ListOfCars.at(c).getID().toStdString().c_str(); //ID jest w stringu
 
 
             xml_node Category = Car.append_child("Category");
@@ -149,6 +176,7 @@ void WindowAdmin::readFromXML()
     else
     {
         listOfTeams.clear();
+        HighestID=0;
 
         xml_node LOT=XMLListOfTeams.child("ListOfTeams");
         for(xml_node ReadTeam=LOT.child("Team");ReadTeam;ReadTeam=ReadTeam.next_sibling("Team"))
@@ -171,11 +199,15 @@ void WindowAdmin::readFromXML()
                 TempMember.setSurname( ReadMember.attribute("Surname").value());
                 TempTeam.ListOfMembers.push_back(TempMember);
             }
+
             Car TempCar;
             for(xml_node ReadCar=ReadTeam.child("Car");ReadCar;ReadCar=ReadCar.next_sibling("Car"))
             {
                 TempCar.setName( ReadCar.attribute("Name").value());
                 TempCar.setID( ReadCar.attribute("ID").value());
+
+                if(TempCar.getID().toInt() >= HighestID)
+                    HighestID = TempCar.getID().toInt(); //zapisuje najwyższy numer ID
 
 
                 xml_node ReadCarCategory = ReadCar.child("Category");

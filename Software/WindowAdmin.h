@@ -16,6 +16,9 @@
 using namespace pugi;
 using namespace std;
 
+#define YES 1
+#define NO 0
+
 namespace Ui {
 class WindowAdmin;
 }
@@ -29,6 +32,7 @@ public:
     ~WindowAdmin();
     void saveToXML();
     void readFromXML();
+    void setIDs(vector<Team> listOfTeams);
     
 private slots:
     void on_ButtonAddEditTeam_clicked();
@@ -46,6 +50,8 @@ private:
     int WhatsClicked;
     QObject *CurrentWidget;
     vector<Team> listOfTeams;
+    vector<int> ListOfCarsID;
+    int HighestID;
 };
 
 #endif // WINDOWADMIN_H

@@ -18,6 +18,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -31,23 +32,23 @@ class Ui_WindowAddCar
 public:
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout_2;
-    QLabel *label;
-    QComboBox *comboBox;
-    QLineEdit *lineName;
-    QLineEdit *lineID;
-    QLabel *label_2;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *ButtonAdd;
     QPushButton *ButtonDelete;
-    QLabel *label_3;
-    QLabel *label_4;
+    QComboBox *comboBox;
+    QLabel *label;
     QVBoxLayout *verticalLayout_2;
     QCheckBox *checkBoxCategoryRC;
     QCheckBox *checkBoxCategoryMO;
     QCheckBox *checkBoxCategoryRD;
+    QLabel *label_2;
+    QLineEdit *lineName;
+    QLabel *label_4;
+    QLabel *label_3;
     QVBoxLayout *verticalLayout_3;
     QCheckBox *checkBoxCompetitionTA;
     QCheckBox *checkBoxCompetitionFR;
+    QLCDNumber *lineID;
 
     void setupUi(QWidget *WindowAddCar)
     {
@@ -58,31 +59,6 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        label = new QLabel(WindowAddCar);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout_2->addWidget(label, 1, 0, 1, 1);
-
-        comboBox = new QComboBox(WindowAddCar);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        gridLayout_2->addWidget(comboBox, 0, 1, 1, 1);
-
-        lineName = new QLineEdit(WindowAddCar);
-        lineName->setObjectName(QStringLiteral("lineName"));
-
-        gridLayout_2->addWidget(lineName, 1, 1, 1, 1);
-
-        lineID = new QLineEdit(WindowAddCar);
-        lineID->setObjectName(QStringLiteral("lineID"));
-
-        gridLayout_2->addWidget(lineID, 2, 1, 1, 1);
-
-        label_2 = new QLabel(WindowAddCar);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
-
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         ButtonAdd = new QPushButton(WindowAddCar);
@@ -98,15 +74,15 @@ public:
 
         gridLayout_2->addLayout(horizontalLayout_2, 5, 1, 1, 1);
 
-        label_3 = new QLabel(WindowAddCar);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        comboBox = new QComboBox(WindowAddCar);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
 
-        gridLayout_2->addWidget(label_3, 3, 0, 1, 1);
+        gridLayout_2->addWidget(comboBox, 0, 1, 1, 1);
 
-        label_4 = new QLabel(WindowAddCar);
-        label_4->setObjectName(QStringLiteral("label_4"));
+        label = new QLabel(WindowAddCar);
+        label->setObjectName(QStringLiteral("label"));
 
-        gridLayout_2->addWidget(label_4, 4, 0, 1, 1);
+        gridLayout_2->addWidget(label, 1, 0, 1, 1);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -128,6 +104,26 @@ public:
 
         gridLayout_2->addLayout(verticalLayout_2, 3, 1, 1, 1);
 
+        label_2 = new QLabel(WindowAddCar);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
+
+        lineName = new QLineEdit(WindowAddCar);
+        lineName->setObjectName(QStringLiteral("lineName"));
+
+        gridLayout_2->addWidget(lineName, 1, 1, 1, 1);
+
+        label_4 = new QLabel(WindowAddCar);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout_2->addWidget(label_4, 4, 0, 1, 1);
+
+        label_3 = new QLabel(WindowAddCar);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_2->addWidget(label_3, 3, 0, 1, 1);
+
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         checkBoxCompetitionTA = new QCheckBox(WindowAddCar);
@@ -143,6 +139,11 @@ public:
 
         gridLayout_2->addLayout(verticalLayout_3, 4, 1, 1, 1);
 
+        lineID = new QLCDNumber(WindowAddCar);
+        lineID->setObjectName(QStringLiteral("lineID"));
+
+        gridLayout_2->addWidget(lineID, 2, 1, 1, 1);
+
 
         horizontalLayout->addLayout(gridLayout_2);
 
@@ -155,15 +156,15 @@ public:
     void retranslateUi(QWidget *WindowAddCar)
     {
         WindowAddCar->setWindowTitle(QApplication::translate("WindowAddCar", "Form", 0));
-        label->setText(QApplication::translate("WindowAddCar", "Name", 0));
-        label_2->setText(QApplication::translate("WindowAddCar", "ID", 0));
         ButtonAdd->setText(QApplication::translate("WindowAddCar", "Add", 0));
         ButtonDelete->setText(QApplication::translate("WindowAddCar", "Delete", 0));
-        label_3->setText(QApplication::translate("WindowAddCar", "Category", 0));
-        label_4->setText(QApplication::translate("WindowAddCar", "Competition", 0));
+        label->setText(QApplication::translate("WindowAddCar", "Name", 0));
         checkBoxCategoryRC->setText(QApplication::translate("WindowAddCar", "Radio Controlled", 0));
         checkBoxCategoryMO->setText(QApplication::translate("WindowAddCar", "Mobile Open", 0));
         checkBoxCategoryRD->setText(QApplication::translate("WindowAddCar", "RoboDrift", 0));
+        label_2->setText(QApplication::translate("WindowAddCar", "ID", 0));
+        label_4->setText(QApplication::translate("WindowAddCar", "Competition", 0));
+        label_3->setText(QApplication::translate("WindowAddCar", "Category", 0));
         checkBoxCompetitionTA->setText(QApplication::translate("WindowAddCar", "Time Attack", 0));
         checkBoxCompetitionFR->setText(QApplication::translate("WindowAddCar", "FreeStyle", 0));
     } // retranslateUi

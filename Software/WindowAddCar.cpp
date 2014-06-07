@@ -59,7 +59,7 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
                 this->ui->checkBoxCompetitionFR->setChecked(TempListOfCars.at(x).checkFR());
                 this->ui->checkBoxCompetitionTA->setChecked(TempListOfCars.at(x).checkTA());
                 this->ui->lineName->setText(TempListOfCars.at(x).getName() );
-                this->ui->lineID->setText(TempListOfCars.at(x).getID() );
+                this->ui->lineID->display(TempListOfCars.at(x).getID().toStdString().c_str());
 
                 //i danie ich do tempa
                 TempCar.setName(TempListOfCars.at(x).getName());
@@ -78,7 +78,7 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
     else
     {
         this->ui->lineName->setText(TempCar.getName() ); //wyswieltnie domyslnych wartosci
-        this->ui->lineID->setText(TempCar.getID() );
+        this->ui->lineID->display(TempCar.getID().toStdString().c_str() );
     }
 }
 
@@ -143,9 +143,4 @@ void WindowAddCar::on_checkBoxCompetitionTA_clicked(bool checked)
 void WindowAddCar::on_checkBoxCompetitionFR_clicked(bool checked)
 {
     TempCar.setCompetitionFR(checked);
-}
-
-void WindowAddCar::on_lineID_textChanged(const QString &checked)
-{
-    TempCar.setID(checked);
 }

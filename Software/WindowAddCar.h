@@ -33,7 +33,6 @@ private slots:
     void on_checkBoxCompetitionTA_clicked(bool checked);
     void on_checkBoxCompetitionFR_clicked(bool checked);
     void on_ButtonDelete_clicked();
-    void on_lineID_textChanged(const QString &checked);
 
 private:
     Ui::WindowAddCar *ui;

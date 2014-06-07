@@ -1,29 +1,24 @@
 <?xml version="1.0"?>
 <ListOfTeams>
-	<Team Name="Dupa">
-		<Leader Name="Jakub" Surname="Trzyna" Phone="660270052" Email="jakub@wppl" City="Wroclaw" Organization="PWR" />
-		<Member Name="Macin" Surname="trojan" />
-		<Member Name="Marcin" Surname="Twardak" />
-		<Member Name="Leszeke" Surname="Walulik" />
-		<Car Name="legvan" ID="1">
-			<Category RC="NO" MO="Yes" RD="NO" />
+	<Team Name="name">
+		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
+		<Car Name="t2n1" ID="3">
+			<Category RC="NO" MO="NO" RD="NO" />
 			<Competition FR="NO" TA="NO" />
 		</Car>
-		<Car Name="quadors" ID="I2">
-			<Category RC="NO" MO="Yes" RD="NO" />
+		<Car Name="t2n2" ID="4">
+			<Category RC="NO" MO="NO" RD="NO" />
 			<Competition FR="NO" TA="NO" />
 		</Car>
 	</Team>
-	<Team Name="dupa1">
+	<Team Name="t1">
 		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
-		<Member Name="Jekosław" Surname="Szrek" />
-		<Member Name="Przemysław" Surname="Sperzyński" />
-		<Car Name="szrekowoz" ID="3">
-			<Category RC="NO" MO="Yes" RD="NO" />
+		<Car Name="n2" ID="2">
+			<Category RC="NO" MO="NO" RD="NO" />
 			<Competition FR="NO" TA="NO" />
 		</Car>
-		<Car Name="drifrtes" ID="I4">
-			<Category RC="NO" MO="Yes" RD="NO" />
+		<Car Name="n3" ID="1">
+			<Category RC="NO" MO="NO" RD="NO" />
 			<Competition FR="NO" TA="NO" />
 		</Car>
 	</Team>
