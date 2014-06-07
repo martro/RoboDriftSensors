@@ -5,13 +5,26 @@
 		<Member Name="Macin" Surname="trojan" />
 		<Member Name="Marcin" Surname="Twardak" />
 		<Member Name="Leszeke" Surname="Walulik" />
-		<Car Name="quadro" ID="2">
-			<Category RC="Yes" MO="NO" RD="NO" />
-			<Competition FR="Yes" TA="NO" />
-		</Car>
 		<Car Name="legvan" ID="1">
-			<Category RC="Yes" MO="NO" RD="Yes" />
-			<Competition FR="NO" TA="Yes" />
+			<Category RC="NO" MO="Yes" RD="NO" />
+			<Competition FR="NO" TA="NO" />
+		</Car>
+		<Car Name="quadors" ID="I2">
+			<Category RC="NO" MO="Yes" RD="NO" />
+			<Competition FR="NO" TA="NO" />
+		</Car>
+	</Team>
+	<Team Name="dupa1">
+		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
+		<Member Name="Jekosław" Surname="Szrek" />
+		<Member Name="Przemysław" Surname="Sperzyński" />
+		<Car Name="szrekowoz" ID="3">
+			<Category RC="NO" MO="Yes" RD="NO" />
+			<Competition FR="NO" TA="NO" />
+		</Car>
+		<Car Name="drifrtes" ID="I4">
+			<Category RC="NO" MO="Yes" RD="NO" />
+			<Competition FR="NO" TA="NO" />
 		</Car>
 	</Team>
 </ListOfTeams>

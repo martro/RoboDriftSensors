@@ -17,8 +17,6 @@ WindowAdmin::~WindowAdmin()
 
 void WindowAdmin::on_ButtonAddEditTeam_clicked()
 {
-    readFromXML();
-
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
@@ -26,6 +24,9 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
              delete this->CurrentWidget;
         WhatsClicked = BUTTON_ADD_TEAM;
         WindowAddTeam *Window_Add_Team = new WindowAddTeam;
+
+        listOfTeams.clear();
+        readFromXML();
 
         ui->CurrentWindow->addWidget(Window_Add_Team, 0,0);
         this->CurrentWidget=Window_Add_Team;
@@ -55,6 +56,8 @@ void WindowAdmin::onSendCurrentListOfTeams(vector<Team> tempListOfTeams)
     connect(this, SIGNAL(ButtonAddEditTeam(vector<Team>)), Window_Add_Team, SLOT(onButtonAddEditTeam(vector<Team>)));
     connect(Window_Add_Team, SIGNAL(sendCurrentListOfTeams(vector<Team>)), this, SLOT(onSendCurrentListOfTeams(vector<Team>)));
 
+    listOfTeams.clear();
+    readFromXML();
     emit this->ButtonAddEditTeam(this->listOfTeams);
 }
 
@@ -169,7 +172,7 @@ void WindowAdmin::readFromXML()
                 TempTeam.ListOfMembers.push_back(TempMember);
             }
             Car TempCar;
-            for(xml_node ReadCar=ReadCar.child("Car");ReadCar;ReadCar=ReadCar.next_sibling("Car"))
+            for(xml_node ReadCar=ReadTeam.child("Car");ReadCar;ReadCar=ReadCar.next_sibling("Car"))
             {
                 TempCar.setName( ReadCar.attribute("Name").value());
                 TempCar.setID( ReadCar.attribute("ID").value());
