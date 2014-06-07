@@ -6,10 +6,11 @@
 #define BUTTON_COMMUNICATION 3
 
 #include <QWidget>
+#include <QMessageBox>
 #include "windowrace.h"
 #include "windowusermain.h"
 #include "windowracesettings.h"
-#include "windowracecommunication.h"
+#include "windowusart.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -30,6 +31,11 @@ private slots:
 
     void on_buttonConnection_clicked();
 
+public slots:
+    void onconnection_ON();
+    void onconnection_OFF();
+
+
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
@@ -41,6 +47,7 @@ private:
     QObject *CurrentWidget;
     int WhatsClicked;
     WindowUserMain windowusertemp;
+    bool ConnectionEstablished;
 };
 
 #endif // WINDOWRACEMAIN_H

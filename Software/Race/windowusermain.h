@@ -4,6 +4,7 @@
 #define WIDGET_RACE 1
 
 #include <QWidget>
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -22,6 +23,7 @@ public slots:
     void onButtonRaceClicked();
     void onButtonSettingsClicked();
     void onButtonCommunicationClicked();
+    void onconnection_ON();
 
 private:
     Ui::WindowUserMain *ui;

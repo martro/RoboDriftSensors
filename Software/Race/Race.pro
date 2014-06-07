@@ -19,8 +19,7 @@ SOURCES += main.cpp\
     windowusart.cpp \
     windowusermain.cpp \
     windowracemain.cpp \
-    windowracesettings.cpp \
-    windowracecommunication.cpp
+    windowracesettings.cpp
 
 HEADERS  += windowrace.h \
     measurement.h \
@@ -28,16 +27,14 @@ HEADERS  += windowrace.h \
     windowusart.h \
     windowusermain.h \
     windowracemain.h \
-    windowracesettings.h \
-    windowracecommunication.h
+    windowracesettings.h
 
 FORMS    += windowrace.ui \
     windowraceuser.ui \
     windowusart.ui \
     windowusermain.ui \
     windowracemain.ui \
-    windowracesettings.ui \
-    windowracecommunication.ui
+    windowracesettings.ui
 
 RESOURCES += \
     Images.qrc

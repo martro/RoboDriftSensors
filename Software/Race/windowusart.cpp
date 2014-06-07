@@ -70,3 +70,11 @@ QString WindowUSART::dataToString(char data)
 
     return DataStr;
 }
+
+void WindowUSART::on_radioButton_clicked(bool checked)
+{
+    if (checked)
+        emit connection_ON();
+    else
+        emit connection_OFF();
+}

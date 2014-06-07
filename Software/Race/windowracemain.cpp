@@ -68,11 +68,29 @@ void WindowRaceMain::on_buttonConnection_clicked()
             delete this->CurrentWidget;
 
         WhatsClicked = BUTTON_COMMUNICATION;
-        WindowRaceCommunication *Window_Race_Communication = new WindowRaceCommunication;
+        WindowUSART *Window_USART = new WindowUSART;
 
-        ui->CurrentWindow->addWidget(Window_Race_Communication, 0,0);
-        this->CurrentWidget=Window_Race_Communication;
+        ui->CurrentWindow->addWidget(Window_USART, 0,0);
+        this->CurrentWidget=Window_USART;
 
+        connect(Window_USART, SIGNAL(connection_ON()),this,SLOT(onconnection_ON()));
+        connect(Window_USART, SIGNAL(connection_OFF()),this,SLOT(onconnection_OFF()));
         emit buttonCommunicationClicked();
     }
+}
+
+void WindowRaceMain::onconnection_ON()
+{
+    QMessageBox m;
+    m.setText("connection on");
+    m.exec();
+    ConnectionEstablished=1;
+}
+
+void WindowRaceMain::onconnection_OFF()
+{
+    QMessageBox m;
+    m.setText("connection off");
+    m.exec();
+    ConnectionEstablished=0;
 }

@@ -18,12 +18,17 @@ public:
 
 signals:
     void byteReceived(char data);
+    void connection_ON();
+    void connection_OFF();
+
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
     void serialReceived();
+
+    void on_radioButton_clicked(bool checked);
 
 private:
     Ui::WindowUSART *ui;

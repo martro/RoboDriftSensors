@@ -45,3 +45,11 @@ void WindowUserMain::onButtonCommunicationClicked()
 
     WidgetExists=0;
 }
+
+void WindowUserMain::onconnection_ON()
+{
+    QMessageBox m;
+    m.setText("connectiodsdvsn on");
+    m.exec();
+}
+

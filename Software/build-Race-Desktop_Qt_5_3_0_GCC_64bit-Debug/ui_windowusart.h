@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -31,6 +32,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QLabel *data;
+    QRadioButton *radioButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -51,6 +53,9 @@ public:
         data = new QLabel(centralWidget);
         data->setObjectName(QStringLiteral("data"));
         data->setGeometry(QRect(30, 120, 231, 17));
+        radioButton = new QRadioButton(centralWidget);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setGeometry(QRect(10, 10, 161, 22));
         WindowUSART->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowUSART);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -74,6 +79,7 @@ public:
         pushButton->setText(QApplication::translate("WindowUSART", "a", 0));
         pushButton_2->setText(QApplication::translate("WindowUSART", "b", 0));
         data->setText(QApplication::translate("WindowUSART", "Data", 0));
+        radioButton->setText(QApplication::translate("WindowUSART", "Connection ON/OFF", 0));
     } // retranslateUi
 
 };
