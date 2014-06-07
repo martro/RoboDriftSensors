@@ -32,7 +32,6 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *buttonRace;
     QPushButton *buttonRaceSettings;
-    QPushButton *buttonConnection;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *CurrentWindow;
@@ -59,11 +58,6 @@ public:
         buttonRaceSettings->setObjectName(QStringLiteral("buttonRaceSettings"));
 
         verticalLayout->addWidget(buttonRaceSettings);
-
-        buttonConnection = new QPushButton(WindowRaceMain);
-        buttonConnection->setObjectName(QStringLiteral("buttonConnection"));
-
-        verticalLayout->addWidget(buttonConnection);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -96,6 +90,8 @@ public:
 
         verticalLayout_3->addLayout(Communication);
 
+        verticalLayout_3->setStretch(0, 5);
+        verticalLayout_3->setStretch(1, 1);
 
         retranslateUi(WindowRaceMain);
 
@@ -107,7 +103,6 @@ public:
         WindowRaceMain->setWindowTitle(QApplication::translate("WindowRaceMain", "Form", 0));
         buttonRace->setText(QApplication::translate("WindowRaceMain", "Race", 0));
         buttonRaceSettings->setText(QApplication::translate("WindowRaceMain", "Race Settings", 0));
-        buttonConnection->setText(QApplication::translate("WindowRaceMain", "Connection", 0));
         image->setText(QString());
     } // retranslateUi
 

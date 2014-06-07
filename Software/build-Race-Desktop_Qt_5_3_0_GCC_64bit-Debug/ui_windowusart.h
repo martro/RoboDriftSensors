@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -21,6 +22,7 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,10 +31,12 @@ class Ui_WindowUSART
 {
 public:
     QWidget *centralWidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *radioButton;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QLabel *data;
-    QRadioButton *radioButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -41,25 +45,43 @@ public:
     {
         if (WindowUSART->objectName().isEmpty())
             WindowUSART->setObjectName(QStringLiteral("WindowUSART"));
-        WindowUSART->resize(400, 300);
+        WindowUSART->resize(429, 138);
         centralWidget = new QWidget(WindowUSART);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(50, 40, 99, 27));
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(190, 40, 99, 27));
-        data = new QLabel(centralWidget);
-        data->setObjectName(QStringLiteral("data"));
-        data->setGeometry(QRect(30, 120, 231, 17));
+        verticalLayout = new QVBoxLayout(centralWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         radioButton = new QRadioButton(centralWidget);
         radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setGeometry(QRect(10, 10, 161, 22));
+
+        horizontalLayout->addWidget(radioButton);
+
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        horizontalLayout->addWidget(pushButton);
+
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+
+        horizontalLayout->addWidget(pushButton_2);
+
+        data = new QLabel(centralWidget);
+        data->setObjectName(QStringLiteral("data"));
+
+        horizontalLayout->addWidget(data);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
         WindowUSART->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowUSART);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 25));
+        menuBar->setGeometry(QRect(0, 0, 429, 25));
         WindowUSART->setMenuBar(menuBar);
         mainToolBar = new QToolBar(WindowUSART);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -76,10 +98,10 @@ public:
     void retranslateUi(QMainWindow *WindowUSART)
     {
         WindowUSART->setWindowTitle(QApplication::translate("WindowUSART", "WindowUSART", 0));
-        pushButton->setText(QApplication::translate("WindowUSART", "a", 0));
-        pushButton_2->setText(QApplication::translate("WindowUSART", "b", 0));
-        data->setText(QApplication::translate("WindowUSART", "Data", 0));
         radioButton->setText(QApplication::translate("WindowUSART", "Connection ON/OFF", 0));
+        pushButton->setText(QApplication::translate("WindowUSART", "LED OFF", 0));
+        pushButton_2->setText(QApplication::translate("WindowUSART", "LED ON", 0));
+        data->setText(QApplication::translate("WindowUSART", "Data", 0));
     } // retranslateUi
 
 };

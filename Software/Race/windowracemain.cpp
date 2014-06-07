@@ -90,7 +90,5 @@ void WindowRaceMain::onconnection_OFF()
 
 void WindowRaceMain::onbyteReceived()
 {
-    QMessageBox m;
-    m.setText("okokok");
-    m.exec();
+
 }

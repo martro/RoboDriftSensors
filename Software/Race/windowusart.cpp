@@ -39,17 +39,16 @@ void WindowUSART::on_pushButton_2_clicked()//b
 
 void WindowUSART::serialReceived()
 {
-  //  this->ui->data->setText(serial->readAll());
-/*
-    QByteArray dane;
-    char a;
 
+
+    QByteArray dane;
     dane=serial->readAll();
+
+    char a;
     a=dane.at(0);
-*/
-    QMessageBox m;
-    m.setText("dupa");
-    m.exec();
+
+    this->ui->data->setText(dataToString(a));
+
 
     emit byteReceived();
 }

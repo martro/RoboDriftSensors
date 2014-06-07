@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="5,1">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
@@ -29,13 +29,6 @@
         <widget class="QPushButton" name="buttonRaceSettings">
          <property name="text">
           <string>Race Settings</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonConnection">
-         <property name="text">
-          <string>Connection</string>
          </property>
         </widget>
        </item>
