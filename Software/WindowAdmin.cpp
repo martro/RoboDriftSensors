@@ -17,7 +17,7 @@ WindowAdmin::~WindowAdmin()
 
 void WindowAdmin::on_ButtonAddEditTeam_clicked()
 {
-    saveToXML();
+    readFromXML();
 
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
@@ -109,26 +109,94 @@ void WindowAdmin::saveToXML()
             xml_node Category = Car.append_child("Category");
             if(listOfTeams.at(x).ListOfCars.at(c).checkRC())
                 Category.append_attribute("RC") = "Yes";
+            else Category.append_attribute("RC") = "NO";
+
             if(listOfTeams.at(x).ListOfCars.at(c).checkMO())
                 Category.append_attribute("MO") = "Yes";
+            else Category.append_attribute("MO") = "NO";
+
             if(listOfTeams.at(x).ListOfCars.at(c).checkRD())
                 Category.append_attribute("RD") = "Yes";
+            else Category.append_attribute("RD") = "NO";
 
 
             xml_node Competition = Car.append_child("Competition");
             if(listOfTeams.at(x).ListOfCars.at(c).checkFR())
                 Competition.append_attribute("FR") = "Yes";
+            else Competition.append_attribute("FR") = "NO";
+
             if(listOfTeams.at(x).ListOfCars.at(c).checkTA())
                 Competition.append_attribute("TA") = "Yes";
+            else Competition.append_attribute("TA") = "NO";
 
         }
-
-
-
-
-
     }
-
     XMLListOfTeams.save_file("/home/kuba/github/RoboDriftSensors/Software/data.xml");
+}
 
+void WindowAdmin::readFromXML()
+{
+    xml_document XMLListOfTeams;
+
+    if (!XMLListOfTeams.load_file("/home/kuba/github/RoboDriftSensors/Software/data.xml"))
+    {
+        QMessageBox Error;
+        Error.setText("Can't read the XML file");
+    }
+    else
+    {
+        listOfTeams.clear();
+
+        xml_node LOT=XMLListOfTeams.child("ListOfTeams");
+        for(xml_node ReadTeam=LOT.child("Team");ReadTeam;ReadTeam=ReadTeam.next_sibling("Team"))
+        {
+            Team TempTeam;
+            TempTeam.setName(ReadTeam.attribute("Name").value());
+
+            xml_node ReadLeader = ReadTeam.child("Leader");
+            TempTeam.LeaderInfo.setName( ReadLeader.attribute("Name").value());
+            TempTeam.LeaderInfo.setSurname( ReadLeader.attribute("Surname").value());
+            TempTeam.LeaderInfo.setPhone( ReadLeader.attribute("Phone").value());
+            TempTeam.LeaderInfo.setEmail( ReadLeader.attribute("Email").value());
+            TempTeam.LeaderInfo.setCity( ReadLeader.attribute("City").value());
+            TempTeam.LeaderInfo.setOrganization( ReadLeader.attribute("Organization").value());
+
+            Member TempMember;
+            for(xml_node ReadMember=ReadTeam.child("Member");ReadMember;ReadMember=ReadMember.next_sibling("Member"))
+            {
+                TempMember.setName( ReadMember.attribute("Name").value());
+                TempMember.setSurname( ReadMember.attribute("Surname").value());
+                TempTeam.ListOfMembers.push_back(TempMember);
+            }
+            Car TempCar;
+            for(xml_node ReadCar=ReadCar.child("Car");ReadCar;ReadCar=ReadCar.next_sibling("Car"))
+            {
+                TempCar.setName( ReadCar.attribute("Name").value());
+                TempCar.setID( ReadCar.attribute("ID").value());
+
+
+                xml_node ReadCarCategory = ReadCar.child("Category");
+
+                QString Val;
+                if( Val.append( ReadCarCategory.attribute("MO").value() ) == "Yes")
+                    TempCar.setCategoryMO(true);
+                if( Val.append( ReadCarCategory.attribute("RC").value() ) == "Yes")
+                    TempCar.setCategoryRC(true);
+                if( Val.append( ReadCarCategory.attribute("RD").value() ) == "Yes")
+                    TempCar.setCategoryRD(true);
+
+
+                xml_node ReadCarCompetition = ReadCar.child("Competition");
+
+                if( Val.append( ReadCarCompetition.attribute("TA").value() ) == "Yes")
+                    TempCar.setCompetitionTA(true);
+                if( Val.append( ReadCarCompetition.attribute("FR").value() ) == "Yes")
+                    TempCar.setCompetitionFR(true);
+
+
+                TempTeam.ListOfCars.push_back(TempCar);
+            }
+            listOfTeams.push_back(TempTeam);
+        }
+    }
 }

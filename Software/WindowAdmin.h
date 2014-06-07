@@ -28,6 +28,7 @@ public:
     explicit WindowAdmin(QWidget *parent = 0);
     ~WindowAdmin();
     void saveToXML();
+    void readFromXML();
     
 private slots:
     void on_ButtonAddEditTeam_clicked();

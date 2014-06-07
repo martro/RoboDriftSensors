@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <ListOfTeams>
-	<Team Name="ffd">
-		<Leader Name="namsd" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
-		<Car Name="legvan" ID="ID">
-			<Category RC="Yes" MO="Yes" RD="Yes" />
-			<Competition FR="Yes" />
+	<Team Name="Dupa">
+		<Leader Name="Jakub" Surname="Trzyna" Phone="660270052" Email="jakub@wppl" City="Wroclaw" Organization="PWR" />
+		<Member Name="Macin" Surname="trojan" />
+		<Member Name="Marcin" Surname="Twardak" />
+		<Member Name="Leszeke" Surname="Walulik" />
+		<Car Name="quadro" ID="2">
+			<Category RC="Yes" MO="NO" RD="NO" />
+			<Competition FR="Yes" TA="NO" />
 		</Car>
-		<Car Name="quado" ID="ID">
-			<Category RC="Yes" />
-			<Competition FR="Yes" />
+		<Car Name="legvan" ID="1">
+			<Category RC="Yes" MO="NO" RD="Yes" />
+			<Competition FR="NO" TA="Yes" />
 		</Car>
 	</Team>
 </ListOfTeams>
