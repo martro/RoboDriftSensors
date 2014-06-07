@@ -84,6 +84,7 @@ public:
     void setName(QString Name);
     void clear();
     QString getName();
+
     QString Name;
     vector<Member> ListOfMembers;
     vector<Car> ListOfCars;

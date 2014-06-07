@@ -13,8 +13,8 @@
 #include <QMessageBox>
 #include "pugixml.hpp"
 
-using namespace std;
 using namespace pugi;
+using namespace std;
 
 namespace Ui {
 class WindowAdmin;

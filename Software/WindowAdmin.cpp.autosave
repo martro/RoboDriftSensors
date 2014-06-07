@@ -120,8 +120,9 @@ void WindowAdmin::saveToXML()
                 Competition.append_attribute("FR") = "Yes";
             if(listOfTeams.at(x).ListOfCars.at(c).checkTA())
                 Competition.append_attribute("TA") = "Yes";
-
         }
+        
+        
 
 
 

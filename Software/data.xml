@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ListOfTeams>
+	<Team Name="ffd">
+		<Leader Name="namsd" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
+		<Car Name="legvan" ID="ID">
+			<Category RC="Yes" MO="Yes" RD="Yes" />
+			<Competition FR="Yes" />
+		</Car>
+		<Car Name="quado" ID="ID">
+			<Category RC="Yes" />
+			<Competition FR="Yes" />
+		</Car>
+	</Team>
+</ListOfTeams>
