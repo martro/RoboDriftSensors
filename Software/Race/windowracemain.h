@@ -9,6 +9,7 @@
 #include "windowrace.h"
 #include "windowusermain.h"
 #include "windowracesettings.h"
+#include "windowracecommunication.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -32,6 +33,7 @@ private slots:
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
+    void buttonCommunicationClicked();
 
 
 private:

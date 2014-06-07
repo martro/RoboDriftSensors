@@ -21,10 +21,12 @@ public:
 public slots:
     void onButtonRaceClicked();
     void onButtonSettingsClicked();
+    void onButtonCommunicationClicked();
 
 private:
     Ui::WindowUserMain *ui;
     QObject *CurrentWidget;
     int WhatsClicked;
+    int WidgetExists;
 };
 #endif // WINDOWUSERMAIN_H

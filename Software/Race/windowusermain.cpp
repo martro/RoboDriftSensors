@@ -8,6 +8,7 @@ WindowUserMain::WindowUserMain(QWidget *parent) :
 {
     ui->setupUi(this);
     WhatsClicked = 0;
+    WidgetExists=0;
 
 }
 
@@ -19,24 +20,28 @@ WindowUserMain::~WindowUserMain()
 void WindowUserMain::onButtonRaceClicked()
     {
     this->ui->label->hide();
+    if (WidgetExists)
+        delete this->CurrentWidget;
     WindowRaceUser *windowraceuser = new WindowRaceUser;
     this->ui->CentralWindow->addWidget(windowraceuser, 0,0);
     this->CurrentWidget=windowraceuser;
+    WidgetExists=1;
     }
 
 void WindowUserMain::onButtonSettingsClicked()
 {
     this->ui->label->show();
-   // delete this->CurrentWidget;
-    /*if(WhatsClicked != BUTTON_)
-    {
+    if (WidgetExists)
+        delete this->CurrentWidget;
 
-        if(WhatsClicked != 0)
-             delete this->CurrentWidget;
-        WhatsClicked = BUTTON_NEW_RACE;
-        WindowNewRace *race = new WindowNewRace;
+    WidgetExists=0;
+}
 
-        ui->CurrentWindow->addWidget(race, 0,0);
-        this->CurrentWidget=race;
-    }*/
+void WindowUserMain::onButtonCommunicationClicked()
+{
+    this->ui->label->show();
+    if (WidgetExists)
+        delete this->CurrentWidget;
+
+    WidgetExists=0;
 }
