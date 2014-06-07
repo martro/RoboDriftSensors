@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "windowusart.h"
+#include "lamp.h"
 
 namespace Ui {
 class WindowRaceUser;
