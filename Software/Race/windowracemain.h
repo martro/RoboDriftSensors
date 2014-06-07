@@ -8,6 +8,7 @@
 #include <QWidget>
 #include "windowrace.h"
 #include "windowusermain.h"
+#include "windowracesettings.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -24,8 +25,13 @@ public:
 private slots:
     void on_buttonRace_clicked();
 
+    void on_buttonRaceSettings_clicked();
+
+    void on_buttonConnection_clicked();
+
 signals:
     void buttonRaceClicked();
+    void buttonSettingsClicked();
 
 
 private:

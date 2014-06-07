@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceMain_t {
-    QByteArrayData data[4];
-    char stringdata[56];
+    QByteArrayData data[7];
+    char stringdata[136];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,15 @@ static const qt_meta_stringdata_WindowRaceMain_t qt_meta_stringdata_WindowRaceMa
 QT_MOC_LITERAL(0, 0, 14),
 QT_MOC_LITERAL(1, 15, 17),
 QT_MOC_LITERAL(2, 33, 0),
-QT_MOC_LITERAL(3, 34, 21)
+QT_MOC_LITERAL(3, 34, 21),
+QT_MOC_LITERAL(4, 56, 21),
+QT_MOC_LITERAL(5, 78, 29),
+QT_MOC_LITERAL(6, 108, 27)
     },
     "WindowRaceMain\0buttonRaceClicked\0\0"
-    "on_buttonRace_clicked"
+    "buttonSettingsClicked\0on_buttonRace_clicked\0"
+    "on_buttonRaceSettings_clicked\0"
+    "on_buttonConnection_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,23 +50,29 @@ static const uint qt_meta_data_WindowRaceMain[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x06 /* Public */,
+       1,    0,   39,    2, 0x06 /* Public */,
+       3,    0,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   25,    2, 0x08 /* Private */,
+       4,    0,   41,    2, 0x08 /* Private */,
+       5,    0,   42,    2, 0x08 /* Private */,
+       6,    0,   43,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -73,7 +84,10 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         WindowRaceMain *_t = static_cast<WindowRaceMain *>(_o);
         switch (_id) {
         case 0: _t->buttonRaceClicked(); break;
-        case 1: _t->on_buttonRace_clicked(); break;
+        case 1: _t->buttonSettingsClicked(); break;
+        case 2: _t->on_buttonRace_clicked(); break;
+        case 3: _t->on_buttonRaceSettings_clicked(); break;
+        case 4: _t->on_buttonConnection_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -83,6 +97,12 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
             typedef void (WindowRaceMain::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRaceMain::buttonRaceClicked)) {
                 *result = 0;
+            }
+        }
+        {
+            typedef void (WindowRaceMain::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRaceMain::buttonSettingsClicked)) {
+                *result = 1;
             }
         }
     }
@@ -114,13 +134,13 @@ int WindowRaceMain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
 }
@@ -129,5 +149,11 @@ int WindowRaceMain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void WindowRaceMain::buttonRaceClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, 0);
+}
+
+// SIGNAL 1
+void WindowRaceMain::buttonSettingsClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

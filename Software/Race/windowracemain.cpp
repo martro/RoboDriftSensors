@@ -13,6 +13,7 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     windowusertemp->show();
 
     connect(this, SIGNAL(buttonRaceClicked()),windowusertemp,SLOT(onButtonRaceClicked()));
+    connect(this, SIGNAL(buttonSettingsClicked()),windowusertemp,SLOT(onButtonSettingsClicked()));
 }
 
 WindowRaceMain::~WindowRaceMain()
@@ -39,3 +40,27 @@ void WindowRaceMain::on_buttonRace_clicked()
     }
 }
 
+
+void WindowRaceMain::on_buttonRaceSettings_clicked()
+{
+    ui->image->hide();
+    if(WhatsClicked != BUTTON_SETTINGS)
+    {
+        if(WhatsClicked != 0)
+             delete this->CurrentWidget;
+        WhatsClicked = BUTTON_SETTINGS;
+        WindowRaceSettings *Window_Race_Settings = new WindowRaceSettings;
+
+        ui->CurrentWindow->addWidget(Window_Race_Settings, 0,0);
+        this->CurrentWidget=Window_Race_Settings;
+
+        emit buttonSettingsClicked();
+
+       //here should be some connects to windowrace
+    }
+}
+
+void WindowRaceMain::on_buttonConnection_clicked()
+{
+
+}

@@ -20,6 +20,7 @@ public:
 
 public slots:
     void onButtonRaceClicked();
+    void onButtonSettingsClicked();
 
 private:
     Ui::WindowUserMain *ui;

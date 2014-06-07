@@ -18,20 +18,23 @@ SOURCES += main.cpp\
     windowraceuser.cpp \
     windowusart.cpp \
     windowusermain.cpp \
-    windowracemain.cpp
+    windowracemain.cpp \
+    windowracesettings.cpp
 
 HEADERS  += windowrace.h \
     measurement.h \
     windowraceuser.h \
     windowusart.h \
     windowusermain.h \
-    windowracemain.h
+    windowracemain.h \
+    windowracesettings.h
 
 FORMS    += windowrace.ui \
     windowraceuser.ui \
     windowusart.ui \
     windowusermain.ui \
-    windowracemain.ui
+    windowracemain.ui \
+    windowracesettings.ui
 
 RESOURCES += \
     Images.qrc
