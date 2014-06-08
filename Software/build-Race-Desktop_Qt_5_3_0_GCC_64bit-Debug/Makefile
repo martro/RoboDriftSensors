@@ -485,13 +485,13 @@ compiler_rcc_make_all: qrc_Images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_Images.cpp
 qrc_Images.cpp: ../Race/Images.qrc \
-		../Race/RD_logo-e1392478122173.png \
-		../images/track.jpeg \
 		../images/gray.png \
-		../images/green.png \
-		../images/kabanos.jpeg \
+		../images/track.jpeg \
+		../Race/RD_logo-e1392478122173.png \
+		../images/gray.jpg \
 		../images/red.png \
-		../images/gray.jpg
+		../images/kabanos.jpeg \
+		../images/green.png
 	/home/martro/Qt5/5.3/gcc_64/bin/rcc -name Images ../Race/Images.qrc -o qrc_Images.cpp
 
 compiler_moc_header_make_all: moc_windowrace.cpp moc_windowraceuser.cpp moc_windowusart.cpp moc_windowusermain.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_lamp.cpp
@@ -611,6 +611,7 @@ moc_windowrace.cpp: ../../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../Race/windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Race/windowrace.h
 	/home/martro/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/martro/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/martro/GitHub/RoboDriftSensors/Software/Race -I/home/martro/Qt5/5.3/gcc_64/include -I/home/martro/Qt5/5.3/gcc_64/include/QtWidgets -I/home/martro/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/martro/Qt5/5.3/gcc_64/include/QtGui -I/home/martro/Qt5/5.3/gcc_64/include/QtCore -I. ../Race/windowrace.h -o moc_windowrace.cpp
 
@@ -726,6 +727,7 @@ moc_windowraceuser.cpp: ../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Race/windowraceuser.h
 	/home/martro/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/martro/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/martro/GitHub/RoboDriftSensors/Software/Race -I/home/martro/Qt5/5.3/gcc_64/include -I/home/martro/Qt5/5.3/gcc_64/include/QtWidgets -I/home/martro/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/martro/Qt5/5.3/gcc_64/include/QtGui -I/home/martro/Qt5/5.3/gcc_64/include/QtCore -I. ../Race/windowraceuser.h -o moc_windowraceuser.cpp
 
@@ -1062,6 +1064,7 @@ moc_windowracemain.cpp: ../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../../Qt5/5.3/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		../Race/windowraceuser.h \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Race/windowusermain.h \
 		../Race/windowracesettings.h \
 		../Race/windowracemain.h
@@ -1270,6 +1273,7 @@ moc_lamp.cpp: ../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Race/lamp.h
 	/home/martro/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/martro/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/martro/GitHub/RoboDriftSensors/Software/Race -I/home/martro/Qt5/5.3/gcc_64/include -I/home/martro/Qt5/5.3/gcc_64/include/QtWidgets -I/home/martro/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/martro/Qt5/5.3/gcc_64/include/QtGui -I/home/martro/Qt5/5.3/gcc_64/include/QtCore -I. ../Race/lamp.h -o moc_lamp.cpp
 
@@ -1424,6 +1428,7 @@ main.o: ../Race/main.cpp ../Race/windowrace.h \
 		../Race/windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1551,6 +1556,7 @@ windowrace.o: ../Race/windowrace.cpp ../Race/windowrace.h \
 		../Race/windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		ui_windowrace.h \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
@@ -1727,6 +1733,7 @@ windowraceuser.o: ../Race/windowraceuser.cpp ../Race/windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		ui_windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
@@ -1763,6 +1770,8 @@ windowraceuser.o: ../Race/windowraceuser.cpp ../Race/windowraceuser.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlcdnumber.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem \
@@ -2085,7 +2094,8 @@ windowusermain.o: ../Race/windowusermain.cpp ../Race/windowusermain.h \
 		../../../../Qt5/5.3/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../../Qt5/5.3/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../../Qt5/5.3/gcc_64/include/QtSerialPort/qserialportglobal.h \
-		../Race/lamp.h
+		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowusermain.o ../Race/windowusermain.cpp
 
 windowracemain.o: ../Race/windowracemain.cpp ../Race/windowracemain.h \
@@ -2204,6 +2214,7 @@ windowracemain.o: ../Race/windowracemain.cpp ../Race/windowracemain.h \
 		../../../../Qt5/5.3/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		../Race/windowraceuser.h \
 		../Race/lamp.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Race/windowusermain.h \
 		../Race/windowracesettings.h \
 		ui_windowracemain.h \
@@ -2496,6 +2507,7 @@ lamp.o: ../Race/lamp.cpp ../Race/lamp.h \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		ui_lamp.h \
 		../../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \

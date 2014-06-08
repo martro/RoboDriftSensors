@@ -12,3 +12,13 @@ WindowRace::~WindowRace()
 {
     delete ui;
 }
+
+void WindowRace::on_pushButton_clicked()
+{
+
+}
+
+void WindowRace::on_pushButton_2_clicked()
+{
+
+}

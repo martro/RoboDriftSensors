@@ -5,7 +5,9 @@
 
 #include <QWidget>
 #include <QMessageBox>
+#include <vector>
 
+using namespace std;
 
 namespace Ui {
 class WindowUserMain;
@@ -30,5 +32,7 @@ private:
     QWidget *CurrentWidget;
     int WhatsClicked;
     int WidgetExists;
+    vector <int> BestTime;
+    vector <int> CurrentTime;
 };
 #endif // WINDOWUSERMAIN_H

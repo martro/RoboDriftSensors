@@ -56,13 +56,13 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(490, 10, 181, 51));
+        pushButton->setGeometry(QRect(280, 20, 181, 51));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(20, 280, 81, 31));
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(490, 260, 181, 51));
+        pushButton_3->setGeometry(QRect(280, 260, 181, 51));
         listView = new QListView(centralWidget);
         listView->setObjectName(QStringLiteral("listView"));
         listView->setGeometry(QRect(40, 100, 271, 151));

@@ -19,6 +19,11 @@ public:
     explicit WindowRace(QWidget *parent = 0);
     ~WindowRace();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::WindowRace *ui;
     WindowUSART Usart;

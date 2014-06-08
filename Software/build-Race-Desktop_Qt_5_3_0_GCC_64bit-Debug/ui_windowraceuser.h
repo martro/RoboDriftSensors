@@ -34,6 +34,7 @@ public:
     QLabel *Sensor3;
     QLabel *Sensor4;
     QLabel *Sensor5;
+    QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
     QHBoxLayout *Lights;
@@ -43,7 +44,7 @@ public:
     {
         if (WindowRaceUser->objectName().isEmpty())
             WindowRaceUser->setObjectName(QStringLiteral("WindowRaceUser"));
-        WindowRaceUser->resize(482, 348);
+        WindowRaceUser->resize(547, 385);
         verticalLayout_3 = new QVBoxLayout(WindowRaceUser);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         horizontalLayout = new QHBoxLayout();
@@ -85,7 +86,11 @@ public:
 
         horizontalLayout->addLayout(verticalLayout);
 
-        horizontalLayout->setStretch(0, 8);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_3);
+
+        horizontalLayout->setStretch(0, 5);
         horizontalLayout->setStretch(1, 2);
 
         verticalLayout_3->addLayout(horizontalLayout);

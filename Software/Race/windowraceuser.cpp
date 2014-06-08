@@ -24,6 +24,10 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     Lamp3->setMode(2);
     Lamp4->setMode(3);
     Lamp5->setMode(4);
+
+    leds(0b1);
+
+
     //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
 }
 
@@ -40,6 +44,7 @@ void WindowRaceUser::leds(char data)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor1->setAutoFillBackground(true);
+        ui->Sensor1->setStyleSheet("QLabel { background-color : red; color : blue; }");
     }else
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::darkGreen);

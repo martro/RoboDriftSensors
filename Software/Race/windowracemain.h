@@ -11,6 +11,7 @@
 #include "windowusermain.h"
 #include "windowracesettings.h"
 #include "windowusart.h"
+#include <vector>
 
 namespace Ui {
 class WindowRaceMain;
