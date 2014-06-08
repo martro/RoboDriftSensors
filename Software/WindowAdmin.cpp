@@ -98,7 +98,8 @@ void WindowAdmin::on_ButtonNewRace_clicked()
         if(WhatsClicked != 0)
              delete this->CurrentWidget;
         WhatsClicked = BUTTON_NEW_RACE;
-        WindowNewRace *race = new WindowNewRace;
+
+        WindowRaceMain *race = new WindowRaceMain;
 
         ui->CurrentWindow->addWidget(race, 0,0);
         this->CurrentWidget=race;

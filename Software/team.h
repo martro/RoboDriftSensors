@@ -67,7 +67,7 @@ public:
     bool checkRD();
 
     void setCompetitionTA(bool TA);//TA- time attack, FR - freestyle
-    void setCompetitionFR(bool FR);
+    void setCompetitionFR(bool FR); //tu sie nie jeździ
     bool checkTA();
     bool checkFR();
 private:

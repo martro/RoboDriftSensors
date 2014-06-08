@@ -4,7 +4,7 @@
 #define BUTTON_NEW_RACE 1
 #define BUTTON_ADD_TEAM 2
 
-
+#include "Race/windowracemain.h"
 #include <QMainWindow>
 #include "windowaddteam.h"
 #include <vector>

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
@@ -21,7 +21,16 @@ SOURCES += main.cpp\
     windownewrace.cpp \
     WindowAddMembers.cpp \
     WindowAddCar.cpp \
-    pugixml.cpp
+    pugixml.cpp \
+    Race/lamp.cpp \
+    Race/measurement.cpp \
+    Race/windowrace.cpp \
+    Race/windowracemain.cpp \
+    Race/windowracesettings.cpp \
+    Race/windowraceuser.cpp \
+    Race/windowtimertest.cpp \
+    Race/windowusart.cpp \
+    Race/windowusermain.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
@@ -32,7 +41,16 @@ HEADERS  += WindowAdmin.h \
     WindowAddMembers.h \
     WindowAddCar.h \
     pugiconfig.hpp \
-    pugixml.hpp
+    pugixml.hpp \
+    Race/lamp.h \
+    Race/measurement.h \
+    Race/windowrace.h \
+    Race/windowracemain.h \
+    Race/windowracesettings.h \
+    Race/windowraceuser.h \
+    Race/windowtimertest.h \
+    Race/windowusart.h \
+    Race/windowusermain.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
@@ -40,7 +58,16 @@ FORMS    += WindowAdmin.ui \
     windoweditteam.ui \
     windownewrace.ui \
     WindowAddMembers.ui \
-    WindowAddCar.ui
+    WindowAddCar.ui \
+    Race/lamp.ui \
+    Race/windowrace.ui \
+    Race/windowracemain.ui \
+    Race/windowracesettings.ui \
+    Race/windowraceuser.ui \
+    Race/windowtimertest.ui \
+    Race/windowusart.ui \
+    Race/windowusermain.ui
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    Race/Images.qrc
