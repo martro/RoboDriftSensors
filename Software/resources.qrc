@@ -4,5 +4,8 @@
         <file>images/RD_logo-e1392478122173.png</file>
         <file>images/text_ok.png</file>
         <file>images/text_bad.png</file>
+        <file>images/gray.png</file>
+        <file>images/green.png</file>
+        <file>images/red.png</file>
     </qresource>
 </RCC>

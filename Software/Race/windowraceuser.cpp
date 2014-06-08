@@ -19,6 +19,7 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     this->ui->Lights->addWidget(Lamp3);
     this->ui->Lights->addWidget(Lamp4);
     this->ui->Lights->addWidget(Lamp5);
+
     Lamp1->setMode(0);
     Lamp2->setMode(1);
     Lamp3->setMode(2);

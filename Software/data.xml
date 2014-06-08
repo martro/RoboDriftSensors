@@ -22,4 +22,7 @@
 			<Competition FR="NO" TA="NO" />
 		</Car>
 	</Team>
+	<Team Name="name1">
+		<Leader Name="kldns" Surname="sursdv" Phone="number" Email="email" City="city" Organization="org" />
+	</Team>
 </ListOfTeams>

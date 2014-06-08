@@ -15,9 +15,9 @@ Lamp::~Lamp()
 
 void Lamp::setMode(int Mode)
 {
-    QImage *green = new QImage("../images/green.png");
-    QImage *gray = new QImage("../images/gray.png");
-    QImage *red = new QImage("../images/red.png");
+    QImage *green = new QImage(":images/images/green.png");
+    QImage *gray = new QImage(":/images/images/gray.png");
+    QImage *red = new QImage(":/images/images/red.png");
 
 
 

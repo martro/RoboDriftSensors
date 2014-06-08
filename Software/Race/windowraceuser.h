@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "windowusart.h"
 #include "lamp.h"
-
+#include <QMessageBox>
 
 namespace Ui {
 class WindowRaceUser;
