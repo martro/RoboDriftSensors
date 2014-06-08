@@ -14,6 +14,7 @@ class Lamp : public QWidget
 
 public:
     explicit Lamp(QWidget *parent = 0);
+    void setMode(int Mode);
     ~Lamp();
 
 private:

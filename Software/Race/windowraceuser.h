@@ -19,7 +19,6 @@ public:
     void leds(char data);
 
 public slots:
-    void onbyteReceived();
 
 private:
     Ui::WindowRaceUser *ui;

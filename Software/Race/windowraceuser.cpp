@@ -19,6 +19,11 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     this->ui->Lights->addWidget(Lamp3);
     this->ui->Lights->addWidget(Lamp4);
     this->ui->Lights->addWidget(Lamp5);
+    Lamp1->setMode(0);
+    Lamp2->setMode(1);
+    Lamp3->setMode(2);
+    Lamp4->setMode(3);
+    Lamp5->setMode(4);
     //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
 }
 
@@ -91,9 +96,4 @@ void WindowRaceUser::leds(char data)
     }
     ui->Sensor5->update();
         this->ui->Sensor5->setPalette(*palette);
-}
-
-void WindowRaceUser::onbyteReceived()
-{
-
 }
