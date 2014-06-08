@@ -12,6 +12,7 @@
 #include "windownewrace.h"
 #include <QMessageBox>
 #include "pugixml.hpp"
+#include <QCoreApplication>
 
 using namespace pugi;
 using namespace std;

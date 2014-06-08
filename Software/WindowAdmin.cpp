@@ -162,14 +162,16 @@ void WindowAdmin::saveToXML()
 
         }
     }
-    XMLListOfTeams.save_file("/home/kuba/github/RoboDriftSensors/Software/data.xml");
+    QString Path = QCoreApplication::applicationDirPath() +"/../Software/data.xml";
+    XMLListOfTeams.save_file(Path.toStdString().c_str());
 }
 
 void WindowAdmin::readFromXML()
 {
     xml_document XMLListOfTeams;
+    QString Path = QCoreApplication::applicationDirPath() +"/../Software/data.xml";
 
-    if (!XMLListOfTeams.load_file("/home/kuba/github/RoboDriftSensors/Software/data.xml"))
+    if (!XMLListOfTeams.load_file(Path.toStdString().c_str()))
     {
         QMessageBox Error;
         Error.setText("Can't read the XML file");
