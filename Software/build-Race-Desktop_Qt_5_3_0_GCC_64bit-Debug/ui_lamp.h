@@ -35,13 +35,14 @@ public:
     {
         if (Lamp->objectName().isEmpty())
             Lamp->setObjectName(QStringLiteral("Lamp"));
-        Lamp->resize(252, 966);
+        Lamp->resize(70, 238);
         horizontalLayout = new QHBoxLayout(Lamp);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         Lamp1 = new QLabel(Lamp);
         Lamp1->setObjectName(QStringLiteral("Lamp1"));
+        Lamp1->setMaximumSize(QSize(50, 50));
         Lamp1->setPixmap(QPixmap(QString::fromUtf8(":/images/images/gray.jpg")));
         Lamp1->setScaledContents(true);
 
@@ -49,6 +50,12 @@ public:
 
         Lamp2 = new QLabel(Lamp);
         Lamp2->setObjectName(QStringLiteral("Lamp2"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Lamp2->sizePolicy().hasHeightForWidth());
+        Lamp2->setSizePolicy(sizePolicy);
+        Lamp2->setMaximumSize(QSize(50, 50));
         Lamp2->setPixmap(QPixmap(QString::fromUtf8(":/images/images/gray.jpg")));
         Lamp2->setScaledContents(true);
 
@@ -56,11 +63,7 @@ public:
 
         Lamp3 = new QLabel(Lamp);
         Lamp3->setObjectName(QStringLiteral("Lamp3"));
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(Lamp3->sizePolicy().hasHeightForWidth());
-        Lamp3->setSizePolicy(sizePolicy);
+        Lamp3->setMaximumSize(QSize(50, 50));
         Lamp3->setPixmap(QPixmap(QString::fromUtf8(":/images/images/gray.jpg")));
         Lamp3->setScaledContents(true);
 
@@ -68,6 +71,9 @@ public:
 
         Lamp4 = new QLabel(Lamp);
         Lamp4->setObjectName(QStringLiteral("Lamp4"));
+        sizePolicy.setHeightForWidth(Lamp4->sizePolicy().hasHeightForWidth());
+        Lamp4->setSizePolicy(sizePolicy);
+        Lamp4->setMaximumSize(QSize(50, 50));
         Lamp4->setPixmap(QPixmap(QString::fromUtf8(":/images/images/gray.jpg")));
         Lamp4->setScaledContents(true);
 

@@ -10,7 +10,15 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     palette->setColor(ui->Sensor1->foregroundRole(),Qt::transparent);
     leds(0);
     Lamp *Lamp1= new Lamp;
+    Lamp *Lamp2= new Lamp;
+    Lamp *Lamp3= new Lamp;
+    Lamp *Lamp4= new Lamp;
+    Lamp *Lamp5= new Lamp;
     this->ui->Lights->addWidget(Lamp1);
+    this->ui->Lights->addWidget(Lamp2);
+    this->ui->Lights->addWidget(Lamp3);
+    this->ui->Lights->addWidget(Lamp4);
+    this->ui->Lights->addWidget(Lamp5);
     //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
 }
 

@@ -485,11 +485,13 @@ compiler_rcc_make_all: qrc_Images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_Images.cpp
 qrc_Images.cpp: ../Race/Images.qrc \
-		../images/gray.png \
-		../images/track.jpeg \
 		../Race/RD_logo-e1392478122173.png \
-		../images/gray.jpg \
-		../images/kabanos.jpeg
+		../images/track.jpeg \
+		../images/gray.png \
+		../images/green.png \
+		../images/kabanos.jpeg \
+		../images/red.png \
+		../images/gray.jpg
 	/home/martro/Qt5/5.3/gcc_64/bin/rcc -name Images ../Race/Images.qrc -o qrc_Images.cpp
 
 compiler_moc_header_make_all: moc_windowrace.cpp moc_windowraceuser.cpp moc_windowusart.cpp moc_windowusermain.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_lamp.cpp
@@ -2509,6 +2511,11 @@ lamp.o: ../Race/lamp.cpp ../Race/lamp.h \
 		../../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -2529,11 +2536,7 @@ lamp.o: ../Race/lamp.cpp ../Race/lamp.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
-		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout \
-		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h
+		../../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lamp.o ../Race/lamp.cpp
 
 qrc_Images.o: qrc_Images.cpp 

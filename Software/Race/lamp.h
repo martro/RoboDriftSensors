@@ -2,6 +2,7 @@
 #define LAMP_H
 
 #include <QWidget>
+#include <QImage>
 
 namespace Ui {
 class Lamp;

@@ -3,6 +3,8 @@
         <file>RD_logo-e1392478122173.png</file>
         <file>../images/kabanos.jpeg</file>
         <file>../images/gray.jpg</file>
+        <file>../images/green.png</file>
+        <file>../images/red.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../images/track.jpeg</file>
