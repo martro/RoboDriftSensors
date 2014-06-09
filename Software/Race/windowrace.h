@@ -28,6 +28,7 @@ public:
     void startRace();
     QString dataToString(char data);
     int dataToInt(char data);
+    QString milisecondsToDisplay(int);
 
 private slots:
     void countdownTimeOut();

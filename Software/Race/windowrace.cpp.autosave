@@ -227,5 +227,5 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
 
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
-
+    //
 }

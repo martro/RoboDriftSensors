@@ -61,13 +61,13 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         buttonStart = new QPushButton(centralWidget);
         buttonStart->setObjectName(QStringLiteral("buttonStart"));
-        buttonStart->setGeometry(QRect(280, 20, 181, 51));
+        buttonStart->setGeometry(QRect(310, 20, 181, 51));
         buttonClear = new QPushButton(centralWidget);
         buttonClear->setObjectName(QStringLiteral("buttonClear"));
         buttonClear->setGeometry(QRect(20, 280, 81, 31));
         buttonSave = new QPushButton(centralWidget);
         buttonSave->setObjectName(QStringLiteral("buttonSave"));
-        buttonSave->setGeometry(QRect(280, 260, 181, 51));
+        buttonSave->setGeometry(QRect(310, 260, 181, 51));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(40, 0, 249, 80));
