@@ -23,6 +23,9 @@ void WindowUserMain::onButtonRaceClicked()
     if (WidgetExists)
         delete this->CurrentWidget;
     WindowRaceUser *windowraceuser = new WindowRaceUser;
+
+    Window_Race_User=windowraceuser;
+
     this->ui->CentralWindow->addWidget(windowraceuser, 0,0);
     this->CurrentWidget=windowraceuser;
     WidgetExists=1;
@@ -53,3 +56,11 @@ void WindowUserMain::onconnection_ON()
     m.exec();
 }
 
+void WindowUserMain::onsetLightsUserMain(int data)
+{
+    QMessageBox m;
+    m.setText("got info form racemain");
+    m.exec();
+
+    Window_Race_User->startLights(data);
+}

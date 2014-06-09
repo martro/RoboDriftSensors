@@ -34,12 +34,13 @@ public slots:
     void onconnection_ON();
     void onconnection_OFF();
     void onbyteReceived();
-
+    void onsetLights();
 
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
+    void setLightsUserMain(int data);
 
 
 private:
@@ -49,6 +50,7 @@ private:
     WindowUserMain windowusertemp;
     bool ConnectionEstablished;
     WindowUSART Window_USART;
+    WindowRaceUser *windowRaceUser;
 };
 
 #endif // WINDOWRACEMAIN_H

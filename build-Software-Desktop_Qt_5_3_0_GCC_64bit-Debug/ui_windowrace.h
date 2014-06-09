@@ -32,9 +32,9 @@ class Ui_WindowRace
 {
 public:
     QWidget *centralWidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *buttonStart;
+    QPushButton *buttonClear;
+    QPushButton *buttonSave;
     QListView *listView;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -54,15 +54,15 @@ public:
         WindowRace->resize(689, 387);
         centralWidget = new QWidget(WindowRace);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(280, 20, 181, 51));
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 280, 81, 31));
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(280, 260, 181, 51));
+        buttonStart = new QPushButton(centralWidget);
+        buttonStart->setObjectName(QStringLiteral("buttonStart"));
+        buttonStart->setGeometry(QRect(280, 20, 181, 51));
+        buttonClear = new QPushButton(centralWidget);
+        buttonClear->setObjectName(QStringLiteral("buttonClear"));
+        buttonClear->setGeometry(QRect(20, 280, 81, 31));
+        buttonSave = new QPushButton(centralWidget);
+        buttonSave->setObjectName(QStringLiteral("buttonSave"));
+        buttonSave->setGeometry(QRect(280, 260, 181, 51));
         listView = new QListView(centralWidget);
         listView->setObjectName(QStringLiteral("listView"));
         listView->setGeometry(QRect(40, 100, 271, 151));
@@ -119,9 +119,9 @@ public:
     void retranslateUi(QMainWindow *WindowRace)
     {
         WindowRace->setWindowTitle(QApplication::translate("WindowRace", "WindowRace", 0));
-        pushButton->setText(QApplication::translate("WindowRace", "START!", 0));
-        pushButton_2->setText(QApplication::translate("WindowRace", "Clear", 0));
-        pushButton_3->setText(QApplication::translate("WindowRace", "Save", 0));
+        buttonStart->setText(QApplication::translate("WindowRace", "START!", 0));
+        buttonClear->setText(QApplication::translate("WindowRace", "Clear", 0));
+        buttonSave->setText(QApplication::translate("WindowRace", "Save", 0));
         label->setText(QApplication::translate("WindowRace", "Category", 0));
         label_2->setText(QApplication::translate("WindowRace", "Car ID", 0));
         label_3->setText(QApplication::translate("WindowRace", "Car name", 0));

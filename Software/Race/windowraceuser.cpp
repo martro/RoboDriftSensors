@@ -103,3 +103,17 @@ void WindowRaceUser::leds(char data)
     ui->Sensor5->update();
         this->ui->Sensor5->setPalette(*palette);
 }
+
+void WindowRaceUser:: onsetLightsUser()
+{
+    QMessageBox m;
+    m.setText("user got info");
+    m.exec();
+}
+
+void WindowRaceUser::startLights(int data)
+{
+    QMessageBox m;
+    m.setText(QString::number(data));
+    m.exec();
+}

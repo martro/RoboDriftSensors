@@ -14,7 +14,7 @@
    <string>WindowRace</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="buttonStart">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -27,7 +27,7 @@
      <string>START!</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="buttonClear">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -40,7 +40,7 @@
      <string>Clear</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="buttonSave">
     <property name="geometry">
      <rect>
       <x>280</x>

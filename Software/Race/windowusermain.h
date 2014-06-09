@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <vector>
+#include "windowraceuser.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public slots:
     void onButtonSettingsClicked();
     void onButtonCommunicationClicked();
     void onconnection_ON();
+    void onsetLightsUserMain(int data);
 
 private:
     Ui::WindowUserMain *ui;
@@ -34,5 +36,6 @@ private:
     int WidgetExists;
     vector <int> BestTime;
     vector <int> CurrentTime;
+    WindowRaceUser *Window_Race_User;
 };
 #endif // WINDOWUSERMAIN_H

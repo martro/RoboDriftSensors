@@ -18,8 +18,11 @@ public:
     explicit WindowRaceUser(QWidget *parent = 0);
     ~WindowRaceUser();
     void leds(char data);
+    void startLights(int data);
 
 public slots:
+   // void setLightsUser();
+    void onsetLightsUser();
 
 private:
     Ui::WindowRaceUser *ui;

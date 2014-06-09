@@ -6,6 +6,7 @@ WindowRace::WindowRace(QWidget *parent) :
     ui(new Ui::WindowRace)
 {
     ui->setupUi(this);
+    connect(&CountDownTimer,SIGNAL(timeout()),this,SLOT(countdownTimeOut()));
 }
 
 WindowRace::~WindowRace()
@@ -13,12 +14,21 @@ WindowRace::~WindowRace()
     delete ui;
 }
 
-void WindowRace::on_pushButton_clicked()
-{
 
+
+void WindowRace::on_buttonStart_clicked()
+{
+    TimeToStart=6;
+    CountDownTimer.start(1000);
 }
 
-void WindowRace::on_pushButton_2_clicked()
+void WindowRace::countdownTimeOut()
 {
-
+    QMessageBox m;
+    m.setText(QString::number(TimeToStart));
+    m.exec();
+    TimeToStart--;
+    if (TimeToStart==-1)
+        CountDownTimer.stop();
+    emit setLights();
 }

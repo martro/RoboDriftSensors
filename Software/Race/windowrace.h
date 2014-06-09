@@ -6,6 +6,8 @@
 #include "measurement.h"
 #include "windowusart.h"
 #include "windowraceuser.h"
+#include <QTimer>
+#include <QMessageBox>
 
 namespace Ui {
 class WindowRace;
@@ -20,14 +22,20 @@ public:
     ~WindowRace();
 
 private slots:
-    void on_pushButton_clicked();
+    void countdownTimeOut();
 
-    void on_pushButton_2_clicked();
+
+    void on_buttonStart_clicked();
+
+signals:
+    void setLights();
 
 private:
     Ui::WindowRace *ui;
     WindowUSART Usart;
     WindowRaceUser RaceUser;
+    QTimer CountDownTimer;
+    int TimeToStart;
 
     vector <Measurement> Measurements;
 };
