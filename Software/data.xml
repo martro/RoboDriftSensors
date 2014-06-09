@@ -11,7 +11,10 @@
 			<Competition FR="NO" TA="NO" />
 		</Car>
 	</Team>
-	<Team Name="t1">
+	<Team Name="name1">
+		<Leader Name="kldns" Surname="sursdv" Phone="number" Email="email" City="city" Organization="org" />
+	</Team>
+	<Team Name="proba">
 		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
 		<Car Name="n2" ID="2">
 			<Category RC="NO" MO="NO" RD="NO" />
@@ -21,8 +24,5 @@
 			<Category RC="NO" MO="NO" RD="NO" />
 			<Competition FR="NO" TA="NO" />
 		</Car>
-	</Team>
-	<Team Name="name1">
-		<Leader Name="kldns" Surname="sursdv" Phone="number" Email="email" City="city" Organization="org" />
 	</Team>
 </ListOfTeams>

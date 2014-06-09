@@ -9,6 +9,7 @@ WindowAdmin::WindowAdmin(QWidget *parent) :
     ui->setupUi(this);
     WhatsClicked = 0;
     HighestID = 0;
+    race = new WindowRaceMain;
 }
 
 WindowAdmin::~WindowAdmin()
@@ -21,8 +22,9 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
-        if(WhatsClicked != 0)
-             delete this->CurrentWidget;
+        if(WhatsClicked != 0) //if STATISTICS ARE ADDED
+             //delete this->CurrentWidget;
+            race->hide();
         WhatsClicked = BUTTON_ADD_TEAM;
         WindowAddTeam *Window_Add_Team = new WindowAddTeam;
 
@@ -99,7 +101,8 @@ void WindowAdmin::on_ButtonNewRace_clicked()
              delete this->CurrentWidget;
         WhatsClicked = BUTTON_NEW_RACE;
 
-        WindowRaceMain *race = new WindowRaceMain;
+        //WindowRaceMain *race = new WindowRaceMain;
+        race->show();
 
         //po utworzeniu okna race, wyyłam mu aktualną liste teamów i liste wyników;
         connect(this, SIGNAL(ButtonNewRaceClicked(vector<Team>,vector<Results>)), race, SLOT(onButtonNewRaceClicked(vector<Team>,vector<Results>)));

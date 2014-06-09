@@ -54,6 +54,7 @@ private:
     vector<Results> ListOfResults;
     vector<int> ListOfCarsID;
     int HighestID;
+    WindowRaceMain *race;
 };
 
 #endif // WINDOWADMIN_H
