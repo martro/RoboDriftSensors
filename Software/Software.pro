@@ -18,7 +18,6 @@ SOURCES += main.cpp\
     team.cpp \
     windowaddleader.cpp \
     windoweditteam.cpp \
-    windownewrace.cpp \
     WindowAddMembers.cpp \
     WindowAddCar.cpp \
     pugixml.cpp \
@@ -38,7 +37,6 @@ HEADERS  += WindowAdmin.h \
     team.h \
     windowaddleader.h \
     windoweditteam.h \
-    windownewrace.h \
     WindowAddMembers.h \
     WindowAddCar.h \
     pugiconfig.hpp \
@@ -58,7 +56,6 @@ FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
     windowaddleader.ui \
     windoweditteam.ui \
-    windownewrace.ui \
     WindowAddMembers.ui \
     WindowAddCar.ui \
     Race/lamp.ui \

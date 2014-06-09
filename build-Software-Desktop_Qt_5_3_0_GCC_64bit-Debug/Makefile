@@ -51,7 +51,6 @@ SOURCES       = ../Software/main.cpp \
 		../Software/team.cpp \
 		../Software/windowaddleader.cpp \
 		../Software/windoweditteam.cpp \
-		../Software/windownewrace.cpp \
 		../Software/WindowAddMembers.cpp \
 		../Software/WindowAddCar.cpp \
 		../Software/pugixml.cpp \
@@ -70,7 +69,6 @@ SOURCES       = ../Software/main.cpp \
 		moc_windowaddteam.cpp \
 		moc_windowaddleader.cpp \
 		moc_windoweditteam.cpp \
-		moc_windownewrace.cpp \
 		moc_WindowAddMembers.cpp \
 		moc_WindowAddCar.cpp \
 		moc_lamp.cpp \
@@ -87,7 +85,6 @@ OBJECTS       = main.o \
 		team.o \
 		windowaddleader.o \
 		windoweditteam.o \
-		windownewrace.o \
 		WindowAddMembers.o \
 		WindowAddCar.o \
 		pugixml.o \
@@ -107,7 +104,6 @@ OBJECTS       = main.o \
 		moc_windowaddteam.o \
 		moc_windowaddleader.o \
 		moc_windoweditteam.o \
-		moc_windownewrace.o \
 		moc_WindowAddMembers.o \
 		moc_WindowAddCar.o \
 		moc_lamp.o \
@@ -231,7 +227,6 @@ DIST          = ../../../Qt5/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../Software/team.cpp \
 		../Software/windowaddleader.cpp \
 		../Software/windoweditteam.cpp \
-		../Software/windownewrace.cpp \
 		../Software/WindowAddMembers.cpp \
 		../Software/WindowAddCar.cpp \
 		../Software/pugixml.cpp \
@@ -274,7 +269,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_windownewrace.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h $(OBJECTS)  
+$(TARGET): ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Software/Software.pro ../../../Qt5/5.3/gcc_64/mkspecs/linux-g++/qmake.conf ../../../Qt5/5.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -513,7 +508,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/Software1.0.0 || mkdir -p .tmp/Software1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/resources.qrc ../Software/Race/Images.qrc .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/WindowAdmin.h ../Software/windowaddteam.h ../Software/team.h ../Software/windowaddleader.h ../Software/windoweditteam.h ../Software/windownewrace.h ../Software/WindowAddMembers.h ../Software/WindowAddCar.h ../Software/pugiconfig.hpp ../Software/pugixml.hpp ../Software/Race/lamp.h ../Software/Race/measurement.h ../Software/Race/windowrace.h ../Software/Race/windowracemain.h ../Software/Race/windowracesettings.h ../Software/Race/windowraceuser.h ../Software/Race/windowtimertest.h ../Software/Race/windowusart.h ../Software/Race/windowusermain.h ../Software/results.h .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/main.cpp ../Software/WindowAdmin.cpp ../Software/windowaddteam.cpp ../Software/team.cpp ../Software/windowaddleader.cpp ../Software/windoweditteam.cpp ../Software/windownewrace.cpp ../Software/WindowAddMembers.cpp ../Software/WindowAddCar.cpp ../Software/pugixml.cpp ../Software/Race/lamp.cpp ../Software/Race/measurement.cpp ../Software/Race/windowrace.cpp ../Software/Race/windowracemain.cpp ../Software/Race/windowracesettings.cpp ../Software/Race/windowraceuser.cpp ../Software/Race/windowtimertest.cpp ../Software/Race/windowusart.cpp ../Software/Race/windowusermain.cpp ../Software/results.cpp .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/WindowAdmin.ui ../Software/windowaddteam.ui ../Software/windowaddleader.ui ../Software/windoweditteam.ui ../Software/windownewrace.ui ../Software/WindowAddMembers.ui ../Software/WindowAddCar.ui ../Software/Race/lamp.ui ../Software/Race/windowrace.ui ../Software/Race/windowracemain.ui ../Software/Race/windowracesettings.ui ../Software/Race/windowraceuser.ui ../Software/Race/windowtimertest.ui ../Software/Race/windowusart.ui ../Software/Race/windowusermain.ui .tmp/Software1.0.0/ && (cd `dirname .tmp/Software1.0.0` && $(TAR) Software1.0.0.tar Software1.0.0 && $(COMPRESS) Software1.0.0.tar) && $(MOVE) `dirname .tmp/Software1.0.0`/Software1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Software1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/resources.qrc ../Software/Race/Images.qrc .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/WindowAdmin.h ../Software/windowaddteam.h ../Software/team.h ../Software/windowaddleader.h ../Software/windoweditteam.h ../Software/WindowAddMembers.h ../Software/WindowAddCar.h ../Software/pugiconfig.hpp ../Software/pugixml.hpp ../Software/Race/lamp.h ../Software/Race/measurement.h ../Software/Race/windowrace.h ../Software/Race/windowracemain.h ../Software/Race/windowracesettings.h ../Software/Race/windowraceuser.h ../Software/Race/windowtimertest.h ../Software/Race/windowusart.h ../Software/Race/windowusermain.h ../Software/results.h .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/main.cpp ../Software/WindowAdmin.cpp ../Software/windowaddteam.cpp ../Software/team.cpp ../Software/windowaddleader.cpp ../Software/windoweditteam.cpp ../Software/WindowAddMembers.cpp ../Software/WindowAddCar.cpp ../Software/pugixml.cpp ../Software/Race/lamp.cpp ../Software/Race/measurement.cpp ../Software/Race/windowrace.cpp ../Software/Race/windowracemain.cpp ../Software/Race/windowracesettings.cpp ../Software/Race/windowraceuser.cpp ../Software/Race/windowtimertest.cpp ../Software/Race/windowusart.cpp ../Software/Race/windowusermain.cpp ../Software/results.cpp .tmp/Software1.0.0/ && $(COPY_FILE) --parents ../Software/WindowAdmin.ui ../Software/windowaddteam.ui ../Software/windowaddleader.ui ../Software/windoweditteam.ui ../Software/WindowAddMembers.ui ../Software/WindowAddCar.ui ../Software/Race/lamp.ui ../Software/Race/windowrace.ui ../Software/Race/windowracemain.ui ../Software/Race/windowracesettings.ui ../Software/Race/windowraceuser.ui ../Software/Race/windowtimertest.ui ../Software/Race/windowusart.ui ../Software/Race/windowusermain.ui .tmp/Software1.0.0/ && (cd `dirname .tmp/Software1.0.0` && $(TAR) Software1.0.0.tar Software1.0.0 && $(COMPRESS) Software1.0.0.tar) && $(MOVE) `dirname .tmp/Software1.0.0`/Software1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Software1.0.0
 
 
 clean:compiler_clean 
@@ -538,28 +533,28 @@ compiler_rcc_make_all: qrc_resources.cpp qrc_Images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp qrc_Images.cpp
 qrc_resources.cpp: ../Software/resources.qrc \
-		../Software/images/RD_logo-e1392478122173.png \
-		../Software/images/text_ok.png \
 		../Software/images/green.png \
 		../Software/images/mainLogo.jpg \
 		../Software/images/text_bad.png \
+		../Software/images/red.png \
 		../Software/images/gray.png \
-		../Software/images/red.png
+		../Software/images/text_ok.png \
+		../Software/images/RD_logo-e1392478122173.png
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name resources ../Software/resources.qrc -o qrc_resources.cpp
 
 qrc_Images.cpp: ../Software/Race/Images.qrc \
-		../Software/Race/RD_logo-e1392478122173.png \
-		../Software/images/track.jpeg \
 		../Software/images/gray.png \
-		../Software/images/gray.jpg \
-		../Software/images/red.png \
+		../Software/images/track.jpeg \
+		../Software/Race/RD_logo-e1392478122173.png \
+		../Software/images/green.png \
 		../Software/images/kabanos.jpeg \
-		../Software/images/green.png
+		../Software/images/red.png \
+		../Software/images/gray.jpg
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name Images ../Software/Race/Images.qrc -o qrc_Images.cpp
 
-compiler_moc_header_make_all: moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_windownewrace.cpp moc_WindowAddMembers.cpp moc_WindowAddCar.cpp moc_lamp.cpp moc_windowrace.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_windowraceuser.cpp moc_windowtimertest.cpp moc_windowusart.cpp moc_windowusermain.cpp
+compiler_moc_header_make_all: moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_WindowAddMembers.cpp moc_WindowAddCar.cpp moc_lamp.cpp moc_windowrace.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_windowraceuser.cpp moc_windowtimertest.cpp moc_windowusart.cpp moc_windowusermain.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_windownewrace.cpp moc_WindowAddMembers.cpp moc_WindowAddCar.cpp moc_lamp.cpp moc_windowrace.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_windowraceuser.cpp moc_windowtimertest.cpp moc_windowusart.cpp moc_windowusermain.cpp
+	-$(DEL_FILE) moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_WindowAddMembers.cpp moc_WindowAddCar.cpp moc_lamp.cpp moc_windowrace.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_windowraceuser.cpp moc_windowtimertest.cpp moc_windowusart.cpp moc_windowusermain.cpp
 moc_WindowAdmin.cpp: ../Software/Race/windowracemain.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1019,109 +1014,6 @@ moc_windoweditteam.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Software/team.h \
 		../Software/windoweditteam.h
 	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windoweditteam.h -o moc_windoweditteam.cpp
-
-moc_windownewrace.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfeatures.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtypetraits.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qflags.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv7.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv6.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv5.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_ia64.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_mips.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_x86.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_gcc.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_unix.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobject.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstring.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qchar.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlist.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qisenum.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qrect.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsize.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpalette.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qpair.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qbrush.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvector.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qregion.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qline.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qimage.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qhash.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfont.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfontinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qevent.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qset.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qurl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfile.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
-		../Software/windownewrace.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windownewrace.h -o moc_windownewrace.cpp
 
 moc_WindowAddMembers.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -2249,9 +2141,9 @@ moc_windowusermain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_windownewrace.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h
+compiler_uic_make_all: ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_windownewrace.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h
+	-$(DEL_FILE) ui_WindowAdmin.h ui_windowaddteam.h ui_windowaddleader.h ui_windoweditteam.h ui_WindowAddMembers.h ui_WindowAddCar.h ui_lamp.h ui_windowrace.h ui_windowracemain.h ui_windowracesettings.h ui_windowraceuser.h ui_windowtimertest.h ui_windowusart.h ui_windowusermain.h
 ui_WindowAdmin.h: ../Software/WindowAdmin.ui
 	/home/kuba/Qt5/5.3/gcc_64/bin/uic ../Software/WindowAdmin.ui -o ui_WindowAdmin.h
 
@@ -2263,9 +2155,6 @@ ui_windowaddleader.h: ../Software/windowaddleader.ui
 
 ui_windoweditteam.h: ../Software/windoweditteam.ui
 	/home/kuba/Qt5/5.3/gcc_64/bin/uic ../Software/windoweditteam.ui -o ui_windoweditteam.h
-
-ui_windownewrace.h: ../Software/windownewrace.ui
-	/home/kuba/Qt5/5.3/gcc_64/bin/uic ../Software/windownewrace.ui -o ui_windownewrace.h
 
 ui_WindowAddMembers.h: ../Software/WindowAddMembers.ui
 	/home/kuba/Qt5/5.3/gcc_64/bin/uic ../Software/WindowAddMembers.ui -o ui_WindowAddMembers.h
@@ -3153,150 +3042,6 @@ windoweditteam.o: ../Software/windoweditteam.cpp ../Software/windoweditteam.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windoweditteam.o ../Software/windoweditteam.cpp
-
-windownewrace.o: ../Software/windownewrace.cpp ../Software/windownewrace.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfeatures.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtypetraits.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qflags.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv7.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv6.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_armv5.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_ia64.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_mips.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_x86.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_gcc.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qatomic_unix.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobject.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstring.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qchar.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlist.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qisenum.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qrect.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsize.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpalette.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qpair.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qbrush.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvector.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qregion.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qline.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qimage.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qhash.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfont.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qfontinfo.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qevent.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qmap.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qset.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qurl.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfile.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_windownewrace.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
-		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/QTextBrowser \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextbrowser.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextedit.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtextdocument.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
-		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windownewrace.o ../Software/windownewrace.cpp
 
 WindowAddMembers.o: ../Software/WindowAddMembers.cpp ../Software/WindowAddMembers.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
@@ -4959,9 +4704,6 @@ moc_windowaddleader.o: moc_windowaddleader.cpp
 
 moc_windoweditteam.o: moc_windoweditteam.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_windoweditteam.o moc_windoweditteam.cpp
-
-moc_windownewrace.o: moc_windownewrace.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_windownewrace.o moc_windownewrace.cpp
 
 moc_WindowAddMembers.o: moc_WindowAddMembers.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_WindowAddMembers.o moc_WindowAddMembers.cpp
