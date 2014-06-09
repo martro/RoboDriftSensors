@@ -7,6 +7,7 @@
 #include "windowusart.h"
 #include "windowraceuser.h"
 #include <QTimer>
+#include <QElapsedTimer>
 #include <QMessageBox>
 #include "team.h"
 #include "results.h"
@@ -22,6 +23,9 @@ class WindowRace : public QMainWindow
 public:
     explicit WindowRace(QWidget *parent = 0);
     ~WindowRace();
+    void startRace();
+    QString dataToString(char data);
+    int dataToInt(char data);
 
 private slots:
     void countdownTimeOut();
@@ -29,17 +33,20 @@ private slots:
 
 public slots:
     void onWindowRaceCreated(vector<Team>, vector<Results>);
+    void onByteReceived(char data);
 
 signals:
     void setLights(int data);
+
 
 private:
     Ui::WindowRace *ui;
     WindowUSART Usart;
     WindowRaceUser RaceUser;
     QTimer CountDownTimer;
+    QElapsedTimer CurrentTime;
     int TimeToStart;
-
+    vector<int> ListOfTimes;
     vector <Measurement> Measurements;
 };
 

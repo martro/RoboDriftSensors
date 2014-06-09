@@ -34,7 +34,7 @@ private slots:
 public slots:
     void onconnection_ON();
     void onconnection_OFF();
-    void onbyteReceived();
+    void onbyteReceived(char data);
     void onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
     void onsetLights(int data);
 
@@ -44,7 +44,7 @@ signals:
     void buttonCommunicationClicked();
     void setLightsUserMain(int data);
     void windowRaceCreated(vector<Team> ListOfTeams, vector<Results> ListOfTimes); //musze podeśła dane do tego okna
-
+    void byteReceived(char data);
 
 private:
     Ui::WindowRaceMain *ui;

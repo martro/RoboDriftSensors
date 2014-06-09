@@ -53,16 +53,6 @@
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>271</width>
-      <height>151</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
@@ -99,6 +89,30 @@
         <string>Car name</string>
        </property>
       </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>41</x>
+      <y>99</y>
+      <width>601</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTextBrowser" name="textBest"/>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="textCurrent"/>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="textDifference"/>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="textWhichBetter"/>
      </item>
     </layout>
    </widget>

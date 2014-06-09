@@ -18,7 +18,7 @@ public:
     ~WindowUSART();
 
 signals:
-    void byteReceived();
+    void byteReceived(char data);
     void connection_ON();
     void connection_OFF();
 

@@ -15,14 +15,15 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -35,7 +36,6 @@ public:
     QPushButton *buttonStart;
     QPushButton *buttonClear;
     QPushButton *buttonSave;
-    QListView *listView;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QComboBox *comboBox;
@@ -43,6 +43,12 @@ public:
     QLabel *label_2;
     QLineEdit *lineEdit;
     QLabel *label_3;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QTextBrowser *textBest;
+    QTextBrowser *textCurrent;
+    QTextBrowser *textDifference;
+    QTextBrowser *textWhichBetter;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -63,9 +69,6 @@ public:
         buttonSave = new QPushButton(centralWidget);
         buttonSave->setObjectName(QStringLiteral("buttonSave"));
         buttonSave->setGeometry(QRect(280, 260, 181, 51));
-        listView = new QListView(centralWidget);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setGeometry(QRect(40, 100, 271, 151));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(40, 0, 223, 80));
@@ -98,6 +101,34 @@ public:
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 0, 2, 1, 1);
+
+        horizontalLayoutWidget = new QWidget(centralWidget);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(41, 99, 601, 151));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        textBest = new QTextBrowser(horizontalLayoutWidget);
+        textBest->setObjectName(QStringLiteral("textBest"));
+
+        horizontalLayout->addWidget(textBest);
+
+        textCurrent = new QTextBrowser(horizontalLayoutWidget);
+        textCurrent->setObjectName(QStringLiteral("textCurrent"));
+
+        horizontalLayout->addWidget(textCurrent);
+
+        textDifference = new QTextBrowser(horizontalLayoutWidget);
+        textDifference->setObjectName(QStringLiteral("textDifference"));
+
+        horizontalLayout->addWidget(textDifference);
+
+        textWhichBetter = new QTextBrowser(horizontalLayoutWidget);
+        textWhichBetter->setObjectName(QStringLiteral("textWhichBetter"));
+
+        horizontalLayout->addWidget(textWhichBetter);
 
         WindowRace->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowRace);

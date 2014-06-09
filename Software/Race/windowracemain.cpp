@@ -18,7 +18,7 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     connect(this, SIGNAL(buttonCommunicationClicked()),windowusertemp,SLOT(onButtonCommunicationClicked()));
     connect(&Window_USART, SIGNAL(connection_ON()),this,SLOT(onconnection_ON()));
     connect(&Window_USART, SIGNAL(connection_OFF()),this,SLOT(onconnection_OFF()));
-    connect(&Window_USART,SIGNAL(byteReceived()),this,SLOT(onbyteReceived()));
+    connect(&Window_USART,SIGNAL(byteReceived(char)),this,SLOT(onbyteReceived(char)));
 
     ui->Communication->addWidget(&Window_USART, 0,0);
 }
@@ -47,6 +47,7 @@ void WindowRaceMain::on_buttonRace_clicked()
 
         connect(Window_Race,SIGNAL(setLights(int)),this, SLOT(onsetLights(int)));
         connect(this, SIGNAL(windowRaceCreated(vector<Team>,vector<Results>)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>,vector<Results>)));// przekazanie info o teamach
+        connect(this, SIGNAL(byteReceived(char)), Window_Race, SLOT(onByteReceived(char)));
 
 
         emit buttonRaceClicked();
@@ -99,9 +100,9 @@ void WindowRaceMain::onconnection_OFF()
     ConnectionEstablished=0;
 }
 
-void WindowRaceMain::onbyteReceived()
+void WindowRaceMain::onbyteReceived(char data)
 {
-
+    emit byteReceived(data);
 }
 
 void WindowRaceMain::onsetLights(int data)

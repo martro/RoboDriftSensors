@@ -41,16 +41,16 @@ void WindowUSART::serialReceived()
 {
 
 
-    QByteArray dane;
-    dane=serial->readAll();
+    QByteArray data;
+    data=serial->readAll();
 
     char a;
-    a=dane.at(0);
+    a=data.at(0);
 
     this->ui->data->setText(dataToString(a));
 
 
-    emit byteReceived();
+    emit byteReceived(a);
 }
 
 QString WindowUSART::dataToString(char data)
