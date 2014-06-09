@@ -45,7 +45,7 @@ void WindowRaceMain::on_buttonRace_clicked()
 
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
-        connect(Window_Race,SIGNAL(setLights()),this, SLOT(onsetLights()));
+        connect(Window_Race,SIGNAL(setLights(int)),this, SLOT(onsetLights(int)));
 
 
         emit buttonRaceClicked();
@@ -103,11 +103,7 @@ void WindowRaceMain::onbyteReceived()
 
 }
 
-void WindowRaceMain::onsetLights()
+void WindowRaceMain::onsetLights(int data)
 {
-    QMessageBox m;
-    m.setText("got info");
-    m.exec();
-    emit setLightsUserMain(2);
-
+    emit setLightsUserMain(data);
 }

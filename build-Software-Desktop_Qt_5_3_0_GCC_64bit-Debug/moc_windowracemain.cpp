@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceMain_t {
-    QByteArrayData data[13];
-    char stringdata[218];
+    QByteArrayData data[18];
+    char stringdata[296];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,14 +41,21 @@ QT_MOC_LITERAL(8, 128, 29),
 QT_MOC_LITERAL(9, 158, 15),
 QT_MOC_LITERAL(10, 174, 16),
 QT_MOC_LITERAL(11, 191, 14),
-QT_MOC_LITERAL(12, 206, 11)
+QT_MOC_LITERAL(12, 206, 22),
+QT_MOC_LITERAL(13, 229, 12),
+QT_MOC_LITERAL(14, 242, 11),
+QT_MOC_LITERAL(15, 254, 15),
+QT_MOC_LITERAL(16, 270, 13),
+QT_MOC_LITERAL(17, 284, 11)
     },
     "WindowRaceMain\0buttonRaceClicked\0\0"
     "buttonSettingsClicked\0buttonCommunicationClicked\0"
     "setLightsUserMain\0data\0on_buttonRace_clicked\0"
     "on_buttonRaceSettings_clicked\0"
     "onconnection_ON\0onconnection_OFF\0"
-    "onbyteReceived\0onsetLights"
+    "onbyteReceived\0onButtonNewRaceClicked\0"
+    "vector<Team>\0listOfTeams\0vector<Results>\0"
+    "ListOfResults\0onsetLights"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +65,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,18 +73,19 @@ static const uint qt_meta_data_WindowRaceMain[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x06 /* Public */,
-       3,    0,   65,    2, 0x06 /* Public */,
-       4,    0,   66,    2, 0x06 /* Public */,
-       5,    1,   67,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
+       3,    0,   70,    2, 0x06 /* Public */,
+       4,    0,   71,    2, 0x06 /* Public */,
+       5,    1,   72,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   70,    2, 0x08 /* Private */,
-       8,    0,   71,    2, 0x08 /* Private */,
-       9,    0,   72,    2, 0x0a /* Public */,
-      10,    0,   73,    2, 0x0a /* Public */,
-      11,    0,   74,    2, 0x0a /* Public */,
-      12,    1,   75,    2, 0x0a /* Public */,
+       7,    0,   75,    2, 0x08 /* Private */,
+       8,    0,   76,    2, 0x08 /* Private */,
+       9,    0,   77,    2, 0x0a /* Public */,
+      10,    0,   78,    2, 0x0a /* Public */,
+      11,    0,   79,    2, 0x0a /* Public */,
+      12,    2,   80,    2, 0x0a /* Public */,
+      17,    1,   85,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -91,6 +99,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 15,   14,   16,
     QMetaType::Void, QMetaType::Int,    6,
 
        0        // eod
@@ -110,7 +119,8 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 6: _t->onconnection_ON(); break;
         case 7: _t->onconnection_OFF(); break;
         case 8: _t->onbyteReceived(); break;
-        case 9: _t->onsetLights((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->onButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1])),(*reinterpret_cast< vector<Results>(*)>(_a[2]))); break;
+        case 10: _t->onsetLights((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -168,13 +178,13 @@ int WindowRaceMain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

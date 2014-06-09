@@ -36,7 +36,7 @@ public slots:
     void onconnection_OFF();
     void onbyteReceived();
     void onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
-    void onsetLights();
+    void onsetLights(int data);
 
 signals:
     void buttonRaceClicked();
