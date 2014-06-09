@@ -9,10 +9,10 @@
 #include "windowaddteam.h"
 #include <vector>
 #include "team.h"
-#include "windownewrace.h"
 #include <QMessageBox>
 #include "pugixml.hpp"
 #include <QCoreApplication>
+#include "results.h"
 
 using namespace pugi;
 using namespace std;
@@ -44,13 +44,14 @@ public slots:
 
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);
-
+    void ButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
 
 private:
     Ui::WindowAdmin *ui;
     int WhatsClicked;
     QObject *CurrentWidget;
     vector<Team> listOfTeams;
+    vector<Results> ListOfResults;
     vector<int> ListOfCarsID;
     int HighestID;
 };

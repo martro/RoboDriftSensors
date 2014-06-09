@@ -9,7 +9,6 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     WhatsClicked = 0;
 
     WindowUserMain *windowusertemp = new WindowUserMain;
-
     windowusertemp->show();
 
     connect(this, SIGNAL(setLightsUserMain(int)),windowusertemp,SLOT(onsetLightsUserMain(int)));//get info about lights from racemain
@@ -46,7 +45,7 @@ void WindowRaceMain::on_buttonRace_clicked()
 
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
-        connect(Window_Race,SIGNAL(setLights(int)),this, SLOT(onsetLights(int)));
+        connect(Window_Race,SIGNAL(setLights()),this, SLOT(onsetLights()));
 
 
         emit buttonRaceClicked();
@@ -76,6 +75,12 @@ void WindowRaceMain::on_buttonRaceSettings_clicked()
     }
 }
 
+void WindowRaceMain::onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults)
+{
+    //skopiowanie oficjalnych danych do tempów.
+    TempListOfTeams = listOfTeams;
+    TempListOfResults = ListOfResults;
+}
 
 void WindowRaceMain::onconnection_ON()
 {
@@ -98,8 +103,11 @@ void WindowRaceMain::onbyteReceived()
 
 }
 
-void WindowRaceMain::onsetLights(int data)
+void WindowRaceMain::onsetLights()
 {
-    emit setLightsUserMain(data);
+    QMessageBox m;
+    m.setText("got info");
+    m.exec();
+    emit setLightsUserMain(2);
 
 }

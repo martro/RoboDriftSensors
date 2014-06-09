@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     Race/windowraceuser.cpp \
     Race/windowtimertest.cpp \
     Race/windowusart.cpp \
-    Race/windowusermain.cpp
+    Race/windowusermain.cpp \
+    results.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
@@ -50,7 +51,8 @@ HEADERS  += WindowAdmin.h \
     Race/windowraceuser.h \
     Race/windowtimertest.h \
     Race/windowusart.h \
-    Race/windowusermain.h
+    Race/windowusermain.h \
+    results.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \

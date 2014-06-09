@@ -101,6 +101,11 @@ void WindowAdmin::on_ButtonNewRace_clicked()
 
         WindowRaceMain *race = new WindowRaceMain;
 
+        //po utworzeniu okna race, wyyłam mu aktualną liste teamów i liste wyników;
+        connect(this, SIGNAL(ButtonNewRaceClicked(vector<Team>,vector<Results>)), race, SLOT(onButtonNewRaceClicked(vector<Team>,vector<Results>)));
+        emit ButtonNewRaceClicked(listOfTeams, ListOfResults);
+
+
         ui->CurrentWindow->addWidget(race, 0,0);
         this->CurrentWidget=race;
     }

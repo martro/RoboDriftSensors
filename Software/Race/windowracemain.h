@@ -12,6 +12,8 @@
 #include "windowracesettings.h"
 #include "windowusart.h"
 #include <vector>
+#include "team.h"
+#include "results.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -27,14 +29,14 @@ public:
 
 private slots:
     void on_buttonRace_clicked();
-
     void on_buttonRaceSettings_clicked();
 
 public slots:
     void onconnection_ON();
     void onconnection_OFF();
     void onbyteReceived();
-    void onsetLights(int data);
+    void onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
+    void onsetLights();
 
 signals:
     void buttonRaceClicked();
@@ -50,6 +52,8 @@ private:
     WindowUserMain windowusertemp;
     bool ConnectionEstablished;
     WindowUSART Window_USART;
+    vector<Team> TempListOfTeams;
+    vector<Results> TempListOfResults;
     WindowRaceUser *windowRaceUser;
 };
 
