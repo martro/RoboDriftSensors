@@ -3,6 +3,7 @@
 
 #define BUTTON_NEW_RACE 1
 #define BUTTON_ADD_TEAM 2
+#define BUTTON_STATS 3
 
 #include "Race/windowracemain.h"
 #include <QMainWindow>
@@ -13,6 +14,7 @@
 #include "pugixml.hpp"
 #include <QCoreApplication>
 #include "results.h"
+#include "WindowStats.h"
 
 using namespace pugi;
 using namespace std;
@@ -38,6 +40,8 @@ public:
 private slots:
     void on_ButtonAddEditTeam_clicked();
     void on_ButtonNewRace_clicked();
+
+    void on_ButtonStats_clicked();
 
 public slots:
     void onSendCurrentListOfTeams(vector<Team> tempListOfTeams);

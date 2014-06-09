@@ -22,9 +22,11 @@ void WindowAdmin::on_ButtonAddEditTeam_clicked()
     ui->label->hide();
     if(WhatsClicked != BUTTON_ADD_TEAM)
     {
-        if(WhatsClicked != 0) //if STATISTICS ARE ADDED
-             //delete this->CurrentWidget;
-            race->hide();
+        race->hide();
+        if(WhatsClicked == BUTTON_STATS) //if STATISTICS ARE ADDED
+        {
+            delete this->CurrentWidget;
+        }
         WhatsClicked = BUTTON_ADD_TEAM;
         WindowAddTeam *Window_Add_Team = new WindowAddTeam;
 
@@ -244,5 +246,24 @@ void WindowAdmin::readFromXML()
             }
             listOfTeams.push_back(TempTeam);
         }
+    }
+}
+
+void WindowAdmin::on_ButtonStats_clicked()
+{
+    ui->label->hide();
+    if(WhatsClicked != BUTTON_STATS)
+    {
+        race->hide();
+        if(WhatsClicked != BUTTON_NEW_RACE)
+        {
+            delete this->CurrentWidget;
+        }
+        WhatsClicked = BUTTON_STATS;
+
+        WindowStats *Window_Stats = new WindowStats;
+
+        ui->CurrentWindow->addWidget(Window_Stats, 0,0);
+        this->CurrentWidget=Window_Stats;
     }
 }
