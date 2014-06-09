@@ -538,23 +538,23 @@ compiler_rcc_make_all: qrc_resources.cpp qrc_Images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp qrc_Images.cpp
 qrc_resources.cpp: ../Software/resources.qrc \
-		../Software/images/text_bad.png \
 		../Software/images/gray.png \
 		../Software/images/text_ok.png \
-		../Software/images/green.png \
+		../Software/images/RD_logo-e1392478122173.png \
 		../Software/images/red.png \
 		../Software/images/mainLogo.jpg \
-		../Software/images/RD_logo-e1392478122173.png
+		../Software/images/text_bad.png \
+		../Software/images/green.png
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name resources ../Software/resources.qrc -o qrc_resources.cpp
 
 qrc_Images.cpp: ../Software/Race/Images.qrc \
+		../Software/images/gray.png \
 		../Software/Race/RD_logo-e1392478122173.png \
 		../Software/images/track.jpeg \
-		../Software/images/gray.png \
-		../Software/images/gray.jpg \
-		../Software/images/red.png \
 		../Software/images/green.png \
-		../Software/images/kabanos.jpeg
+		../Software/images/kabanos.jpeg \
+		../Software/images/red.png \
+		../Software/images/gray.jpg
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name Images ../Software/Race/Images.qrc -o qrc_Images.cpp
 
 compiler_moc_header_make_all: moc_WindowAdmin.cpp moc_windowaddteam.cpp moc_windowaddleader.cpp moc_windoweditteam.cpp moc_WindowAddMembers.cpp moc_WindowAddCar.cpp moc_lamp.cpp moc_windowrace.cpp moc_windowracemain.cpp moc_windowracesettings.cpp moc_windowraceuser.cpp moc_windowtimertest.cpp moc_windowusart.cpp moc_windowusermain.cpp moc_WindowStats.cpp
@@ -680,11 +680,11 @@ moc_WindowAdmin.cpp: ../Software/Race/windowracemain.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		../Software/Race/windowusermain.h \
-		../Software/Race/windowracesettings.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/results.h \
+		../Software/Race/windowusermain.h \
+		../Software/Race/windowracesettings.h \
 		../Software/windowaddteam.h \
 		../Software/windowaddleader.h \
 		../Software/windoweditteam.h \
@@ -1456,6 +1456,9 @@ moc_windowrace.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
+		../Software/team.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
+		../Software/results.h \
 		../Software/Race/windowrace.h
 	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowrace.h -o moc_windowrace.cpp
 
@@ -1578,11 +1581,11 @@ moc_windowracemain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		../Software/Race/windowusermain.h \
-		../Software/Race/windowracesettings.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/results.h \
+		../Software/Race/windowusermain.h \
+		../Software/Race/windowracesettings.h \
 		../Software/Race/windowracemain.h
 	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowracemain.h -o moc_windowracemain.cpp
 
@@ -2436,11 +2439,11 @@ main.o: ../Software/main.cpp ../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplicat
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		../Software/Race/windowusermain.h \
-		../Software/Race/windowracesettings.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/results.h \
+		../Software/Race/windowusermain.h \
+		../Software/Race/windowracesettings.h \
 		../Software/windowaddteam.h \
 		../Software/windowaddleader.h \
 		../Software/windoweditteam.h \
@@ -2573,11 +2576,11 @@ WindowAdmin.o: ../Software/WindowAdmin.cpp ../Software/WindowAdmin.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		../Software/Race/windowusermain.h \
-		../Software/Race/windowracesettings.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/results.h \
+		../Software/Race/windowusermain.h \
+		../Software/Race/windowracesettings.h \
 		../Software/windowaddteam.h \
 		../Software/windowaddleader.h \
 		../Software/windoweditteam.h \
@@ -3405,6 +3408,9 @@ windowrace.o: ../Software/Race/windowrace.cpp ../Software/Race/windowrace.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
+		../Software/team.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
+		../Software/results.h \
 		ui_windowrace.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowrace.o ../Software/Race/windowrace.cpp
 
@@ -3528,11 +3534,11 @@ windowracemain.o: ../Software/Race/windowracemain.cpp ../Software/Race/windowrac
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		../Software/Race/windowusermain.h \
-		../Software/Race/windowracesettings.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/results.h \
+		../Software/Race/windowusermain.h \
+		../Software/Race/windowracesettings.h \
 		ui_windowracemain.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowracemain.o ../Software/Race/windowracemain.cpp
 

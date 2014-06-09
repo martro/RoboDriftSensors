@@ -103,7 +103,6 @@ void WindowAdmin::on_ButtonNewRace_clicked()
              delete this->CurrentWidget;
         WhatsClicked = BUTTON_NEW_RACE;
 
-        //WindowRaceMain *race = new WindowRaceMain;
         race->show();
 
         //po utworzeniu okna race, wyyłam mu aktualną liste teamów i liste wyników;

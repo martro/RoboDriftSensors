@@ -46,6 +46,7 @@ void WindowRaceMain::on_buttonRace_clicked()
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
         connect(Window_Race,SIGNAL(setLights(int)),this, SLOT(onsetLights(int)));
+        connect(this, SIGNAL(windowRaceCreated(vector<Team>,vector<Results>)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>,vector<Results>)));// przekazanie info o teamach
 
 
         emit buttonRaceClicked();

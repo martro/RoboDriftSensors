@@ -43,6 +43,7 @@ signals:
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
     void setLightsUserMain(int data);
+    void windowRaceCreated(vector<Team> ListOfTeams, vector<Results> ListOfTimes); //musze podeśła dane do tego okna
 
 
 private:

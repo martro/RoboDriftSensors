@@ -28,4 +28,9 @@ void WindowRace::countdownTimeOut()
     if (TimeToStart==-1)
         CountDownTimer.stop();
     emit setLights(TimeToStart);
+    //tu tez trzeba wysłać jaki team, jakie czasy
+}
+void WindowRace::onWindowRaceCreated(vector<Team>, vector<Results>)
+{
+    //dodanie do combo boxa, itp
 }

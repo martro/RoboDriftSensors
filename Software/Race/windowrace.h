@@ -8,6 +8,8 @@
 #include "windowraceuser.h"
 #include <QTimer>
 #include <QMessageBox>
+#include "team.h"
+#include "results.h"
 
 namespace Ui {
 class WindowRace;
@@ -23,9 +25,10 @@ public:
 
 private slots:
     void countdownTimeOut();
-
-
     void on_buttonStart_clicked();
+
+public slots:
+    void onWindowRaceCreated(vector<Team>, vector<Results>);
 
 signals:
     void setLights(int data);
