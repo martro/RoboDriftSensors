@@ -58,9 +58,5 @@ void WindowUserMain::onconnection_ON()
 
 void WindowUserMain::onsetLightsUserMain(int data)
 {
-    QMessageBox m;
-    m.setText("got info form racemain");
-    m.exec();
-
     Window_Race_User->startLights(data);
 }

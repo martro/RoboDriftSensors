@@ -9,22 +9,22 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     palette = new QPalette();
     palette->setColor(ui->Sensor1->foregroundRole(),Qt::transparent);
     leds(0);
-    Lamp *Lamp1= new Lamp;
-    Lamp *Lamp2= new Lamp;
-    Lamp *Lamp3= new Lamp;
-    Lamp *Lamp4= new Lamp;
-    Lamp *Lamp5= new Lamp;
-    this->ui->Lights->addWidget(Lamp1);
-    this->ui->Lights->addWidget(Lamp2);
-    this->ui->Lights->addWidget(Lamp3);
-    this->ui->Lights->addWidget(Lamp4);
-    this->ui->Lights->addWidget(Lamp5);
+    //Lamp *Lamp1= new Lamp;
+    //Lamp *Lamp2= new Lamp;
+    //Lamp *Lamp3= new Lamp;
+    //Lamp *Lamp4= new Lamp;
+   // Lamp *Lamp5= new Lamp;
+    this->ui->Lights->addWidget(&Lamp1);
+    this->ui->Lights->addWidget(&Lamp2);
+    this->ui->Lights->addWidget(&Lamp3);
+    this->ui->Lights->addWidget(&Lamp4);
+    this->ui->Lights->addWidget(&Lamp5);
 
-    Lamp1->setMode(0);
-    Lamp2->setMode(1);
-    Lamp3->setMode(2);
-    Lamp4->setMode(3);
-    Lamp5->setMode(4);
+    Lamp1.setMode(1);
+    Lamp2.setMode(1);
+    Lamp3.setMode(2);
+    Lamp4.setMode(3);
+    Lamp5.setMode(4);
 
     leds(0b1);
 
@@ -113,7 +113,64 @@ void WindowRaceUser:: onsetLightsUser()
 
 void WindowRaceUser::startLights(int data)
 {
-    QMessageBox m;
-    m.setText(QString::number(data));
-    m.exec();
+
+    //Lamp1.setMode(1);
+    //Lamp2.setMode(1);
+
+switch (data)
+{
+case 6:
+    Lamp1.setMode(1);
+    Lamp2.setMode(1);
+    Lamp3.setMode(1);
+    Lamp4.setMode(1);
+    Lamp5.setMode(1);
+    break;
+
+case 5:
+    Lamp1.setMode(1);
+    Lamp2.setMode(1);
+    Lamp3.setMode(1);
+    Lamp4.setMode(1);
+    Lamp5.setMode(2);
+    break;
+
+case 4:
+    Lamp1.setMode(1);
+    Lamp2.setMode(1);
+    Lamp3.setMode(1);
+    Lamp4.setMode(2);
+    Lamp5.setMode(2);
+    break;
+case 3:
+    Lamp1.setMode(1);
+    Lamp2.setMode(1);
+    Lamp3.setMode(2);
+    Lamp4.setMode(2);
+    Lamp5.setMode(2);
+    break;
+case 2:
+    Lamp1.setMode(1);
+    Lamp2.setMode(2);
+    Lamp3.setMode(2);
+    Lamp4.setMode(2);
+    Lamp5.setMode(2);
+    break;
+case 1:
+    Lamp1.setMode(2);
+    Lamp2.setMode(2);
+    Lamp3.setMode(2);
+    Lamp4.setMode(2);
+    Lamp5.setMode(2);
+    break;
+case 0:
+    Lamp1.setMode(3);
+    Lamp2.setMode(3);
+    Lamp3.setMode(3);
+    Lamp4.setMode(3);
+    Lamp5.setMode(3);
+    break;
+default:
+    break;
+}
 }

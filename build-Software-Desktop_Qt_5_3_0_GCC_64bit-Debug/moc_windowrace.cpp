@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRace_t {
-    QByteArrayData data[5];
-    char stringdata[62];
+    QByteArrayData data[6];
+    char stringdata[67];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,11 @@ static const qt_meta_stringdata_WindowRace_t qt_meta_stringdata_WindowRace = {
 QT_MOC_LITERAL(0, 0, 10),
 QT_MOC_LITERAL(1, 11, 9),
 QT_MOC_LITERAL(2, 21, 0),
-QT_MOC_LITERAL(3, 22, 16),
-QT_MOC_LITERAL(4, 39, 22)
+QT_MOC_LITERAL(3, 22, 4),
+QT_MOC_LITERAL(4, 27, 16),
+QT_MOC_LITERAL(5, 44, 22)
     },
-    "WindowRace\0setLights\0\0countdownTimeOut\0"
+    "WindowRace\0setLights\0\0data\0countdownTimeOut\0"
     "on_buttonStart_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -54,14 +55,14 @@ static const uint qt_meta_data_WindowRace[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
+       1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   30,    2, 0x08 /* Private */,
-       4,    0,   31,    2, 0x08 /* Private */,
+       4,    0,   32,    2, 0x08 /* Private */,
+       5,    0,   33,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -75,7 +76,7 @@ void WindowRace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         WindowRace *_t = static_cast<WindowRace *>(_o);
         switch (_id) {
-        case 0: _t->setLights(); break;
+        case 0: _t->setLights((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->countdownTimeOut(); break;
         case 2: _t->on_buttonStart_clicked(); break;
         default: ;
@@ -84,13 +85,12 @@ void WindowRace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (WindowRace::*_t)();
+            typedef void (WindowRace::*_t)(int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRace::setLights)) {
                 *result = 0;
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject WindowRace::staticMetaObject = {
@@ -130,8 +130,9 @@ int WindowRace::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void WindowRace::setLights()
+void WindowRace::setLights(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

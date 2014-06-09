@@ -24,11 +24,8 @@ void WindowRace::on_buttonStart_clicked()
 
 void WindowRace::countdownTimeOut()
 {
-    QMessageBox m;
-    m.setText(QString::number(TimeToStart));
-    m.exec();
     TimeToStart--;
     if (TimeToStart==-1)
         CountDownTimer.stop();
-    emit setLights();
+    emit setLights(TimeToStart);
 }

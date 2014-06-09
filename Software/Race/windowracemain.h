@@ -34,7 +34,7 @@ public slots:
     void onconnection_ON();
     void onconnection_OFF();
     void onbyteReceived();
-    void onsetLights();
+    void onsetLights(int data);
 
 signals:
     void buttonRaceClicked();

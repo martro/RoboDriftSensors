@@ -77,7 +77,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
        9,    0,   72,    2, 0x0a /* Public */,
       10,    0,   73,    2, 0x0a /* Public */,
       11,    0,   74,    2, 0x0a /* Public */,
-      12,    0,   75,    2, 0x0a /* Public */,
+      12,    1,   75,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -91,7 +91,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    6,
 
        0        // eod
 };
@@ -110,7 +110,7 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 6: _t->onconnection_ON(); break;
         case 7: _t->onconnection_OFF(); break;
         case 8: _t->onbyteReceived(); break;
-        case 9: _t->onsetLights(); break;
+        case 9: _t->onsetLights((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

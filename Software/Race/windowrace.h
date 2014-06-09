@@ -28,7 +28,7 @@ private slots:
     void on_buttonStart_clicked();
 
 signals:
-    void setLights();
+    void setLights(int data);
 
 private:
     Ui::WindowRace *ui;

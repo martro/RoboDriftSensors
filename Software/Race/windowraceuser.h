@@ -28,6 +28,12 @@ private:
     Ui::WindowRaceUser *ui;
     QPalette* palette;
     WindowUSART *usart;
+    Lamp Lamp1;
+    Lamp Lamp2;
+    Lamp Lamp3;
+    Lamp Lamp4;
+    Lamp Lamp5;
+
 };
 
 #endif // WINDOWRACEUSER_H
