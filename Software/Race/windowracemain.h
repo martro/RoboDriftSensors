@@ -35,7 +35,7 @@ public slots:
     void onconnection_ON();
     void onconnection_OFF();
     void onbyteReceived(char data);
-    void onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
+    void onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
     void onsetLights(int data);
 
 signals:
@@ -43,7 +43,7 @@ signals:
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
     void setLightsUserMain(int data);
-    void windowRaceCreated(vector<Team> ListOfTeams, vector<Results> ListOfTimes); //musze podeśła dane do tego okna
+    void windowRaceCreated(vector<Team> ListOfTeams, Results ListOfTimes); //musze podeśła dane do tego okna
     void byteReceived(char data);
 
 private:
@@ -54,7 +54,7 @@ private:
     bool ConnectionEstablished;
     WindowUSART Window_USART;
     vector<Team> TempListOfTeams;
-    vector<Results> TempListOfResults;
+    Results TempAllResults;
     WindowRaceUser *windowRaceUser;
 };
 

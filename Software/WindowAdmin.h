@@ -48,14 +48,14 @@ public slots:
 
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);
-    void ButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults);
+    void ButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
 
 private:
     Ui::WindowAdmin *ui;
     int WhatsClicked;
     QObject *CurrentWidget;
     vector<Team> listOfTeams;
-    vector<Results> ListOfResults;
+    Results AllResults;
     vector<int> ListOfCarsID;
     int HighestID;
     WindowRaceMain *race;

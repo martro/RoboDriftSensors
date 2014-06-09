@@ -46,10 +46,10 @@ void WindowRaceMain::on_buttonRace_clicked()
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
         connect(Window_Race,SIGNAL(setLights(int)),this, SLOT(onsetLights(int)));
-        connect(this, SIGNAL(windowRaceCreated(vector<Team>,vector<Results>)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>,vector<Results>)));// przekazanie info o teamach
+        connect(this, SIGNAL(windowRaceCreated(vector<Team>, Results)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>, Results)));// przekazanie info o teamach
         connect(this, SIGNAL(byteReceived(char)), Window_Race, SLOT(onByteReceived(char)));
 
-
+        emit windowRaceCreated(TempListOfTeams, TempAllResults); //posyła dane o teamachtimach do okna race.
         emit buttonRaceClicked();
     }
 }
@@ -77,11 +77,11 @@ void WindowRaceMain::on_buttonRaceSettings_clicked()
     }
 }
 
-void WindowRaceMain::onButtonNewRaceClicked(vector<Team> listOfTeams, vector<Results> ListOfResults)
+void WindowRaceMain::onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults)
 {
     //skopiowanie oficjalnych danych do tempów.
     TempListOfTeams = listOfTeams;
-    TempListOfResults = ListOfResults;
+    TempAllResults = AllResults;
 }
 
 void WindowRaceMain::onconnection_ON()

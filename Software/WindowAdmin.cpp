@@ -10,6 +10,8 @@ WindowAdmin::WindowAdmin(QWidget *parent) :
     WhatsClicked = 0;
     HighestID = 0;
     race = new WindowRaceMain;
+    connect(this, SIGNAL(ButtonNewRaceClicked(vector<Team>, Results)), race, SLOT(onButtonNewRaceClicked(vector<Team>,Results)));
+
 }
 
 WindowAdmin::~WindowAdmin()
@@ -106,8 +108,7 @@ void WindowAdmin::on_ButtonNewRace_clicked()
         race->show();
 
         //po utworzeniu okna race, wyyłam mu aktualną liste teamów i liste wyników;
-        connect(this, SIGNAL(ButtonNewRaceClicked(vector<Team>,vector<Results>)), race, SLOT(onButtonNewRaceClicked(vector<Team>,vector<Results>)));
-        emit ButtonNewRaceClicked(listOfTeams, ListOfResults);
+        emit ButtonNewRaceClicked(listOfTeams, AllResults);
 
 
         ui->CurrentWindow->addWidget(race, 0,0);

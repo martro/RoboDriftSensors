@@ -18,7 +18,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -38,11 +37,11 @@ public:
     QPushButton *buttonSave;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QComboBox *comboBox;
+    QComboBox *comboBoxCategory;
     QLabel *label;
     QLabel *label_2;
-    QLineEdit *lineEdit;
     QLabel *label_3;
+    QComboBox *comboBoxID;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QTextBrowser *textBest;
@@ -71,16 +70,16 @@ public:
         buttonSave->setGeometry(QRect(280, 260, 181, 51));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(40, 0, 223, 80));
+        gridLayoutWidget->setGeometry(QRect(40, 0, 249, 80));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        comboBox = new QComboBox(gridLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBoxCategory = new QComboBox(gridLayoutWidget);
+        comboBoxCategory->setObjectName(QStringLiteral("comboBoxCategory"));
 
-        gridLayout->addWidget(comboBox, 1, 0, 1, 1);
+        gridLayout->addWidget(comboBoxCategory, 1, 0, 1, 1);
 
         label = new QLabel(gridLayoutWidget);
         label->setObjectName(QStringLiteral("label"));
@@ -92,15 +91,15 @@ public:
 
         gridLayout->addWidget(label_2, 0, 1, 1, 1);
 
-        lineEdit = new QLineEdit(gridLayoutWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
-
         label_3 = new QLabel(gridLayoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 0, 2, 1, 1);
+
+        comboBoxID = new QComboBox(gridLayoutWidget);
+        comboBoxID->setObjectName(QStringLiteral("comboBoxID"));
+
+        gridLayout->addWidget(comboBoxID, 1, 1, 1, 1);
 
         horizontalLayoutWidget = new QWidget(centralWidget);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
@@ -153,6 +152,12 @@ public:
         buttonStart->setText(QApplication::translate("WindowRace", "START!", 0));
         buttonClear->setText(QApplication::translate("WindowRace", "Clear", 0));
         buttonSave->setText(QApplication::translate("WindowRace", "Save", 0));
+        comboBoxCategory->clear();
+        comboBoxCategory->insertItems(0, QStringList()
+         << QApplication::translate("WindowRace", "Mobile Open", 0)
+         << QApplication::translate("WindowRace", "RoboDrift", 0)
+         << QApplication::translate("WindowRace", "RC", 0)
+        );
         label->setText(QApplication::translate("WindowRace", "Category", 0));
         label_2->setText(QApplication::translate("WindowRace", "Car ID", 0));
         label_3->setText(QApplication::translate("WindowRace", "Car name", 0));

@@ -12,6 +12,8 @@
 #include "team.h"
 #include "results.h"
 
+#define FALSTART -1
+
 namespace Ui {
 class WindowRace;
 }
@@ -30,9 +32,11 @@ public:
 private slots:
     void countdownTimeOut();
     void on_buttonStart_clicked();
+    void on_comboBoxCategory_activated(const QString &Category);
+    void on_comboBoxID_activated(const QString &CurrentID);
 
 public slots:
-    void onWindowRaceCreated(vector<Team>, vector<Results>);
+    void onWindowRaceCreated(vector<Team> ListOfTeams, Results AllResults);
     void onByteReceived(char data);
 
 signals:
@@ -47,7 +51,9 @@ private:
     QElapsedTimer CurrentTime;
     int TimeToStart;
     vector<int> ListOfTimes;
-    vector <Measurement> Measurements;
+    vector<Team> TempListOfTeams;
+    Results TempAllResults;
+    //vector <Measurement> Measurements;
     vector<int> TempListOfBestTimes;
     int PrevSensor;
 };

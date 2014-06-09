@@ -7,11 +7,6 @@ WindowRace::WindowRace(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(&CountDownTimer,SIGNAL(timeout()),this,SLOT(countdownTimeOut()));
-    TempListOfBestTimes.push_back(2000);
-    TempListOfBestTimes.push_back(5000);
-    TempListOfBestTimes.push_back(7000);
-    TempListOfBestTimes.push_back(10000);
-    TempListOfBestTimes.push_back(13000);
 
     PrevSensor = 0;
 }
@@ -138,7 +133,34 @@ QString WindowRace::dataToString(char data)
 
     return DataStr;
 }
-void WindowRace::onWindowRaceCreated(vector<Team>, vector<Results>)
+void WindowRace::onWindowRaceCreated(vector<Team> ListOfTeams, Results AllResults)
 {
-    //dodanie do combo boxa, itp
+    TempAllResults = AllResults;
+    TempListOfTeams = ListOfTeams;
+}
+
+void WindowRace::on_comboBoxCategory_activated(const QString &Category)
+{
+    if(Category == "Mobile Open")
+    {
+        TempListOfBestTimes = TempAllResults.CurrentBestTimeMO;
+    }
+    else if(Category == "RoboDrift")
+    {
+        TempListOfBestTimes = TempAllResults.CurrentBestTimeRD;
+    }
+    else if(Category == "RC")
+    {
+        TempListOfBestTimes = TempAllResults.CurrentBestTimeRC;
+    }
+
+    for(unsigned int x=0;x<TempListOfBestTimes.size();x++)
+    {
+        ui->textWhichBetter->append(QString::number(TempListOfBestTimes.at(x)));
+    }
+}
+
+void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
+{
+
 }
