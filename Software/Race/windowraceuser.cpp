@@ -170,6 +170,12 @@ case 0:
     Lamp4.setMode(3);
     Lamp5.setMode(3);
     break;
+case -1:
+    Lamp1.setMode(4);
+    Lamp2.setMode(4);
+    Lamp3.setMode(4);
+    Lamp4.setMode(4);
+    Lamp5.setMode(4);
 default:
     break;
 }

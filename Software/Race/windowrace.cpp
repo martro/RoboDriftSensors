@@ -7,6 +7,13 @@ WindowRace::WindowRace(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(&CountDownTimer,SIGNAL(timeout()),this,SLOT(countdownTimeOut()));
+    TempListOfBestTimes.push_back(2000);
+    TempListOfBestTimes.push_back(5000);
+    TempListOfBestTimes.push_back(7000);
+    TempListOfBestTimes.push_back(10000);
+    TempListOfBestTimes.push_back(13000);
+
+    PrevSensor = 0;
 }
 
 WindowRace::~WindowRace()
@@ -26,9 +33,12 @@ void WindowRace::countdownTimeOut()
 {
     TimeToStart--;
     if (TimeToStart==-1)
+    {
         CountDownTimer.stop();
+        startRace();
+    }
     emit setLights(TimeToStart);
-    startRace();
+
 }
 
 void WindowRace::startRace()
@@ -38,12 +48,45 @@ void WindowRace::startRace()
 }
 void WindowRace::onByteReceived(char data)
 {
-    if(data&0b00001)
-        ListOfTimes.push_back(CurrentTime.elapsed());
-    if(data&0b00010)
-        ListOfTimes.push_back(CurrentTime.elapsed());
-    if(data&0b11111)
-        this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
+    if( (TimeToStart != -1) && (data&0b00001) )
+    {
+        CountDownTimer.stop();
+        emit setLights(FALSTART);
+    }
+
+    else
+    {
+        if(data&0b00001)
+        {
+            ListOfTimes.push_back(CurrentTime.elapsed());
+        }
+        if(data&0b00010)
+        {
+            ListOfTimes.push_back(CurrentTime.elapsed());
+        }
+        if(data&0b00100)
+        {
+            ListOfTimes.push_back(CurrentTime.elapsed());
+        }
+        if(data&0b01000)
+        {
+            ListOfTimes.push_back(CurrentTime.elapsed());
+        }
+        if(data&0b10000)
+        {
+            ListOfTimes.push_back(CurrentTime.elapsed());
+        }
+        data = data&0b11111;
+        int Position = dataToInt(data);
+        if(Position && (PrevSensor != Position))
+        {
+            this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
+            this->ui->textBest->append((QString::number(TempListOfBestTimes.at(Position-1))));
+            this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(Position-1)));
+        }
+        PrevSensor = Position;
+    }
+
 }
 int WindowRace::dataToInt(char data)
 {
@@ -72,6 +115,7 @@ int WindowRace::dataToInt(char data)
             break;
 
         default:
+            result =0;
             break;
     }
     return result;

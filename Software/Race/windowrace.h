@@ -48,6 +48,8 @@ private:
     int TimeToStart;
     vector<int> ListOfTimes;
     vector <Measurement> Measurements;
+    vector<int> TempListOfBestTimes;
+    int PrevSensor;
 };
 
 #endif // WINDOWRACE_H
