@@ -15,7 +15,22 @@
 			<Competition FR="No" TA="Yes" />
 		</Car>
 	</Team>
+	<Team Name="3">
+		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
+		<Car Name="aut" ID="6">
+			<Category RC="Yes" MO="Yes" RD="No" />
+			<Competition FR="No" TA="No" />
+		</Car>
+	</Team>
 	<Team Name="5">
 		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
+		<Car Name="autka" ID="4">
+			<Category RC="Yes" MO="No" RD="Yes" />
+			<Competition FR="Yes" TA="Yes" />
+		</Car>
+		<Car Name="i kolejne" ID="5">
+			<Category RC="Yes" MO="No" RD="Yes" />
+			<Competition FR="No" TA="Yes" />
+		</Car>
 	</Team>
 </ListOfTeams>

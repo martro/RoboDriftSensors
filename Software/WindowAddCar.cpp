@@ -127,22 +127,22 @@ void WindowAddCar::sortCars(vector<Car> TempListOfCars)
     if(TempListOfCars.size() != 0)
     {
         int Swap = YES;
-    while (Swap == YES)
-    {
-        Swap = NO;
-        for(unsigned int x=0; x<TempListOfCars.size()-1; x++)
+        while (Swap == YES)
         {
-            if(TempListOfCars.at(x).getName() > TempListOfCars.at(x+1).getName())
+            Swap = NO;
+            for(unsigned int x=0; x<TempListOfCars.size()-1; x++)
             {
-                Car CarToSwap;
-                CarToSwap = TempListOfCars.at(x);
-                TempListOfCars.at(x) = TempListOfCars.at(x+1);
-                TempListOfCars.at(x+1) = CarToSwap;
-                Swap = YES;
+                if(TempListOfCars.at(x).getName() > TempListOfCars.at(x+1).getName())
+                {
+                    Car CarToSwap;
+                    CarToSwap = TempListOfCars.at(x);
+                    TempListOfCars.at(x) = TempListOfCars.at(x+1);
+                    TempListOfCars.at(x+1) = CarToSwap;
+                    Swap = YES;
+                }
             }
         }
-    }
-    this->TempListOfCars = TempListOfCars;
+        this->TempListOfCars = TempListOfCars;
     }
 }
 

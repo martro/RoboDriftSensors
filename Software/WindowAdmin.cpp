@@ -11,7 +11,7 @@ WindowAdmin::WindowAdmin(QWidget *parent) :
     HighestID = 0;
     race = new WindowRaceMain;
     connect(this, SIGNAL(ButtonNewRaceClicked(vector<Team>, Results)), race, SLOT(onButtonNewRaceClicked(vector<Team>,Results)));
-
+    readFromXML();
 }
 
 WindowAdmin::~WindowAdmin()

@@ -37,7 +37,6 @@ void WindowRaceMain::on_buttonRace_clicked()
              delete this->CurrentWidget;
 
 
-
         WhatsClicked = BUTTON_RACE;
         WindowRace *Window_Race = new WindowRace;
 
