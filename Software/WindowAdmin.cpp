@@ -150,25 +150,25 @@ void WindowAdmin::saveToXML()
             xml_node Category = Car.append_child("Category");
             if(listOfTeams.at(x).ListOfCars.at(c).checkRC())
                 Category.append_attribute("RC") = "Yes";
-            else Category.append_attribute("RC") = "NO";
+            else Category.append_attribute("RC") = "No";
 
             if(listOfTeams.at(x).ListOfCars.at(c).checkMO())
                 Category.append_attribute("MO") = "Yes";
-            else Category.append_attribute("MO") = "NO";
+            else Category.append_attribute("MO") = "No";
 
             if(listOfTeams.at(x).ListOfCars.at(c).checkRD())
                 Category.append_attribute("RD") = "Yes";
-            else Category.append_attribute("RD") = "NO";
+            else Category.append_attribute("RD") = "No";
 
 
             xml_node Competition = Car.append_child("Competition");
             if(listOfTeams.at(x).ListOfCars.at(c).checkFR())
                 Competition.append_attribute("FR") = "Yes";
-            else Competition.append_attribute("FR") = "NO";
+            else Competition.append_attribute("FR") = "No";
 
             if(listOfTeams.at(x).ListOfCars.at(c).checkTA())
                 Competition.append_attribute("TA") = "Yes";
-            else Competition.append_attribute("TA") = "NO";
+            else Competition.append_attribute("TA") = "No";
 
         }
     }
@@ -216,6 +216,8 @@ void WindowAdmin::readFromXML()
             Car TempCar;
             for(xml_node ReadCar=ReadTeam.child("Car");ReadCar;ReadCar=ReadCar.next_sibling("Car"))
             {
+                TempCar.clear();
+
                 TempCar.setName( ReadCar.attribute("Name").value());
                 TempCar.setID( ReadCar.attribute("ID").value());
 
@@ -228,16 +230,23 @@ void WindowAdmin::readFromXML()
                 QString Val;
                 if( Val.append( ReadCarCategory.attribute("MO").value() ) == "Yes")
                     TempCar.setCategoryMO(true);
+
+                Val.clear();
                 if( Val.append( ReadCarCategory.attribute("RC").value() ) == "Yes")
                     TempCar.setCategoryRC(true);
+
+                Val.clear();
                 if( Val.append( ReadCarCategory.attribute("RD").value() ) == "Yes")
                     TempCar.setCategoryRD(true);
 
 
                 xml_node ReadCarCompetition = ReadCar.child("Competition");
 
+                Val.clear();
                 if( Val.append( ReadCarCompetition.attribute("TA").value() ) == "Yes")
                     TempCar.setCompetitionTA(true);
+
+                Val.clear();
                 if( Val.append( ReadCarCompetition.attribute("FR").value() ) == "Yes")
                     TempCar.setCompetitionFR(true);
 

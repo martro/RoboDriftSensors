@@ -16,6 +16,7 @@ class WindowAddCar : public QWidget
 public:
     explicit WindowAddCar(QWidget *parent = 0);
     ~WindowAddCar();
+    void buttonsDeactivete();
 
 public slots:
     void onSendCurrentTeam(Team TempTeam);

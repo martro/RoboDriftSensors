@@ -6,16 +6,10 @@ WindowAddCar::WindowAddCar(QWidget *parent) :
     ui(new Ui::WindowAddCar)
 {
     ui->setupUi(this);
-    ui->lineID->setDisabled(true);
-    ui->lineName->setDisabled(true);
-    ui->checkBoxCategoryMO->setDisabled(true);
-    ui->checkBoxCategoryRD->setDisabled(true);
-    ui->checkBoxCategoryRC->setDisabled(true);
-    ui->checkBoxCompetitionFR->setDisabled(true);
-    ui->checkBoxCompetitionTA->setDisabled(true);
-    ui->ButtonDelete->setDisabled(true);
-    ui->ButtonAdd->setDisabled(true);
+    buttonsDeactivete();
+
     TempCar.clear();
+    TempListOfCars.clear();
 }
 
 WindowAddCar::~WindowAddCar()
@@ -26,6 +20,7 @@ WindowAddCar::~WindowAddCar()
 void WindowAddCar::onSendCurrentTeam(Team TempTeam)
 {
     TempListOfCars = TempTeam.ListOfCars;
+    TempCar.clear();
     for(unsigned int x=0; x<TempListOfCars.size();x++)
     {
         this->ui->comboBox->addItem(TempListOfCars.at(x).getName());
@@ -58,6 +53,7 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
                 this->ui->checkBoxCategoryRD->setChecked(TempListOfCars.at(x).checkRD());
                 this->ui->checkBoxCompetitionFR->setChecked(TempListOfCars.at(x).checkFR());
                 this->ui->checkBoxCompetitionTA->setChecked(TempListOfCars.at(x).checkTA());
+
                 this->ui->lineName->setText(TempListOfCars.at(x).getName() );
                 this->ui->lineID->display(TempListOfCars.at(x).getID().toStdString().c_str());
 
@@ -77,6 +73,12 @@ void WindowAddCar::on_comboBox_activated(const QString &CurrentText)
     }
     else
     {
+        TempCar.clear();
+        this->ui->checkBoxCategoryMO->setChecked(false);
+        this->ui->checkBoxCategoryRC->setChecked(false);
+        this->ui->checkBoxCategoryRD->setChecked(false);
+        this->ui->checkBoxCompetitionFR->setChecked(false);
+        this->ui->checkBoxCompetitionTA->setChecked(false);
         this->ui->lineName->setText(TempCar.getName() ); //wyswieltnie domyslnych wartosci
         this->ui->lineID->display(TempCar.getID().toStdString().c_str() );
     }
@@ -92,7 +94,7 @@ void WindowAddCar::on_ButtonDelete_clicked()
             x=TempListOfCars.size()+1; //wyjscie z petli for
         }
     }
-    TempCar.clear();
+    TempListOfCars.push_back(TempCar);
     emit newCarAdded(TempListOfCars);
 }
 
@@ -109,9 +111,9 @@ void WindowAddCar::on_ButtonAdd_clicked()
             }
         }
     }
-
     TempListOfCars.push_back(TempCar);
     TempCar.clear();
+    buttonsDeactivete();
     emit newCarAdded(TempListOfCars);
 }
 
@@ -143,4 +145,17 @@ void WindowAddCar::on_checkBoxCompetitionTA_clicked(bool checked)
 void WindowAddCar::on_checkBoxCompetitionFR_clicked(bool checked)
 {
     TempCar.setCompetitionFR(checked);
+}
+
+void WindowAddCar::buttonsDeactivete()
+{
+    ui->lineID->setDisabled(true);
+    ui->lineName->setDisabled(true);
+    ui->checkBoxCategoryMO->setDisabled(true);
+    ui->checkBoxCategoryRD->setDisabled(true);
+    ui->checkBoxCategoryRC->setDisabled(true);
+    ui->checkBoxCompetitionFR->setDisabled(true);
+    ui->checkBoxCompetitionTA->setDisabled(true);
+    ui->ButtonDelete->setDisabled(true);
+    ui->ButtonAdd->setDisabled(true);
 }

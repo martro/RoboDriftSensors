@@ -29,6 +29,7 @@ public:
     QString dataToString(char data);
     int dataToInt(char data);
     QString milisecondsToDisplay(int);
+    void addToComboBoxID(QString);
 
 private slots:
     void countdownTimeOut();
@@ -51,11 +52,12 @@ private:
     QTimer CountDownTimer;
     QElapsedTimer CurrentTime;
     int TimeToStart;
-    vector<int> ListOfTimes;
+
     vector<Team> TempListOfTeams;
     Results TempAllResults;
-    //vector <Measurement> Measurements;
+    vector<int> ListOfTimes;
     vector<int> TempListOfBestTimes;
+
     int PrevSensor;
 };
 

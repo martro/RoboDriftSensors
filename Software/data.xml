@@ -1,28 +1,18 @@
 <?xml version="1.0"?>
 <ListOfTeams>
-	<Team Name="name">
-		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
-		<Car Name="t2n1" ID="3">
-			<Category RC="NO" MO="NO" RD="NO" />
-			<Competition FR="NO" TA="NO" />
-		</Car>
-		<Car Name="t2n2" ID="4">
-			<Category RC="NO" MO="NO" RD="NO" />
-			<Competition FR="NO" TA="NO" />
-		</Car>
-	</Team>
-	<Team Name="name1">
+	<Team Name="3">
 		<Leader Name="kldns" Surname="sursdv" Phone="number" Email="email" City="city" Organization="org" />
-	</Team>
-	<Team Name="proba">
-		<Leader Name="name" Surname="surname" Phone="number" Email="email" City="city" Organization="org" />
-		<Car Name="n2" ID="2">
-			<Category RC="NO" MO="NO" RD="NO" />
-			<Competition FR="NO" TA="NO" />
+		<Car Name="1" ID="5">
+			<Category RC="Yes" MO="No" RD="No" />
+			<Competition FR="Yes" TA="No" />
 		</Car>
-		<Car Name="n3" ID="1">
-			<Category RC="NO" MO="NO" RD="NO" />
-			<Competition FR="NO" TA="NO" />
+		<Car Name="2" ID="6">
+			<Category RC="No" MO="Yes" RD="No" />
+			<Competition FR="No" TA="Yes" />
+		</Car>
+		<Car Name="3" ID="7">
+			<Category RC="No" MO="No" RD="Yes" />
+			<Competition FR="No" TA="No" />
 		</Car>
 	</Team>
 </ListOfTeams>

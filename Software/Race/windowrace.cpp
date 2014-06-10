@@ -16,8 +16,6 @@ WindowRace::~WindowRace()
     delete ui;
 }
 
-
-
 void WindowRace::on_buttonStart_clicked()
 {
     TimeToStart=6;
@@ -41,6 +39,7 @@ void WindowRace::startRace()
     CurrentTime.start();
 
 }
+
 void WindowRace::onByteReceived(char data)
 {
     if( (TimeToStart != -1) && (data&0b00001) )
@@ -209,6 +208,7 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     if(Category == "Mobile Open")
     {
         TempListOfBestTimes = TempAllResults.CurrentBestTimeMO;
+        addToComboBoxID(Category);
     }
     else if(Category == "RoboDrift")
     {
@@ -225,7 +225,32 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     }
 }
 
+void WindowRace::addToComboBoxID(QString Category)
+{
+    for(unsigned int x=0; x<TempListOfTeams.size();x++)
+    {
+        for(unsigned int c=0; c<TempListOfTeams.at(x).ListOfCars.size();c++)
+        {
+            if(Category == "Mobile Open")
+                if(TempListOfTeams.at(x).ListOfCars.at(c).checkMO())
+                {
+                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                }
+            if(Category == "RoboDrift")
+                if(TempListOfTeams.at(x).ListOfCars.at(c).checkMO())
+                {
+                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                }
+            if(Category == "RC")
+                if(TempListOfTeams.at(x).ListOfCars.at(c).checkMO())
+                {
+                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                }
+        }
+    }
+}
+
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
-
+    //
 }
