@@ -192,6 +192,8 @@ void WindowAddTeam::on_ButtonSave_clicked()
         WidgetExists=0;
         WhatsClicked=0;
     }
+
+    sortCars(tempListOfTeams);
     emit this->sendCurrentListOfTeams(tempListOfTeams); //emituje do WindowAdmin aktualną liste teamów
 }
 
@@ -319,5 +321,30 @@ void WindowAddTeam::on_ButtonDelete_clicked()
         WhatsClicked=0;
     }
     ui->ButtonDelete->setDisabled(true); //deaktywaca przycisku delete
+
+    sortCars(tempListOfTeams);
     emit sendCurrentListOfTeams(tempListOfTeams);
+}
+void WindowAddTeam::sortCars(vector<Team> TempListOfTeams)
+{
+    if(tempListOfTeams.size() != 0)
+    {
+        int Swap = YES;
+        while (Swap == YES)
+        {
+            Swap = NO;
+            for(unsigned int x=0; x<TempListOfTeams.size()-1; x++)
+            {
+                if(TempListOfTeams.at(x).getName() > TempListOfTeams.at(x+1).getName())
+                {
+                    Team TeamToSwap;
+                    TeamToSwap = TempListOfTeams.at(x);
+                    TempListOfTeams.at(x) = TempListOfTeams.at(x+1);
+                    TempListOfTeams.at(x+1) = TeamToSwap;
+                    Swap = YES;
+                }
+            }
+        }
+        this->tempListOfTeams = TempListOfTeams;
+    }
 }

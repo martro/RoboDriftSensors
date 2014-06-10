@@ -26,6 +26,7 @@ public:
     explicit WindowAddTeam(QWidget *parent = 0);
     ~WindowAddTeam();
     void checkSaveButton();
+    void sortCars(vector<Team> TempListOfTeams);
     
 private slots:
     void on_ButtonAddLeader_clicked();

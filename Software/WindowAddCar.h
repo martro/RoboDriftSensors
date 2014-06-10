@@ -5,6 +5,9 @@
 #include "team.h"
 #include <QMessageBox>
 
+#define YES 1
+#define NO 0
+
 namespace Ui {
 class WindowAddCar;
 }
@@ -17,6 +20,7 @@ public:
     explicit WindowAddCar(QWidget *parent = 0);
     ~WindowAddCar();
     void buttonsDeactivete();
+    void sortCars(vector<Car>);
 
 public slots:
     void onSendCurrentTeam(Team TempTeam);
