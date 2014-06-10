@@ -8,4 +8,5 @@
         <file>images/green.png</file>
         <file>images/red.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

@@ -13,6 +13,8 @@
 #include "results.h"
 
 #define FALSTART -1
+#define YES 1
+#define NO 0
 
 namespace Ui {
 class WindowRace;
@@ -30,6 +32,7 @@ public:
     int dataToInt(char data);
     QString milisecondsToDisplay(int);
     void addToComboBoxID(QString);
+    void sortAndAddIDs(vector<QString> TempListOfID);
 
 private slots:
     void countdownTimeOut();

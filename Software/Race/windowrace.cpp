@@ -230,6 +230,7 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
 void WindowRace::addToComboBoxID(QString Category)
 {
     ui->comboBoxID->clear();
+    vector<QString> TempListOfIDs;
     for(unsigned int x=0; x<TempListOfTeams.size();x++)
     {
         for(unsigned int c=0; c<TempListOfTeams.at(x).ListOfCars.size();c++)
@@ -238,24 +239,52 @@ void WindowRace::addToComboBoxID(QString Category)
             {
                 if(TempListOfTeams.at(x).ListOfCars.at(c).checkMO())
                 {
-                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                    TempListOfIDs.push_back(TempListOfTeams.at(x).ListOfCars.at(c).getID());
                 }
             }
             else if(Category == "RoboDrift")
             {
                 if(TempListOfTeams.at(x).ListOfCars.at(c).checkRD())
                 {
-                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                    TempListOfIDs.push_back(TempListOfTeams.at(x).ListOfCars.at(c).getID());
                 }
             }
             else if(Category == "RC")
             {
                 if(TempListOfTeams.at(x).ListOfCars.at(c).checkRC())
                 {
-                    ui->comboBoxID->addItem(TempListOfTeams.at(x).ListOfCars.at(c).getID());
+                    TempListOfIDs.push_back(TempListOfTeams.at(x).ListOfCars.at(c).getID());
                 }
             }
         }
+    }
+    sortAndAddIDs(TempListOfIDs);
+}
+
+void WindowRace::sortAndAddIDs(vector<QString> TempListOfID)
+{
+    if(TempListOfID.size() != 0)
+    {
+        int Swap = YES;
+        while (Swap == YES)
+        {
+            Swap = NO;
+            for(unsigned int x=0; x<TempListOfID.size()-1; x++)
+            {
+                if(TempListOfID.at(x) > TempListOfID.at(x+1))
+                {
+                    QString IDToSwap;
+                    IDToSwap = TempListOfID.at(x);
+                    TempListOfID.at(x) = TempListOfID.at(x+1);
+                    TempListOfID.at(x+1) = IDToSwap;
+                    Swap = YES;
+                }
+            }
+        }
+    }
+    for(unsigned int x=0;x<TempListOfID.size();x++)
+    {
+        ui->comboBoxID->addItem(TempListOfID.at(x));
     }
 }
 
