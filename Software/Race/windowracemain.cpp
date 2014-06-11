@@ -87,7 +87,7 @@ void WindowRaceMain::onconnection_ON()
 {
     QMessageBox m;
     m.setText("connection on");
-    m.exec();
+   // m.exec();
     ConnectionEstablished=1;
 }
 
@@ -95,7 +95,7 @@ void WindowRaceMain::onconnection_OFF()
 {
     QMessageBox m;
     m.setText("connection off");
-    m.exec();
+    //m.exec();
     ConnectionEstablished=0;
 }
 

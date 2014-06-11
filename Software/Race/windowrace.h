@@ -18,7 +18,8 @@
 #define START_RACE 10
 #define YES 1
 #define NO 0
-
+#define NUMBER_OF_SENSORS 5
+#define END_OF_RACE 2
 namespace Ui {
 class WindowRace;
 }
@@ -63,6 +64,7 @@ private:
     QElapsedTimer CurrentTime;
     QTimer TimerToDisplay;
     int TimeToStart;
+    int NumberOfLaps;
 
     vector<Team> TempListOfTeams; //potrzebne do przeszuakania aut
     Results TempAllResults;  //to tego bede wywyłał tempTimesOfSingleRun
@@ -72,6 +74,7 @@ private:
     TimesOfSingleRun TempTimesOfSingleRun; //to
 
     int PrevSensor;
+    int FlagRaceStarted;
     QSoundEffect beep_short;
     QSoundEffect beep_long;
 

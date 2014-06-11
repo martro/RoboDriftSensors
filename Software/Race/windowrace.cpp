@@ -10,7 +10,9 @@ WindowRace::WindowRace(QWidget *parent) :
     connect(&TimerToDisplay,SIGNAL(timeout()),this,SLOT(timeToDisplay()));
 
 
-    PrevSensor = 0;
+    PrevSensor = 5;
+    NumberOfLaps = 0;
+    FlagRaceStarted = NO;
     ui->comboBoxID->setDisabled(true);
     ui->buttonStart->setDisabled(true);
     ui->buttonSave->setDisabled(true);
@@ -86,42 +88,44 @@ void WindowRace::onByteReceived(char data)
 
     else
     {
-        if(data&0b00001)
-        {
-            ListOfTimes.push_back(CurrentTime.elapsed());
-        }
-        else if(data&0b00010)
-        {
-            ListOfTimes.push_back(CurrentTime.elapsed());
-        }
-        else if(data&0b00100)
-        {
-            ListOfTimes.push_back(CurrentTime.elapsed());
-        }
-        else if(data&0b01000)
-        {
-            ListOfTimes.push_back(CurrentTime.elapsed());
-        }
-        else if(data&0b10000)
-        {
-            QMessageBox m;
-            m.setText("dupa");
-            m.exec();
-            ListOfTimes.push_back(CurrentTime.elapsed());
-        }
         data = data&0b11111;
-
         int Position = dataToInt(data);
 
-        if( (Position > 0) && (PrevSensor != Position) )
-        {
+        QMessageBox m;
+        m.setText(QString::number(data));
+       // m.exec();
 
-            this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
-            this->ui->textBest->append((QString::number(TempListOfBestTimes.at(Position-1))));
-            this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(Position-1)));
+        if((NumberOfLaps >= 0) && (FlagRaceStarted == YES) && (Position != 0))
+        {
+            if( ((Position == 1) && (PrevSensor == 5)) || ((Position == 2) && (PrevSensor == 1)) || ((Position == 3) && (PrevSensor == 2)) || ((Position == 4) && (PrevSensor == 3)) || ((Position == 5) && (PrevSensor == 4)) )
+            {
+                ListOfTimes.push_back(CurrentTime.elapsed());
+
+                PrevSensor = Position;
+                NumberOfLaps--;
+
+                this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
+                this->ui->textBest->append((QString::number(TempListOfBestTimes.at(Position-1))));
+                this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(Position-1)));
+            }
+            if(NumberOfLaps == 0)
+            {
+                QMessageBox m;
+                m.setText("KOniec");
+                m.exec();
+                FlagRaceStarted = END_OF_RACE;
+            }
         }
-        PrevSensor = Position;
+        else if(Position != 0)
+        {
+            QMessageBox m;
+            m.setText("start");
+            m.exec();
+            FlagRaceStarted = YES;
+            PrevSensor = 5;
+        }
     }
+
 
 }
 int WindowRace::dataToInt(char data)
@@ -346,7 +350,7 @@ void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 
 void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 {
-
+    this->NumberOfLaps = NUMBER_OF_SENSORS*NumberOfLaps;
 }
 
 void WindowRace::on_buttonClear_clicked()
@@ -354,6 +358,8 @@ void WindowRace::on_buttonClear_clicked()
     ui->comboBoxID->clear();
     ui->comboBoxCategory->setEnabled(true);
     DTWRU.clear();
+    PrevSensor = 5; //przedostatni
+    NumberOfLaps = 0;
     emit setData(DTWRU);//show lights, hide label
 }
 
