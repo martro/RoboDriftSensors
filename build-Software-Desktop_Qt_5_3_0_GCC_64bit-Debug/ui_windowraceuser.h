@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -37,8 +38,12 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
-    QLabel *labelTeamName;
+    QFormLayout *formLayout;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
     QLabel *labelCarName;
+    QLabel *labelTeamName;
     QLabel *labelCategory;
     QHBoxLayout *Lights;
     QLabel *labelCurrentTime;
@@ -102,20 +107,45 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        labelTeamName = new QLabel(WindowRaceUser);
-        labelTeamName->setObjectName(QStringLiteral("labelTeamName"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        label_2 = new QLabel(WindowRaceUser);
+        label_2->setObjectName(QStringLiteral("label_2"));
 
-        verticalLayout_2->addWidget(labelTeamName);
+        formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
+
+        label_3 = new QLabel(WindowRaceUser);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_3);
+
+        label_4 = new QLabel(WindowRaceUser);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
 
         labelCarName = new QLabel(WindowRaceUser);
         labelCarName->setObjectName(QStringLiteral("labelCarName"));
+        QFont font;
+        font.setPointSize(16);
+        labelCarName->setFont(font);
 
-        verticalLayout_2->addWidget(labelCarName);
+        formLayout->setWidget(2, QFormLayout::FieldRole, labelCarName);
+
+        labelTeamName = new QLabel(WindowRaceUser);
+        labelTeamName->setObjectName(QStringLiteral("labelTeamName"));
+        labelTeamName->setFont(font);
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, labelTeamName);
 
         labelCategory = new QLabel(WindowRaceUser);
         labelCategory->setObjectName(QStringLiteral("labelCategory"));
+        labelCategory->setFont(font);
 
-        verticalLayout_2->addWidget(labelCategory);
+        formLayout->setWidget(0, QFormLayout::FieldRole, labelCategory);
+
+
+        verticalLayout_2->addLayout(formLayout);
 
 
         horizontalLayout_2->addLayout(verticalLayout_2);
@@ -124,6 +154,9 @@ public:
         Lights->setObjectName(QStringLiteral("Lights"));
         labelCurrentTime = new QLabel(WindowRaceUser);
         labelCurrentTime->setObjectName(QStringLiteral("labelCurrentTime"));
+        QFont font1;
+        font1.setPointSize(72);
+        labelCurrentTime->setFont(font1);
 
         Lights->addWidget(labelCurrentTime);
 
@@ -148,9 +181,12 @@ public:
         Sensor3->setText(QApplication::translate("WindowRaceUser", "Czas3", 0));
         Sensor4->setText(QApplication::translate("WindowRaceUser", "Czas4", 0));
         Sensor5->setText(QApplication::translate("WindowRaceUser", "Czas5", 0));
-        labelTeamName->setText(QApplication::translate("WindowRaceUser", "TeamName", 0));
-        labelCarName->setText(QApplication::translate("WindowRaceUser", "CarName", 0));
-        labelCategory->setText(QApplication::translate("WindowRaceUser", "Category", 0));
+        label_2->setText(QApplication::translate("WindowRaceUser", "Category:", 0));
+        label_3->setText(QApplication::translate("WindowRaceUser", "Team name:", 0));
+        label_4->setText(QApplication::translate("WindowRaceUser", "Car name:", 0));
+        labelCarName->setText(QString());
+        labelTeamName->setText(QString());
+        labelCategory->setText(QString());
         labelCurrentTime->setText(QApplication::translate("WindowRaceUser", "CurrentTime", 0));
     } // retranslateUi
 

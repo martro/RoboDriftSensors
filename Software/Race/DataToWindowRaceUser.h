@@ -9,11 +9,12 @@ class DataToWindowRaceUser
 public:
     DataToWindowRaceUser();
     QString Difference;
-    int Position;
+    int SensorPosition;
     QString TeamName;
     QString CarName;
     QString CurrentTime;
     int LightsMode;
+    QString Category;
 
 private:
 

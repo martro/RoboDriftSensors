@@ -35,6 +35,7 @@ public:
     QString milisecondsToDisplay(int);
     void addToComboBoxID(QString);
     void sortAndAddIDs(vector<QString> TempListOfID);
+    void findTeamName(int ID);
 
 private slots:
     void countdownTimeOut();
@@ -43,7 +44,6 @@ private slots:
     void on_comboBoxCategory_activated(const QString &Category);
     void on_comboBoxID_activated(const QString &CurrentID);
     void on_spinBoxLaps_valueChanged(int NumberOfLaps);
-
     void on_buttonClear_clicked();
 
 public slots:

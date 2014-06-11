@@ -17,11 +17,11 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     this->ui->Lights->addWidget(&Lamp4);
     this->ui->Lights->addWidget(&Lamp5);
 
-    Lamp1.setMode(1);
-    Lamp2.setMode(1);
-    Lamp3.setMode(2);
-    Lamp4.setMode(3);
-    Lamp5.setMode(4);
+    Lamp1.setMode(0);
+    Lamp2.setMode(0);
+    Lamp3.setMode(0);
+    Lamp4.setMode(0);
+    Lamp5.setMode(0);
 
     leds(1,"+sdsd");
     leds(2,"-00:00:345");
@@ -183,4 +183,19 @@ void WindowRaceUser::startLights(int data)
 void WindowRaceUser::refreshCurrentTime(QString CurrentTime)
 {
     this->ui->labelCurrentTime->setText(CurrentTime);
+}
+
+void WindowRaceUser::setCarName(QString Name)
+{
+    this->ui->labelCarName->setText(Name);
+}
+
+void WindowRaceUser::setTeamName(QString Name)
+{
+    this->ui->labelTeamName->setText(Name);
+}
+
+void WindowRaceUser::setCategory(QString Category)
+{
+    this->ui->labelCategory->setText(Category);
 }

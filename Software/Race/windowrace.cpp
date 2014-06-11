@@ -17,6 +17,8 @@ WindowRace::WindowRace(QWidget *parent) :
 
     beep_short.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_short.wav"));
     beep_long.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_long.wav"));
+
+    emit setData(DTWRU); //clear/reset window user race
 }
 
 WindowRace::~WindowRace()
@@ -26,6 +28,8 @@ WindowRace::~WindowRace()
 
 void WindowRace::on_buttonStart_clicked()
 {
+    ui->comboBoxCategory->setDisabled(true);
+    ui->comboBoxID->setDisabled(true);
     ui->spinBoxLaps->setDisabled(true);
     TimeToStart=6;
     CountDownTimer.start(1000);
@@ -52,7 +56,20 @@ void WindowRace::countdownTimeOut()
     emit setData(DTWRU);
 
 }
-
+void WindowRace::findTeamName(int ID)
+{
+    for(unsigned int x=0; x< TempListOfTeams.size() ;x++)
+    {
+        for(unsigned int c=0; c<TempListOfTeams.at(x).ListOfCars.size(); c++)
+        {
+            if( ID == TempListOfTeams.at(x).ListOfCars.at(c).getID().toInt() )
+            {
+                DTWRU.TeamName = TempListOfTeams.at(x).getName();
+                DTWRU.CarName = TempListOfTeams.at(x).ListOfCars.at(c).getName();
+            }
+        }
+    }
+}
 void WindowRace::startRace()
 {
     CurrentTime.start();
@@ -249,6 +266,10 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     {
         ui->textWhichBetter->append(QString::number(TempListOfBestTimes.at(x)));
     }
+    DTWRU.Category = Category;
+    DTWRU.CarName.clear();
+    DTWRU.TeamName.clear();
+    emit setData(DTWRU);
 }
 
 void WindowRace::addToComboBoxID(QString Category)
@@ -315,6 +336,8 @@ void WindowRace::sortAndAddIDs(vector<QString> TempListOfID)
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
     ui->buttonStart->setEnabled(true);
+    findTeamName(CurrentID.toInt());
+    emit setData(DTWRU);
 }
 
 void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)

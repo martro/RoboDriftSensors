@@ -21,6 +21,9 @@ public:
     void leds(int position, QString time);
     void startLights(int data);
     void refreshCurrentTime(QString CurrentTime);
+    void setTeamName(QString Name);
+    void setCarName(QString Name);
+    void setCategory(QString Category);
 
 
 private:

@@ -60,4 +60,8 @@ void WindowUserMain::onSetDataUserMain(DataToWindowRaceUser DTWRU)
 {
     Window_Race_User->startLights(DTWRU.LightsMode);
     Window_Race_User->refreshCurrentTime(DTWRU.CurrentTime);
+    Window_Race_User->setCarName(DTWRU.CarName);
+    Window_Race_User->setTeamName(DTWRU.TeamName);
+    Window_Race_User->setCategory(DTWRU.Category);
+
 }
