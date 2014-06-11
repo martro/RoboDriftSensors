@@ -7,6 +7,16 @@ DataToWindowRaceUser::DataToWindowRaceUser()
     TeamName.clear();
     CarName.clear();
     CurrentTime.clear();
-    LightsMode = 0;
+    LightsMode = 11;
     Category.clear();
 }
+ void DataToWindowRaceUser::clear()
+ {
+     Difference.clear();
+     SensorPosition = 0;
+     TeamName.clear();
+     CarName.clear();
+     CurrentTime.clear();
+     LightsMode = 11;
+     Category.clear();
+ }

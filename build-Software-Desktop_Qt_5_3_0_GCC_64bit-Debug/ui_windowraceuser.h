@@ -52,7 +52,7 @@ public:
     {
         if (WindowRaceUser->objectName().isEmpty())
             WindowRaceUser->setObjectName(QStringLiteral("WindowRaceUser"));
-        WindowRaceUser->resize(547, 385);
+        WindowRaceUser->resize(682, 385);
         verticalLayout_3 = new QVBoxLayout(WindowRaceUser);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         horizontalLayout = new QHBoxLayout();
@@ -127,7 +127,7 @@ public:
         labelCarName = new QLabel(WindowRaceUser);
         labelCarName->setObjectName(QStringLiteral("labelCarName"));
         QFont font;
-        font.setPointSize(16);
+        font.setPointSize(32);
         labelCarName->setFont(font);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, labelCarName);

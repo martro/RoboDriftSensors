@@ -15,6 +15,7 @@
 #include "DataToWindowRaceUser.h"
 
 #define FALSTART -1
+#define START_RACE 10
 #define YES 1
 #define NO 0
 

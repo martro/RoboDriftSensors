@@ -7,6 +7,8 @@ using namespace std;
 class DataToWindowRaceUser
 {
 public:
+    void clear();
+
     DataToWindowRaceUser();
     QString Difference;
     int SensorPosition;

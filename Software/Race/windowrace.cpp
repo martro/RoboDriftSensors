@@ -48,7 +48,7 @@ void WindowRace::countdownTimeOut()
     {
         CountDownTimer.stop();
         startRace();
-        TimeToStart = 10;
+        TimeToStart = START_RACE;
         TimerToDisplay.start(1);
 
     }
@@ -77,10 +77,11 @@ void WindowRace::startRace()
 
 void WindowRace::onByteReceived(char data)
 {
-    if( (TimeToStart != -1) && (data&0b00001) )
+    if( (TimeToStart != START_RACE) && (data&0b10000) )
     {
         CountDownTimer.stop();
-        //emit setData(FALSTART);
+        DTWRU.LightsMode = FALSTART;
+        emit setData(DTWRU);
     }
 
     else
@@ -103,6 +104,9 @@ void WindowRace::onByteReceived(char data)
         }
         else if(data&0b10000)
         {
+            QMessageBox m;
+            m.setText("dupa");
+            m.exec();
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
         data = data&0b11111;
@@ -347,7 +351,9 @@ void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 
 void WindowRace::on_buttonClear_clicked()
 {
-    DTWRU.LightsMode=11;
+    ui->comboBoxID->clear();
+    ui->comboBoxCategory->setEnabled(true);
+    DTWRU.clear();
     emit setData(DTWRU);//show lights, hide label
 }
 
