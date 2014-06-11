@@ -51,7 +51,7 @@ public slots:
     void onByteReceived(char data);
 
 signals:
-    void setData(int data);
+    void setData(DataToWindowRaceUser DTWRU);
 
 
 private:
@@ -74,7 +74,7 @@ private:
     QSoundEffect beep_short;
     QSoundEffect beep_long;
 
-    DataToWindowRaceUser DataToDisplay;
+    DataToWindowRaceUser DTWRU;
 };
 
 #endif // WINDOWRACE_H

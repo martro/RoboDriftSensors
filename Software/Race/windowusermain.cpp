@@ -56,7 +56,7 @@ void WindowUserMain::onconnection_ON()
     m.exec();
 }
 
-void WindowUserMain::onSetDataUserMain(int data)
+void WindowUserMain::onSetDataUserMain(DataToWindowRaceUser DTWRU)
 {
-    Window_Race_User->startLights(data);
+    Window_Race_User->startLights(DTWRU.LightsMode);
 }

@@ -14,6 +14,7 @@
 #include <vector>
 #include "team.h"
 #include "results.h"
+#include "DataToWindowRaceUser.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -36,13 +37,13 @@ public slots:
     void onconnection_OFF();
     void onbyteReceived(char data);
     void onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
-    void onSetData(int data);
+    void onSetData(DataToWindowRaceUser DTWRU);
 
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
-    void setDataUserMain(int data);
+    void setDataUserMain(DataToWindowRaceUser DTWRU);
     void windowRaceCreated(vector<Team> ListOfTeams, Results ListOfTimes); //musze podeśła dane do tego okna
     void byteReceived(char data);
 

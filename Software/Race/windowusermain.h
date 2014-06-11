@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <vector>
 #include "windowraceuser.h"
+#include "DataToWindowRaceUser.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ public slots:
     void onButtonSettingsClicked();
     void onButtonCommunicationClicked();
     void onconnection_ON();
-    void onSetDataUserMain(int data);
+    void onSetDataUserMain(DataToWindowRaceUser DTWRU);
 
 private:
     Ui::WindowUserMain *ui;

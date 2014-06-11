@@ -13,6 +13,7 @@ public:
     QString TeamName;
     QString CarName;
     QString CurrentTime;
+    int LightsMode;
 
 private:
 

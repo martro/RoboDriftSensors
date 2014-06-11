@@ -48,7 +48,8 @@ void WindowRace::countdownTimeOut()
         TimerToDisplay.start(1);
 
     }
-    emit setData(TimeToStart);
+    DTWRU.LightsMode=TimeToStart;
+    emit setData(DTWRU);
 
 }
 
@@ -62,7 +63,7 @@ void WindowRace::onByteReceived(char data)
     if( (TimeToStart != -1) && (data&0b00001) )
     {
         CountDownTimer.stop();
-        emit setData(FALSTART);
+        //emit setData(FALSTART);
     }
 
     else
@@ -323,7 +324,7 @@ void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 
 void WindowRace::on_buttonClear_clicked()
 {
-    emit setData(11); //show lights
+    //emit setData(11); //show lights
 }
 
 void WindowRace::timeToDisplay()

@@ -11,7 +11,7 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     WindowUserMain *windowusertemp = new WindowUserMain;
     windowusertemp->show();
 
-    connect(this, SIGNAL(setDataUserMain(int)),windowusertemp,SLOT(onSetDataUserMain(int)));//get info about lights from racemain
+    connect(this, SIGNAL(setDataUserMain(DataToWindowRaceUser)),windowusertemp,SLOT(onSetDataUserMain(DataToWindowRaceUser)));//get info about lights from racemain
 
     connect(this, SIGNAL(buttonRaceClicked()),windowusertemp,SLOT(onButtonRaceClicked()));
     connect(this, SIGNAL(buttonSettingsClicked()),windowusertemp,SLOT(onButtonSettingsClicked()));
@@ -44,7 +44,7 @@ void WindowRaceMain::on_buttonRace_clicked()
 
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
-        connect(Window_Race,SIGNAL(setData(int)),this, SLOT(onSetData(int)));
+        connect(Window_Race,SIGNAL(setData(DataToWindowRaceUser)),this, SLOT(onSetData(DataToWindowRaceUser)));
         connect(this, SIGNAL(windowRaceCreated(vector<Team>, Results)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>, Results)));// przekazanie info o teamach
         connect(this, SIGNAL(byteReceived(char)), Window_Race, SLOT(onByteReceived(char)));
 
@@ -104,7 +104,7 @@ void WindowRaceMain::onbyteReceived(char data)
     emit byteReceived(data);
 }
 
-void WindowRaceMain::onSetData(int data)
+void WindowRaceMain::onSetData(DataToWindowRaceUser DTWRU)
 {
-    emit setDataUserMain(data);
+    emit setDataUserMain(DTWRU);
 }

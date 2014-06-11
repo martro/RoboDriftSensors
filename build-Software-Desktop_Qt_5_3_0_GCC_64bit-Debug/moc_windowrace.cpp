@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRace_t {
-    QByteArrayData data[20];
-    char stringdata[295];
+    QByteArrayData data[22];
+    char stringdata[322];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,32 +32,35 @@ static const qt_meta_stringdata_WindowRace_t qt_meta_stringdata_WindowRace = {
 QT_MOC_LITERAL(0, 0, 10),
 QT_MOC_LITERAL(1, 11, 7),
 QT_MOC_LITERAL(2, 19, 0),
-QT_MOC_LITERAL(3, 20, 4),
-QT_MOC_LITERAL(4, 25, 16),
-QT_MOC_LITERAL(5, 42, 13),
-QT_MOC_LITERAL(6, 56, 22),
-QT_MOC_LITERAL(7, 79, 29),
-QT_MOC_LITERAL(8, 109, 8),
-QT_MOC_LITERAL(9, 118, 23),
-QT_MOC_LITERAL(10, 142, 9),
-QT_MOC_LITERAL(11, 152, 27),
-QT_MOC_LITERAL(12, 180, 12),
-QT_MOC_LITERAL(13, 193, 22),
-QT_MOC_LITERAL(14, 216, 19),
-QT_MOC_LITERAL(15, 236, 12),
-QT_MOC_LITERAL(16, 249, 11),
-QT_MOC_LITERAL(17, 261, 7),
-QT_MOC_LITERAL(18, 269, 10),
-QT_MOC_LITERAL(19, 280, 14)
+QT_MOC_LITERAL(3, 20, 20),
+QT_MOC_LITERAL(4, 41, 5),
+QT_MOC_LITERAL(5, 47, 16),
+QT_MOC_LITERAL(6, 64, 13),
+QT_MOC_LITERAL(7, 78, 22),
+QT_MOC_LITERAL(8, 101, 29),
+QT_MOC_LITERAL(9, 131, 8),
+QT_MOC_LITERAL(10, 140, 23),
+QT_MOC_LITERAL(11, 164, 9),
+QT_MOC_LITERAL(12, 174, 27),
+QT_MOC_LITERAL(13, 202, 12),
+QT_MOC_LITERAL(14, 215, 22),
+QT_MOC_LITERAL(15, 238, 19),
+QT_MOC_LITERAL(16, 258, 12),
+QT_MOC_LITERAL(17, 271, 11),
+QT_MOC_LITERAL(18, 283, 7),
+QT_MOC_LITERAL(19, 291, 10),
+QT_MOC_LITERAL(20, 302, 14),
+QT_MOC_LITERAL(21, 317, 4)
     },
-    "WindowRace\0setData\0\0data\0countdownTimeOut\0"
-    "timeToDisplay\0on_buttonStart_clicked\0"
+    "WindowRace\0setData\0\0DataToWindowRaceUser\0"
+    "DTWRU\0countdownTimeOut\0timeToDisplay\0"
+    "on_buttonStart_clicked\0"
     "on_comboBoxCategory_activated\0Category\0"
     "on_comboBoxID_activated\0CurrentID\0"
     "on_spinBoxLaps_valueChanged\0NumberOfLaps\0"
     "on_buttonClear_clicked\0onWindowRaceCreated\0"
     "vector<Team>\0ListOfTeams\0Results\0"
-    "AllResults\0onByteReceived"
+    "AllResults\0onByteReceived\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,29 +81,29 @@ static const uint qt_meta_data_WindowRace[] = {
        1,    1,   64,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   67,    2, 0x08 /* Private */,
-       5,    0,   68,    2, 0x08 /* Private */,
-       6,    0,   69,    2, 0x08 /* Private */,
-       7,    1,   70,    2, 0x08 /* Private */,
-       9,    1,   73,    2, 0x08 /* Private */,
-      11,    1,   76,    2, 0x08 /* Private */,
-      13,    0,   79,    2, 0x08 /* Private */,
-      14,    2,   80,    2, 0x0a /* Public */,
-      19,    1,   85,    2, 0x0a /* Public */,
+       5,    0,   67,    2, 0x08 /* Private */,
+       6,    0,   68,    2, 0x08 /* Private */,
+       7,    0,   69,    2, 0x08 /* Private */,
+       8,    1,   70,    2, 0x08 /* Private */,
+      10,    1,   73,    2, 0x08 /* Private */,
+      12,    1,   76,    2, 0x08 /* Private */,
+      14,    0,   79,    2, 0x08 /* Private */,
+      15,    2,   80,    2, 0x0a /* Public */,
+      20,    1,   85,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    8,
-    QMetaType::Void, QMetaType::QString,   10,
-    QMetaType::Void, QMetaType::Int,   12,
+    QMetaType::Void, QMetaType::QString,    9,
+    QMetaType::Void, QMetaType::QString,   11,
+    QMetaType::Void, QMetaType::Int,   13,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 15, 0x80000000 | 17,   16,   18,
-    QMetaType::Void, QMetaType::Char,    3,
+    QMetaType::Void, 0x80000000 | 16, 0x80000000 | 18,   17,   19,
+    QMetaType::Void, QMetaType::Char,   21,
 
        0        // eod
 };
@@ -110,7 +113,7 @@ void WindowRace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         WindowRace *_t = static_cast<WindowRace *>(_o);
         switch (_id) {
-        case 0: _t->setData((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->setData((*reinterpret_cast< DataToWindowRaceUser(*)>(_a[1]))); break;
         case 1: _t->countdownTimeOut(); break;
         case 2: _t->timeToDisplay(); break;
         case 3: _t->on_buttonStart_clicked(); break;
@@ -126,7 +129,7 @@ void WindowRace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (WindowRace::*_t)(int );
+            typedef void (WindowRace::*_t)(DataToWindowRaceUser );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRace::setData)) {
                 *result = 0;
             }
@@ -171,7 +174,7 @@ int WindowRace::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void WindowRace::setData(int _t1)
+void WindowRace::setData(DataToWindowRaceUser _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
