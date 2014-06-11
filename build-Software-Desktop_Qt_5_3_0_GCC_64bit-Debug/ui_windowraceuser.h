@@ -36,9 +36,12 @@ public:
     QLabel *Sensor5;
     QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *labelTeamName;
+    QLabel *labelCarName;
+    QLabel *labelCategory;
     QHBoxLayout *Lights;
-    QSpacerItem *horizontalSpacer_2;
+    QLabel *labelCurrentTime;
 
     void setupUi(QWidget *WindowRaceUser)
     {
@@ -97,23 +100,39 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        labelTeamName = new QLabel(WindowRaceUser);
+        labelTeamName->setObjectName(QStringLiteral("labelTeamName"));
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        verticalLayout_2->addWidget(labelTeamName);
+
+        labelCarName = new QLabel(WindowRaceUser);
+        labelCarName->setObjectName(QStringLiteral("labelCarName"));
+
+        verticalLayout_2->addWidget(labelCarName);
+
+        labelCategory = new QLabel(WindowRaceUser);
+        labelCategory->setObjectName(QStringLiteral("labelCategory"));
+
+        verticalLayout_2->addWidget(labelCategory);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
 
         Lights = new QHBoxLayout();
         Lights->setObjectName(QStringLiteral("Lights"));
+        labelCurrentTime = new QLabel(WindowRaceUser);
+        labelCurrentTime->setObjectName(QStringLiteral("labelCurrentTime"));
+
+        Lights->addWidget(labelCurrentTime);
+
 
         horizontalLayout_2->addLayout(Lights);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_2);
 
 
         verticalLayout_3->addLayout(horizontalLayout_2);
 
-        Sensor1->raise();
 
         retranslateUi(WindowRaceUser);
 
@@ -129,6 +148,10 @@ public:
         Sensor3->setText(QApplication::translate("WindowRaceUser", "Czas3", 0));
         Sensor4->setText(QApplication::translate("WindowRaceUser", "Czas4", 0));
         Sensor5->setText(QApplication::translate("WindowRaceUser", "Czas5", 0));
+        labelTeamName->setText(QApplication::translate("WindowRaceUser", "TeamName", 0));
+        labelCarName->setText(QApplication::translate("WindowRaceUser", "CarName", 0));
+        labelCategory->setText(QApplication::translate("WindowRaceUser", "Category", 0));
+        labelCurrentTime->setText(QApplication::translate("WindowRaceUser", "CurrentTime", 0));
     } // retranslateUi
 
 };

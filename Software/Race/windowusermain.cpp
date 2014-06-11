@@ -56,7 +56,7 @@ void WindowUserMain::onconnection_ON()
     m.exec();
 }
 
-void WindowUserMain::onsetLightsUserMain(int data)
+void WindowUserMain::onSetDataUserMain(int data)
 {
     Window_Race_User->startLights(data);
 }

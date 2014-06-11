@@ -21,6 +21,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
@@ -42,6 +43,8 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QComboBox *comboBoxID;
+    QLabel *label_4;
+    QSpinBox *spinBoxLaps;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QTextBrowser *textBest;
@@ -61,7 +64,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         buttonStart = new QPushButton(centralWidget);
         buttonStart->setObjectName(QStringLiteral("buttonStart"));
-        buttonStart->setGeometry(QRect(310, 20, 181, 51));
+        buttonStart->setGeometry(QRect(120, 260, 181, 51));
         buttonClear = new QPushButton(centralWidget);
         buttonClear->setObjectName(QStringLiteral("buttonClear"));
         buttonClear->setGeometry(QRect(20, 280, 81, 31));
@@ -70,7 +73,7 @@ public:
         buttonSave->setGeometry(QRect(310, 260, 181, 51));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(40, 0, 249, 80));
+        gridLayoutWidget->setGeometry(QRect(40, 0, 352, 80));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -100,6 +103,16 @@ public:
         comboBoxID->setObjectName(QStringLiteral("comboBoxID"));
 
         gridLayout->addWidget(comboBoxID, 1, 1, 1, 1);
+
+        label_4 = new QLabel(gridLayoutWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout->addWidget(label_4, 0, 3, 1, 1);
+
+        spinBoxLaps = new QSpinBox(gridLayoutWidget);
+        spinBoxLaps->setObjectName(QStringLiteral("spinBoxLaps"));
+
+        gridLayout->addWidget(spinBoxLaps, 1, 3, 1, 1);
 
         horizontalLayoutWidget = new QWidget(centralWidget);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
@@ -161,6 +174,7 @@ public:
         label->setText(QApplication::translate("WindowRace", "Category", 0));
         label_2->setText(QApplication::translate("WindowRace", "Car ID", 0));
         label_3->setText(QApplication::translate("WindowRace", "Car name", 0));
+        label_4->setText(QApplication::translate("WindowRace", "Laps", 0));
     } // retranslateUi
 
 };

@@ -86,40 +86,44 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="labelTeamName">
+         <property name="text">
+          <string>TeamName</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelCarName">
+         <property name="text">
+          <string>CarName</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelCategory">
+         <property name="text">
+          <string>Category</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="Lights"/>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
+      <layout class="QHBoxLayout" name="Lights">
+       <item>
+        <widget class="QLabel" name="labelCurrentTime">
+         <property name="text">
+          <string>CurrentTime</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
   </layout>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>Sensor1</zorder>
-  <zorder>horizontalLayoutWidget_2</zorder>
  </widget>
  <resources>
   <include location="Images.qrc"/>

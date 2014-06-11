@@ -7,8 +7,13 @@ WindowRace::WindowRace(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(&CountDownTimer,SIGNAL(timeout()),this,SLOT(countdownTimeOut()));
+    connect(&TimerToDisplay,SIGNAL(timeout()),this,SLOT(timeToDisplay()));
+
 
     PrevSensor = 0;
+    ui->comboBoxID->setDisabled(true);
+    ui->buttonStart->setDisabled(true);
+    ui->buttonSave->setDisabled(true);
 
     beep_short.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_short.wav"));
     beep_long.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_long.wav"));
@@ -21,6 +26,7 @@ WindowRace::~WindowRace()
 
 void WindowRace::on_buttonStart_clicked()
 {
+    ui->spinBoxLaps->setDisabled(true);
     TimeToStart=6;
     CountDownTimer.start(1000);
 }
@@ -38,8 +44,11 @@ void WindowRace::countdownTimeOut()
     {
         CountDownTimer.stop();
         startRace();
+        TimeToStart = 10;
+        TimerToDisplay.start(1);
+
     }
-    emit setLights(TimeToStart);
+    emit setData(TimeToStart);
 
 }
 
@@ -53,7 +62,7 @@ void WindowRace::onByteReceived(char data)
     if( (TimeToStart != -1) && (data&0b00001) )
     {
         CountDownTimer.stop();
-        emit setLights(FALSTART);
+        emit setData(FALSTART);
     }
 
     else
@@ -62,26 +71,29 @@ void WindowRace::onByteReceived(char data)
         {
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
-        if(data&0b00010)
+        else if(data&0b00010)
         {
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
-        if(data&0b00100)
+        else if(data&0b00100)
         {
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
-        if(data&0b01000)
+        else if(data&0b01000)
         {
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
-        if(data&0b10000)
+        else if(data&0b10000)
         {
             ListOfTimes.push_back(CurrentTime.elapsed());
         }
         data = data&0b11111;
+
         int Position = dataToInt(data);
-        if(Position && (PrevSensor != Position))
+
+        if( (Position > 0) && (PrevSensor != Position) )
         {
+
             this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
             this->ui->textBest->append((QString::number(TempListOfBestTimes.at(Position-1))));
             this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(Position-1)));
@@ -227,6 +239,8 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
         TempListOfBestTimes = TempAllResults.CurrentBestTimeRC;
     }
 
+    ui->comboBoxID->setEnabled(true);
+
     addToComboBoxID(Category);
 
     ui->textWhichBetter->clear();
@@ -299,6 +313,20 @@ void WindowRace::sortAndAddIDs(vector<QString> TempListOfID)
 
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
+    ui->buttonStart->setEnabled(true);
+}
 
-    //
+void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
+{
+
+}
+
+void WindowRace::on_buttonClear_clicked()
+{
+    emit setData(11); //show lights
+}
+
+void WindowRace::timeToDisplay()
+{
+
 }

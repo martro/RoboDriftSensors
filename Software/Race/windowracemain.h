@@ -36,13 +36,13 @@ public slots:
     void onconnection_OFF();
     void onbyteReceived(char data);
     void onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
-    void onsetLights(int data);
+    void onSetData(int data);
 
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
-    void setLightsUserMain(int data);
+    void setDataUserMain(int data);
     void windowRaceCreated(vector<Team> ListOfTeams, Results ListOfTimes); //musze podeśła dane do tego okna
     void byteReceived(char data);
 

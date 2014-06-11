@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowUserMain_t {
     QByteArrayData data[8];
-    char stringdata[130];
+    char stringdata[128];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,13 +35,13 @@ QT_MOC_LITERAL(2, 35, 0),
 QT_MOC_LITERAL(3, 36, 23),
 QT_MOC_LITERAL(4, 60, 28),
 QT_MOC_LITERAL(5, 89, 15),
-QT_MOC_LITERAL(6, 105, 19),
-QT_MOC_LITERAL(7, 125, 4)
+QT_MOC_LITERAL(6, 105, 17),
+QT_MOC_LITERAL(7, 123, 4)
     },
     "WindowUserMain\0onButtonRaceClicked\0\0"
     "onButtonSettingsClicked\0"
     "onButtonCommunicationClicked\0"
-    "onconnection_ON\0onsetLightsUserMain\0"
+    "onconnection_ON\0onSetDataUserMain\0"
     "data"
 };
 #undef QT_MOC_LITERAL
@@ -85,7 +85,7 @@ void WindowUserMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 1: _t->onButtonSettingsClicked(); break;
         case 2: _t->onButtonCommunicationClicked(); break;
         case 3: _t->onconnection_ON(); break;
-        case 4: _t->onsetLightsUserMain((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->onSetDataUserMain((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }

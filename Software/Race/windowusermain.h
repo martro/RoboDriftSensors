@@ -27,7 +27,7 @@ public slots:
     void onButtonSettingsClicked();
     void onButtonCommunicationClicked();
     void onconnection_ON();
-    void onsetLightsUserMain(int data);
+    void onSetDataUserMain(int data);
 
 private:
     Ui::WindowUserMain *ui;

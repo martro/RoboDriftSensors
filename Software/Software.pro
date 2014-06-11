@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     Race/windowusart.cpp \
     Race/windowusermain.cpp \
     results.cpp \
-    WindowStats.cpp
+    WindowStats.cpp \
+    Race/DataToWindowRaceUser.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
@@ -52,7 +53,8 @@ HEADERS  += WindowAdmin.h \
     Race/windowusart.h \
     Race/windowusermain.h \
     results.h \
-    WindowStats.h
+    WindowStats.h \
+    Race/DataToWindowRaceUser.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \

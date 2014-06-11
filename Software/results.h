@@ -5,25 +5,21 @@
 #include <QString>
 using namespace std;
 
+
 class TimesOfSingleRun
 {
 public:
     TimesOfSingleRun();
-private:
-    int NumberOfRun;
-    vector<int> Times;
-};
+    void setTeamName(QString Name);
+    QString getTeamName();
 
-class TimesOfSingleCar
-{
-public:
-    TimesOfSingleCar();
+    void setCarID(QString ID);
+    QString getCarID();
 
 private:
     QString TeamName;
-    int CarID;
-    int NumberOfRuns;
-    vector<TimesOfSingleRun> Times;
+    QString CarID;
+    vector<int> Times;
 };
 
 class Results
@@ -33,10 +29,10 @@ public:
     vector<int> CurrentBestTimeMO;
     vector<int> CurrentBestTimeRD;
     vector<int> CurrentBestTimeRC;
-    vector<TimesOfSingleCar> ResultsOfMO;
-    vector<TimesOfSingleCar> ResultsOfRD;
-    vector<TimesOfSingleCar> ResultsOfRC;
-    vector<TimesOfSingleCar> ResultsOfTraining;
+    vector<TimesOfSingleRun> ResultsOfMO;
+    vector<TimesOfSingleRun> ResultsOfRD;
+    vector<TimesOfSingleRun> ResultsOfRC;
+    vector<TimesOfSingleRun> ResultsOfTraining;
 };
 
 #endif // RESULTS_H

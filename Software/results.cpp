@@ -31,20 +31,12 @@ Results::Results()
      CurrentBestTimeRD.push_back(15000);
 }
 
-//...............................................//
-//.............TimesOfSingleCar.................//
-TimesOfSingleCar::TimesOfSingleCar()
-{
-    CarID = 0;
-    Times.clear();
-    NumberOfRuns = 0;
-}
 
 //...............................................//
 //...........TimesOfSingleRun...............//
 TimesOfSingleRun::TimesOfSingleRun()
 {
-    NumberOfRun=0;
+    TeamName.clear();
+    CarID = "0";
     Times.clear();
-
 }

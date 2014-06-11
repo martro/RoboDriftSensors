@@ -12,6 +12,7 @@
 #include "team.h"
 #include "results.h"
 #include <QtMultimedia/QSoundEffect>
+#include "DataToWindowRaceUser.h"
 
 #define FALSTART -1
 #define YES 1
@@ -37,16 +38,20 @@ public:
 
 private slots:
     void countdownTimeOut();
+    void timeToDisplay();
     void on_buttonStart_clicked();
     void on_comboBoxCategory_activated(const QString &Category);
     void on_comboBoxID_activated(const QString &CurrentID);
+    void on_spinBoxLaps_valueChanged(int NumberOfLaps);
+
+    void on_buttonClear_clicked();
 
 public slots:
     void onWindowRaceCreated(vector<Team> ListOfTeams, Results AllResults);
     void onByteReceived(char data);
 
 signals:
-    void setLights(int data);
+    void setData(int data);
 
 
 private:
@@ -55,16 +60,21 @@ private:
     WindowRaceUser RaceUser;
     QTimer CountDownTimer;
     QElapsedTimer CurrentTime;
+    QTimer TimerToDisplay;
     int TimeToStart;
 
-    vector<Team> TempListOfTeams;
-    Results TempAllResults;
-    vector<int> ListOfTimes;
+    vector<Team> TempListOfTeams; //potrzebne do przeszuakania aut
+    Results TempAllResults;  //to tego bede wywyłał tempTimesOfSingleRun
+
+    vector<int> ListOfTimes; //to podeśle do TempTimesOfSignleRun
     vector<int> TempListOfBestTimes;
+    TimesOfSingleRun TempTimesOfSingleRun; //to
 
     int PrevSensor;
     QSoundEffect beep_short;
     QSoundEffect beep_long;
+
+    DataToWindowRaceUser DataToDisplay;
 };
 
 #endif // WINDOWRACE_H

@@ -21,9 +21,6 @@ public:
     void leds(int position, QString time);
     void startLights(int data);
 
-public slots:
-   // void setLightsUser();
-    void onsetLightsUser();
 
 private:
     Ui::WindowRaceUser *ui;

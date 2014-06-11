@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceMain_t {
     QByteArrayData data[22];
-    char stringdata[340];
+    char stringdata[336];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,33 +34,33 @@ QT_MOC_LITERAL(1, 15, 17),
 QT_MOC_LITERAL(2, 33, 0),
 QT_MOC_LITERAL(3, 34, 21),
 QT_MOC_LITERAL(4, 56, 26),
-QT_MOC_LITERAL(5, 83, 17),
-QT_MOC_LITERAL(6, 101, 4),
-QT_MOC_LITERAL(7, 106, 17),
-QT_MOC_LITERAL(8, 124, 12),
-QT_MOC_LITERAL(9, 137, 11),
-QT_MOC_LITERAL(10, 149, 7),
-QT_MOC_LITERAL(11, 157, 11),
-QT_MOC_LITERAL(12, 169, 12),
-QT_MOC_LITERAL(13, 182, 21),
-QT_MOC_LITERAL(14, 204, 29),
-QT_MOC_LITERAL(15, 234, 15),
-QT_MOC_LITERAL(16, 250, 16),
-QT_MOC_LITERAL(17, 267, 14),
-QT_MOC_LITERAL(18, 282, 22),
-QT_MOC_LITERAL(19, 305, 11),
-QT_MOC_LITERAL(20, 317, 10),
-QT_MOC_LITERAL(21, 328, 11)
+QT_MOC_LITERAL(5, 83, 15),
+QT_MOC_LITERAL(6, 99, 4),
+QT_MOC_LITERAL(7, 104, 17),
+QT_MOC_LITERAL(8, 122, 12),
+QT_MOC_LITERAL(9, 135, 11),
+QT_MOC_LITERAL(10, 147, 7),
+QT_MOC_LITERAL(11, 155, 11),
+QT_MOC_LITERAL(12, 167, 12),
+QT_MOC_LITERAL(13, 180, 21),
+QT_MOC_LITERAL(14, 202, 29),
+QT_MOC_LITERAL(15, 232, 15),
+QT_MOC_LITERAL(16, 248, 16),
+QT_MOC_LITERAL(17, 265, 14),
+QT_MOC_LITERAL(18, 280, 22),
+QT_MOC_LITERAL(19, 303, 11),
+QT_MOC_LITERAL(20, 315, 10),
+QT_MOC_LITERAL(21, 326, 9)
     },
     "WindowRaceMain\0buttonRaceClicked\0\0"
     "buttonSettingsClicked\0buttonCommunicationClicked\0"
-    "setLightsUserMain\0data\0windowRaceCreated\0"
+    "setDataUserMain\0data\0windowRaceCreated\0"
     "vector<Team>\0ListOfTeams\0Results\0"
     "ListOfTimes\0byteReceived\0on_buttonRace_clicked\0"
     "on_buttonRaceSettings_clicked\0"
     "onconnection_ON\0onconnection_OFF\0"
     "onbyteReceived\0onButtonNewRaceClicked\0"
-    "listOfTeams\0AllResults\0onsetLights"
+    "listOfTeams\0AllResults\0onSetData"
 };
 #undef QT_MOC_LITERAL
 
@@ -122,7 +122,7 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 0: _t->buttonRaceClicked(); break;
         case 1: _t->buttonSettingsClicked(); break;
         case 2: _t->buttonCommunicationClicked(); break;
-        case 3: _t->setLightsUserMain((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->setDataUserMain((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->windowRaceCreated((*reinterpret_cast< vector<Team>(*)>(_a[1])),(*reinterpret_cast< Results(*)>(_a[2]))); break;
         case 5: _t->byteReceived((*reinterpret_cast< char(*)>(_a[1]))); break;
         case 6: _t->on_buttonRace_clicked(); break;
@@ -131,7 +131,7 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 9: _t->onconnection_OFF(); break;
         case 10: _t->onbyteReceived((*reinterpret_cast< char(*)>(_a[1]))); break;
         case 11: _t->onButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1])),(*reinterpret_cast< Results(*)>(_a[2]))); break;
-        case 12: _t->onsetLights((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->onSetData((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -157,7 +157,7 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         }
         {
             typedef void (WindowRaceMain::*_t)(int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRaceMain::setLightsUserMain)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowRaceMain::setDataUserMain)) {
                 *result = 3;
             }
         }
@@ -231,7 +231,7 @@ void WindowRaceMain::buttonCommunicationClicked()
 }
 
 // SIGNAL 3
-void WindowRaceMain::setLightsUserMain(int _t1)
+void WindowRaceMain::setDataUserMain(int _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
