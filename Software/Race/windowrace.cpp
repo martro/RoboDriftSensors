@@ -9,6 +9,9 @@ WindowRace::WindowRace(QWidget *parent) :
     connect(&CountDownTimer,SIGNAL(timeout()),this,SLOT(countdownTimeOut()));
 
     PrevSensor = 0;
+
+    beep_short.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_short.wav"));
+    beep_long.setSource(QUrl::fromLocalFile(":/sounds/sounds/beep_long.wav"));
 }
 
 WindowRace::~WindowRace()
@@ -25,6 +28,12 @@ void WindowRace::on_buttonStart_clicked()
 void WindowRace::countdownTimeOut()
 {
     TimeToStart--;
+
+    if (TimeToStart>0)
+        beep_short.play();
+    if (TimeToStart==0)
+        beep_long.play();
+
     if (TimeToStart==-1)
     {
         CountDownTimer.stop();

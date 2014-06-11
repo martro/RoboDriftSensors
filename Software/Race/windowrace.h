@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include "team.h"
 #include "results.h"
+#include <QtMultimedia/QSoundEffect>
 
 #define FALSTART -1
 #define YES 1
@@ -62,6 +63,8 @@ private:
     vector<int> TempListOfBestTimes;
 
     int PrevSensor;
+    QSoundEffect beep_short;
+    QSoundEffect beep_long;
 };
 
 #endif // WINDOWRACE_H
