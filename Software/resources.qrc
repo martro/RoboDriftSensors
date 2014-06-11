@@ -8,5 +8,8 @@
         <file>images/green.png</file>
         <file>images/red.png</file>
     </qresource>
-    <qresource prefix="/"/>
+    <qresource prefix="/sounds">
+        <file>sounds/beep_long.wav</file>
+        <file>sounds/beep_short.wav</file>
+    </qresource>
 </RCC>
