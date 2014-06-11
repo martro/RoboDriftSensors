@@ -91,36 +91,35 @@ void WindowRace::onByteReceived(char data)
         data = data&0b11111;
         int Position = dataToInt(data);
 
-        QMessageBox m;
-        m.setText(QString::number(data));
-       // m.exec();
-
-        if((NumberOfLaps >= 0) && (FlagRaceStarted == YES) && (Position != 0))
+        if((NumberOfSensor >= 0) && (FlagRaceStarted == YES) && (Position != 0))
         {
             if( ((Position == 1) && (PrevSensor == 5)) || ((Position == 2) && (PrevSensor == 1)) || ((Position == 3) && (PrevSensor == 2)) || ((Position == 4) && (PrevSensor == 3)) || ((Position == 5) && (PrevSensor == 4)) )
             {
                 ListOfTimes.push_back(CurrentTime.elapsed());
 
                 PrevSensor = Position;
-                NumberOfLaps--;
+                NumberOfSensor--;
 
                 this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
-                this->ui->textBest->append((QString::number(TempListOfBestTimes.at(Position-1))));
-                this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(Position-1)));
+                this->ui->textBest->append((QString::number(TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor))));
+                this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
+
+                DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
+                DTWRU.SensorPosition = Position;
+                emit setData(DTWRU);
             }
-            if(NumberOfLaps == 0)
+            if(NumberOfSensor == 0)
             {
-                QMessageBox m;
-                m.setText("KOniec");
-                m.exec();
                 FlagRaceStarted = END_OF_RACE;
+                TimerToDisplay.stop();
+                QMessageBox m;
+                m.setText("Race Finished");
+                m.exec();
+
             }
         }
         else if(Position != 0)
         {
-            QMessageBox m;
-            m.setText("start");
-            m.exec();
             FlagRaceStarted = YES;
             PrevSensor = 5;
         }
@@ -252,6 +251,7 @@ QString WindowRace::milisecondsToDisplay(int miliseconds)
 
 void WindowRace::on_comboBoxCategory_activated(const QString &Category)
 {
+    ui->spinBoxLaps->setEnabled(true);
     if(Category == "Mobile Open")
     {
         TempListOfBestTimes = TempAllResults.CurrentBestTimeMO;
@@ -350,6 +350,7 @@ void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 
 void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 {
+    this->NumberOfSensor = NUMBER_OF_SENSORS*NumberOfLaps;
     this->NumberOfLaps = NUMBER_OF_SENSORS*NumberOfLaps;
 }
 
@@ -357,6 +358,7 @@ void WindowRace::on_buttonClear_clicked()
 {
     ui->comboBoxID->clear();
     ui->comboBoxCategory->setEnabled(true);
+    ui->spinBoxLaps->clear();
     DTWRU.clear();
     PrevSensor = 5; //przedostatni
     NumberOfLaps = 0;

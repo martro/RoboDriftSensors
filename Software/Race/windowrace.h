@@ -65,6 +65,7 @@ private:
     QTimer TimerToDisplay;
     int TimeToStart;
     int NumberOfLaps;
+    int NumberOfSensor;
 
     vector<Team> TempListOfTeams; //potrzebne do przeszuakania aut
     Results TempAllResults;  //to tego bede wywyłał tempTimesOfSingleRun

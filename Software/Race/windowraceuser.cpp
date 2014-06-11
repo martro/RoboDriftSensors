@@ -22,15 +22,6 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     Lamp3.setMode(0);
     Lamp4.setMode(0);
     Lamp5.setMode(0);
-
-    leds(1,"+sdsd");
-    leds(2,"-00:00:345");
-    leds(3,"-00:00:345");
-    leds(4,"+00:00:345");
-    leds(5,"-00:00:345");
-
-
-    //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
 }
 
 WindowRaceUser::~WindowRaceUser()
@@ -41,9 +32,11 @@ WindowRaceUser::~WindowRaceUser()
 
 void WindowRaceUser::leds(int position, QString time)
 {
-    if (time.at(0)=='+')
-        switch (position)
-        {
+    if(time.length())
+    {
+        if (time.at(0)=='+')
+            switch (position)
+            {
             case 1:
                 ui->Sensor1->setText(time);
                 ui->Sensor1->setStyleSheet("QLabel { background-color : red; color : white; }");
@@ -66,11 +59,11 @@ void WindowRaceUser::leds(int position, QString time)
                 break;
             default:
                 break;
-        }
-    else
-    {
-        switch (position)
+            }
+        else
         {
+            switch (position)
+            {
             case 1:
                 ui->Sensor1->setText(time);
                 ui->Sensor1->setStyleSheet("QLabel { background-color : green; color : white; }");
@@ -93,8 +86,9 @@ void WindowRaceUser::leds(int position, QString time)
                 break;
             default:
                 break;
+            }
         }
-    }  
+    }
 }
 
 void WindowRaceUser::startLights(int data)

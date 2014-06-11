@@ -40,7 +40,6 @@ public:
 private slots:
     void on_ButtonAddEditTeam_clicked();
     void on_ButtonNewRace_clicked();
-
     void on_ButtonStats_clicked();
 
 public slots:
