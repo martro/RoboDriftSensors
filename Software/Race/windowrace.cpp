@@ -324,10 +324,12 @@ void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 
 void WindowRace::on_buttonClear_clicked()
 {
-    //emit setData(11); //show lights
+    DTWRU.LightsMode=11;
+    emit setData(DTWRU);//show lights, hide label
 }
 
 void WindowRace::timeToDisplay()
 {
-
+    DTWRU.CurrentTime=milisecondsToDisplay(CurrentTime.elapsed());
+    emit setData(DTWRU);
 }

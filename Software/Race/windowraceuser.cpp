@@ -179,3 +179,8 @@ void WindowRaceUser::startLights(int data)
         break;
     }
 }
+
+void WindowRaceUser::refreshCurrentTime(QString CurrentTime)
+{
+    this->ui->labelCurrentTime->setText(CurrentTime);
+}

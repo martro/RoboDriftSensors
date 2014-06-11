@@ -59,4 +59,5 @@ void WindowUserMain::onconnection_ON()
 void WindowUserMain::onSetDataUserMain(DataToWindowRaceUser DTWRU)
 {
     Window_Race_User->startLights(DTWRU.LightsMode);
+    Window_Race_User->refreshCurrentTime(DTWRU.CurrentTime);
 }

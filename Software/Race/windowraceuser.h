@@ -20,6 +20,7 @@ public:
     ~WindowRaceUser();
     void leds(int position, QString time);
     void startLights(int data);
+    void refreshCurrentTime(QString CurrentTime);
 
 
 private:
