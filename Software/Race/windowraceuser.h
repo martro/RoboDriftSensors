@@ -5,6 +5,7 @@
 #include "windowusart.h"
 #include "lamp.h"
 #include <QMessageBox>
+#include <QString>
 
 namespace Ui {
 class WindowRaceUser;
@@ -17,7 +18,7 @@ class WindowRaceUser : public QWidget
 public:
     explicit WindowRaceUser(QWidget *parent = 0);
     ~WindowRaceUser();
-    void leds(char data);
+    void leds(int position, QString time);
     void startLights(int data);
 
 public slots:

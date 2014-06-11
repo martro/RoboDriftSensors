@@ -8,12 +8,8 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     ui->setupUi(this);
     palette = new QPalette();
     palette->setColor(ui->Sensor1->foregroundRole(),Qt::transparent);
-    leds(0);
-    //Lamp *Lamp1= new Lamp;
-    //Lamp *Lamp2= new Lamp;
-    //Lamp *Lamp3= new Lamp;
-    //Lamp *Lamp4= new Lamp;
-   // Lamp *Lamp5= new Lamp;
+
+
     this->ui->Lights->addWidget(&Lamp1);
     this->ui->Lights->addWidget(&Lamp2);
     this->ui->Lights->addWidget(&Lamp3);
@@ -26,7 +22,11 @@ WindowRaceUser::WindowRaceUser(QWidget *parent) :
     Lamp4.setMode(3);
     Lamp5.setMode(4);
 
-    leds(0b1);
+    /*leds(1,"+sdsd");
+    leds(2,"-00:00:345");
+    leds(3,"-00:00:345");
+    leds(4,"+00:00:345");
+    leds(5,"-00:00:345");*/
 
 
     //connect(usart,SIGNAL(byteReceived(char data)),this,SLOT(onbyteReceived(char data)));
@@ -38,14 +38,70 @@ WindowRaceUser::~WindowRaceUser()
 }
 
 
-void WindowRaceUser::leds(char data)
+void WindowRaceUser::leds(int position, QString time)
 {
-    //SENSOR 1
-    if (data&0b1)
+    if (time.at(0)=='+')
+        switch (position)
+        {
+            case 1:
+                ui->Sensor1->setText(time);
+                ui->Sensor1->setStyleSheet("QLabel { background-color : red; color : white; }");
+                break;
+            case 2:
+                ui->Sensor2->setText(time);
+                ui->Sensor2->setStyleSheet("QLabel { background-color : red; color : white; }");
+                break;
+            case 3:
+                ui->Sensor3->setText(time);
+                ui->Sensor3->setStyleSheet("QLabel { background-color : red; color : white; }");
+                break;
+            case 4:
+                ui->Sensor4->setText(time);
+                ui->Sensor4->setStyleSheet("QLabel { background-color : red; color : white; }");
+                break;
+            case 5:
+                ui->Sensor5->setText(time);
+                ui->Sensor5->setStyleSheet("QLabel { background-color : red; color : white; }");
+                break;
+            default:
+                break;
+        }
+    else
+    {
+        switch (position)
+        {
+            case 1:
+                ui->Sensor1->setText(time);
+                ui->Sensor1->setStyleSheet("QLabel { background-color : green; color : white; }");
+                break;
+            case 2:
+                ui->Sensor2->setText(time);
+                ui->Sensor2->setStyleSheet("QLabel { background-color : green; color : white; }");
+                break;
+            case 3:
+                ui->Sensor3->setText(time);
+                ui->Sensor3->setStyleSheet("QLabel { background-color : green; color : white; }");
+                break;
+            case 4:
+                ui->Sensor4->setText(time);
+                ui->Sensor4->setStyleSheet("QLabel { background-color : green; color : white; }");
+                break;
+            case 5:
+                ui->Sensor5->setText(time);
+                ui->Sensor5->setStyleSheet("QLabel { background-color : green; color : white; }");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+   /* //SENSOR 1
+    if (position==1)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor1->setAutoFillBackground(true);
-        ui->Sensor1->setStyleSheet("QLabel { background-color : red; color : blue; }");
+       // ui->Sensor1->setStyleSheet("QLabel { background-color : red; color : blue; }");
     }else
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::darkGreen);
@@ -54,7 +110,7 @@ void WindowRaceUser::leds(char data)
     ui->Sensor1->update();
         this->ui->Sensor1->setPalette(*palette);
     //SENSOR 2
-    if (data&0b10)
+    if (position==2)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor2->setAutoFillBackground(true);
@@ -66,7 +122,7 @@ void WindowRaceUser::leds(char data)
     ui->Sensor2->update();
         this->ui->Sensor2->setPalette(*palette);
     //SENSOR 3
-    if (data&0b100)
+    if (position==3)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor3->setAutoFillBackground(true);
@@ -78,7 +134,7 @@ void WindowRaceUser::leds(char data)
     ui->Sensor3->update();
         this->ui->Sensor3->setPalette(*palette);
     //SENSOR 4
-    if (data&0b1000)
+    if (position==4)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor4->setAutoFillBackground(true);
@@ -91,7 +147,7 @@ void WindowRaceUser::leds(char data)
         this->ui->Sensor4->setPalette(*palette);
 
     //SENSOR 5
-    if (data&0b10000)
+    if (position==5)
     {
         palette->setColor(ui->Sensor1->backgroundRole(),Qt::green);
         ui->Sensor5->setAutoFillBackground(true);
@@ -101,7 +157,7 @@ void WindowRaceUser::leds(char data)
         ui->Sensor5->setAutoFillBackground(true);
     }
     ui->Sensor5->update();
-        this->ui->Sensor5->setPalette(*palette);
+        this->ui->Sensor5->setPalette(*palette);*/
 }
 
 void WindowRaceUser:: onsetLightsUser()
