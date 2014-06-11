@@ -44,13 +44,15 @@ void WindowRace::countdownTimeOut()
     if (TimeToStart>0)
         beep_short.play();
     if (TimeToStart==0)
+    {
+        startRace();
         beep_long.play();
+    }
 
     if (TimeToStart==-1)
     {
         CountDownTimer.stop();
-        startRace();
-        TimeToStart = START_RACE;
+        TimeToStart = 10;
         TimerToDisplay.start(1);
 
     }
@@ -79,7 +81,7 @@ void WindowRace::startRace()
 
 void WindowRace::onByteReceived(char data)
 {
-    if( (TimeToStart != START_RACE) && (data&0b10000) )
+    if( (TimeToStart != 0) && (data&0b10000) )
     {
         CountDownTimer.stop();
         DTWRU.LightsMode = FALSTART;
@@ -359,8 +361,16 @@ void WindowRace::on_buttonClear_clicked()
     ui->comboBoxID->clear();
     ui->comboBoxCategory->setEnabled(true);
     ui->spinBoxLaps->clear();
+    ui->textBest->clear();
+    ui->textCurrent->clear();
+    ui->textDifference->clear();
+    ui->textWhichBetter->clear();
+
     DTWRU.clear();
+
+    FlagRaceStarted = NO;
     PrevSensor = 5; //przedostatni
+    NumberOfSensor = 0;
     NumberOfLaps = 0;
     emit setData(DTWRU);//show lights, hide label
 }

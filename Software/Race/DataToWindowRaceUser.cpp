@@ -3,7 +3,7 @@
 DataToWindowRaceUser::DataToWindowRaceUser()
 {
     Difference.clear();
-    SensorPosition = 0;
+    SensorPosition = -1;
     TeamName.clear();
     CarName.clear();
     CurrentTime.clear();
@@ -13,7 +13,7 @@ DataToWindowRaceUser::DataToWindowRaceUser()
  void DataToWindowRaceUser::clear()
  {
      Difference.clear();
-     SensorPosition = 0;
+     SensorPosition = -1;
      TeamName.clear();
      CarName.clear();
      CurrentTime.clear();
