@@ -81,14 +81,14 @@ void WindowRace::startRace()
 
 void WindowRace::onByteReceived(char data)
 {
-    if( (TimeToStart != 0) && (data&0b10000) )
+    /*if( (TimeToStart != 0) && (data&0b10000) )
     {
         CountDownTimer.stop();
         DTWRU.LightsMode = FALSTART;
         emit setData(DTWRU);
     }
 
-    else
+    else */
     {
         data = data&0b11111;
         int Position = dataToInt(data);

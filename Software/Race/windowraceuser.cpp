@@ -35,15 +35,15 @@ void WindowRaceUser::leds(int position, QString time)
     if(position == -1)
     {
         ui->Sensor1->clear();
-        ui->Sensor1->setStyleSheet("QLabel { background-white : red; color : white; }");
+        ui->Sensor1->setStyleSheet("QLabel { background-color: white; color : white; }");
         ui->Sensor2->clear();
-        ui->Sensor2->setStyleSheet("QLabel { background-white : red; color : white; }");
+        ui->Sensor2->setStyleSheet("QLabel { background-color : white; color : white; }");
         ui->Sensor3->clear();
-        ui->Sensor3->setStyleSheet("QLabel { background-white : red; color : white; }");
+        ui->Sensor3->setStyleSheet("QLabel { background-color : white; color : white; }");
         ui->Sensor4->clear();
-        ui->Sensor4->setStyleSheet("QLabel { background-white : red; color : white; }");
+        ui->Sensor4->setStyleSheet("QLabel { background-color : white; color : white; }");
         ui->Sensor5->clear();
-        ui->Sensor5->setStyleSheet("QLabel { background-white : red; color : white; }");
+        ui->Sensor5->setStyleSheet("QLabel { background-color : white; color : white; }");
     }
     else if(time.length())
     {
