@@ -71,6 +71,7 @@ void WindowRace::findTeamName(int ID)
             {
                 DTWRU.TeamName = TempListOfTeams.at(x).getName();
                 DTWRU.CarName = TempListOfTeams.at(x).ListOfCars.at(c).getName();
+                ui->labelTeamCarName->setText(DTWRU.TeamName + "/" + DTWRU.CarName);
             }
         }
     }
@@ -115,6 +116,7 @@ void WindowRace::onByteReceived(char data)
             {
                 FlagRaceStarted = END_OF_RACE;
                 TimerToDisplay.stop();
+                ui->buttonSave->setEnabled(true);
                 QMessageBox m;
                 m.setText("Race Finished");
                 m.exec();

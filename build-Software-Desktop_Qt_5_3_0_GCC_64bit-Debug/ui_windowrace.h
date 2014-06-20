@@ -43,6 +43,7 @@ public:
     QComboBox *comboBoxID;
     QLabel *label_4;
     QSpinBox *spinBoxLaps;
+    QLabel *labelTeamCarName;
     QHBoxLayout *horizontalLayout;
     QTextBrowser *textBest;
     QTextBrowser *textCurrent;
@@ -103,6 +104,11 @@ public:
         spinBoxLaps->setObjectName(QStringLiteral("spinBoxLaps"));
 
         gridLayout->addWidget(spinBoxLaps, 1, 3, 1, 1);
+
+        labelTeamCarName = new QLabel(centralWidget);
+        labelTeamCarName->setObjectName(QStringLiteral("labelTeamCarName"));
+
+        gridLayout->addWidget(labelTeamCarName, 1, 2, 1, 1);
 
 
         formLayout->setLayout(0, QFormLayout::SpanningRole, gridLayout);
@@ -176,8 +182,9 @@ public:
         );
         label->setText(QApplication::translate("WindowRace", "Category", 0));
         label_2->setText(QApplication::translate("WindowRace", "Car ID", 0));
-        label_3->setText(QApplication::translate("WindowRace", "Car name", 0));
+        label_3->setText(QApplication::translate("WindowRace", "Team/Car name", 0));
         label_4->setText(QApplication::translate("WindowRace", "Laps", 0));
+        labelTeamCarName->setText(QString());
         buttonClear->setText(QApplication::translate("WindowRace", "Clear", 0));
         buttonStart->setText(QApplication::translate("WindowRace", "START!", 0));
         buttonSave->setText(QApplication::translate("WindowRace", "Save", 0));
