@@ -32,7 +32,7 @@ void WindowRace::on_buttonStart_clicked()
 {
     ui->comboBoxCategory->setDisabled(true);
     ui->comboBoxID->setDisabled(true);
-    ui->spinBoxLaps->setDisabled(true);
+    ui->numberOfLaps->setDisabled(true);
     ui->buttonStart->setDisabled(true);
     TimeToStart=6;
     CountDownTimer.start(1000);
@@ -257,20 +257,37 @@ QString WindowRace::milisecondsToDisplay(int miliseconds)
 
 void WindowRace::on_comboBoxCategory_activated(const QString &Category)
 {
-    ui->spinBoxLaps->setEnabled(true);
+    ui->numberOfLaps->setEnabled(true);
     if(Category == "Mobile Open")
     {
         TempListOfBestTimes = TempAllResults.CurrentBestTimeMO;
+
+        this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_MO;
+        this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_MO;
+
+        this->ui->numberOfLaps->display(LAPS_OF_MO);
     }
     else if(Category == "RoboDrift")
     {
         TempListOfBestTimes = TempAllResults.CurrentBestTimeRD;
+
+        this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_RD;
+        this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_RD;
+
+        this->ui->numberOfLaps->display(LAPS_OF_RD);
     }
     else if(Category == "RC")
     {
         TempListOfBestTimes = TempAllResults.CurrentBestTimeRC;
+
+        this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_RC;
+        this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_RC;
+
+        this->ui->numberOfLaps->display(LAPS_OF_RC);
     }
 
+
+    ui->buttonStart->setEnabled(true);
     ui->comboBoxID->setEnabled(true);
 
     addToComboBoxID(Category);
@@ -353,20 +370,6 @@ void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
     emit setData(DTWRU);
 }
 
-void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
-{
-    if(NumberOfLaps > 0)
-    {
-        this->NumberOfSensor = NUMBER_OF_SENSORS*NumberOfLaps;
-        this->NumberOfLaps = NUMBER_OF_SENSORS*NumberOfLaps;
-        ui->buttonStart->setEnabled(true);
-    }
-    else
-    {
-        ui->buttonStart->setEnabled(false);
-    }
-}
-
 void WindowRace::on_buttonClear_clicked()
 {
     ui->comboBoxID->clear();
@@ -376,7 +379,6 @@ void WindowRace::on_buttonClear_clicked()
     ui->buttonSave->setDisabled(true);
 
     ui->comboBoxCategory->setEnabled(true);
-    ui->spinBoxLaps->setValue(0);
     ui->textBest->clear();
     ui->textCurrent->clear();
     ui->textDifference->clear();

@@ -18,11 +18,11 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
@@ -42,8 +42,8 @@ public:
     QLabel *label_3;
     QComboBox *comboBoxID;
     QLabel *label_4;
-    QSpinBox *spinBoxLaps;
     QLabel *labelTeamCarName;
+    QLCDNumber *numberOfLaps;
     QHBoxLayout *horizontalLayout;
     QTextBrowser *textBest;
     QTextBrowser *textCurrent;
@@ -100,15 +100,15 @@ public:
 
         gridLayout->addWidget(label_4, 0, 3, 1, 1);
 
-        spinBoxLaps = new QSpinBox(centralWidget);
-        spinBoxLaps->setObjectName(QStringLiteral("spinBoxLaps"));
-
-        gridLayout->addWidget(spinBoxLaps, 1, 3, 1, 1);
-
         labelTeamCarName = new QLabel(centralWidget);
         labelTeamCarName->setObjectName(QStringLiteral("labelTeamCarName"));
 
         gridLayout->addWidget(labelTeamCarName, 1, 2, 1, 1);
+
+        numberOfLaps = new QLCDNumber(centralWidget);
+        numberOfLaps->setObjectName(QStringLiteral("numberOfLaps"));
+
+        gridLayout->addWidget(numberOfLaps, 1, 3, 1, 1);
 
 
         formLayout->setLayout(0, QFormLayout::SpanningRole, gridLayout);

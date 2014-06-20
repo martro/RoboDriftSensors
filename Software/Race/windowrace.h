@@ -21,6 +21,10 @@
 #define NUMBER_OF_SENSORS 5
 #define END_OF_RACE 2
 
+#define LAPS_OF_MO 1
+#define LAPS_OF_RC 2
+#define LAPS_OF_RD 3
+
 namespace Ui {
 class WindowRace;
 }
@@ -46,7 +50,6 @@ private slots:
     void on_buttonStart_clicked();
     void on_comboBoxCategory_activated(const QString &Category);
     void on_comboBoxID_activated(const QString &CurrentID);
-    void on_spinBoxLaps_valueChanged(int NumberOfLaps);
     void on_buttonClear_clicked();
 
 public slots:
