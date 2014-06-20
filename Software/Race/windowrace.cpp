@@ -33,6 +33,7 @@ void WindowRace::on_buttonStart_clicked()
     ui->comboBoxCategory->setDisabled(true);
     ui->comboBoxID->setDisabled(true);
     ui->spinBoxLaps->setDisabled(true);
+    ui->buttonStart->setDisabled(true);
     TimeToStart=6;
     CountDownTimer.start(1000);
 }
@@ -345,28 +346,47 @@ void WindowRace::sortAndAddIDs(vector<QString> TempListOfID)
 
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
-    ui->buttonStart->setEnabled(true);
     findTeamName(CurrentID.toInt());
     emit setData(DTWRU);
 }
 
 void WindowRace::on_spinBoxLaps_valueChanged(int NumberOfLaps)
 {
-    this->NumberOfSensor = NUMBER_OF_SENSORS*NumberOfLaps;
-    this->NumberOfLaps = NUMBER_OF_SENSORS*NumberOfLaps;
+    if(NumberOfLaps > 0)
+    {
+        this->NumberOfSensor = NUMBER_OF_SENSORS*NumberOfLaps;
+        this->NumberOfLaps = NUMBER_OF_SENSORS*NumberOfLaps;
+        ui->buttonStart->setEnabled(true);
+    }
+    else
+    {
+        ui->buttonStart->setEnabled(false);
+    }
 }
 
 void WindowRace::on_buttonClear_clicked()
 {
     ui->comboBoxID->clear();
+    ui->comboBoxID->setDisabled(true);
+
+    ui->buttonStart->setDisabled(true);
+    ui->buttonSave->setDisabled(true);
+
     ui->comboBoxCategory->setEnabled(true);
-    ui->spinBoxLaps->clear();
+    ui->spinBoxLaps->setValue(0);
     ui->textBest->clear();
     ui->textCurrent->clear();
     ui->textDifference->clear();
     ui->textWhichBetter->clear();
 
     DTWRU.clear();
+
+    CountDownTimer.stop();
+
+
+    ListOfTimes.clear(); //to podeśle do TempTimesOfSignleRun
+    TempListOfBestTimes.clear();
+    //TempTimesOfSingleRun; //to
 
     FlagRaceStarted = NO;
     PrevSensor = 5; //przedostatni

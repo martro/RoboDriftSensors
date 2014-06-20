@@ -276,3 +276,8 @@ void WindowAdmin::on_ButtonStats_clicked()
         this->CurrentWidget=Window_Stats;
     }
 }
+
+void WindowAdmin::on_actionQT_triggered()
+{
+    QApplication::aboutQt();
+}

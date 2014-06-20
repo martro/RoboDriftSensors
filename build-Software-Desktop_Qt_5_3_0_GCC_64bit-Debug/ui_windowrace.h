@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -33,10 +34,7 @@ class Ui_WindowRace
 {
 public:
     QWidget *centralWidget;
-    QPushButton *buttonStart;
-    QPushButton *buttonClear;
-    QPushButton *buttonSave;
-    QWidget *gridLayoutWidget;
+    QFormLayout *formLayout;
     QGridLayout *gridLayout;
     QComboBox *comboBoxCategory;
     QLabel *label;
@@ -45,12 +43,14 @@ public:
     QComboBox *comboBoxID;
     QLabel *label_4;
     QSpinBox *spinBoxLaps;
-    QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QTextBrowser *textBest;
     QTextBrowser *textCurrent;
     QTextBrowser *textDifference;
     QTextBrowser *textWhichBetter;
+    QPushButton *buttonClear;
+    QPushButton *buttonStart;
+    QPushButton *buttonSave;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -62,85 +62,91 @@ public:
         WindowRace->resize(689, 387);
         centralWidget = new QWidget(WindowRace);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        buttonStart = new QPushButton(centralWidget);
-        buttonStart->setObjectName(QStringLiteral("buttonStart"));
-        buttonStart->setGeometry(QRect(120, 260, 181, 51));
-        buttonClear = new QPushButton(centralWidget);
-        buttonClear->setObjectName(QStringLiteral("buttonClear"));
-        buttonClear->setGeometry(QRect(20, 280, 81, 31));
-        buttonSave = new QPushButton(centralWidget);
-        buttonSave->setObjectName(QStringLiteral("buttonSave"));
-        buttonSave->setGeometry(QRect(310, 260, 181, 51));
-        gridLayoutWidget = new QWidget(centralWidget);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(40, 0, 352, 80));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        formLayout = new QFormLayout(centralWidget);
+        formLayout->setSpacing(6);
+        formLayout->setContentsMargins(11, 11, 11, 11);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        comboBoxCategory = new QComboBox(gridLayoutWidget);
+        comboBoxCategory = new QComboBox(centralWidget);
         comboBoxCategory->setObjectName(QStringLiteral("comboBoxCategory"));
 
         gridLayout->addWidget(comboBoxCategory, 1, 0, 1, 1);
 
-        label = new QLabel(gridLayoutWidget);
+        label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        label_2 = new QLabel(gridLayoutWidget);
+        label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout->addWidget(label_2, 0, 1, 1, 1);
 
-        label_3 = new QLabel(gridLayoutWidget);
+        label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 0, 2, 1, 1);
 
-        comboBoxID = new QComboBox(gridLayoutWidget);
+        comboBoxID = new QComboBox(centralWidget);
         comboBoxID->setObjectName(QStringLiteral("comboBoxID"));
 
         gridLayout->addWidget(comboBoxID, 1, 1, 1, 1);
 
-        label_4 = new QLabel(gridLayoutWidget);
+        label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         gridLayout->addWidget(label_4, 0, 3, 1, 1);
 
-        spinBoxLaps = new QSpinBox(gridLayoutWidget);
+        spinBoxLaps = new QSpinBox(centralWidget);
         spinBoxLaps->setObjectName(QStringLiteral("spinBoxLaps"));
 
         gridLayout->addWidget(spinBoxLaps, 1, 3, 1, 1);
 
-        horizontalLayoutWidget = new QWidget(centralWidget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(41, 99, 601, 151));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+
+        formLayout->setLayout(0, QFormLayout::SpanningRole, gridLayout);
+
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        textBest = new QTextBrowser(horizontalLayoutWidget);
+        textBest = new QTextBrowser(centralWidget);
         textBest->setObjectName(QStringLiteral("textBest"));
 
         horizontalLayout->addWidget(textBest);
 
-        textCurrent = new QTextBrowser(horizontalLayoutWidget);
+        textCurrent = new QTextBrowser(centralWidget);
         textCurrent->setObjectName(QStringLiteral("textCurrent"));
 
         horizontalLayout->addWidget(textCurrent);
 
-        textDifference = new QTextBrowser(horizontalLayoutWidget);
+        textDifference = new QTextBrowser(centralWidget);
         textDifference->setObjectName(QStringLiteral("textDifference"));
 
         horizontalLayout->addWidget(textDifference);
 
-        textWhichBetter = new QTextBrowser(horizontalLayoutWidget);
+        textWhichBetter = new QTextBrowser(centralWidget);
         textWhichBetter->setObjectName(QStringLiteral("textWhichBetter"));
 
         horizontalLayout->addWidget(textWhichBetter);
+
+
+        formLayout->setLayout(1, QFormLayout::SpanningRole, horizontalLayout);
+
+        buttonClear = new QPushButton(centralWidget);
+        buttonClear->setObjectName(QStringLiteral("buttonClear"));
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, buttonClear);
+
+        buttonStart = new QPushButton(centralWidget);
+        buttonStart->setObjectName(QStringLiteral("buttonStart"));
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, buttonStart);
+
+        buttonSave = new QPushButton(centralWidget);
+        buttonSave->setObjectName(QStringLiteral("buttonSave"));
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, buttonSave);
 
         WindowRace->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WindowRace);
@@ -162,9 +168,6 @@ public:
     void retranslateUi(QMainWindow *WindowRace)
     {
         WindowRace->setWindowTitle(QApplication::translate("WindowRace", "WindowRace", 0));
-        buttonStart->setText(QApplication::translate("WindowRace", "START!", 0));
-        buttonClear->setText(QApplication::translate("WindowRace", "Clear", 0));
-        buttonSave->setText(QApplication::translate("WindowRace", "Save", 0));
         comboBoxCategory->clear();
         comboBoxCategory->insertItems(0, QStringList()
          << QApplication::translate("WindowRace", "Mobile Open", 0)
@@ -175,6 +178,9 @@ public:
         label_2->setText(QApplication::translate("WindowRace", "Car ID", 0));
         label_3->setText(QApplication::translate("WindowRace", "Car name", 0));
         label_4->setText(QApplication::translate("WindowRace", "Laps", 0));
+        buttonClear->setText(QApplication::translate("WindowRace", "Clear", 0));
+        buttonStart->setText(QApplication::translate("WindowRace", "START!", 0));
+        buttonSave->setText(QApplication::translate("WindowRace", "Save", 0));
     } // retranslateUi
 
 };

@@ -42,6 +42,8 @@ private slots:
     void on_ButtonNewRace_clicked();
     void on_ButtonStats_clicked();
 
+    void on_actionQT_triggered();
+
 public slots:
     void onSendCurrentListOfTeams(vector<Team> tempListOfTeams);
 
