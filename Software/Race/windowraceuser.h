@@ -1,6 +1,10 @@
 #ifndef WINDOWRACEUSER_H
 #define WINDOWRACEUSER_H
 
+#define FALSTART -1
+#define HIDE_LAMPS -2
+#define SHOW_LAMPS 11
+
 #include <QWidget>
 #include "windowusart.h"
 #include "lamp.h"

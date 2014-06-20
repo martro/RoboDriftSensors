@@ -15,10 +15,12 @@
 #include "DataToWindowRaceUser.h"
 
 #define FALSTART -1
+#define HIDE_LAMPS -2
 #define YES 1
 #define NO 0
 #define NUMBER_OF_SENSORS 5
 #define END_OF_RACE 2
+
 namespace Ui {
 class WindowRace;
 }

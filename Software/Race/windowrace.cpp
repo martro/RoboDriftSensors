@@ -45,17 +45,16 @@ void WindowRace::countdownTimeOut()
     if (TimeToStart>0)
         beep_short.play();
     if (TimeToStart==0)
-    {
+    {     
         startRace();
         beep_long.play();
+        TimerToDisplay.start(1);
     }
 
-    if (TimeToStart==-1)
+    if (TimeToStart<0)
     {
         CountDownTimer.stop();
-        TimeToStart = 10;
-        TimerToDisplay.start(1);
-
+        TimeToStart = HIDE_LAMPS; //hide lamps , -1 = falstart
     }
     DTWRU.LightsMode=TimeToStart;
     emit setData(DTWRU);
@@ -83,18 +82,20 @@ void WindowRace::startRace()
 
 void WindowRace::onByteReceived(char data)
 {
-    /*if( (TimeToStart != 0) && (data&0b10000) )
+    data = data&0b11111;
+    int Position = dataToInt(data);
+
+    if( (TimeToStart > 0) && (Position == 5) )
     {
         CountDownTimer.stop();
         DTWRU.LightsMode = FALSTART;
+        this->ui->textCurrent->append(QString::number(-1));
         emit setData(DTWRU);
+
     }
 
-    else */
+    else if(DTWRU.LightsMode != FALSTART)
     {
-        data = data&0b11111;
-        int Position = dataToInt(data);
-
         if((NumberOfSensor >= 0) && (FlagRaceStarted == YES) && (Position != 0))
         {
             if( ((Position == 1) && (PrevSensor == 5)) || ((Position == 2) && (PrevSensor == 1)) || ((Position == 3) && (PrevSensor == 2)) || ((Position == 4) && (PrevSensor == 3)) || ((Position == 5) && (PrevSensor == 4)) )
@@ -388,7 +389,6 @@ void WindowRace::on_buttonClear_clicked()
 
     ListOfTimes.clear(); //to podeśle do TempTimesOfSignleRun
     TempListOfBestTimes.clear();
-    //TempTimesOfSingleRun; //to
 
     FlagRaceStarted = NO;
     PrevSensor = 5; //przedostatni

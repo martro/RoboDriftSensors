@@ -159,14 +159,14 @@ void WindowRaceUser::startLights(int data)
         Lamp4.setMode(3);
         Lamp5.setMode(3);
         break;
-    case -1:
+    case FALSTART:
         Lamp1.setMode(4);
         Lamp2.setMode(4);
         Lamp3.setMode(4);
         Lamp4.setMode(4);
         Lamp5.setMode(4);
         break;
-    case 10:
+    case HIDE_LAMPS:
         Lamp1.hide();
         Lamp2.hide();
         Lamp3.hide();
@@ -174,7 +174,7 @@ void WindowRaceUser::startLights(int data)
         Lamp5.hide();
         ui->labelCurrentTime->show();
         break;
-    case 11:
+    case SHOW_LAMPS:
         Lamp1.show();
         Lamp2.show();
         Lamp3.show();
