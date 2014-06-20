@@ -10,16 +10,15 @@ class TimesOfSingleRun
 {
 public:
     TimesOfSingleRun();
-    void setTeamName(QString Name);
-    QString getTeamName();
 
-    void setCarID(QString ID);
-    QString getCarID();
-
-private:
     QString TeamName;
     QString CarID;
+    QString CarName;
     vector<int> Times;
+
+    void clear();
+
+private:
 };
 
 class Results

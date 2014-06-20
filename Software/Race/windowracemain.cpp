@@ -45,10 +45,10 @@ void WindowRaceMain::on_buttonRace_clicked()
         ui->CurrentWindow->addWidget(Window_Race, 0,0);
 
         connect(Window_Race,SIGNAL(setData(DataToWindowRaceUser)),this, SLOT(onSetData(DataToWindowRaceUser)));
-        connect(this, SIGNAL(windowRaceCreated(vector<Team>, Results)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>, Results)));// przekazanie info o teamach
+        connect(this, SIGNAL(windowRaceCreated(vector<Team>)), Window_Race, SLOT(onWindowRaceCreated(vector<Team>)));// przekazanie info o teamach
         connect(this, SIGNAL(byteReceived(char)), Window_Race, SLOT(onByteReceived(char)));
 
-        emit windowRaceCreated(TempListOfTeams, TempAllResults); //posyła dane o teamachtimach do okna race.
+        emit windowRaceCreated(TempListOfTeams); //posyła dane o teamachtimach do okna race.
         emit buttonRaceClicked();
     }
 }

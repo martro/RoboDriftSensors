@@ -27,6 +27,15 @@ Results::Results()
 TimesOfSingleRun::TimesOfSingleRun()
 {
     TeamName.clear();
+    CarName.clear();
+    CarID = "0";
+    Times.clear();
+}
+
+void TimesOfSingleRun::clear()
+{
+    TeamName.clear();
+    CarName.clear();
     CarID = "0";
     Times.clear();
 }

@@ -44,7 +44,7 @@ signals:
     void buttonSettingsClicked();
     void buttonCommunicationClicked();
     void setDataUserMain(DataToWindowRaceUser DTWRU);
-    void windowRaceCreated(vector<Team> ListOfTeams, Results ListOfTimes); //musze podeśła dane do tego okna
+    void windowRaceCreated(vector<Team> ListOfTeams); //musze podeśła dane do tego okna
     void byteReceived(char data);
 
 private:

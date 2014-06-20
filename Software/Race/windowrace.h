@@ -13,6 +13,8 @@
 #include "results.h"
 #include <QtMultimedia/QSoundEffect>
 #include "DataToWindowRaceUser.h"
+#include "pugixml.hpp"
+
 
 #define FALSTART -1
 #define HIDE_LAMPS -2
@@ -43,6 +45,7 @@ public:
     void addToComboBoxID(QString);
     void sortAndAddIDs(vector<QString> TempListOfID);
     void findTeamName(int ID);
+    void saveToXML(Results AllResults);
 
 private slots:
     void countdownTimeOut();
@@ -51,14 +54,14 @@ private slots:
     void on_comboBoxCategory_activated(const QString &Category);
     void on_comboBoxID_activated(const QString &CurrentID);
     void on_buttonClear_clicked();
+    void on_buttonSave_clicked();
 
 public slots:
-    void onWindowRaceCreated(vector<Team> ListOfTeams, Results AllResults);
+    void onWindowRaceCreated(vector<Team> ListOfTeams);
     void onByteReceived(char data);
 
 signals:
     void setData(DataToWindowRaceUser DTWRU);
-
 
 private:
     Ui::WindowRace *ui;
@@ -76,7 +79,8 @@ private:
 
     vector<int> ListOfTimes; //to podeśle do TempTimesOfSignleRun
     vector<int> TempListOfBestTimes;
-    TimesOfSingleRun TempTimesOfSingleRun; //to
+    TimesOfSingleRun TempTimesOfSingleRun;
+    Results AllResults;
 
     int PrevSensor;
     int FlagRaceStarted;

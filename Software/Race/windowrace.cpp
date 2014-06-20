@@ -124,7 +124,7 @@ void WindowRace::onByteReceived(char data)
 
             }
         }
-        else if(Position != 0)
+        else if(Position == 5)
         {
             FlagRaceStarted = YES;
             PrevSensor = 5;
@@ -184,7 +184,7 @@ QString WindowRace::dataToString(char data)
     return DataStr;
 }
 
-void WindowRace::onWindowRaceCreated(vector<Team> ListOfTeams, Results AllResults)
+void WindowRace::onWindowRaceCreated(vector<Team> ListOfTeams)
 {
     TempAllResults = AllResults;
     TempListOfTeams = ListOfTeams;
@@ -286,8 +286,6 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
         this->ui->numberOfLaps->display(LAPS_OF_RC);
     }
 
-
-    ui->buttonStart->setEnabled(true);
     ui->comboBoxID->setEnabled(true);
 
     addToComboBoxID(Category);
@@ -367,6 +365,7 @@ void WindowRace::sortAndAddIDs(vector<QString> TempListOfID)
 void WindowRace::on_comboBoxID_activated(const QString &CurrentID)
 {
     findTeamName(CurrentID.toInt());
+    ui->buttonStart->setEnabled(true);
     emit setData(DTWRU);
 }
 
@@ -392,6 +391,8 @@ void WindowRace::on_buttonClear_clicked()
     ListOfTimes.clear(); //to podeśle do TempTimesOfSignleRun
     TempListOfBestTimes.clear();
 
+    TempTimesOfSingleRun.clear();
+
     FlagRaceStarted = NO;
     PrevSensor = 5; //przedostatni
     NumberOfSensor = 0;
@@ -403,4 +404,111 @@ void WindowRace::timeToDisplay()
 {
     DTWRU.CurrentTime=milisecondsToDisplay(CurrentTime.elapsed());
     emit setData(DTWRU);
+}
+
+void WindowRace::on_buttonSave_clicked()
+{
+    TempTimesOfSingleRun.CarID = ui->comboBoxID->currentText().toInt();
+    TempTimesOfSingleRun.TeamName = DTWRU.TeamName;
+    TempTimesOfSingleRun.CarName = DTWRU.CarName;
+    TempTimesOfSingleRun.Times = ListOfTimes;
+
+    if(ui->comboBoxCategory->currentText() == "RC")
+    {
+        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        {
+            AllResults.CurrentBestTimeRC = TempListOfBestTimes;
+        }
+        AllResults.ResultsOfRC.push_back(TempTimesOfSingleRun);
+    }
+    if(ui->comboBoxCategory->currentText() == "Mobile Open")
+    {
+        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        {
+            AllResults.CurrentBestTimeMO = TempListOfBestTimes;
+        }
+        AllResults.ResultsOfMO.push_back(TempTimesOfSingleRun);
+    }
+    if(ui->comboBoxCategory->currentText() == "RoboDrift")
+    {
+        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        {
+            AllResults.CurrentBestTimeRD = TempListOfBestTimes;
+        }
+        AllResults.ResultsOfRD.push_back(TempTimesOfSingleRun);
+    }
+    saveToXML(AllResults);
+}
+
+void WindowRace::saveToXML(Results AllResults)
+{
+    using namespace pugi;
+
+    xml_document XMLResults;
+
+    xml_node Results = XMLResults.append_child("Results");
+
+    xml_node CurrentBestTimeOfMO = Results.append_child("CurrentBestTimeOfMO");
+    for(unsigned int x=0; x<AllResults.CurrentBestTimeMO.size();x++)
+    {
+        CurrentBestTimeOfMO.append_attribute(" ") = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
+    }
+
+
+    QString Path = QCoreApplication::applicationDirPath() +"/../Software/results.xml";
+    XMLResults.save_file(Path.toStdString().c_str());
+    /*for(unsigned int x=0; x<listOfTeams.size();x++)
+    {
+        xml_node Team=Teams.append_child("Team");
+        Team.append_attribute("Name") = listOfTeams.at(x).getName().toStdString().c_str();
+
+        xml_node Leader = Team.append_child("Leader");
+        Leader.append_attribute("Name") = listOfTeams.at(x).LeaderInfo.getName().toStdString().c_str();
+        Leader.append_attribute("Surname") = listOfTeams.at(x).LeaderInfo.getSurname().toStdString().c_str();
+        Leader.append_attribute("Phone") = listOfTeams.at(x).LeaderInfo.getPhone().toStdString().c_str();
+        Leader.append_attribute("Email") = listOfTeams.at(x).LeaderInfo.getEmail().toStdString().c_str();
+        Leader.append_attribute("City") = listOfTeams.at(x).LeaderInfo.getCity().toStdString().c_str();
+        Leader.append_attribute("Organization") = listOfTeams.at(x).LeaderInfo.getOrganization().toStdString().c_str();
+
+        for(unsigned int m=0; m<listOfTeams.at(x).ListOfMembers.size();m++) //dodwanie memberów
+        {
+            xml_node Member = Team.append_child("Member");
+            Member.append_attribute("Name") = listOfTeams.at(x).ListOfMembers.at(m).getName().toStdString().c_str();
+            Member.append_attribute("Surname") = listOfTeams.at(x).ListOfMembers.at(m).getSurname().toStdString().c_str();
+        }
+
+        for(unsigned int c=0; c<listOfTeams.at(x).ListOfCars.size();c++) //dodwanie memberów
+        {
+            xml_node Car = Team.append_child("Car");
+            Car.append_attribute("Name") = listOfTeams.at(x).ListOfCars.at(c).getName().toStdString().c_str();
+            Car.append_attribute("ID") = listOfTeams.at(x).ListOfCars.at(c).getID().toStdString().c_str(); //ID jest w stringu
+
+
+            xml_node Category = Car.append_child("Category");
+            if(listOfTeams.at(x).ListOfCars.at(c).checkRC())
+                Category.append_attribute("RC") = "Yes";
+            else Category.append_attribute("RC") = "No";
+
+            if(listOfTeams.at(x).ListOfCars.at(c).checkMO())
+                Category.append_attribute("MO") = "Yes";
+            else Category.append_attribute("MO") = "No";
+
+            if(listOfTeams.at(x).ListOfCars.at(c).checkRD())
+                Category.append_attribute("RD") = "Yes";
+            else Category.append_attribute("RD") = "No";
+
+
+            xml_node Competition = Car.append_child("Competition");
+            if(listOfTeams.at(x).ListOfCars.at(c).checkFR())
+                Competition.append_attribute("FR") = "Yes";
+            else Competition.append_attribute("FR") = "No";
+
+            if(listOfTeams.at(x).ListOfCars.at(c).checkTA())
+                Competition.append_attribute("TA") = "Yes";
+            else Competition.append_attribute("TA") = "No";
+
+        }
+    }
+
+    */
 }
