@@ -193,7 +193,7 @@ QString WindowRace::dataToString(char data)
 
 void WindowRace::onWindowRaceCreated(vector<Team> ListOfTeams)
 {
-    //pobrac allresults z xml
+    readFromXML();
     TempListOfTeams = ListOfTeams;
 }
 
@@ -401,6 +401,9 @@ void WindowRace::on_buttonClear_clicked()
 
     TempTimesOfSingleRun.clear();
 
+    AllResults.clear();
+    readFromXML();
+
     FlagRaceStarted = NO;
     PrevSensor = 5; //przedostatni
     NumberOfSensor = 0;
@@ -471,7 +474,7 @@ void WindowRace::saveToXML(Results AllResults)
     xml_node CurrentBestTimeOfMO = Results.append_child("CurrentBestTimeOfMO");
     for(unsigned int x=0; x<AllResults.CurrentBestTimeMO.size();x++)
     {
-        CurrentBestTimeOfMO.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
+        CurrentBestTimeOfMO.append_attribute( ("t" + QString::number(x)).toStdString().c_str() ) = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
     }
 
     xml_node CurrentBestTimeOfRD = Results.append_child("CurrentBestTimeOfRD");
@@ -541,6 +544,81 @@ void WindowRace::saveToXML(Results AllResults)
 
         }
     }
-
     */
+}
+
+void WindowRace::readFromXML()
+{
+    using namespace pugi;
+
+    xml_document XMLResults;
+    QString Path = QCoreApplication::applicationDirPath() +"/../Software/results.xml";
+
+    if (!XMLResults.load_file(Path.toStdString().c_str()))
+    {
+        QMessageBox Error;
+        Error.setText("Can't read the XML file");
+        Error.exec();
+    }
+    else
+    {
+        AllResults.clear();
+        xml_node Results = XMLResults.child("Results");
+
+        xml_node BestTimeOfMO = Results.child("CurrentBestTimeOfMO");
+        for(unsigned int x = 0; x<LAPS_OF_MO*5; x++)
+        {
+            QString Val;            
+            Val.append( BestTimeOfMO.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
+            if(Val.toInt() == 0)
+            {
+                x = LAPS_OF_MO*5+1; // wyjscie z petli
+                AllResults.CurrentBestTimeMO.clear();
+            }
+            else
+            {
+                AllResults.CurrentBestTimeMO.push_back( Val.toInt() );
+            }
+        }
+
+        xml_node BestTimeOfRD = Results.child("CurrentBestTimeOfRD");
+        for(unsigned int x = 0; x<LAPS_OF_RD*5; x++)
+        {
+            QString Val;
+            Val.append( BestTimeOfRD.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
+            if(Val.toInt() == 0)
+            {
+                x = LAPS_OF_RD*5+1; // wyjscie z petli
+                AllResults.CurrentBestTimeRD.clear();
+            }
+            else
+            {
+                AllResults.CurrentBestTimeRD.push_back( Val.toInt() );
+            }
+        }
+
+        xml_node BestTimeOfRC = Results.child("CurrentBestTimeOfRC");
+        for(unsigned int x = 0; x<LAPS_OF_RC*5; x++)
+        {
+            QString Val;
+            Val.append( BestTimeOfRC.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
+
+            if(Val.toInt() == 0)
+            {
+                x = LAPS_OF_RC*5+1; // wyjscie z petli
+                AllResults.CurrentBestTimeRC.clear();
+            }
+            else
+            {
+                AllResults.CurrentBestTimeRC.push_back( Val.toInt() );
+            }
+        }
+        /*
+        for(xml_node ReadTeam=LOT.child("Team");ReadTeam;ReadTeam=ReadTeam.next_sibling("Team"))
+        {
+
+        }
+        */
+
+    }
 }

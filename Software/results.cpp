@@ -12,6 +12,16 @@ Results::Results()
      CurrentBestTimeRD.clear();
      CurrentBestTimeRC.clear();
 }
+void Results::clear()
+{
+    ResultsOfMO.clear();
+    ResultsOfRD.clear();
+    ResultsOfRC.clear();
+    ResultsOfTraining.clear();
+    CurrentBestTimeMO.clear();
+    CurrentBestTimeRD.clear();
+    CurrentBestTimeRC.clear();
+}
 
 
 //...............................................//

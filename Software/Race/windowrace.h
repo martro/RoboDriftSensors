@@ -15,7 +15,6 @@
 #include "DataToWindowRaceUser.h"
 #include "pugixml.hpp"
 
-
 #define FALSTART -1
 #define HIDE_LAMPS -2
 #define YES 1
@@ -46,6 +45,7 @@ public:
     void sortAndAddIDs(vector<QString> TempListOfID);
     void findTeamName(int ID);
     void saveToXML(Results AllResults);
+    void readFromXML();
 
 private slots:
     void countdownTimeOut();

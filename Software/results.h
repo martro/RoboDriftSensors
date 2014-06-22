@@ -25,6 +25,7 @@ class Results
 {
 public:
     Results();
+    void clear();
     vector<int> CurrentBestTimeMO;
     vector<int> CurrentBestTimeRD;
     vector<int> CurrentBestTimeRC;

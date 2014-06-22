@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Results>
 	<CurrentBestTimeOfMO t0="1447" t1="2404" t2="3281" t3="4068" t4="5110" />
-	<CurrentBestTimeOfRD />
+	<CurrentBestTimeOfRD t0="1464" t1="2663" t2="3227" t3="4177" t4="4836" t5="5731" t6="6453" t7="7166" t8="7776" t9="8407" t10="10116" t11="11135" t12="11726" t13="12292" t14="12833" />
 	<CurrentBestTimeOfRC t0="1851" t1="2457" t2="3000" t3="3522" t4="4047" t5="4975" t6="6429" t7="6917" t8="7384" t9="7836" />
 </Results>
