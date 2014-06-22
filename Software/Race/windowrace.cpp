@@ -419,7 +419,7 @@ void WindowRace::timeToDisplay()
 
 void WindowRace::on_buttonSave_clicked()
 {
-    TempTimesOfSingleRun.CarID = ui->comboBoxID->currentText().toInt();
+    TempTimesOfSingleRun.CarID = ui->comboBoxID->currentText();
     TempTimesOfSingleRun.TeamName = DTWRU.TeamName;
     TempTimesOfSingleRun.CarName = DTWRU.CarName;
     TempTimesOfSingleRun.Times = ListOfTimes;
@@ -471,80 +471,82 @@ void WindowRace::saveToXML(Results AllResults)
 
     xml_node Results = XMLResults.append_child("Results");
 
-    xml_node CurrentBestTimeOfMO = Results.append_child("CurrentBestTimeOfMO");
+
+    //saving all results..................................
+    xml_node ResultsOfMO = Results.append_child("ResultsOfMO");
+    ResultsOfMO.append_attribute("Laps") = (QString::number(LAPS_OF_MO)).toStdString().c_str();
+
+    xml_node CurrentBestTimeOfMO = ResultsOfMO.append_child("CurrentBestTimeOfMO");
     for(unsigned int x=0; x<AllResults.CurrentBestTimeMO.size();x++)
     {
         CurrentBestTimeOfMO.append_attribute( ("t" + QString::number(x)).toStdString().c_str() ) = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
     }
 
-    xml_node CurrentBestTimeOfRD = Results.append_child("CurrentBestTimeOfRD");
+    for(unsigned int x=0; x<AllResults.ResultsOfMO.size();x++)
+    {
+        xml_node SingleRun = ResultsOfMO.append_child("SingleRun");
+        SingleRun.append_attribute("TeamName") = AllResults.ResultsOfMO.at(x).TeamName.toStdString().c_str();
+        SingleRun.append_attribute("CarName") = AllResults.ResultsOfMO.at(x).CarName.toStdString().c_str();
+        SingleRun.append_attribute("CarID") = AllResults.ResultsOfMO.at(x).CarID.toStdString().c_str();
+
+        xml_node Times = SingleRun.append_child("Times");
+        for(unsigned int t=0; t<AllResults.ResultsOfMO.at(x).Times.size();t++)
+        {
+            Times.append_attribute( ("t" + QString::number(t)).toStdString().c_str() ) = (QString::number(AllResults.ResultsOfMO.at(x).Times.at(t))).toStdString().c_str();
+        }
+    }
+
+
+    xml_node ResultsOfRD = Results.append_child("ResultsOfRD");
+    ResultsOfRD.append_attribute("Laps") = QString::number(LAPS_OF_RD).toStdString().c_str();
+
+    xml_node CurrentBestTimeOfRD = ResultsOfRD.append_child("CurrentBestTimeOfRD");
     for(unsigned int x=0; x<AllResults.CurrentBestTimeRD.size();x++)
     {
         CurrentBestTimeOfRD.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeRD.at(x))).toStdString().c_str();
     }
 
-    xml_node CurrentBestTimeOfRC = Results.append_child("CurrentBestTimeOfRC");
+    for(unsigned int x=0; x<AllResults.ResultsOfRD.size();x++)
+    {
+        xml_node SingleRun = ResultsOfRD.append_child("SingleRun");
+        SingleRun.append_attribute("TeamName") = AllResults.ResultsOfRD.at(x).TeamName.toStdString().c_str();
+        SingleRun.append_attribute("CarName") = AllResults.ResultsOfRD.at(x).CarName.toStdString().c_str();
+        SingleRun.append_attribute("CarID") = AllResults.ResultsOfRD.at(x).CarID.toStdString().c_str();
+
+        xml_node Times = SingleRun.append_child("Times");
+        for(unsigned int t=0; t<AllResults.ResultsOfRD.at(x).Times.size();t++)
+        {
+            Times.append_attribute( ("t" + QString::number(t)).toStdString().c_str() ) = (QString::number(AllResults.ResultsOfRD.at(x).Times.at(t))).toStdString().c_str();
+        }
+    }
+
+    xml_node ResultsOfRC = Results.append_child("ResultsOfRC");
+    ResultsOfRC.append_attribute("Laps") = QString::number(LAPS_OF_RC).toStdString().c_str();
+
+    xml_node CurrentBestTimeOfRC = ResultsOfRC.append_child("CurrentBestTimeOfRC");
     for(unsigned int x=0; x<AllResults.CurrentBestTimeRC.size();x++)
     {
         CurrentBestTimeOfRC.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeRC.at(x))).toStdString().c_str();
     }
 
+    for(unsigned int x=0; x<AllResults.ResultsOfRC.size();x++)
+    {
+        xml_node SingleRun = ResultsOfRC.append_child("SingleRun");
+        SingleRun.append_attribute("TeamName") = AllResults.ResultsOfRC.at(x).TeamName.toStdString().c_str();
+        SingleRun.append_attribute("CarName") = AllResults.ResultsOfRC.at(x).CarName.toStdString().c_str();
+        SingleRun.append_attribute("CarID") = AllResults.ResultsOfRC.at(x).CarID.toStdString().c_str();
+
+        xml_node Times = SingleRun.append_child("Times");
+        for(unsigned int t=0; t<AllResults.ResultsOfRC.at(x).Times.size();t++)
+        {
+            Times.append_attribute( ("t" + QString::number(t)).toStdString().c_str() ) = (QString::number(AllResults.ResultsOfRC.at(x).Times.at(t))).toStdString().c_str();
+        }
+    }
+    //..........................................
+
 
     QString Path = QCoreApplication::applicationDirPath() +"/../Software/results.xml";
     XMLResults.save_file(Path.toStdString().c_str());
-    /*for(unsigned int x=0; x<listOfTeams.size();x++)
-    {
-        xml_node Team=Teams.append_child("Team");
-        Team.append_attribute("Name") = listOfTeams.at(x).getName().toStdString().c_str();
-
-        xml_node Leader = Team.append_child("Leader");
-        Leader.append_attribute("Name") = listOfTeams.at(x).LeaderInfo.getName().toStdString().c_str();
-        Leader.append_attribute("Surname") = listOfTeams.at(x).LeaderInfo.getSurname().toStdString().c_str();
-        Leader.append_attribute("Phone") = listOfTeams.at(x).LeaderInfo.getPhone().toStdString().c_str();
-        Leader.append_attribute("Email") = listOfTeams.at(x).LeaderInfo.getEmail().toStdString().c_str();
-        Leader.append_attribute("City") = listOfTeams.at(x).LeaderInfo.getCity().toStdString().c_str();
-        Leader.append_attribute("Organization") = listOfTeams.at(x).LeaderInfo.getOrganization().toStdString().c_str();
-
-        for(unsigned int m=0; m<listOfTeams.at(x).ListOfMembers.size();m++) //dodwanie memberów
-        {
-            xml_node Member = Team.append_child("Member");
-            Member.append_attribute("Name") = listOfTeams.at(x).ListOfMembers.at(m).getName().toStdString().c_str();
-            Member.append_attribute("Surname") = listOfTeams.at(x).ListOfMembers.at(m).getSurname().toStdString().c_str();
-        }
-
-        for(unsigned int c=0; c<listOfTeams.at(x).ListOfCars.size();c++) //dodwanie memberów
-        {
-            xml_node Car = Team.append_child("Car");
-            Car.append_attribute("Name") = listOfTeams.at(x).ListOfCars.at(c).getName().toStdString().c_str();
-            Car.append_attribute("ID") = listOfTeams.at(x).ListOfCars.at(c).getID().toStdString().c_str(); //ID jest w stringu
-
-
-            xml_node Category = Car.append_child("Category");
-            if(listOfTeams.at(x).ListOfCars.at(c).checkRC())
-                Category.append_attribute("RC") = "Yes";
-            else Category.append_attribute("RC") = "No";
-
-            if(listOfTeams.at(x).ListOfCars.at(c).checkMO())
-                Category.append_attribute("MO") = "Yes";
-            else Category.append_attribute("MO") = "No";
-
-            if(listOfTeams.at(x).ListOfCars.at(c).checkRD())
-                Category.append_attribute("RD") = "Yes";
-            else Category.append_attribute("RD") = "No";
-
-
-            xml_node Competition = Car.append_child("Competition");
-            if(listOfTeams.at(x).ListOfCars.at(c).checkFR())
-                Competition.append_attribute("FR") = "Yes";
-            else Competition.append_attribute("FR") = "No";
-
-            if(listOfTeams.at(x).ListOfCars.at(c).checkTA())
-                Competition.append_attribute("TA") = "Yes";
-            else Competition.append_attribute("TA") = "No";
-
-        }
-    }
-    */
 }
 
 void WindowRace::readFromXML()
@@ -565,14 +567,23 @@ void WindowRace::readFromXML()
         AllResults.clear();
         xml_node Results = XMLResults.child("Results");
 
-        xml_node BestTimeOfMO = Results.child("CurrentBestTimeOfMO");
-        for(unsigned int x = 0; x<LAPS_OF_MO*5; x++)
+
+        //......................Results of Mobile Open...................
+        //...............................................................
+        xml_node ResultsOfMO = Results.child("ResultsOfMO");
+
+        QString LapsMO;
+        LapsMO.append(ResultsOfMO.attribute("Laps").value());
+
+        //....best time of MO
+        xml_node BestTimeOfMO = ResultsOfMO.child("CurrentBestTimeOfMO");
+        for(int x = 0; x<LapsMO.toInt()*5; x++)
         {
-            QString Val;            
+            QString Val;
             Val.append( BestTimeOfMO.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
             if(Val.toInt() == 0)
             {
-                x = LAPS_OF_MO*5+1; // wyjscie z petli
+                x = LapsMO.toInt()*5+1; // wyjscie z petli
                 AllResults.CurrentBestTimeMO.clear();
             }
             else
@@ -580,32 +591,47 @@ void WindowRace::readFromXML()
                 AllResults.CurrentBestTimeMO.push_back( Val.toInt() );
             }
         }
+        //...end of best time MO
 
-        xml_node BestTimeOfRD = Results.child("CurrentBestTimeOfRD");
-        for(unsigned int x = 0; x<LAPS_OF_RD*5; x++)
+        //...reading every single run
+        for(xml_node ReadRun=ResultsOfMO.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
         {
-            QString Val;
-            Val.append( BestTimeOfRD.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
-            if(Val.toInt() == 0)
-            {
-                x = LAPS_OF_RD*5+1; // wyjscie z petli
-                AllResults.CurrentBestTimeRD.clear();
-            }
-            else
-            {
-                AllResults.CurrentBestTimeRD.push_back( Val.toInt() );
-            }
-        }
+            TimesOfSingleRun TempSingleRun;
+            TempSingleRun.CarID = ReadRun.attribute("CarID").value();
+            TempSingleRun.CarName = ReadRun.attribute("CarName").value();
+            TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
 
-        xml_node BestTimeOfRC = Results.child("CurrentBestTimeOfRC");
-        for(unsigned int x = 0; x<LAPS_OF_RC*5; x++)
+            xml_node Times = ReadRun.child("Times");
+            for(int t=0; t<LapsMO.toInt()*5;t++)
+            {
+                QString Val;
+                Val.append( Times.attribute(("t" + QString::number(t)).toStdString().c_str()).value());
+
+                TempSingleRun.Times.push_back( Val.toInt() );
+            }
+            AllResults.ResultsOfMO.push_back(TempSingleRun);
+        }
+        //...end of readnig every single run
+
+
+
+        //......................Results of RC............................
+        //...............................................................
+        xml_node ResultsOfRC = Results.append_child("ResultsOfRC");
+
+        QString LapsRC;
+        LapsRC.append( ResultsOfRC.attribute("Laps").value() );
+
+        //......best time of RC
+        xml_node BestTimeOfRC = ResultsOfRC.child("CurrentBestTimeOfMO");
+        for(int x = 0; x<LapsRC.toInt()*5; x++)
         {
             QString Val;
             Val.append( BestTimeOfRC.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
 
             if(Val.toInt() == 0)
             {
-                x = LAPS_OF_RC*5+1; // wyjscie z petli
+                x = LapsRC.toInt()*5+1; // wyjscie z petli
                 AllResults.CurrentBestTimeRC.clear();
             }
             else
@@ -613,12 +639,33 @@ void WindowRace::readFromXML()
                 AllResults.CurrentBestTimeRC.push_back( Val.toInt() );
             }
         }
-        /*
-        for(xml_node ReadTeam=LOT.child("Team");ReadTeam;ReadTeam=ReadTeam.next_sibling("Team"))
-        {
+        //.... end of best time of RC
 
+
+
+        //......................Results of RoboDrift.....................
+        //...............................................................
+        xml_node ResultsOfRD = Results.append_child("ResultsOfRD");
+        QString LapsRD;
+        LapsRD.append( ResultsOfRD.attribute("Laps").value() );
+
+        //......best time of RD
+        xml_node BestTimeOfRD = ResultsOfRD.child("CurrentBestTimeOfMO");
+        for(int x = 0; x<LapsRD.toInt()*5; x++)
+        {
+            QString Val;
+            Val.append( BestTimeOfRD.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
+            if(Val.toInt() == 0)
+            {
+                x = LapsRD.toInt()*5+1; // wyjscie z petli
+                AllResults.CurrentBestTimeRD.clear();
+            }
+            else
+            {
+                AllResults.CurrentBestTimeRD.push_back( Val.toInt() );
+            }
         }
-        */
+        //...emd of best time of RD
 
     }
 }
