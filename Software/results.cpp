@@ -11,14 +11,6 @@ Results::Results()
      CurrentBestTimeMO.clear();
      CurrentBestTimeRD.clear();
      CurrentBestTimeRC.clear();
-
-     for(unsigned int x=0; x<20;x++)
-     {
-         CurrentBestTimeMO.push_back(500*x);
-         CurrentBestTimeRC.push_back(1000*x);
-         CurrentBestTimeRD.push_back(750*x);
-     }
-
 }
 
 

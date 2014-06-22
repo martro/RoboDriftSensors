@@ -75,7 +75,6 @@ private:
     int NumberOfSensor;
 
     vector<Team> TempListOfTeams; //potrzebne do przeszuakania aut
-    Results TempAllResults;  //to tego bede wywyłał tempTimesOfSingleRun
 
     vector<int> ListOfTimes; //to podeśle do TempTimesOfSignleRun
     vector<int> TempListOfBestTimes;

@@ -103,13 +103,21 @@ void WindowRace::onByteReceived(char data)
                 ListOfTimes.push_back(CurrentTime.elapsed());
 
                 PrevSensor = Position;
-                NumberOfSensor--;
 
                 this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
-                this->ui->textBest->append((QString::number(TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor))));
-                this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
-
-                DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
+                if( ! TempListOfBestTimes.empty() )
+                {
+                    this->ui->textBest->append((QString::number(TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor))));
+                    this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
+                    DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
+                }
+                else
+                {
+                    DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed());
+                    this->ui->textBest->append("first run");
+                    this->ui->textDifference->append("first run");
+                }
+                NumberOfSensor--;
                 DTWRU.SensorPosition = Position;
                 emit setData(DTWRU);
             }
@@ -121,7 +129,6 @@ void WindowRace::onByteReceived(char data)
                 QMessageBox m;
                 m.setText("Race Finished");
                 m.exec();
-
             }
         }
         else if(Position == 5)
@@ -186,7 +193,7 @@ QString WindowRace::dataToString(char data)
 
 void WindowRace::onWindowRaceCreated(vector<Team> ListOfTeams)
 {
-    TempAllResults = AllResults;
+    //pobrac allresults z xml
     TempListOfTeams = ListOfTeams;
 }
 
@@ -260,7 +267,7 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     ui->numberOfLaps->setEnabled(true);
     if(Category == "Mobile Open")
     {
-        TempListOfBestTimes = TempAllResults.CurrentBestTimeMO;
+        TempListOfBestTimes = AllResults.CurrentBestTimeMO;
 
         this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_MO;
         this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_MO;
@@ -269,7 +276,7 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     }
     else if(Category == "RoboDrift")
     {
-        TempListOfBestTimes = TempAllResults.CurrentBestTimeRD;
+        TempListOfBestTimes = AllResults.CurrentBestTimeRD;
 
         this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_RD;
         this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_RD;
@@ -278,7 +285,7 @@ void WindowRace::on_comboBoxCategory_activated(const QString &Category)
     }
     else if(Category == "RC")
     {
-        TempListOfBestTimes = TempAllResults.CurrentBestTimeRC;
+        TempListOfBestTimes = AllResults.CurrentBestTimeRC;
 
         this->NumberOfSensor = NUMBER_OF_SENSORS*LAPS_OF_RC;
         this->NumberOfLaps = NUMBER_OF_SENSORS*LAPS_OF_RC;
@@ -382,6 +389,7 @@ void WindowRace::on_buttonClear_clicked()
     ui->textCurrent->clear();
     ui->textDifference->clear();
     ui->textWhichBetter->clear();
+    ui->labelTeamCarName->clear();
 
     DTWRU.clear();
 
@@ -415,25 +423,37 @@ void WindowRace::on_buttonSave_clicked()
 
     if(ui->comboBoxCategory->currentText() == "RC")
     {
-        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        if( AllResults.CurrentBestTimeRC.empty())
         {
-            AllResults.CurrentBestTimeRC = TempListOfBestTimes;
+            AllResults.CurrentBestTimeRC = ListOfTimes;
+        }
+        else if( (ListOfTimes.back() < AllResults.CurrentBestTimeRC.back()))
+        {
+            AllResults.CurrentBestTimeRC = ListOfTimes;
         }
         AllResults.ResultsOfRC.push_back(TempTimesOfSingleRun);
     }
     if(ui->comboBoxCategory->currentText() == "Mobile Open")
     {
-        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        if( AllResults.CurrentBestTimeMO.empty())
         {
-            AllResults.CurrentBestTimeMO = TempListOfBestTimes;
+            AllResults.CurrentBestTimeMO = ListOfTimes;
+        }
+        else if( (ListOfTimes.back() < AllResults.CurrentBestTimeMO.back()))
+        {
+            AllResults.CurrentBestTimeMO = ListOfTimes;
         }
         AllResults.ResultsOfMO.push_back(TempTimesOfSingleRun);
     }
     if(ui->comboBoxCategory->currentText() == "RoboDrift")
     {
-        if(ListOfTimes.back() < TempListOfBestTimes.back() )
+        if( AllResults.CurrentBestTimeRD.empty())
         {
-            AllResults.CurrentBestTimeRD = TempListOfBestTimes;
+            AllResults.CurrentBestTimeRD = ListOfTimes;
+        }
+        else if( (ListOfTimes.back() < AllResults.CurrentBestTimeRD.back()))
+        {
+            AllResults.CurrentBestTimeRD = ListOfTimes;
         }
         AllResults.ResultsOfRD.push_back(TempTimesOfSingleRun);
     }
@@ -451,7 +471,19 @@ void WindowRace::saveToXML(Results AllResults)
     xml_node CurrentBestTimeOfMO = Results.append_child("CurrentBestTimeOfMO");
     for(unsigned int x=0; x<AllResults.CurrentBestTimeMO.size();x++)
     {
-        CurrentBestTimeOfMO.append_attribute(" ") = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
+        CurrentBestTimeOfMO.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeMO.at(x))).toStdString().c_str();
+    }
+
+    xml_node CurrentBestTimeOfRD = Results.append_child("CurrentBestTimeOfRD");
+    for(unsigned int x=0; x<AllResults.CurrentBestTimeRD.size();x++)
+    {
+        CurrentBestTimeOfRD.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeRD.at(x))).toStdString().c_str();
+    }
+
+    xml_node CurrentBestTimeOfRC = Results.append_child("CurrentBestTimeOfRC");
+    for(unsigned int x=0; x<AllResults.CurrentBestTimeRC.size();x++)
+    {
+        CurrentBestTimeOfRC.append_attribute(("t" + QString::number(x)).toStdString().c_str()) = (QString::number(AllResults.CurrentBestTimeRC.at(x))).toStdString().c_str();
     }
 
 

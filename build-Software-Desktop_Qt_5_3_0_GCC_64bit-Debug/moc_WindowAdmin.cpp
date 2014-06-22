@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowAdmin_t {
-    QByteArrayData data[14];
-    char stringdata[236];
+    QByteArrayData data[12];
+    char stringdata[217];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,18 +35,16 @@ QT_MOC_LITERAL(2, 30, 0),
 QT_MOC_LITERAL(3, 31, 12),
 QT_MOC_LITERAL(4, 44, 11),
 QT_MOC_LITERAL(5, 56, 20),
-QT_MOC_LITERAL(6, 77, 7),
-QT_MOC_LITERAL(7, 85, 10),
-QT_MOC_LITERAL(8, 96, 28),
-QT_MOC_LITERAL(9, 125, 24),
-QT_MOC_LITERAL(10, 150, 22),
-QT_MOC_LITERAL(11, 173, 21),
-QT_MOC_LITERAL(12, 195, 24),
-QT_MOC_LITERAL(13, 220, 15)
+QT_MOC_LITERAL(6, 77, 28),
+QT_MOC_LITERAL(7, 106, 24),
+QT_MOC_LITERAL(8, 131, 22),
+QT_MOC_LITERAL(9, 154, 21),
+QT_MOC_LITERAL(10, 176, 24),
+QT_MOC_LITERAL(11, 201, 15)
     },
     "WindowAdmin\0ButtonAddEditTeam\0\0"
     "vector<Team>\0listOfTeams\0ButtonNewRaceClicked\0"
-    "Results\0AllResults\0on_ButtonAddEditTeam_clicked\0"
+    "on_ButtonAddEditTeam_clicked\0"
     "on_ButtonNewRace_clicked\0"
     "on_ButtonStats_clicked\0on_actionQT_triggered\0"
     "onSendCurrentListOfTeams\0tempListOfTeams"
@@ -68,25 +66,25 @@ static const uint qt_meta_data_WindowAdmin[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   49,    2, 0x06 /* Public */,
-       5,    2,   52,    2, 0x06 /* Public */,
+       5,    1,   52,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
+       6,    0,   55,    2, 0x08 /* Private */,
+       7,    0,   56,    2, 0x08 /* Private */,
        8,    0,   57,    2, 0x08 /* Private */,
        9,    0,   58,    2, 0x08 /* Private */,
-      10,    0,   59,    2, 0x08 /* Private */,
-      11,    0,   60,    2, 0x08 /* Private */,
-      12,    1,   61,    2, 0x0a /* Public */,
+      10,    1,   59,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 6,    4,    7,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 3,   13,
+    QMetaType::Void, 0x80000000 | 3,   11,
 
        0        // eod
 };
@@ -97,7 +95,7 @@ void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         WindowAdmin *_t = static_cast<WindowAdmin *>(_o);
         switch (_id) {
         case 0: _t->ButtonAddEditTeam((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
-        case 1: _t->ButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1])),(*reinterpret_cast< Results(*)>(_a[2]))); break;
+        case 1: _t->ButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         case 2: _t->on_ButtonAddEditTeam_clicked(); break;
         case 3: _t->on_ButtonNewRace_clicked(); break;
         case 4: _t->on_ButtonStats_clicked(); break;
@@ -115,7 +113,7 @@ void WindowAdmin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             }
         }
         {
-            typedef void (WindowAdmin::*_t)(vector<Team> , Results );
+            typedef void (WindowAdmin::*_t)(vector<Team> );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WindowAdmin::ButtonNewRaceClicked)) {
                 *result = 1;
             }
@@ -167,9 +165,9 @@ void WindowAdmin::ButtonAddEditTeam(vector<Team> _t1)
 }
 
 // SIGNAL 1
-void WindowAdmin::ButtonNewRaceClicked(vector<Team> _t1, Results _t2)
+void WindowAdmin::ButtonNewRaceClicked(vector<Team> _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_END_MOC_NAMESPACE

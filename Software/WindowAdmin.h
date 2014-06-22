@@ -49,7 +49,7 @@ public slots:
 
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);
-    void ButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
+    void ButtonNewRaceClicked(vector<Team> listOfTeams);
 
 private:
     Ui::WindowAdmin *ui;

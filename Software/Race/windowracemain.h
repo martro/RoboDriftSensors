@@ -36,7 +36,7 @@ public slots:
     void onconnection_ON();
     void onconnection_OFF();
     void onbyteReceived(char data);
-    void onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults);
+    void onButtonNewRaceClicked(vector<Team> listOfTeams);
     void onSetData(DataToWindowRaceUser DTWRU);
 
 signals:
@@ -55,7 +55,6 @@ private:
     bool ConnectionEstablished;
     WindowUSART Window_USART;
     vector<Team> TempListOfTeams;
-    Results TempAllResults;
     WindowRaceUser *windowRaceUser;
 };
 

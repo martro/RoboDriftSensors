@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <Results>
-	<CurrentBestTimeOfMO Time="0" Time="500" Time="1000" Time="1500" Time="2000" Time="2500" Time="3000" Time="3500" Time="4000" Time="4500" Time="5000" Time="5500" Time="6000" Time="6500" Time="7000" Time="7500" Time="8000" Time="8500" Time="9000" Time="9500" />
+	<CurrentBestTimeOfMO t0="1447" t1="2404" t2="3281" t3="4068" t4="5110" />
+	<CurrentBestTimeOfRD />
+	<CurrentBestTimeOfRC t0="1851" t1="2457" t2="3000" t3="3522" t4="4047" t5="4975" t6="6429" t7="6917" t8="7384" t9="7836" />
 </Results>

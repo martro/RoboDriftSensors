@@ -76,11 +76,10 @@ void WindowRaceMain::on_buttonRaceSettings_clicked()
     }
 }
 
-void WindowRaceMain::onButtonNewRaceClicked(vector<Team> listOfTeams, Results AllResults)
+void WindowRaceMain::onButtonNewRaceClicked(vector<Team> listOfTeams)
 {
     //skopiowanie oficjalnych danych do tempów.
     TempListOfTeams = listOfTeams;
-    TempAllResults = AllResults;
 }
 
 void WindowRaceMain::onconnection_ON()

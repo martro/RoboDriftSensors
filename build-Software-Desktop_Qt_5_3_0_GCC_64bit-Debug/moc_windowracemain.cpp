@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WindowRaceMain_t {
-    QByteArrayData data[23];
-    char stringdata[351];
+    QByteArrayData data[21];
+    char stringdata[332];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -49,9 +49,7 @@ QT_MOC_LITERAL(16, 255, 16),
 QT_MOC_LITERAL(17, 272, 14),
 QT_MOC_LITERAL(18, 287, 22),
 QT_MOC_LITERAL(19, 310, 11),
-QT_MOC_LITERAL(20, 322, 7),
-QT_MOC_LITERAL(21, 330, 10),
-QT_MOC_LITERAL(22, 341, 9)
+QT_MOC_LITERAL(20, 322, 9)
     },
     "WindowRaceMain\0buttonRaceClicked\0\0"
     "buttonSettingsClicked\0buttonCommunicationClicked\0"
@@ -62,7 +60,7 @@ QT_MOC_LITERAL(22, 341, 9)
     "on_buttonRaceSettings_clicked\0"
     "onconnection_ON\0onconnection_OFF\0"
     "onbyteReceived\0onButtonNewRaceClicked\0"
-    "listOfTeams\0Results\0AllResults\0onSetData"
+    "listOfTeams\0onSetData"
 };
 #undef QT_MOC_LITERAL
 
@@ -93,8 +91,8 @@ static const uint qt_meta_data_WindowRaceMain[] = {
       15,    0,   93,    2, 0x0a /* Public */,
       16,    0,   94,    2, 0x0a /* Public */,
       17,    1,   95,    2, 0x0a /* Public */,
-      18,    2,   98,    2, 0x0a /* Public */,
-      22,    1,  103,    2, 0x0a /* Public */,
+      18,    1,   98,    2, 0x0a /* Public */,
+      20,    1,  101,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -110,7 +108,7 @@ static const uint qt_meta_data_WindowRaceMain[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Char,   12,
-    QMetaType::Void, 0x80000000 | 9, 0x80000000 | 20,   19,   21,
+    QMetaType::Void, 0x80000000 | 9,   19,
     QMetaType::Void, 0x80000000 | 6,    7,
 
        0        // eod
@@ -132,7 +130,7 @@ void WindowRaceMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 8: _t->onconnection_ON(); break;
         case 9: _t->onconnection_OFF(); break;
         case 10: _t->onbyteReceived((*reinterpret_cast< char(*)>(_a[1]))); break;
-        case 11: _t->onButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1])),(*reinterpret_cast< Results(*)>(_a[2]))); break;
+        case 11: _t->onButtonNewRaceClicked((*reinterpret_cast< vector<Team>(*)>(_a[1]))); break;
         case 12: _t->onSetData((*reinterpret_cast< DataToWindowRaceUser(*)>(_a[1]))); break;
         default: ;
         }
