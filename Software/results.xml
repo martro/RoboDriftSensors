@@ -13,9 +13,18 @@
 		</SingleRun>
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">
-		<CurrentBestTimeOfRD />
+		<CurrentBestTimeOfRD t0="1156" t1="2160" t2="2695" t3="3603" t4="4173" t5="5020" t6="6139" t7="6712" t8="7309" t9="8118" t10="8850" t11="9412" t12="9941" t13="10482" t14="10993" />
+		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
+			<Times t0="1677" t1="2291" t2="2869" t3="3451" t4="4036" t5="4764" t6="5376" t7="6453" t8="7106" t9="7722" t10="8778" t11="9438" t12="9988" t13="10562" t14="11674" />
+		</SingleRun>
+		<SingleRun TeamName="Team1" CarName="Skórowóz" CarID="7">
+			<Times t0="1156" t1="2160" t2="2695" t3="3603" t4="4173" t5="5020" t6="6139" t7="6712" t8="7309" t9="8118" t10="8850" t11="9412" t12="9941" t13="10482" t14="10993" />
+		</SingleRun>
 	</ResultsOfRD>
 	<ResultsOfRC Laps="2">
-		<CurrentBestTimeOfRC />
+		<CurrentBestTimeOfRC t0="1004" t1="2368" t2="2958" t3="3547" t4="4099" t5="4779" t6="6359" t7="6907" t8="7546" t9="8519" />
+		<SingleRun TeamName="Wieners" CarName="Łada Niva" CarID="8">
+			<Times t0="1004" t1="2368" t2="2958" t3="3547" t4="4099" t5="4779" t6="6359" t7="6907" t8="7546" t9="8519" />
+		</SingleRun>
 	</ResultsOfRC>
 </Results>

@@ -419,6 +419,7 @@ void WindowRace::timeToDisplay()
 
 void WindowRace::on_buttonSave_clicked()
 {
+    ui->buttonSave->setDisabled(true);
     TempTimesOfSingleRun.CarID = ui->comboBoxID->currentText();
     TempTimesOfSingleRun.TeamName = DTWRU.TeamName;
     TempTimesOfSingleRun.CarName = DTWRU.CarName;
@@ -617,18 +618,17 @@ void WindowRace::readFromXML()
 
         //......................Results of RC............................
         //...............................................................
-        xml_node ResultsOfRC = Results.append_child("ResultsOfRC");
+        xml_node ResultsOfRC = Results.child("ResultsOfRC");
 
         QString LapsRC;
-        LapsRC.append( ResultsOfRC.attribute("Laps").value() );
+        LapsRC.append(ResultsOfRC.attribute("Laps").value());
 
-        //......best time of RC
-        xml_node BestTimeOfRC = ResultsOfRC.child("CurrentBestTimeOfMO");
+        //....best time of RC
+        xml_node BestTimeOfRC = ResultsOfRC.child("CurrentBestTimeOfRC");
         for(int x = 0; x<LapsRC.toInt()*5; x++)
         {
             QString Val;
             Val.append( BestTimeOfRC.attribute(("t" + QString::number(x)).toStdString().c_str()).value());
-
             if(Val.toInt() == 0)
             {
                 x = LapsRC.toInt()*5+1; // wyjscie z petli
@@ -639,18 +639,39 @@ void WindowRace::readFromXML()
                 AllResults.CurrentBestTimeRC.push_back( Val.toInt() );
             }
         }
-        //.... end of best time of RC
+        //...end of best time RC
 
+
+        //...reading every single run
+        for(xml_node ReadRun=ResultsOfRC.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
+        {
+            TimesOfSingleRun TempSingleRun;
+            TempSingleRun.CarID = ReadRun.attribute("CarID").value();
+            TempSingleRun.CarName = ReadRun.attribute("CarName").value();
+            TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
+
+            xml_node Times = ReadRun.child("Times");
+            for(int t=0; t<LapsRC.toInt()*5;t++)
+            {
+                QString Val;
+                Val.append( Times.attribute(("t" + QString::number(t)).toStdString().c_str()).value());
+
+                TempSingleRun.Times.push_back( Val.toInt() );
+            }
+            AllResults.ResultsOfRC.push_back(TempSingleRun);
+        }
+        //...end of readnig every single run
 
 
         //......................Results of RoboDrift.....................
         //...............................................................
-        xml_node ResultsOfRD = Results.append_child("ResultsOfRD");
+        xml_node ResultsOfRD = Results.child("ResultsOfRD");
+
         QString LapsRD;
         LapsRD.append( ResultsOfRD.attribute("Laps").value() );
 
         //......best time of RD
-        xml_node BestTimeOfRD = ResultsOfRD.child("CurrentBestTimeOfMO");
+        xml_node BestTimeOfRD = ResultsOfRD.child("CurrentBestTimeOfRD");
         for(int x = 0; x<LapsRD.toInt()*5; x++)
         {
             QString Val;
@@ -666,6 +687,26 @@ void WindowRace::readFromXML()
             }
         }
         //...emd of best time of RD
+
+        //...reading every single run
+        for(xml_node ReadRun=ResultsOfRD.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
+        {
+            TimesOfSingleRun TempSingleRun;
+            TempSingleRun.CarID = ReadRun.attribute("CarID").value();
+            TempSingleRun.CarName = ReadRun.attribute("CarName").value();
+            TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
+
+            xml_node Times = ReadRun.child("Times");
+            for(int t=0; t<LapsRD.toInt()*5;t++)
+            {
+                QString Val;
+                Val.append( Times.attribute(("t" + QString::number(t)).toStdString().c_str()).value());
+
+                TempSingleRun.Times.push_back( Val.toInt() );
+            }
+            AllResults.ResultsOfRD.push_back(TempSingleRun);
+        }
+        //...end of readnig every single run
 
     }
 }
