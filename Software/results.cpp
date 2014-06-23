@@ -32,6 +32,7 @@ TimesOfSingleRun::TimesOfSingleRun()
     CarName.clear();
     CarID = "0";
     Times.clear();
+    Position.clear();
 }
 
 void TimesOfSingleRun::clear()
@@ -40,4 +41,5 @@ void TimesOfSingleRun::clear()
     CarName.clear();
     CarID = "0";
     Times.clear();
+    Position.clear();
 }

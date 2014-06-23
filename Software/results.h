@@ -14,6 +14,7 @@ public:
     QString TeamName;
     QString CarID;
     QString CarName;
+    QString Position;
     vector<int> Times;
 
     void clear();

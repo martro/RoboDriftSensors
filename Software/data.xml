@@ -3,25 +3,19 @@
 	<Team Name="SuperTeam">
 		<Leader Name="Jakub" Surname="Trzyna" Phone="660270052" Email="jakub.trzyna@gmail.com" City="Sieniawa" Organization="Synergia" />
 		<Member Name="Murzyn" Surname="Bambo" />
+		<Member Name="Rudy" Surname="Niedzwiedz" />
+		<Member Name="Ródy" Surname="Niedźwieć" />
 		<Car Name="Ferrari" ID="3">
-			<Category RC="No" MO="Yes" RD="No" />
+			<Category RC="Yes" MO="No" RD="No" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 		<Car Name="Maybach" ID="2">
-			<Category RC="No" MO="Yes" RD="Yes" />
+			<Category RC="No" MO="Yes" RD="No" />
 			<Competition FR="Yes" TA="No" />
 		</Car>
 		<Car Name="Rolce Rolce" ID="1">
-			<Category RC="No" MO="Yes" RD="No" />
-			<Competition FR="No" TA="Yes" />
-		</Car>
-	</Team>
-	<Team Name="Team1">
-		<Leader Name="Skóra" Surname="Skórzecki" Phone="0700288322" Email="skóra@buziaczek.pl" City="Białyskok" Organization="Kononowicz" />
-		<Member Name="Mateusz" Surname="Wasielewski" />
-		<Car Name="Skórowóz" ID="7">
 			<Category RC="No" MO="No" RD="Yes" />
-			<Competition FR="Yes" TA="Yes" />
+			<Competition FR="No" TA="Yes" />
 		</Car>
 	</Team>
 	<Team Name="Wieners">
@@ -29,15 +23,15 @@
 		<Member Name="Michał" Surname="Szlachetka" />
 		<Member Name="Leszek" Surname="Walulik" />
 		<Car Name="Czinkłotento" ID="4">
-			<Category RC="Yes" MO="No" RD="Yes" />
+			<Category RC="Yes" MO="No" RD="No" />
 			<Competition FR="Yes" TA="Yes" />
 		</Car>
 		<Car Name="Skoda Favorit" ID="5">
-			<Category RC="Yes" MO="No" RD="Yes" />
+			<Category RC="No" MO="Yes" RD="No" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 		<Car Name="Łada Niva" ID="8">
-			<Category RC="Yes" MO="No" RD="Yes" />
+			<Category RC="No" MO="No" RD="Yes" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 	</Team>

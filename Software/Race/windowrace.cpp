@@ -396,7 +396,7 @@ void WindowRace::on_buttonClear_clicked()
     DTWRU.clear();
 
     CountDownTimer.stop();
-
+    TimerToDisplay.stop();
 
     ListOfTimes.clear(); //to podeśle do TempTimesOfSignleRun
     TempListOfBestTimes.clear();
@@ -492,6 +492,8 @@ void WindowRace::saveToXML(Results AllResults)
         SingleRun.append_attribute("CarName") = AllResults.ResultsOfMO.at(x).CarName.toStdString().c_str();
         SingleRun.append_attribute("CarID") = AllResults.ResultsOfMO.at(x).CarID.toStdString().c_str();
 
+        //SingleRun.append_attribute("Position") = AllResults.ResultsOfMO.at(x).Position
+
         xml_node Times = SingleRun.append_child("Times");
         for(unsigned int t=0; t<AllResults.ResultsOfMO.at(x).Times.size();t++)
         {
@@ -554,6 +556,7 @@ void WindowRace::saveToXML(Results AllResults)
 
 void WindowRace::readFromXML()
 {
+
     using namespace pugi;
 
     xml_document XMLResults;

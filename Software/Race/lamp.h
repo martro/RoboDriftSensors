@@ -19,6 +19,9 @@ public:
 
 private:
     Ui::Lamp *ui;
+    QImage *green;
+    QImage *gray;
+    QImage *red;
 };
 
 #endif // LAMP_H

@@ -1,36 +1,78 @@
 <?xml version="1.0"?>
 <Results>
 	<ResultsOfMO Laps="1">
-		<CurrentBestTimeOfMO t0="1059" t1="1620" t2="2525" t3="3070" t4="3602" />
+		<CurrentBestTimeOfMO t0="1165" t1="2224" t2="2687" t3="3189" t4="3659" />
 		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1141" t1="2548" t2="3349" t3="4474" t4="5371" />
+			<Times t0="1611" t1="2258" t2="2895" t3="3539" t4="4173" />
 		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1209" t1="1817" t2="2362" t3="3205" t4="4971" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
-			<Times t0="1519" t1="2597" t2="3214" t3="3924" t4="4530" />
+		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
+			<Times t0="1684" t1="3492" t2="4742" t3="5919" t4="7006" />
 		</SingleRun>
 		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1245" t1="1783" t2="2621" t3="3312" t4="3870" />
+			<Times t0="1653" t1="2179" t2="2702" t3="3822" t4="4366" />
 		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
-			<Times t0="1059" t1="1620" t2="2525" t3="3070" t4="3602" />
+		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
+			<Times t0="1541" t1="2197" t2="3061" t3="4217" t4="4849" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1624" t1="2651" t2="3167" t3="3736" t4="4231" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1162" t1="2087" t2="2993" t3="3931" t4="4548" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1317" t1="1919" t2="2476" t3="3009" t4="4191" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1043" t1="1674" t2="2529" t3="3197" t4="3751" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1165" t1="2224" t2="2687" t3="3189" t4="3659" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
+			<Times t0="990" t1="1525" t2="6249" t3="6979" t4="7703" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1004" t1="1870" t2="2399" t3="3360" t4="3853" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
+			<Times t0="1233" t1="1867" t2="2520" t3="3190" t4="3862" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="898" t1="1399" t2="1847" t3="3091" t4="4392" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
+			<Times t0="24079" t1="25172" t2="25996" t3="26811" t4="28019" />
 		</SingleRun>
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">
-		<CurrentBestTimeOfRD t0="1156" t1="2160" t2="2695" t3="3603" t4="4173" t5="5020" t6="6139" t7="6712" t8="7309" t9="8118" t10="8850" t11="9412" t12="9941" t13="10482" t14="10993" />
-		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
-			<Times t0="1677" t1="2291" t2="2869" t3="3451" t4="4036" t5="4764" t6="5376" t7="6453" t8="7106" t9="7722" t10="8778" t11="9438" t12="9988" t13="10562" t14="11674" />
-		</SingleRun>
-		<SingleRun TeamName="Team1" CarName="Skórowóz" CarID="7">
-			<Times t0="1156" t1="2160" t2="2695" t3="3603" t4="4173" t5="5020" t6="6139" t7="6712" t8="7309" t9="8118" t10="8850" t11="9412" t12="9941" t13="10482" t14="10993" />
-		</SingleRun>
+		<CurrentBestTimeOfRD />
 	</ResultsOfRD>
 	<ResultsOfRC Laps="2">
-		<CurrentBestTimeOfRC t0="1004" t1="2368" t2="2958" t3="3547" t4="4099" t5="4779" t6="6359" t7="6907" t8="7546" t9="8519" />
-		<SingleRun TeamName="Wieners" CarName="Łada Niva" CarID="8">
-			<Times t0="1004" t1="2368" t2="2958" t3="3547" t4="4099" t5="4779" t6="6359" t7="6907" t8="7546" t9="8519" />
+		<CurrentBestTimeOfRC t0="884" t1="1395" t2="1850" t3="2336" t4="2818" t5="3411" t6="3915" t7="4382" t8="4849" t9="5337" />
+		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
+			<Times t0="1044" t1="1756" t2="2379" t3="3091" t4="3886" t5="4711" t6="5465" t7="6181" t8="6970" t9="7736" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
+			<Times t0="1817" t1="2391" t2="2896" t3="3392" t4="3935" t5="4765" t6="5318" t7="5802" t8="6346" t9="6875" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
+			<Times t0="1352" t1="2008" t2="3082" t3="3741" t4="4429" t5="5234" t6="5921" t7="6569" t8="7555" t9="8321" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
+			<Times t0="884" t1="1395" t2="1850" t3="2336" t4="2818" t5="3411" t6="3915" t7="4382" t8="4849" t9="5337" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
+			<Times t0="1108" t1="2033" t2="7224" t3="8653" t4="10735" t5="25430" t6="26951" t7="28129" t8="29799" t9="36812" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
+			<Times t0="1352" t1="1899" t2="2423" t3="3246" t4="3729" t5="4776" t6="5252" t7="5734" t8="6197" t9="12965" />
+		</SingleRun>
+		<SingleRun TeamName="Wieners" CarName="Czinkłotento" CarID="4">
+			<Times t0="2326" t1="3321" t2="4272" t3="5229" t4="6255" t5="7680" t6="8974" t7="10075" t8="11167" t9="14283" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
+			<Times t0="2308" t1="4939" t2="6059" t3="7229" t4="8538" t5="13036" t6="13749" t7="16920" t8="22021" t9="35742" />
 		</SingleRun>
 	</ResultsOfRC>
 </Results>

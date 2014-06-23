@@ -272,8 +272,12 @@ void WindowAdmin::on_ButtonStats_clicked()
 
         WindowStats *Window_Stats = new WindowStats;
 
+        connect(this, SIGNAL(sendCurrentListOfTeams(vector<Team>)), Window_Stats, SLOT(onSendCurrentListOfTeams(vector<Team>)));
+
         ui->CurrentWindow->addWidget(Window_Stats, 0,0);
         this->CurrentWidget=Window_Stats;
+
+        emit sendCurrentListOfTeams(listOfTeams);
     }
 }
 
@@ -281,3 +285,5 @@ void WindowAdmin::on_actionQT_triggered()
 {
     QApplication::aboutQt();
 }
+
+

@@ -41,7 +41,6 @@ private slots:
     void on_ButtonAddEditTeam_clicked();
     void on_ButtonNewRace_clicked();
     void on_ButtonStats_clicked();
-
     void on_actionQT_triggered();
 
 public slots:
@@ -50,13 +49,13 @@ public slots:
 signals:
     void ButtonAddEditTeam(vector<Team> listOfTeams);
     void ButtonNewRaceClicked(vector<Team> listOfTeams);
+    void sendCurrentListOfTeams(vector<Team> ListOfTeams);
 
 private:
     Ui::WindowAdmin *ui;
     int WhatsClicked;
     QObject *CurrentWidget;
     vector<Team> listOfTeams;
-    Results AllResults;
     vector<int> ListOfCarsID;
     int HighestID;
     WindowRaceMain *race;

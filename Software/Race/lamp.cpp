@@ -6,21 +6,21 @@ Lamp::Lamp(QWidget *parent) :
     ui(new Ui::Lamp)
 {
     ui->setupUi(this);
+    green = new QImage(":images/images/green.png");
+    gray = new QImage(":/images/images/gray.png");
+    red = new QImage(":/images/images/red.png");
 }
 
 Lamp::~Lamp()
 {
+    delete green;
+    delete gray;
+    delete red;
     delete ui;
 }
 
 void Lamp::setMode(int Mode)
 {
-    QImage *green = new QImage(":images/images/green.png");
-    QImage *gray = new QImage(":/images/images/gray.png");
-    QImage *red = new QImage(":/images/images/red.png");
-
-
-
     switch(Mode)
     {
     case 0:
