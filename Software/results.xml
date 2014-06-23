@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Results>
 	<ResultsOfMO Laps="1">
-		<CurrentBestTimeOfMO t0="1743" t1="2384" t2="2968" t3="3558" t4="4525" />
+		<CurrentBestTimeOfMO t0="1059" t1="1620" t2="2525" t3="3070" t4="3602" />
 		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
 			<Times t0="1141" t1="2548" t2="3349" t3="4474" t4="5371" />
 		</SingleRun>
@@ -10,6 +10,12 @@
 		</SingleRun>
 		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
 			<Times t0="1519" t1="2597" t2="3214" t3="3924" t4="4530" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
+			<Times t0="1245" t1="1783" t2="2621" t3="3312" t4="3870" />
+		</SingleRun>
+		<SingleRun TeamName="SuperTeam" CarName="Ferrari" CarID="3">
+			<Times t0="1059" t1="1620" t2="2525" t3="3070" t4="3602" />
 		</SingleRun>
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">

@@ -104,16 +104,16 @@ void WindowRace::onByteReceived(char data)
 
                 PrevSensor = Position;
 
-                this->ui->textCurrent->append(QString::number(CurrentTime.elapsed()));
+                this->ui->textCurrent->append(QString::number(ListOfTimes.back()));
                 if( ! TempListOfBestTimes.empty() )
                 {
                     this->ui->textBest->append((QString::number(TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor))));
-                    this->ui->textDifference->append(QString::number(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
-                    DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
+                    this->ui->textDifference->append(QString::number(ListOfTimes.back()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
+                    DTWRU.Difference = milisecondsToDisplay(ListOfTimes.back()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
                 }
                 else
                 {
-                    DTWRU.Difference = milisecondsToDisplay(CurrentTime.elapsed());
+                    DTWRU.Difference = milisecondsToDisplay(ListOfTimes.back());
                     this->ui->textBest->append("first run");
                     this->ui->textDifference->append("first run");
                 }
@@ -125,6 +125,8 @@ void WindowRace::onByteReceived(char data)
             {
                 FlagRaceStarted = END_OF_RACE;
                 TimerToDisplay.stop();
+                DTWRU.CurrentTime=milisecondsToDisplay(ListOfTimes.back());
+                emit setData(DTWRU);
                 ui->buttonSave->setEnabled(true);
                 QMessageBox m;
                 m.setText("Race Finished");
