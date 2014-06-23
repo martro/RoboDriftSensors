@@ -15,6 +15,9 @@ public:
     explicit WindowStats(QWidget *parent = 0);
     ~WindowStats();
 
+private slots:
+    void on_ButtonGeneratePDF_clicked();
+
 private:
     Ui::WindowStats *ui;
 };

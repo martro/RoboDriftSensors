@@ -1,0 +1,43 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{Programowanie w C}
+\author{Jakub Trzyna}
+\date{04.01.2014}
+
+\pdfinfo{
+  /Title    (readme.pdf)
+  /Author   (Jakub Trzyna)
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+ Dokument przedstawia opis działania programu napisanego jako trzeci projekt na zajęcia z programowania w języku C.
+ Program umożliwia dodawanie, usuwanie, edycję oraz wyświetlanie bazy gitar.
+\end{abstract}
+
+\section{Dodawanie/Usuwanie/Edytowanie gitary}
+\begin{enumerate}
+\item Dodawać nowe gitary można poprzez użycie opcji:
+\begin{itemize}
+\item>>11<< załadowanie wskazanych/wszystkich elementów z pliku binarnego o rozszezrzeniu .jt. Rozszerzenie jest automatycznie dodawane przez program, wiec użytkownik musi się martwić tylko o poprawną nazwę pliku.
+\item>>12<< utworzenie nowego elementu o parametrach wybranych przez użytkownika
+\item>>13<< wygenerowanie dowolnej, wskazanej ilości losowych gitar.
+Funkcja losująca posiada w bazie kilka marek, typów budów i rodzajów z 
+których losuje pojednyncze elementy przyporządkowując je do tworzonej gitary.
+\end{itemize}
+
+\item Aby usunąć konkretną gitarę z bazy należy wybrać opcję >>14<< w menu głównym, a następnie podać numer gitary którą chcemy usunąć.
+\item Edycja parametrów gitary następuje po wybraniu opcji >>15<< z menu głównego. Po wpisaniu numeru gitary, program poprosi o podanie kolejnych parametrów, jednocześnie pokazując w nawiasie dotychczasową wartość.
+\end{enumerate}
+
+\section{Wyświetlanie listy gitar}
+ Funkcja >>2<< umożliwia wyświetlenie wszystkich gitar wraz z ich parametrami które znajdują sie w bazie. 
+
+\end{document}

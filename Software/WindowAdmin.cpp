@@ -264,7 +264,7 @@ void WindowAdmin::on_ButtonStats_clicked()
     if(WhatsClicked != BUTTON_STATS)
     {
         race->hide();
-        if(WhatsClicked != BUTTON_NEW_RACE)
+        if(WhatsClicked == BUTTON_ADD_TEAM)
         {
             delete this->CurrentWidget;
         }
