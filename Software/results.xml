@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <Results>
 	<ResultsOfMO Laps="1">
-		<CurrentBestTimeOfMO t0="2323" t1="3709" t2="4942" t3="6535" t4="7863" />
+		<CurrentBestTimeOfMO t0="3049" t1="5230" t2="6777" t3="7761" t4="9629" />
 		<ResultsOfSingleCar TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="14763" t1="16559" t2="21188" t3="23266" t4="24322" />
-			<Times t0="3763" t1="5061" t2="8051" t3="14152" t4="21856" />
-			<Times t0="5289" t1="6554" t2="7155" t3="9854" t4="11258" />
+			<Times t0="6075" t1="7937" t2="8965" t3="10774" t4="11899" />
+			<Times t0="1849" t1="5718" t2="9085" t3="11081" t4="12835" />
 		</ResultsOfSingleCar>
 		<ResultsOfSingleCar TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="30364" t1="33233" t2="35761" t3="41899" t4="46121" />
+			<Times t0="5690" t1="9301" t2="10964" t3="13088" t4="13746" />
+			<Times t0="3049" t1="5230" t2="6777" t3="7761" t4="9629" />
+			<Times t0="3861" t1="6006" t2="7309" t3="8926" t4="11333" />
 		</ResultsOfSingleCar>
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">

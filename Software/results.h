@@ -15,6 +15,7 @@ public:
     QString CarID;
     QString CarName;
     QString Position;
+    vector<int> BestLap;
     vector< vector<int> > Runs;
 
     void clear();

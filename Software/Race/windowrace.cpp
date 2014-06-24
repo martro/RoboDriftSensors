@@ -110,6 +110,8 @@ void WindowRace::onByteReceived(char data)
                     this->ui->textBest->append((QString::number(TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor))));
                     this->ui->textDifference->append(QString::number(ListOfTimes.back()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor)));
                     DTWRU.Difference = milisecondsToDisplay(ListOfTimes.back()-TempListOfBestTimes.at(NumberOfLaps-NumberOfSensor));
+
+                    checkPosition( ListOfTimes.back(),  ListOfTimes.size()-1);
                 }
                 else
                 {
@@ -140,9 +142,27 @@ void WindowRace::onByteReceived(char data)
             PrevSensor = 5;
         }
     }
-
-
 }
+
+void WindowRace::checkPosition(int CurrentTime, int SensorNumber)
+{
+    int Position = 1;
+    if(ui->comboBoxCategory->currentText() == "Mobile Open")
+    {
+        for(unsigned int x=0; x<AllResults.ResultsOfMO.size();x++)
+        {
+            if(AllResults.ResultsOfMO.at(x).CarName != DTWRU.CarName)
+            {
+                if(AllResults.ResultsOfMO.at(x).BestLap.at(SensorNumber) < CurrentTime)
+                {
+                    Position++;
+                }
+            }
+        }
+    }
+    DTWRU.Position = Position;
+}
+
 int WindowRace::dataToInt(char data)
 {
     char datatemp = data&0b11111;
@@ -670,6 +690,7 @@ void WindowRace::readFromXML()
         for(xml_node ReadRun=ResultsOfMO.child("ResultsOfSingleCar");ReadRun;ReadRun=ReadRun.next_sibling("ResultsOfSingleCar"))
         {
             ResultsOfSingleCar TempResultsOfSingleCar;
+            TempResultsOfSingleCar.BestLap.push_back(0); //odniesienie
             TempResultsOfSingleCar.CarID = ReadRun.attribute("CarID").value();
             TempResultsOfSingleCar.CarName = ReadRun.attribute("CarName").value();
             TempResultsOfSingleCar.TeamName = ReadRun.attribute("TeamName").value();
@@ -685,6 +706,14 @@ void WindowRace::readFromXML()
                     TempTimes.push_back( Val.toInt() );
                 }
                 TempResultsOfSingleCar.Runs.push_back(TempTimes);
+
+                //ustawia best time'y of cars
+                if(  ( TempResultsOfSingleCar.Runs.back().back() < TempResultsOfSingleCar.BestLap.back() ) || (TempResultsOfSingleCar.BestLap.back() == 0)  )
+                {
+                    TempResultsOfSingleCar.BestLap = TempResultsOfSingleCar.Runs.back();
+                }
+
+
             }
             AllResults.ResultsOfMO.push_back(TempResultsOfSingleCar);
         }

@@ -46,6 +46,7 @@ public:
     void findTeamName(int ID);
     void saveToXML(Results AllResults);
     void readFromXML();
+    void checkPosition(int CurrentTime, int SensorNumber);
 
 private slots:
     void countdownTimeOut();
