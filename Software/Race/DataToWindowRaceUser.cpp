@@ -9,6 +9,7 @@ DataToWindowRaceUser::DataToWindowRaceUser()
     CurrentTime.clear();
     LightsMode = 11;
     Category.clear();
+    Position = 0;
 }
  void DataToWindowRaceUser::clear()
  {
@@ -19,4 +20,5 @@ DataToWindowRaceUser::DataToWindowRaceUser()
      CurrentTime.clear();
      LightsMode = 11;
      Category.clear();
+     Position = 0;
  }

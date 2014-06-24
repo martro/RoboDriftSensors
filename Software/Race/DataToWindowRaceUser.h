@@ -17,6 +17,8 @@ public:
     QString CurrentTime;
     int LightsMode;
     QString Category;
+    int Position;
+
 
 private:
 

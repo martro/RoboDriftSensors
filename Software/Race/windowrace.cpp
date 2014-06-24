@@ -113,6 +113,7 @@ void WindowRace::onByteReceived(char data)
                 }
                 else
                 {
+                    DTWRU.Position = 1;
                     DTWRU.Difference = milisecondsToDisplay(ListOfTimes.back());
                     this->ui->textBest->append("first run");
                     this->ui->textDifference->append("first run");

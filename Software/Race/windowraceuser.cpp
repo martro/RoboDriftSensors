@@ -206,3 +206,8 @@ void WindowRaceUser::setCategory(QString Category)
 {
     this->ui->labelCategory->setText(Category);
 }
+
+void WindowRaceUser::setCurrentPosition(int Position)
+{
+    this->ui->CurrentPosition->display(Position);
+}

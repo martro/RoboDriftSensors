@@ -1,49 +1,7 @@
 <?xml version="1.0"?>
 <Results>
 	<ResultsOfMO Laps="1">
-		<CurrentBestTimeOfMO t0="1165" t1="2224" t2="2687" t3="3189" t4="3659" />
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1611" t1="2258" t2="2895" t3="3539" t4="4173" />
-		</SingleRun>
-		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="1684" t1="3492" t2="4742" t3="5919" t4="7006" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1653" t1="2179" t2="2702" t3="3822" t4="4366" />
-		</SingleRun>
-		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="1541" t1="2197" t2="3061" t3="4217" t4="4849" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1624" t1="2651" t2="3167" t3="3736" t4="4231" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1162" t1="2087" t2="2993" t3="3931" t4="4548" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1317" t1="1919" t2="2476" t3="3009" t4="4191" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1043" t1="1674" t2="2529" t3="3197" t4="3751" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1165" t1="2224" t2="2687" t3="3189" t4="3659" />
-		</SingleRun>
-		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="990" t1="1525" t2="6249" t3="6979" t4="7703" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="1004" t1="1870" t2="2399" t3="3360" t4="3853" />
-		</SingleRun>
-		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="1233" t1="1867" t2="2520" t3="3190" t4="3862" />
-		</SingleRun>
-		<SingleRun TeamName="SuperTeam" CarName="Maybach" CarID="2">
-			<Times t0="898" t1="1399" t2="1847" t3="3091" t4="4392" />
-		</SingleRun>
-		<SingleRun TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="24079" t1="25172" t2="25996" t3="26811" t4="28019" />
-		</SingleRun>
+		<CurrentBestTimeOfMO />
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">
 		<CurrentBestTimeOfRD />

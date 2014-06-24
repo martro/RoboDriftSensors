@@ -28,6 +28,7 @@ public:
     void setTeamName(QString Name);
     void setCarName(QString Name);
     void setCategory(QString Category);
+    void setCurrentPosition(int Position);
 
 
 private:
