@@ -30,7 +30,7 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
 void WindowStats::readResultsFromXML()
 {
     using namespace pugi;
-
+    /*
     xml_document XMLResults;
     QString Path = QCoreApplication::applicationDirPath() +"/../Software/results.xml";
 
@@ -74,7 +74,7 @@ void WindowStats::readResultsFromXML()
         //...reading every single run
         for(xml_node ReadRun=ResultsOfMO.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
         {
-            TimesOfSingleRun TempSingleRun;
+            ResultsOfSingleCar TempSingleRun;
             TempSingleRun.CarID = ReadRun.attribute("CarID").value();
             TempSingleRun.CarName = ReadRun.attribute("CarName").value();
             TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
@@ -122,7 +122,7 @@ void WindowStats::readResultsFromXML()
         //...reading every single run
         for(xml_node ReadRun=ResultsOfRC.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
         {
-            TimesOfSingleRun TempSingleRun;
+            ResultsOfSingleCar TempSingleRun;
             TempSingleRun.CarID = ReadRun.attribute("CarID").value();
             TempSingleRun.CarName = ReadRun.attribute("CarName").value();
             TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
@@ -168,7 +168,7 @@ void WindowStats::readResultsFromXML()
         //...reading every single run
         for(xml_node ReadRun=ResultsOfRD.child("SingleRun");ReadRun;ReadRun=ReadRun.next_sibling("SingleRun"))
         {
-            TimesOfSingleRun TempSingleRun;
+            ResultsOfSingleCar TempSingleRun;
             TempSingleRun.CarID = ReadRun.attribute("CarID").value();
             TempSingleRun.CarName = ReadRun.attribute("CarName").value();
             TempSingleRun.TeamName = ReadRun.attribute("TeamName").value();
@@ -186,4 +186,5 @@ void WindowStats::readResultsFromXML()
         //...end of readnig every single run
 
     }
+    */
 }

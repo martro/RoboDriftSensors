@@ -25,21 +25,21 @@ void Results::clear()
 
 
 //...............................................//
-//...........TimesOfSingleRun...............//
-TimesOfSingleRun::TimesOfSingleRun()
+//...........ResultsOfSingleCar...............//
+ResultsOfSingleCar::ResultsOfSingleCar()
 {
     TeamName.clear();
     CarName.clear();
     CarID = "0";
-    Times.clear();
+    Runs.clear();
     Position.clear();
 }
 
-void TimesOfSingleRun::clear()
+void ResultsOfSingleCar::clear()
 {
     TeamName.clear();
     CarName.clear();
     CarID = "0";
-    Times.clear();
+    Runs.clear();
     Position.clear();
 }

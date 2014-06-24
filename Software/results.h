@@ -6,20 +6,18 @@
 using namespace std;
 
 
-class TimesOfSingleRun
+class ResultsOfSingleCar
 {
 public:
-    TimesOfSingleRun();
+    ResultsOfSingleCar();
 
     QString TeamName;
     QString CarID;
     QString CarName;
     QString Position;
-    vector<int> Times;
+    vector< vector<int> > Runs;
 
     void clear();
-
-private:
 };
 
 class Results
@@ -30,10 +28,10 @@ public:
     vector<int> CurrentBestTimeMO;
     vector<int> CurrentBestTimeRD;
     vector<int> CurrentBestTimeRC;
-    vector<TimesOfSingleRun> ResultsOfMO;
-    vector<TimesOfSingleRun> ResultsOfRD;
-    vector<TimesOfSingleRun> ResultsOfRC;
-    vector<TimesOfSingleRun> ResultsOfTraining;
+    vector<ResultsOfSingleCar> ResultsOfMO;
+    vector<ResultsOfSingleCar> ResultsOfRD;
+    vector<ResultsOfSingleCar> ResultsOfRC;
+    vector<ResultsOfSingleCar> ResultsOfTraining;
 };
 
 #endif // RESULTS_H

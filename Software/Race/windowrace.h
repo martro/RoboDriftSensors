@@ -78,7 +78,7 @@ private:
 
     vector<int> ListOfTimes; //to podeśle do TempTimesOfSignleRun
     vector<int> TempListOfBestTimes;
-    TimesOfSingleRun TempTimesOfSingleRun;
+    ResultsOfSingleCar TempResultsOfSingleCar;
     Results AllResults;
 
     int PrevSensor;

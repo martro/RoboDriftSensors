@@ -15,7 +15,7 @@ int main(void)
     PORTB = 0;
 
     DDRC |= 0b100000;
-    PORTC = 0b11011;
+    PORTC = 0b11111;
     //PORTC |=0b100000;//enable usart mode diode
 
     USART_Init(MYUBRR);
