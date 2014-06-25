@@ -100,6 +100,11 @@ void WindowRace::onByteReceived(char data)
         {
             if( ((Position == 1) && (PrevSensor == 5)) || ((Position == 2) && (PrevSensor == 1)) || ((Position == 3) && (PrevSensor == 2)) || ((Position == 4) && (PrevSensor == 3)) || ((Position == 5) && (PrevSensor == 4)) )
             {
+                if(Position == 1) //czyszczenie okna z różnicami czasów
+                {
+                    DTWRU.SensorPosition = -1;
+                    emit setData(DTWRU);
+                }
                 ListOfTimes.push_back(CurrentTime.elapsed());
 
                 PrevSensor = Position;
@@ -154,6 +159,32 @@ void WindowRace::checkPosition(int CurrentTime, int SensorNumber)
             if(AllResults.ResultsOfMO.at(x).CarName != DTWRU.CarName)
             {
                 if(AllResults.ResultsOfMO.at(x).BestLap.at(SensorNumber) < CurrentTime)
+                {
+                    Position++;
+                }
+            }
+        }
+    }
+    else if(ui->comboBoxCategory->currentText() == "RoboDrift")
+    {
+        for(unsigned int x=0; x<AllResults.ResultsOfRD.size();x++)
+        {
+            if(AllResults.ResultsOfRD.at(x).CarName != DTWRU.CarName)
+            {
+                if(AllResults.ResultsOfRD.at(x).BestLap.at(SensorNumber) < CurrentTime)
+                {
+                    Position++;
+                }
+            }
+        }
+    }
+    else if(ui->comboBoxCategory->currentText() == "RC")
+    {
+        for(unsigned int x=0; x<AllResults.ResultsOfRC.size();x++)
+        {
+            if(AllResults.ResultsOfRC.at(x).CarName != DTWRU.CarName)
+            {
+                if(AllResults.ResultsOfRC.at(x).BestLap.at(SensorNumber) < CurrentTime)
                 {
                     Position++;
                 }
@@ -751,6 +782,7 @@ void WindowRace::readFromXML()
         for(xml_node ReadRun=ResultsOfRD.child("ResultsOfSingleCar");ReadRun;ReadRun=ReadRun.next_sibling("ResultsOfSingleCar"))
         {
             ResultsOfSingleCar TempResultsOfSingleCar;
+            TempResultsOfSingleCar.BestLap.push_back(0); //odniesienie
             TempResultsOfSingleCar.CarID = ReadRun.attribute("CarID").value();
             TempResultsOfSingleCar.CarName = ReadRun.attribute("CarName").value();
             TempResultsOfSingleCar.TeamName = ReadRun.attribute("TeamName").value();
@@ -766,6 +798,14 @@ void WindowRace::readFromXML()
                     TempTimes.push_back( Val.toInt() );
                 }
                 TempResultsOfSingleCar.Runs.push_back(TempTimes);
+
+
+                //ustawia best time'y of cars
+                if(  ( TempResultsOfSingleCar.Runs.back().back() < TempResultsOfSingleCar.BestLap.back() ) || (TempResultsOfSingleCar.BestLap.back() == 0)  )
+                {
+                    TempResultsOfSingleCar.BestLap = TempResultsOfSingleCar.Runs.back();
+                }
+
             }
             AllResults.ResultsOfRD.push_back(TempResultsOfSingleCar);
         }
@@ -802,6 +842,7 @@ void WindowRace::readFromXML()
         for(xml_node ReadRun=ResultsOfRC.child("ResultsOfSingleCar");ReadRun;ReadRun=ReadRun.next_sibling("ResultsOfSingleCar"))
         {
             ResultsOfSingleCar TempResultsOfSingleCar;
+            TempResultsOfSingleCar.BestLap.push_back(0); //odniesienie
             TempResultsOfSingleCar.CarID = ReadRun.attribute("CarID").value();
             TempResultsOfSingleCar.CarName = ReadRun.attribute("CarName").value();
             TempResultsOfSingleCar.TeamName = ReadRun.attribute("TeamName").value();
@@ -817,6 +858,16 @@ void WindowRace::readFromXML()
                     TempTimes.push_back( Val.toInt() );
                 }
                 TempResultsOfSingleCar.Runs.push_back(TempTimes);
+
+
+                //ustawia best time'y of cars
+                if(  ( TempResultsOfSingleCar.Runs.back().back() < TempResultsOfSingleCar.BestLap.back() ) || (TempResultsOfSingleCar.BestLap.back() == 0)  )
+                {
+                    TempResultsOfSingleCar.BestLap = TempResultsOfSingleCar.Runs.back();
+                }
+
+
+
             }
             AllResults.ResultsOfRC.push_back(TempResultsOfSingleCar);
         }

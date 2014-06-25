@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <Results>
 	<ResultsOfMO Laps="1">
-		<CurrentBestTimeOfMO t0="3049" t1="5230" t2="6777" t3="7761" t4="9629" />
+		<CurrentBestTimeOfMO t0="3265" t1="5668" t2="6625" t3="7734" t4="8998" />
 		<ResultsOfSingleCar TeamName="SuperTeam" CarName="Maybach" CarID="2">
 			<Times t0="6075" t1="7937" t2="8965" t3="10774" t4="11899" />
 			<Times t0="1849" t1="5718" t2="9085" t3="11081" t4="12835" />
-		</ResultsOfSingleCar>
-		<ResultsOfSingleCar TeamName="Wieners" CarName="Skoda Favorit" CarID="5">
-			<Times t0="5690" t1="9301" t2="10964" t3="13088" t4="13746" />
-			<Times t0="3049" t1="5230" t2="6777" t3="7761" t4="9629" />
-			<Times t0="3861" t1="6006" t2="7309" t3="8926" t4="11333" />
+			<Times t0="3265" t1="5668" t2="6625" t3="7734" t4="8998" />
 		</ResultsOfSingleCar>
 	</ResultsOfMO>
 	<ResultsOfRD Laps="3">
-		<CurrentBestTimeOfRD t0="10521" t1="11608" t2="14234" t3="15788" t4="17271" t5="19051" t6="20490" t7="21965" t8="23338" t9="24471" t10="26025" t11="27282" t12="29742" t13="31922" t14="33009" />
+		<CurrentBestTimeOfRD t0="6177" t1="10491" t2="13428" t3="16756" t4="18625" t5="20843" t6="22403" t7="23313" t8="24225" t9="25411" t10="26755" t11="29679" t12="30470" t13="31210" t14="32030" />
 		<ResultsOfSingleCar TeamName="SuperTeam" CarName="Rolce Rolce" CarID="1">
 			<Times t0="10521" t1="11608" t2="14234" t3="15788" t4="17271" t5="19051" t6="20490" t7="21965" t8="23338" t9="24471" t10="26025" t11="27282" t12="29742" t13="31922" t14="33009" />
+			<Times t0="3824" t1="11416" t2="15529" t3="17912" t4="19422" t5="20845" t6="22144" t7="23873" t8="25476" t9="27501" t10="29377" t11="31439" t12="33786" t13="35234" t14="37545" />
+		</ResultsOfSingleCar>
+		<ResultsOfSingleCar TeamName="Wieners" CarName="Łada Niva" CarID="8">
+			<Times t0="6177" t1="10491" t2="13428" t3="16756" t4="18625" t5="20843" t6="22403" t7="23313" t8="24225" t9="25411" t10="26755" t11="29679" t12="30470" t13="31210" t14="32030" />
 		</ResultsOfSingleCar>
 	</ResultsOfRD>
 	<ResultsOfRC Laps="2">
@@ -23,6 +23,7 @@
 		<ResultsOfSingleCar TeamName="SuperTeam" CarName="Ferrari" CarID="3">
 			<Times t0="22614" t1="24065" t2="25814" t3="27893" t4="29217" t5="30894" t6="32257" t7="33844" t8="35312" t9="36662" />
 			<Times t0="6785" t1="7837" t2="9508" t3="10483" t4="11503" t5="12814" t6="13823" t7="14657" t8="15577" t9="16543" />
+			<Times t0="4132" t1="6904" t2="8768" t3="11266" t4="13882" t5="15694" t6="17322" t7="18662" t8="20325" t9="22157" />
 		</ResultsOfSingleCar>
 	</ResultsOfRC>
 </Results>
