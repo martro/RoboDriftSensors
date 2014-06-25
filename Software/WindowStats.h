@@ -22,6 +22,9 @@ public:
     QString PositionMO;
     QString PositionRC;
     QString PositionRD;
+    vector< vector <int> > TimesMO;
+    vector< vector <int> > TimesRD;
+    vector< vector <int> > TimesRC;
 };
 
 class WindowStats : public QWidget
@@ -33,7 +36,7 @@ public:
     ~WindowStats();
     void readResultsFromXML();
     vector<CarStats> findCars(QString Name);
-    QString checkPosition(QString Category, QString CarName);
+    void checkPosition(CarStats *TempCarStats, QString Category);
 
 private slots:
     void on_ButtonGeneratePDF_clicked();

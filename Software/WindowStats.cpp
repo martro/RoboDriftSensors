@@ -84,20 +84,21 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                 {
                     tex << "&" << m+2 <<"&"<< ListOfTeams.at(x).ListOfMembers.at(m).getName().toStdString().c_str() << " " << ListOfTeams.at(x).ListOfMembers.at(m).getSurname().toStdString().c_str() << " \\\\";
                 }
-                tex<< "\\end{tabular}"
-                "\\end{table}";
+                tex<< "\\end{tabular}" <<endl<<
+                "\\end{table}"<<endl;
 
                 SingleCarStats = findCars( ListOfTeams.at(x).getName() );
 
                 tex<<
-                "\\begin{table}[h]"
+                "\\begin{table}[h]" <<endl<<
                 "\\begin{tabular}{|l|l|l|l|}"<< endl <<
                 "\\hline"<< endl <<
                 "  Pojazd    & Pozycja MO & Pozycja RD & Pozycja RC  \\\\ \\hline"<< endl;
 
                 for(unsigned int c=0;c<SingleCarStats.size();c++)
                 {
-                    tex<< c+1 <<"."<<SingleCarStats.at(c).CarName.toStdString().c_str()<<"&"
+                    tex<< c+1
+                       <<"."<<SingleCarStats.at(c).CarName.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionMO.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionRD.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionRC.toStdString().c_str()<<"\\\\ \\";
@@ -116,21 +117,64 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                 "\\end{tabular}"<< endl <<
                 "\\end{table}"<< endl;
 
-                //for(unsigned int c=0;c<SingleCarStats.size();c++)
-                //"\\section{"<<  <<"}"
+                for(unsigned int c=0;c<SingleCarStats.size();c++)
+                {
+
+                    tex<<
+                    "\\pagebreak"<<endl<<
+                    "\\section{"<<  SingleCarStats.at(c).CarName.toStdString().c_str() <<"}"<<endl;
+
+
+                    if(SingleCarStats.at(c).PositionMO != "-")
+                    {
+                        tex<<"\\subsection{Mobile Open}"<<endl<<
+                        "\\begin{table}[h]" <<endl<<
+                        "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
+                        "\\hline"<< endl <<
+                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
+                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
+                        "\\end{tabular}"<< endl <<
+                        "\\end{table}"<< endl;
+                    }
+
+
+
+                    if(SingleCarStats.at(c).PositionRD != "-")
+                    {
+                        tex<<"\\subsection{RoboDrift}"<<endl<<
+                        "\\begin{table}[h]" <<endl<<
+                        "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
+                        "\\hline"<< endl <<
+                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
+                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
+                        "\\end{tabular}"<< endl <<
+                        "\\end{table}"<< endl;
+                    }
+
+
+
+                    if(SingleCarStats.at(c).PositionRC != "-")
+                    {
+                        tex<<"\\subsection{RC}"<<endl<<
+                        "\\begin{table}[h]" <<endl<<
+                        "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
+                        "\\hline"<< endl <<
+                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
+                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
+                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
+                        "\\end{tabular}"<< endl <<
+                        "\\end{table}"<< endl;
+                    }
+
+
+                }
 
                 tex<<
-                "\\begin{table}[h]"
-                "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
-                "\\hline"<< endl <<
-                "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
-                "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
-                "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
-                "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
-                "\\end{tabular}"<< endl <<
-                "\\end{table}"<< endl <<
-
-
                 "\\clearpage"<< endl <<
                 "\\newpage"<< endl <<
                 "\\begin{figure}"<< endl <<
@@ -164,7 +208,7 @@ vector<CarStats> WindowStats::findCars(QString Name) //szuka samochodów i pozyc
                 {
                     if(TempCar.CarName == AllResults.ResultsOfMO.at(p).CarName)
                     {
-                        TempCar.PositionMO = checkPosition("Mobile Open", TempCar.CarName);
+                        checkPosition(&TempCar, "Mobile Open");
                     }
                     if(TempCar.PositionMO.isEmpty())
                     {
@@ -175,7 +219,7 @@ vector<CarStats> WindowStats::findCars(QString Name) //szuka samochodów i pozyc
                 {
                     if(TempCar.CarName == AllResults.ResultsOfRD.at(p).CarName)
                     {
-                        TempCar.PositionRD = checkPosition("RoboDrift", TempCar.CarName);
+                        checkPosition(&TempCar, "RoboDrift");
                     }
                     if(TempCar.PositionRD.isEmpty())
                     {
@@ -186,7 +230,7 @@ vector<CarStats> WindowStats::findCars(QString Name) //szuka samochodów i pozyc
                 {
                     if(TempCar.CarName == AllResults.ResultsOfRC.at(p).CarName)
                     {
-                        TempCar.PositionRC = checkPosition("RC", TempCar.CarName);
+                        checkPosition(&TempCar, "RC");
                     }
                     if(TempCar.PositionRC.isEmpty())
                     {
@@ -201,7 +245,7 @@ vector<CarStats> WindowStats::findCars(QString Name) //szuka samochodów i pozyc
     return TempVector;
 }
 
-QString WindowStats::checkPosition(QString Category, QString CarName)
+void WindowStats::checkPosition(CarStats *TempCarStats, QString Category)
 {
     int Position = 1;
     int CurrentTime = 0;
@@ -211,16 +255,18 @@ QString WindowStats::checkPosition(QString Category, QString CarName)
     {
         for(unsigned int x=0; x<AllResults.ResultsOfMO.size();x++)
         {
-            if(AllResults.ResultsOfMO.at(x).CarName == CarName)
+            if(AllResults.ResultsOfMO.at(x).CarName == TempCarStats->CarName)
             {
                 CurrentTime = AllResults.ResultsOfMO.at(x).BestLap.back();
+                TempCarStats->TimesMO = AllResults.ResultsOfMO.at(x).Runs;
                 Place = x;
+
             }
         }
 
         for(unsigned int x=0; x<AllResults.ResultsOfMO.size();x++)
         {
-            if(AllResults.ResultsOfMO.at(x).CarName != CarName)
+            if(AllResults.ResultsOfMO.at(x).CarName != TempCarStats->CarName)
             {
                 if(AllResults.ResultsOfMO.at(x).BestLap.back() < CurrentTime)
                 {
@@ -228,6 +274,7 @@ QString WindowStats::checkPosition(QString Category, QString CarName)
                 }
             }
         }
+        TempCarStats->PositionMO = QString::number(Position);
         AllResults.ResultsOfMO.at(Place).Position = Position;
     }
 
@@ -235,16 +282,17 @@ QString WindowStats::checkPosition(QString Category, QString CarName)
     {
         for(unsigned int x=0; x<AllResults.ResultsOfRD.size();x++)
         {
-            if(AllResults.ResultsOfRD.at(x).CarName == CarName)
+            if(AllResults.ResultsOfRD.at(x).CarName == TempCarStats->CarName)
             {
                 CurrentTime = AllResults.ResultsOfRD.at(x).BestLap.back();
+                TempCarStats->TimesRD = AllResults.ResultsOfRD.at(x).Runs;
                 Place = x;
             }
         }
 
         for(unsigned int x=0; x<AllResults.ResultsOfRD.size();x++)
         {
-            if(AllResults.ResultsOfRD.at(x).CarName != CarName)
+            if(AllResults.ResultsOfRD.at(x).CarName != TempCarStats->CarName)
             {
                 if(AllResults.ResultsOfRD.at(x).BestLap.back() < CurrentTime)
                 {
@@ -252,22 +300,24 @@ QString WindowStats::checkPosition(QString Category, QString CarName)
                 }
             }
         }
+        TempCarStats->PositionRD = QString::number(Position);
         AllResults.ResultsOfRD.at(Place).Position = Position;
     }
     else if( Category == "RC")
     {
         for(unsigned int x=0; x<AllResults.ResultsOfRC.size();x++)
         {
-            if(AllResults.ResultsOfRC.at(x).CarName == CarName)
+            if(AllResults.ResultsOfRC.at(x).CarName == TempCarStats->CarName)
             {
                 CurrentTime = AllResults.ResultsOfRC.at(x).BestLap.back();
+                TempCarStats->TimesRC = AllResults.ResultsOfRC.at(x).Runs;
                 Place = x;
             }
         }
 
         for(unsigned int x=0; x<AllResults.ResultsOfRC.size();x++)
         {
-            if(AllResults.ResultsOfRC.at(x).CarName != CarName)
+            if(AllResults.ResultsOfRC.at(x).CarName != TempCarStats->CarName)
             {
                 if(AllResults.ResultsOfRC.at(x).BestLap.back()  < CurrentTime)
                 {
@@ -275,11 +325,11 @@ QString WindowStats::checkPosition(QString Category, QString CarName)
                 }
             }
         }
+        TempCarStats->PositionRC = QString::number(Position);
         AllResults.ResultsOfRC.at(Place).Position = Position;
     }
-
-    return QString::number(Position);
 }
+
 void WindowStats::readResultsFromXML()
 {
     using namespace pugi;
