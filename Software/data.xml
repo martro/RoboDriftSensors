@@ -1,20 +1,36 @@
 <?xml version="1.0"?>
 <ListOfTeams>
+	<Team Name="Kabaczki">
+		<Leader Name="Michał" Surname="Szlachetka" Phone="fg" Email="emkjsdvnxail" City="city" Organization="org" />
+		<Member Name="MIchał" Surname="Junior" />
+		<Car Name="Legvan" ID="9">
+			<Category RC="Yes" MO="Yes" RD="Yes" />
+			<Competition FR="No" TA="No" />
+		</Car>
+		<Car Name="NaPieszo" ID="10">
+			<Category RC="Yes" MO="Yes" RD="Yes" />
+			<Competition FR="No" TA="No" />
+		</Car>
+		<Car Name="Rower" ID="11">
+			<Category RC="Yes" MO="Yes" RD="Yes" />
+			<Competition FR="No" TA="No" />
+		</Car>
+	</Team>
 	<Team Name="SuperTeam">
 		<Leader Name="Jakub" Surname="Trzyna" Phone="660270052" Email="jakub.trzyna@gmail.com" City="Sieniawa" Organization="Synergia" />
 		<Member Name="Murzyn" Surname="Bambo" />
 		<Member Name="Rudy" Surname="Niedzwiedz" />
 		<Member Name="Ródy" Surname="Niedźwieć" />
 		<Car Name="Ferrari" ID="3">
-			<Category RC="Yes" MO="No" RD="No" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 		<Car Name="Maybach" ID="2">
-			<Category RC="No" MO="Yes" RD="No" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="Yes" TA="No" />
 		</Car>
 		<Car Name="Rolce Rolce" ID="1">
-			<Category RC="No" MO="No" RD="Yes" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 	</Team>
@@ -23,15 +39,15 @@
 		<Member Name="Michał" Surname="Szlachetka" />
 		<Member Name="Leszek" Surname="Walulik" />
 		<Car Name="Czinkłotento" ID="4">
-			<Category RC="Yes" MO="No" RD="No" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="Yes" TA="Yes" />
 		</Car>
 		<Car Name="Skoda Favorit" ID="5">
-			<Category RC="No" MO="Yes" RD="No" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 		<Car Name="Łada Niva" ID="8">
-			<Category RC="No" MO="No" RD="Yes" />
+			<Category RC="Yes" MO="Yes" RD="Yes" />
 			<Competition FR="No" TA="Yes" />
 		</Car>
 	</Team>

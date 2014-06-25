@@ -12,13 +12,13 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_PRINTSUPPORT_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I../../../Qt5/5.3/gcc_64/mkspecs/linux-g++ -I../Software -I../../../Qt5/5.3/gcc_64/include -I../../../Qt5/5.3/gcc_64/include/QtMultimedia -I../../../Qt5/5.3/gcc_64/include/QtWidgets -I../../../Qt5/5.3/gcc_64/include/QtNetwork -I../../../Qt5/5.3/gcc_64/include/QtSerialPort -I../../../Qt5/5.3/gcc_64/include/QtGui -I../../../Qt5/5.3/gcc_64/include/QtCore -I. -I. -I.
+INCPATH       = -I../../../Qt5/5.3/gcc_64/mkspecs/linux-g++ -I../Software -I../../../Qt5/5.3/gcc_64/include -I../../../Qt5/5.3/gcc_64/include/QtPrintSupport -I../../../Qt5/5.3/gcc_64/include/QtMultimedia -I../../../Qt5/5.3/gcc_64/include/QtWidgets -I../../../Qt5/5.3/gcc_64/include/QtNetwork -I../../../Qt5/5.3/gcc_64/include/QtSerialPort -I../../../Qt5/5.3/gcc_64/include/QtGui -I../../../Qt5/5.3/gcc_64/include/QtCore -I. -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/kuba/Qt5/5.3/gcc_64 -Wl,-rpath,/home/kuba/Qt5/5.3/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/kuba/Qt5/5.3/gcc_64/lib -lQt5Multimedia -lQt5Widgets -lQt5Network -lQt5SerialPort -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/home/kuba/Qt5/5.3/gcc_64/lib -lQt5PrintSupport -lQt5Multimedia -lQt5Widgets -lQt5Network -lQt5SerialPort -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /home/kuba/Qt5/5.3/gcc_64/bin/qmake
@@ -390,11 +390,12 @@ Makefile: ../Software/Software.pro ../../../Qt5/5.3/gcc_64/mkspecs/linux-g++/qma
 		../Software/Software.pro \
 		../Software/resources.qrc \
 		../Software/Race/Images.qrc \
-		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Multimedia.prl \
+		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5PrintSupport.prl \
+		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Widgets.prl \
 		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Gui.prl \
 		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Core.prl \
+		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Multimedia.prl \
 		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Network.prl \
-		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Widgets.prl \
 		/home/kuba/Qt5/5.3/gcc_64/lib/libQt5SerialPort.prl
 	$(QMAKE) -spec linux-g++ CONFIG+=debug -o Makefile ../Software/Software.pro
 ../../../Qt5/5.3/gcc_64/mkspecs/features/spec_pre.prf:
@@ -507,11 +508,12 @@ Makefile: ../Software/Software.pro ../../../Qt5/5.3/gcc_64/mkspecs/linux-g++/qma
 ../Software/Software.pro:
 ../Software/resources.qrc:
 ../Software/Race/Images.qrc:
-/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Multimedia.prl:
+/home/kuba/Qt5/5.3/gcc_64/lib/libQt5PrintSupport.prl:
+/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Widgets.prl:
 /home/kuba/Qt5/5.3/gcc_64/lib/libQt5Gui.prl:
 /home/kuba/Qt5/5.3/gcc_64/lib/libQt5Core.prl:
+/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Multimedia.prl:
 /home/kuba/Qt5/5.3/gcc_64/lib/libQt5Network.prl:
-/home/kuba/Qt5/5.3/gcc_64/lib/libQt5Widgets.prl:
 /home/kuba/Qt5/5.3/gcc_64/lib/libQt5SerialPort.prl:
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++ CONFIG+=debug -o Makefile ../Software/Software.pro
@@ -545,13 +547,13 @@ compiler_rcc_make_all: qrc_resources.cpp qrc_Images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp qrc_Images.cpp
 qrc_resources.cpp: ../Software/resources.qrc \
-		../Software/images/RD_logo-e1392478122173.png \
 		../Software/images/mainLogo.jpg \
-		../Software/images/text_bad.png \
 		../Software/images/green.png \
-		../Software/images/text_ok.png \
-		../Software/images/gray.png \
+		../Software/images/text_bad.png \
 		../Software/images/red.png \
+		../Software/images/gray.png \
+		../Software/images/text_ok.png \
+		../Software/images/RD_logo-e1392478122173.png \
 		../Software/sounds/beep_long.wav \
 		../Software/sounds/beep_short.wav
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name resources ../Software/resources.qrc -o qrc_resources.cpp
@@ -560,9 +562,9 @@ qrc_Images.cpp: ../Software/Race/Images.qrc \
 		../Software/Race/RD_logo-e1392478122173.png \
 		../Software/images/track.jpeg \
 		../Software/images/gray.png \
-		../Software/images/gray.jpg \
-		../Software/images/red.png \
 		../Software/images/kabanos.jpeg \
+		../Software/images/red.png \
+		../Software/images/gray.jpg \
 		../Software/images/green.png
 	/home/kuba/Qt5/5.3/gcc_64/bin/rcc -name Images ../Software/Race/Images.qrc -o qrc_Images.cpp
 
@@ -711,8 +713,18 @@ moc_WindowAdmin.cpp: ../Software/Race/windowracemain.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
 		../Software/WindowStats.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/QPrinter \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qprinter.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagelayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagesize.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGraphicsWidget \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../Software/WindowAdmin.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAdmin.h -o moc_WindowAdmin.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAdmin.h -o moc_WindowAdmin.cpp
 
 moc_windowaddteam.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -824,7 +836,7 @@ moc_windowaddteam.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Software/WindowAddMembers.h \
 		../Software/WindowAddCar.h \
 		../Software/windowaddteam.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windowaddteam.h -o moc_windowaddteam.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windowaddteam.h -o moc_windowaddteam.cpp
 
 moc_windowaddleader.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -929,7 +941,7 @@ moc_windowaddleader.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/windowaddleader.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windowaddleader.h -o moc_windowaddleader.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windowaddleader.h -o moc_windowaddleader.cpp
 
 moc_windoweditteam.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1034,7 +1046,7 @@ moc_windoweditteam.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/team.h \
 		../Software/windoweditteam.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windoweditteam.h -o moc_windoweditteam.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/windoweditteam.h -o moc_windoweditteam.cpp
 
 moc_WindowAddMembers.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1139,7 +1151,7 @@ moc_WindowAddMembers.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/WindowAddMembers.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAddMembers.h -o moc_WindowAddMembers.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAddMembers.h -o moc_WindowAddMembers.cpp
 
 moc_WindowAddCar.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1247,7 +1259,7 @@ moc_WindowAddCar.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
 		../Software/WindowAddCar.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAddCar.h -o moc_WindowAddCar.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowAddCar.h -o moc_WindowAddCar.cpp
 
 moc_lamp.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1351,7 +1363,7 @@ moc_lamp.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../Software/Race/lamp.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/lamp.h -o moc_lamp.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/lamp.h -o moc_lamp.cpp
 
 moc_windowrace.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1483,7 +1495,7 @@ moc_windowrace.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../Software/pugixml.hpp \
 		../Software/pugiconfig.hpp \
 		../Software/Race/windowrace.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowrace.h -o moc_windowrace.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowrace.h -o moc_windowrace.cpp
 
 moc_windowracemain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1618,7 +1630,7 @@ moc_windowracemain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../Software/Race/windowusermain.h \
 		../Software/Race/windowracesettings.h \
 		../Software/Race/windowracemain.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowracemain.h -o moc_windowracemain.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowracemain.h -o moc_windowracemain.cpp
 
 moc_windowracesettings.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1721,7 +1733,7 @@ moc_windowracesettings.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../Software/Race/windowracesettings.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowracesettings.h -o moc_windowracesettings.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowracesettings.h -o moc_windowracesettings.cpp
 
 moc_windowraceuser.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1838,7 +1850,7 @@ moc_windowraceuser.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/Race/windowraceuser.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowraceuser.h -o moc_windowraceuser.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowraceuser.h -o moc_windowraceuser.cpp
 
 moc_windowtimertest.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1949,7 +1961,7 @@ moc_windowtimertest.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
 		../Software/Race/windowtimertest.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowtimertest.h -o moc_windowtimertest.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowtimertest.h -o moc_windowtimertest.cpp
 
 moc_windowusart.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -2061,7 +2073,7 @@ moc_windowusart.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
 		../Software/Race/windowusart.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowusart.h -o moc_windowusart.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowusart.h -o moc_windowusart.cpp
 
 moc_windowusermain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -2180,7 +2192,7 @@ moc_windowusermain.cpp: ../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/Race/DataToWindowRaceUser.h \
 		../Software/Race/windowusermain.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowusermain.h -o moc_windowusermain.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/Race/windowusermain.h -o moc_windowusermain.cpp
 
 moc_WindowStats.cpp: ../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
@@ -2290,8 +2302,18 @@ moc_WindowStats.cpp: ../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/QPrinter \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qprinter.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagelayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagesize.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGraphicsWidget \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../Software/WindowStats.h
-	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowStats.h -o moc_WindowStats.cpp
+	/home/kuba/Qt5/5.3/gcc_64/bin/moc $(DEFINES) -I/home/kuba/Qt5/5.3/gcc_64/mkspecs/linux-g++ -I/home/kuba/github/RoboDriftSensors/Software -I/home/kuba/Qt5/5.3/gcc_64/include -I/home/kuba/Qt5/5.3/gcc_64/include/QtPrintSupport -I/home/kuba/Qt5/5.3/gcc_64/include/QtMultimedia -I/home/kuba/Qt5/5.3/gcc_64/include/QtWidgets -I/home/kuba/Qt5/5.3/gcc_64/include/QtNetwork -I/home/kuba/Qt5/5.3/gcc_64/include/QtSerialPort -I/home/kuba/Qt5/5.3/gcc_64/include/QtGui -I/home/kuba/Qt5/5.3/gcc_64/include/QtCore -I. ../Software/WindowStats.h -o moc_WindowStats.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -2500,7 +2522,17 @@ main.o: ../Software/main.cpp ../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplicat
 		../Software/WindowAddMembers.h \
 		../Software/WindowAddCar.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QCoreApplication \
-		../Software/WindowStats.h
+		../Software/WindowStats.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/QPrinter \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qprinter.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagelayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagesize.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGraphicsWidget \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicsitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Software/main.cpp
 
 WindowAdmin.o: ../Software/WindowAdmin.cpp ../Software/WindowAdmin.h \
@@ -2646,10 +2678,74 @@ WindowAdmin.o: ../Software/WindowAdmin.cpp ../Software/WindowAdmin.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
 		../Software/WindowStats.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/QPrinter \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qprinter.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagelayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagesize.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGraphicsWidget \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		ui_WindowAdmin.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMenu \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QTextBrowser \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextdocument.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WindowAdmin.o ../Software/WindowAdmin.cpp
 
 windowaddteam.o: ../Software/windowaddteam.cpp ../Software/windowaddteam.h \
@@ -2762,7 +2858,57 @@ windowaddteam.o: ../Software/windowaddteam.cpp ../Software/windowaddteam.h \
 		../Software/windoweditteam.h \
 		../Software/WindowAddMembers.h \
 		../Software/WindowAddCar.h \
-		ui_windowaddteam.h
+		ui_windowaddteam.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QComboBox \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qcombobox.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowaddteam.o ../Software/windowaddteam.cpp
 
 team.o: ../Software/team.cpp ../Software/team.h \
@@ -2907,7 +3053,54 @@ windowaddleader.o: ../Software/windowaddleader.cpp ../Software/windowaddleader.h
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
-		ui_windowaddleader.h
+		ui_windowaddleader.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowaddleader.o ../Software/windowaddleader.cpp
 
 windoweditteam.o: ../Software/windoweditteam.cpp ../Software/windoweditteam.h \
@@ -3013,7 +3206,54 @@ windoweditteam.o: ../Software/windoweditteam.cpp ../Software/windoweditteam.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/team.h \
-		ui_windoweditteam.h
+		ui_windoweditteam.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windoweditteam.o ../Software/windoweditteam.cpp
 
 WindowAddMembers.o: ../Software/WindowAddMembers.cpp ../Software/WindowAddMembers.h \
@@ -3119,7 +3359,58 @@ WindowAddMembers.o: ../Software/WindowAddMembers.cpp ../Software/WindowAddMember
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../Software/team.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
-		ui_WindowAddMembers.h
+		ui_WindowAddMembers.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QComboBox \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qcombobox.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WindowAddMembers.o ../Software/WindowAddMembers.cpp
 
 WindowAddCar.o: ../Software/WindowAddCar.cpp ../Software/WindowAddCar.h \
@@ -3228,7 +3519,63 @@ WindowAddCar.o: ../Software/WindowAddCar.cpp ../Software/WindowAddCar.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMessageBox \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
-		ui_WindowAddCar.h
+		ui_WindowAddCar.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QCheckBox \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qcheckbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QComboBox \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qcombobox.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WindowAddCar.o ../Software/WindowAddCar.cpp
 
 pugixml.o: ../Software/pugixml.cpp ../Software/pugixml.hpp \
@@ -3337,7 +3684,47 @@ lamp.o: ../Software/Race/lamp.cpp ../Software/Race/lamp.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
-		ui_lamp.h
+		ui_lamp.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lamp.o ../Software/Race/lamp.cpp
 
 measurement.o: ../Software/Race/measurement.cpp ../Software/Race/measurement.h
@@ -3473,7 +3860,70 @@ windowrace.o: ../Software/Race/windowrace.cpp ../Software/Race/windowrace.h \
 		../Software/Race/DataToWindowRaceUser.h \
 		../Software/pugixml.hpp \
 		../Software/pugiconfig.hpp \
-		ui_windowrace.h
+		ui_windowrace.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QComboBox \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qcombobox.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QTextBrowser \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextdocument.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtoolbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowrace.o ../Software/Race/windowrace.cpp
 
 windowracemain.o: ../Software/Race/windowracemain.cpp ../Software/Race/windowracemain.h \
@@ -3609,7 +4059,50 @@ windowracemain.o: ../Software/Race/windowracemain.cpp ../Software/Race/windowrac
 		../Software/pugiconfig.hpp \
 		../Software/Race/windowusermain.h \
 		../Software/Race/windowracesettings.h \
-		ui_windowracemain.h
+		ui_windowracemain.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowracemain.o ../Software/Race/windowracemain.cpp
 
 windowracesettings.o: ../Software/Race/windowracesettings.cpp ../Software/Race/windowracesettings.h \
@@ -3713,7 +4206,46 @@ windowracesettings.o: ../Software/Race/windowracesettings.cpp ../Software/Race/w
 		../../../Qt5/5.3/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_windowracesettings.h
+		ui_windowracesettings.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowracesettings.o ../Software/Race/windowracesettings.cpp
 
 windowraceuser.o: ../Software/Race/windowraceuser.cpp ../Software/Race/windowraceuser.h \
@@ -3831,7 +4363,51 @@ windowraceuser.o: ../Software/Race/windowraceuser.cpp ../Software/Race/windowrac
 		../Software/Race/lamp.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
-		ui_windowraceuser.h
+		ui_windowraceuser.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowraceuser.o ../Software/Race/windowraceuser.cpp
 
 windowtimertest.o: ../Software/Race/windowtimertest.cpp ../Software/Race/windowtimertest.h \
@@ -3943,7 +4519,57 @@ windowtimertest.o: ../Software/Race/windowtimertest.cpp ../Software/Race/windowt
 		../../../Qt5/5.3/gcc_64/include/QtCore/QTimer \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt5/5.3/gcc_64/include/QtCore/qbasictimer.h \
-		ui_windowtimertest.h
+		ui_windowtimertest.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowtimertest.o ../Software/Race/windowtimertest.cpp
 
 windowusart.o: ../Software/Race/windowusart.cpp ../Software/Race/windowusart.h \
@@ -4056,7 +4682,58 @@ windowusart.o: ../Software/Race/windowusart.cpp ../Software/Race/windowusart.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMessageBox \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdialog.h \
-		ui_windowusart.h
+		ui_windowusart.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QRadioButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qradiobutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowusart.o ../Software/Race/windowusart.cpp
 
 windowusermain.o: ../Software/Race/windowusermain.cpp ../Software/Race/windowusermain.h \
@@ -4176,7 +4853,45 @@ windowusermain.o: ../Software/Race/windowusermain.cpp ../Software/Race/windowuse
 		../../../Qt5/5.3/gcc_64/include/QtGui/QImage \
 		../../../Qt5/5.3/gcc_64/include/QtCore/QString \
 		../Software/Race/DataToWindowRaceUser.h \
-		ui_windowusermain.h
+		ui_windowusermain.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o windowusermain.o ../Software/Race/windowusermain.cpp
 
 results.o: ../Software/results.cpp ../Software/results.h \
@@ -4327,7 +5042,57 @@ WindowStats.o: ../Software/WindowStats.cpp ../Software/WindowStats.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt5/5.3/gcc_64/include/QtWidgets/QWidget \
-		ui_WindowStats.h
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/QPrinter \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qprinter.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagelayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qpagesize.h \
+		../../../Qt5/5.3/gcc_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QGraphicsWidget \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		ui_WindowStats.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/QVariant \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5/5.3/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5/5.3/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WindowStats.o ../Software/WindowStats.cpp
 
 DataToWindowRaceUser.o: ../Software/Race/DataToWindowRaceUser.cpp ../Software/Race/DataToWindowRaceUser.h \

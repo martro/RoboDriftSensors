@@ -866,8 +866,6 @@ void WindowRace::readFromXML()
                     TempResultsOfSingleCar.BestLap = TempResultsOfSingleCar.Runs.back();
                 }
 
-
-
             }
             AllResults.ResultsOfRC.push_back(TempResultsOfSingleCar);
         }

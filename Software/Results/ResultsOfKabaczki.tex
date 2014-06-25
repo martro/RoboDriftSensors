@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\DeclareMathSizes{11}{19}{13}{9}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\frenchspacing
+\usepackage{indentfirst}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[font=small,labelfont=bf]{caption}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.svg}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{15pt}
+\lhead{} 
+\chead{}
+\rhead{\leftmark} 
+\lfoot{}
+\cfoot{\thepage{}
+\pageref{LastPage}} 
+\rfoot{} 
+\begin{document}
+\begin{table}[h]\begin{tabular}{lll}\begin{Huge}Drużyna\end{Huge}          & \multicolumn{2}{l}{\textbf{\begin{Huge}Kabaczki\end{Huge}}} \\\begin{Huge}Członkowie:\end{Huge}        &       &              \\\multirow{2}{*}{} & 1     &Michał Szlachetka \\&2&MIchał Junior \\\end{tabular}\end{table}\begin{table}[h]\begin{tabular}{|l|l|l|l|}
+\hline
+  Pojazd    & Pozycja MO & Pozycja RD & Pozycja RC  \\ \hline
+1.Legvan&5&7&8\\ \cline{1-4}
+2.NaPieszo&8&5&9\\ \cline{1-4}
+3.Rower&7&8&7\\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[h]\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\ \hline
+\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \multirow{3}{*}{} \\ \cline{2-8}
+                   & 2         &          &          &          &          &          &           &                  \\ \cline{2-8}
+                   & 3         &          &          &          &          &          &           &                   \\ \hline
+\end{tabular}
+\end{table}
+\clearpage
+\newpage
+\begin{figure}
+\centering
+\includegraphics[width=300px, keepaspectratio=true]
+{images/sponsors.jpg}
+\end{figure}
+\end{document}
