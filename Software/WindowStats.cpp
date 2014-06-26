@@ -98,7 +98,7 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                 for(unsigned int c=0;c<SingleCarStats.size();c++)
                 {
                     tex<< c+1
-                       <<"."<<SingleCarStats.at(c).CarName.toStdString().c_str()<<"&"
+                       <<". "<<SingleCarStats.at(c).CarName.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionMO.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionRD.toStdString().c_str()<<"&"
                        <<  SingleCarStats.at(c).PositionRC.toStdString().c_str()<<"\\\\ \\";
@@ -117,6 +117,10 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                 "\\end{tabular}"<< endl <<
                 "\\end{table}"<< endl;
 
+
+
+
+
                 for(unsigned int c=0;c<SingleCarStats.size();c++)
                 {
 
@@ -131,10 +135,15 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                         "\\begin{table}[h]" <<endl<<
                         "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
                         "\\hline"<< endl <<
-                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
-                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
+                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl;
+                        for(unsigned r=0;r<SingleCarStats.at(c).TimesMO.size();r++)
+                        {
+                            tex<< "\\multirow{3}{*}{"<< r+1 <<"} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
+                            "                         & 2         &          &          &          &          &          &           &                    \\\\ \\cline{2-8}"<< endl <<
+                            "                         & 3         &          &          &          &          &          &           &                    \\\\ \\hline"<< endl;
+                        }
+
+                        tex<<
                         "\\end{tabular}"<< endl <<
                         "\\end{table}"<< endl;
                     }
@@ -147,10 +156,47 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                         "\\begin{table}[h]" <<endl<<
                         "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
                         "\\hline"<< endl <<
-                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
-                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
+
+                         "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl;
+                        for(unsigned r=0;r<SingleCarStats.at(c).TimesRD.size();r++)
+                        {
+
+                            tex<< "\\multirow{"<< SingleCarStats.at(c).TimesRD.at(r).size()/5 << "}{*}{"<< r+1 << "}";
+                            tex<<"& 1 &"
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(1)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(2)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(3)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(4)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(0)+SingleCarStats.at(c).TimesRD.at(r).at(1)+SingleCarStats.at(c).TimesRD.at(r).at(2)+SingleCarStats.at(c).TimesRD.at(r).at(3)+SingleCarStats.at(c).TimesRD.at(r).at(4)<<"& "
+                            <<"\\multirow{"<< SingleCarStats.at(c).TimesRD.at(r).size()/5 << "}{*}{TIME} \\\\ \\cline{2-8}"<< endl;
+
+
+                            int Laps = 1;
+                            for(Laps;Laps<(SingleCarStats.at(c).TimesRD.at(r).size()/5-1);Laps++)
+                            {
+                                tex<<"& "<<Laps+1<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)<<"& "
+                                  <<"\\\\ \\cline{2-8}"<<endl;
+
+                            }
+                            tex<<"& "<<Laps+1<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )<<"& "
+                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )<<"& "
+                              <<"\\\\ \\hline"<< endl;
+
+                        }
+
+                        tex<<
                         "\\end{tabular}"<< endl <<
                         "\\end{table}"<< endl;
                     }
@@ -159,15 +205,53 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
 
                     if(SingleCarStats.at(c).PositionRC != "-")
                     {
+
                         tex<<"\\subsection{RC}"<<endl<<
                         "\\begin{table}[h]" <<endl<<
                         "\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}"<< endl <<
                         "\\hline"<< endl <<
-                        "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl <<
-                        "\\multirow{3}{*}{} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 2         &          &          &          &          &          &           &                  \\\\ \\cline{2-8}"<< endl <<
-                        "                   & 3         &          &          &          &          &          &           &                   \\\\ \\hline"<< endl <<
-                        "\\end{tabular}"<< endl <<
+
+
+                        " Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl;
+                        for(unsigned r=0;r<SingleCarStats.at(c).TimesRC.size();r++)
+                        {
+
+                            tex<< "\\multirow{"<< SingleCarStats.at(c).TimesRC.at(r).size()/5 << "}{*}{"<< r+1 << "}";
+                            tex<<"& 1 &"
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(1)-SingleCarStats.at(c).TimesRC.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(2)-SingleCarStats.at(c).TimesRC.at(r).at(1)<<"& "
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(3)-SingleCarStats.at(c).TimesRC.at(r).at(2)<<"& "
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(4)-SingleCarStats.at(c).TimesRC.at(r).at(3)<<"& "
+                            <<SingleCarStats.at(c).TimesRC.at(r).at(4)<<"& "
+                            <<"\\multirow{"<< SingleCarStats.at(c).TimesRC.at(r).size()/5 << "}{*}{"<<SingleCarStats.at(c).TimesRC.at(r).back()<<"} \\\\ \\cline{2-8}"<< endl;
+
+
+                            int Laps = 1;
+                            for(Laps;Laps<(SingleCarStats.at(c).TimesRC.at(r).size()/5-1);Laps++)
+                            {
+                                tex<<"& "<<Laps+1<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)<<"& "
+                                  <<"\\\\ \\cline{2-8}"<<endl;
+
+                            }
+                            tex<<"& "<<Laps+1<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-6 )<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )<<"& "
+                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )<<"& "
+                              <<"\\\\ \\hline"<< endl;
+
+                        }
+
+                       tex<<"\\end{tabular}"<< endl <<
                         "\\end{table}"<< endl;
                     }
 
