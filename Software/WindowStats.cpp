@@ -138,9 +138,46 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                         "   Przejazd        & Okrążenie & Sektor 1 & Sektor 2 & Sektor 3 & Sektor 4 & Sektor 5 & Czas okr. & Czas przejazdu    \\\\ \\hline"<< endl;
                         for(unsigned r=0;r<SingleCarStats.at(c).TimesMO.size();r++)
                         {
-                            tex<< "\\multirow{3}{*}{"<< r+1 <<"} & 1         &          &          &          &          &          &           & \\multirow{3}{*}{} \\\\ \\cline{2-8}"<< endl <<
-                            "                         & 2         &          &          &          &          &          &           &                    \\\\ \\cline{2-8}"<< endl <<
-                            "                         & 3         &          &          &          &          &          &           &                    \\\\ \\hline"<< endl;
+
+                            tex<< "\\multirow{"<< SingleCarStats.at(c).TimesMO.at(r).size()/5 << "}{*}{"<< r+1 << "}";
+                            tex<<"& 1 &"
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(1)-SingleCarStats.at(c).TimesMO.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(2)-SingleCarStats.at(c).TimesMO.at(r).at(1)<<"& "
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(3)-SingleCarStats.at(c).TimesMO.at(r).at(2)<<"& "
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(4)-SingleCarStats.at(c).TimesMO.at(r).at(3)<<"& "
+                            <<SingleCarStats.at(c).TimesMO.at(r).at(4)<<"& ";
+                            if(SingleCarStats.at(c).TimesMO.at(r).size()/5>1) tex<<"\\multirow{"<< SingleCarStats.at(c).TimesMO.at(r).size()/5 << "}{*}{"<<SingleCarStats.at(c).TimesMO.at(r).back()<<"} \\\\ \\cline{2-8}"<< endl;
+                            else tex<<SingleCarStats.at(c).TimesMO.at(r).at(4);
+
+
+                            int Laps = 1;
+                            for(Laps;Laps<(SingleCarStats.at(c).TimesMO.at(r).size()/5-1);Laps++)
+                            {
+                                tex<<"& "<<Laps+1<<"& "
+                                  <<SingleCarStats.at(c).TimesMO.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(0+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesMO.at(r).at(1+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(1+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesMO.at(r).at(2+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(2+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesMO.at(r).at(3+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(3+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesMO.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(4+Laps*5-1)<<"& "
+
+                                 <<SingleCarStats.at(c).TimesMO.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(0+Laps*5-1)<<"& "
+                                  <<"\\\\ \\cline{2-8}"<<endl;
+
+                            }
+                            if(SingleCarStats.at(c).TimesMO.at(r).size()/5>1)
+                            {
+                                tex<<"& "<<Laps+1<<"& "
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-5 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-6 )<<"& "
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-4 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-5 )<<"& "
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-3 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-4 )<<"& "
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-2 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-3 )<<"& "
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-1 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-2 )<<"& "
+
+                                <<SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-1 )-SingleCarStats.at(c).TimesMO.at(r).at( SingleCarStats.at(c).TimesMO.at(r).size()-6 )<<"& ";
+                            }
+                             tex<<"\\\\ \\hline"<< endl;
+
                         }
 
                         tex<<
@@ -164,35 +201,40 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                             tex<< "\\multirow{"<< SingleCarStats.at(c).TimesRD.at(r).size()/5 << "}{*}{"<< r+1 << "}";
                             tex<<"& 1 &"
                             <<SingleCarStats.at(c).TimesRD.at(r).at(0)<<"& "
-                            <<SingleCarStats.at(c).TimesRD.at(r).at(1)<<"& "
-                            <<SingleCarStats.at(c).TimesRD.at(r).at(2)<<"& "
-                            <<SingleCarStats.at(c).TimesRD.at(r).at(3)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(1)-SingleCarStats.at(c).TimesRD.at(r).at(0)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(2)-SingleCarStats.at(c).TimesRD.at(r).at(1)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(3)-SingleCarStats.at(c).TimesRD.at(r).at(2)<<"& "
+                            <<SingleCarStats.at(c).TimesRD.at(r).at(4)-SingleCarStats.at(c).TimesRD.at(r).at(3)<<"& "
                             <<SingleCarStats.at(c).TimesRD.at(r).at(4)<<"& "
-                            <<SingleCarStats.at(c).TimesRD.at(r).at(0)+SingleCarStats.at(c).TimesRD.at(r).at(1)+SingleCarStats.at(c).TimesRD.at(r).at(2)+SingleCarStats.at(c).TimesRD.at(r).at(3)+SingleCarStats.at(c).TimesRD.at(r).at(4)<<"& "
-                            <<"\\multirow{"<< SingleCarStats.at(c).TimesRD.at(r).size()/5 << "}{*}{TIME} \\\\ \\cline{2-8}"<< endl;
+                            <<"\\multirow{"<< SingleCarStats.at(c).TimesRD.at(r).size()/5 << "}{*}{"<<SingleCarStats.at(c).TimesRD.at(r).back()<<"} \\\\ \\cline{2-8}"<< endl;
 
 
                             int Laps = 1;
                             for(Laps;Laps<(SingleCarStats.at(c).TimesRD.at(r).size()/5-1);Laps++)
                             {
                                 tex<<"& "<<Laps+1<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5)+SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(1+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(2+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(3+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5-1)<<"& "
+
+                                  <<SingleCarStats.at(c).TimesRD.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5-1)<<"& "
                                   <<"\\\\ \\cline{2-8}"<<endl;
 
                             }
-                            tex<<"& "<<Laps+1<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )<<"& "
-                              <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )+SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )<<"& "
-                              <<"\\\\ \\hline"<< endl;
+                            if(SingleCarStats.at(c).TimesRD.at(r).size()/5>1)
+                             {
+                                tex<<"& "<<Laps+1<<"& "
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-6 )<<"& "
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-5 )<<"& "
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-4 )<<"& "
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-3 )<<"& "
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-2 )<<"& "
+
+                                <<SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-1 )-SingleCarStats.at(c).TimesRD.at(r).at( SingleCarStats.at(c).TimesRD.at(r).size()-6 )<<"& ";
+                             }
+                            tex<<"\\\\ \\hline"<< endl;
 
                         }
 
@@ -231,23 +273,28 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
                             for(Laps;Laps<(SingleCarStats.at(c).TimesRC.at(r).size()/5-1);Laps++)
                             {
                                 tex<<"& "<<Laps+1<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)<<"& "
-                                  <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5)+SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(1+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(2+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(3+Laps*5-1)<<"& "
+                                  <<SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5-1)<<"& "
+
+                                 <<SingleCarStats.at(c).TimesRC.at(r).at(4+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5-1)<<"& "
                                   <<"\\\\ \\cline{2-8}"<<endl;
 
                             }
-                            tex<<"& "<<Laps+1<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-6 )<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )<<"& "
-                              <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )<<"& "
-                              <<"\\\\ \\hline"<< endl;
+                            if(SingleCarStats.at(c).TimesRC.at(r).size()/5>1)
+                            {
+                                tex<<"& "<<Laps+1<<"& "
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-6 )<<"& "
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-5 )<<"& "
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-4 )<<"& "
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-3 )<<"& "
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-2 )<<"& "
+
+                                <<SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-1 )-SingleCarStats.at(c).TimesRC.at(r).at( SingleCarStats.at(c).TimesRC.at(r).size()-6 )<<"& ";
+                            }
+                             tex<<"\\\\ \\hline"<< endl;
 
                         }
 
