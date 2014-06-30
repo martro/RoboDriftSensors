@@ -22,12 +22,10 @@ SOURCES += main.cpp\
     WindowAddCar.cpp \
     pugixml.cpp \
     Race/lamp.cpp \
-    Race/measurement.cpp \
     Race/windowrace.cpp \
     Race/windowracemain.cpp \
     Race/windowracesettings.cpp \
     Race/windowraceuser.cpp \
-    Race/windowtimertest.cpp \
     Race/windowusart.cpp \
     Race/windowusermain.cpp \
     results.cpp \
@@ -45,12 +43,10 @@ HEADERS  += WindowAdmin.h \
     pugiconfig.hpp \
     pugixml.hpp \
     Race/lamp.h \
-    Race/measurement.h \
     Race/windowrace.h \
     Race/windowracemain.h \
     Race/windowracesettings.h \
     Race/windowraceuser.h \
-    Race/windowtimertest.h \
     Race/windowusart.h \
     Race/windowusermain.h \
     results.h \
@@ -69,7 +65,6 @@ FORMS    += WindowAdmin.ui \
     Race/windowracemain.ui \
     Race/windowracesettings.ui \
     Race/windowraceuser.ui \
-    Race/windowtimertest.ui \
     Race/windowusart.ui \
     Race/windowusermain.ui \
     WindowStats.ui \
