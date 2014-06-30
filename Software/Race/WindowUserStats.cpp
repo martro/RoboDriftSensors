@@ -25,8 +25,8 @@ void WindowUserStats::displayStats()
         {
             if( (unsigned int)AllResults.ResultsOfMO.at(y).Position.toInt() == x+1 )
             {
-                Result = QString::number(x+1) + ". " + AllResults.ResultsOfMO.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfMO.at(y).BestLap.back());
-                ui->StatsMO->append(Result);
+                ui->TimeMO->append(milisecondsToDisplay(AllResults.ResultsOfMO.at(y).BestLap.back()));
+                ui->StatsMO->append(QString::number(x+1) + ". " + AllResults.ResultsOfMO.at(y).CarName);;
                 y = AllResults.ResultsOfMO.size();
             }
         }
@@ -39,8 +39,8 @@ void WindowUserStats::displayStats()
         {
             if( (unsigned int)AllResults.ResultsOfRD.at(y).Position.toInt() == x+1 )
             {
-                Result = QString::number(x+1) + ". " + AllResults.ResultsOfRD.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfRD.at(y).BestLap.back());
-                ui->StatsRD->append(Result);
+                ui->TimeRD->append(milisecondsToDisplay(AllResults.ResultsOfRD.at(y).BestLap.back()));
+                ui->StatsRD->append(QString::number(x+1) + ". " + AllResults.ResultsOfRD.at(y).CarName);
                 y = AllResults.ResultsOfRD.size();
             }
         }
@@ -53,8 +53,8 @@ void WindowUserStats::displayStats()
         {
             if( (unsigned int)AllResults.ResultsOfRC.at(y).Position.toInt() == x+1 )
             {
-                Result = QString::number(x+1) + ". " + AllResults.ResultsOfRC.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfRC.at(y).BestLap.back());
-                ui->StatsRC->append(Result);
+                ui->TimeRC->append(milisecondsToDisplay(AllResults.ResultsOfRC.at(y).BestLap.back()));
+                ui->StatsRC->append(QString::number(x+1) + ". " + AllResults.ResultsOfRC.at(y).CarName);
                 y = AllResults.ResultsOfRC.size();
             }
         }
