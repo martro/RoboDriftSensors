@@ -23,7 +23,7 @@ void WindowUserStats::displayStats()
     {
         for(unsigned int y=0; y<AllResults.ResultsOfMO.size();y++)
         {
-            if( AllResults.ResultsOfMO.at(y).Position.toInt() == x+1 )
+            if( (unsigned int)AllResults.ResultsOfMO.at(y).Position.toInt() == x+1 )
             {
                 Result = QString::number(x+1) + ". " + AllResults.ResultsOfMO.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfMO.at(y).BestLap.back());
                 ui->StatsMO->append(Result);
@@ -37,7 +37,7 @@ void WindowUserStats::displayStats()
     {
         for(unsigned int y=0; y<AllResults.ResultsOfRD.size();y++)
         {
-            if( AllResults.ResultsOfRD.at(y).Position.toInt() == x+1 )
+            if( (unsigned int)AllResults.ResultsOfRD.at(y).Position.toInt() == x+1 )
             {
                 Result = QString::number(x+1) + ". " + AllResults.ResultsOfRD.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfRD.at(y).BestLap.back());
                 ui->StatsRD->append(Result);
@@ -51,7 +51,7 @@ void WindowUserStats::displayStats()
     {
         for(unsigned int y=0; y<AllResults.ResultsOfRC.size();y++)
         {
-            if( AllResults.ResultsOfRC.at(y).Position.toInt() == x+1 )
+            if( (unsigned int)AllResults.ResultsOfRC.at(y).Position.toInt() == x+1 )
             {
                 Result = QString::number(x+1) + ". " + AllResults.ResultsOfRC.at(y).CarName+" "+milisecondsToDisplay(AllResults.ResultsOfRC.at(y).BestLap.back());
                 ui->StatsRC->append(Result);
