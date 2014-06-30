@@ -152,7 +152,7 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
 
 
                             int Laps = 1;
-                            for(Laps;Laps<(SingleCarStats.at(c).TimesMO.at(r).size()/5-1);Laps++)
+                            for(Laps = 1;Laps<(SingleCarStats.at(c).TimesMO.at(r).size()/5-1);Laps++)
                             {
                                 tex<<"& "<<Laps+1<<"& "
                                   <<SingleCarStats.at(c).TimesMO.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesMO.at(r).at(0+Laps*5-1)<<"& "
@@ -210,7 +210,7 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
 
 
                             int Laps = 1;
-                            for(Laps;Laps<(SingleCarStats.at(c).TimesRD.at(r).size()/5-1);Laps++)
+                            for(Laps = 1;Laps<(SingleCarStats.at(c).TimesRD.at(r).size()/5-1);Laps++)
                             {
                                 tex<<"& "<<Laps+1<<"& "
                                   <<SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesRD.at(r).at(0+Laps*5-1)<<"& "
@@ -270,7 +270,7 @@ void WindowStats::on_ButtonGeneratePDF_clicked()
 
 
                             int Laps = 1;
-                            for(Laps;Laps<(SingleCarStats.at(c).TimesRC.at(r).size()/5-1);Laps++)
+                            for(Laps = 1;Laps<(SingleCarStats.at(c).TimesRC.at(r).size()/5-1);Laps++)
                             {
                                 tex<<"& "<<Laps+1<<"& "
                                   <<SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5)-SingleCarStats.at(c).TimesRC.at(r).at(0+Laps*5-1)<<"& "
@@ -539,6 +539,20 @@ void WindowStats::readResultsFromXML()
         }
         //...end of readnig every single run
 
+        //...setPosition......
+        for(unsigned int x=0;x<AllResults.ResultsOfMO.size();x++)
+        {
+            int Position = 1;
+            for(unsigned int y=0;y<AllResults.ResultsOfMO.size();y++)
+            {
+                if(AllResults.ResultsOfMO.at(x).BestLap.back() >  AllResults.ResultsOfMO.at(y).BestLap.back())
+                {
+                    Position++;
+                }
+            }
+            AllResults.ResultsOfMO.at(x).Position = QString::number(Position);
+        }
+
 
 
         //......................Results of RD............................
@@ -600,6 +614,20 @@ void WindowStats::readResultsFromXML()
         }
         //...end of readnig every single run
 
+        //...setPosition......
+        for(unsigned int x=0;x<AllResults.ResultsOfRD.size();x++)
+        {
+            int Position = 1;
+            for(unsigned int y=0;y<AllResults.ResultsOfRD.size();y++)
+            {
+                if(AllResults.ResultsOfRD.at(x).BestLap.back() >  AllResults.ResultsOfRD.at(y).BestLap.back())
+                {
+                    Position++;
+                }
+            }
+            AllResults.ResultsOfRD.at(x).Position = QString::number(Position);
+        }
+
 
 
         //......................Results of RC............................
@@ -659,6 +687,20 @@ void WindowStats::readResultsFromXML()
             AllResults.ResultsOfRC.push_back(TempResultsOfSingleCar);
         }
         //...end of readnig every single run
+
+        //...setPosition......
+        for(unsigned int x=0;x<AllResults.ResultsOfRC.size();x++)
+        {
+            int Position = 1;
+            for(unsigned int y=0;y<AllResults.ResultsOfRC.size();y++)
+            {
+                if(AllResults.ResultsOfRC.at(x).BestLap.back() >  AllResults.ResultsOfRC.at(y).BestLap.back())
+                {
+                    Position++;
+                }
+            }
+            AllResults.ResultsOfRC.at(x).Position = QString::number(Position);
+        }
 
     }
 }

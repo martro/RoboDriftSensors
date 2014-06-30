@@ -2,6 +2,10 @@
 #define WINDOWUSERSTATS_H
 
 #include <QWidget>
+#include "results.h"
+#include <QMessageBox>
+#include "pugixml.hpp"
+
 
 namespace Ui {
 class WindowUserStats;
@@ -14,11 +18,15 @@ class WindowUserStats : public QWidget
 public:
     explicit WindowUserStats(QWidget *parent = 0);
     ~WindowUserStats();
-public slots:
-    void onWindowUserStatsCreated();
+    void readResultsFormXML();
+    void displayStats();
+    QString milisecondsToDisplay(int miliseconds);
+
 
 private:
     Ui::WindowUserStats *ui;
+    Results AllResults;
+
 };
 
 #endif // WINDOWUSERSTATS_H
