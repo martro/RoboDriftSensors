@@ -13,6 +13,7 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
 
     connect(this, SIGNAL(setDataUserMain(DataToWindowRaceUser)),windowusertemp,SLOT(onSetDataUserMain(DataToWindowRaceUser)));//get info about lights from racemain
 
+    connect(this, SIGNAL(buttonStatsClicked()),windowusertemp,SLOT(onButtonStatsClicked()));
     connect(this, SIGNAL(buttonRaceClicked()),windowusertemp,SLOT(onButtonRaceClicked()));
     connect(this, SIGNAL(buttonSettingsClicked()),windowusertemp,SLOT(onButtonSettingsClicked()));
     connect(this, SIGNAL(buttonCommunicationClicked()),windowusertemp,SLOT(onButtonCommunicationClicked()));
@@ -53,6 +54,25 @@ void WindowRaceMain::on_buttonRace_clicked()
     }
 }
 
+void WindowRaceMain::on_ButtoStats_clicked()
+{
+    ui->image->hide();
+    if(WhatsClicked != BUTTON_USER_STATS)
+    {
+        if(WhatsClicked != 0)
+             delete this->CurrentWidget;
+
+
+        WhatsClicked = BUTTON_USER_STATS;
+        WindowUserStats *Window_User_Stats = new WindowUserStats;
+
+        CurrentWidget=Window_User_Stats;
+
+        ui->CurrentWindow->addWidget(Window_User_Stats, 0,0);
+
+        emit buttonStatsClicked();
+    }
+}
 
 void WindowRaceMain::on_buttonRaceSettings_clicked()
 {
@@ -107,3 +127,5 @@ void WindowRaceMain::onSetData(DataToWindowRaceUser DTWRU)
 {
     emit setDataUserMain(DTWRU);
 }
+
+

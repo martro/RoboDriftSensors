@@ -13,9 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,20 +23,26 @@ QT_BEGIN_NAMESPACE
 class Ui_WindowStats
 {
 public:
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
     QPushButton *ButtonGeneratePDF;
+    QPushButton *ButtonShowStats;
 
     void setupUi(QWidget *WindowStats)
     {
         if (WindowStats->objectName().isEmpty())
             WindowStats->setObjectName(QStringLiteral("WindowStats"));
         WindowStats->resize(400, 300);
-        horizontalLayout = new QHBoxLayout(WindowStats);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout(WindowStats);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         ButtonGeneratePDF = new QPushButton(WindowStats);
         ButtonGeneratePDF->setObjectName(QStringLiteral("ButtonGeneratePDF"));
 
-        horizontalLayout->addWidget(ButtonGeneratePDF);
+        verticalLayout->addWidget(ButtonGeneratePDF);
+
+        ButtonShowStats = new QPushButton(WindowStats);
+        ButtonShowStats->setObjectName(QStringLiteral("ButtonShowStats"));
+
+        verticalLayout->addWidget(ButtonShowStats);
 
 
         retranslateUi(WindowStats);
@@ -48,6 +54,7 @@ public:
     {
         WindowStats->setWindowTitle(QApplication::translate("WindowStats", "Form", 0));
         ButtonGeneratePDF->setText(QApplication::translate("WindowStats", "Generate PDF!", 0));
+        ButtonShowStats->setText(QApplication::translate("WindowStats", "Show Stats", 0));
     } // retranslateUi
 
 };

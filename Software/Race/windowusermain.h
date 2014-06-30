@@ -8,6 +8,7 @@
 #include <vector>
 #include "windowraceuser.h"
 #include "DataToWindowRaceUser.h"
+#include "WindowUserStats.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
 public slots:
     void onButtonRaceClicked();
     void onButtonSettingsClicked();
+    void onButtonStatsClicked();
     void onButtonCommunicationClicked();
     void onconnection_ON();
     void onSetDataUserMain(DataToWindowRaceUser DTWRU);
@@ -38,5 +40,6 @@ private:
     vector <int> BestTime;
     vector <int> CurrentTime;
     WindowRaceUser *Window_Race_User;
+    WindowUserStats *Window_User_Stats;
 };
 #endif // WINDOWUSERMAIN_H

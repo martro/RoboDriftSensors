@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     Race/windowusermain.cpp \
     results.cpp \
     WindowStats.cpp \
-    Race/DataToWindowRaceUser.cpp
+    Race/DataToWindowRaceUser.cpp \
+    Race/WindowUserStats.cpp
 
 HEADERS  += WindowAdmin.h \
     windowaddteam.h \
@@ -54,7 +55,8 @@ HEADERS  += WindowAdmin.h \
     Race/windowusermain.h \
     results.h \
     WindowStats.h \
-    Race/DataToWindowRaceUser.h
+    Race/DataToWindowRaceUser.h \
+    Race/WindowUserStats.h
 
 FORMS    += WindowAdmin.ui \
     windowaddteam.ui \
@@ -70,7 +72,8 @@ FORMS    += WindowAdmin.ui \
     Race/windowtimertest.ui \
     Race/windowusart.ui \
     Race/windowusermain.ui \
-    WindowStats.ui
+    WindowStats.ui \
+    Race/WindowUserStats.ui
 
 RESOURCES += \
     resources.qrc \

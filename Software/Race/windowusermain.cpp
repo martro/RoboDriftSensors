@@ -18,7 +18,7 @@ WindowUserMain::~WindowUserMain()
 }
 
 void WindowUserMain::onButtonRaceClicked()
-    {
+{
     this->ui->label->hide();
     if (WidgetExists)
         delete this->CurrentWidget;
@@ -29,7 +29,21 @@ void WindowUserMain::onButtonRaceClicked()
     this->ui->CentralWindow->addWidget(windowraceuser, 0,0);
     this->CurrentWidget=windowraceuser;
     WidgetExists=1;
-    }
+}
+
+void WindowUserMain::onButtonStatsClicked()
+{
+    this->ui->label->hide();
+    if (WidgetExists)
+        delete this->CurrentWidget;
+    WindowUserStats *windowUserStats = new WindowUserStats;
+
+    Window_User_Stats=windowUserStats;
+
+    this->ui->CentralWindow->addWidget(windowUserStats, 0,0);
+    this->CurrentWidget=windowUserStats;
+    WidgetExists=1;
+}
 
 void WindowUserMain::onButtonSettingsClicked()
 {

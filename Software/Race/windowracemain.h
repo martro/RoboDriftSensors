@@ -4,6 +4,7 @@
 #define BUTTON_RACE 1
 #define BUTTON_SETTINGS 2
 #define BUTTON_COMMUNICATION 3
+#define BUTTON_USER_STATS 4
 
 #include <QWidget>
 #include <QMessageBox>
@@ -15,6 +16,7 @@
 #include "team.h"
 #include "results.h"
 #include "DataToWindowRaceUser.h"
+#include "WindowUserStats.h"
 
 namespace Ui {
 class WindowRaceMain;
@@ -31,6 +33,7 @@ public:
 private slots:
     void on_buttonRace_clicked();
     void on_buttonRaceSettings_clicked();
+    void on_ButtoStats_clicked();
 
 public slots:
     void onconnection_ON();
@@ -42,9 +45,11 @@ public slots:
 signals:
     void buttonRaceClicked();
     void buttonSettingsClicked();
+    void buttonStatsClicked();
     void buttonCommunicationClicked();
     void setDataUserMain(DataToWindowRaceUser DTWRU);
     void windowRaceCreated(vector<Team> ListOfTeams); //musze podeśła dane do tego okna
+    void windowUserStatsCreated();
     void byteReceived(char data);
 
 private:
@@ -56,6 +61,7 @@ private:
     WindowUSART Window_USART;
     vector<Team> TempListOfTeams;
     WindowRaceUser *windowRaceUser;
+    WindowUserStats *windowStatsUser;
 };
 
 #endif // WINDOWRACEMAIN_H
