@@ -25,7 +25,6 @@ class Ui_WindowStats
 public:
     QVBoxLayout *verticalLayout;
     QPushButton *ButtonGeneratePDF;
-    QPushButton *ButtonShowStats;
 
     void setupUi(QWidget *WindowStats)
     {
@@ -39,11 +38,6 @@ public:
 
         verticalLayout->addWidget(ButtonGeneratePDF);
 
-        ButtonShowStats = new QPushButton(WindowStats);
-        ButtonShowStats->setObjectName(QStringLiteral("ButtonShowStats"));
-
-        verticalLayout->addWidget(ButtonShowStats);
-
 
         retranslateUi(WindowStats);
 
@@ -54,7 +48,6 @@ public:
     {
         WindowStats->setWindowTitle(QApplication::translate("WindowStats", "Form", 0));
         ButtonGeneratePDF->setText(QApplication::translate("WindowStats", "Generate PDF!", 0));
-        ButtonShowStats->setText(QApplication::translate("WindowStats", "Show Stats", 0));
     } // retranslateUi
 
 };
