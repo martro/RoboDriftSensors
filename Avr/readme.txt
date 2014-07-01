@@ -4,4 +4,4 @@ Data format:
 01XX XXXX - enable sensors
 10XX XXXX - settings
 
-a
+add
