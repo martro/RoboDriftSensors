@@ -58,7 +58,9 @@ void CTC2_Init()
 int main()
 {
 
-    CTC2_Init();
+	DDRC =255;
+	PORTC =255;
+    /*CTC2_Init();
     sei();
 
     Proportion = 1;
@@ -73,4 +75,5 @@ int main()
             sei();
         }
     }
+*/
 }
