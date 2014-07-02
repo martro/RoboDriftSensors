@@ -1,5 +1,5 @@
 #include "usart.h"
-#include "leds.h"
+
 void USART_Init(unsigned int ubrr) /*Jako ubrr wchodzi MYUBRR, który jest podany w nocie*/
 {
     /* Set baud rate */
@@ -40,11 +40,12 @@ ISR ( USART_RXC_vect )
 
     Mode=ReceivedByte&0b11100000;
     if (Mode)
-    	setRedLed();
+    	PORTC|=_BV(5);
     else
-    	clearRedLed();
+    	PORTC&=~_BV(5);
 
-    //diody(ReceivedByte);
+    diody(ReceivedByte);
+
     USART_Transmit(ReceivedByte);
 }
 
@@ -52,4 +53,3 @@ void diody()
 {
 	PORTB=PINC&0b11111;
 }
-

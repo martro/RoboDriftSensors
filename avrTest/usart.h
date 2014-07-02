@@ -6,14 +6,12 @@
 #include <avr/interrupt.h>
 
 
-/*Functions from datasheet*/
+/*Funkcje z datasheet*/
 void USART_Init(unsigned int ubrr);
 void USART_Transmit(unsigned char data);
 unsigned char USART_Receive(void);
 ISR ( USART_RXC_vect );
 void diody();
-
-
 
 
 
