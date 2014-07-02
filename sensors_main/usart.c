@@ -38,11 +38,27 @@ ISR ( USART_RXC_vect )
     char ReceivedByte;
     ReceivedByte = USART_Receive(); // Fetch the received byte value into the variable " ByteReceived "
 
-    Mode=ReceivedByte&0b11100000;
+    /*Mode=ReceivedByte&0b11100000;
     if (Mode)
     	setRedLed();
     else
-    	clearRedLed();
+    	clearRedLed();*/
+
+    Mode=ReceivedByte&0b00000111;
+
+
+    setCountdownLeds(Mode);
+
+    if (Mode==6)
+    	setStartLed();
+    else
+    	clearStartLed();
+
+    if (Mode==7)
+    	setFalstartLed();
+    else
+    	clearFalstartLed();
+
 
     //diody(ReceivedByte);
     USART_Transmit(ReceivedByte);

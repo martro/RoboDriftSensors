@@ -84,3 +84,43 @@ void WindowUSART::on_radioButton_clicked(bool checked)
         emit connection_OFF();
     }
 }
+
+
+void WindowUSART::onSetStartLights(DataToWindowRaceUser DTWRU)
+{
+    char temp;
+    switch (DTWRU.LightsMode)
+    {
+        case 6:
+            temp=0;
+            break;
+        case 5:
+            temp=1;
+            break;
+        case 4:
+            temp=2;
+            break;
+        case 3:
+            temp=3;
+            break;
+        case 2:
+            temp=4;
+            break;
+        case 1:
+            temp=5;
+            break;
+        case 0:
+            temp=6;
+            break;
+        case -1:
+            temp=7;
+            break;
+        default:
+            temp=0;
+            break;
+
+    }
+
+    serial->flush();
+    serial->write(&temp,1);
+}

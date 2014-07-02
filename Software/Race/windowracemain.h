@@ -51,6 +51,7 @@ signals:
     void windowRaceCreated(vector<Team> ListOfTeams); //musze podeśła dane do tego okna
     void windowUserStatsCreated();
     void byteReceived(char data);
+    void setStartLights(DataToWindowRaceUser DTWRU);
 
 private:
     Ui::WindowRaceMain *ui;

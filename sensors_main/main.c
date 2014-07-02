@@ -16,6 +16,10 @@ int main(void)
 	DDRC = 0xff;
 	DDRD = 0b11111100;
 
+
+
+
+
 	setFalstartLed();
     /*DDRB |= 0b11111;
     PORTB = 0;
