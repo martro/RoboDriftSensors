@@ -2,7 +2,32 @@
 
 void setSensorLeds(char number)
 {
-	switch(number)
+	if (number&0b00001)
+		SENSOR_1_PORT |= (1<<SENSOR_1);
+	else
+		SENSOR_1_PORT &= ~(1<<SENSOR_1);
+
+	if (number&0b00010)
+		SENSOR_2_PORT |= (1<<SENSOR_2);
+	else
+		SENSOR_2_PORT &= ~(1<<SENSOR_2);
+
+	if (number&0b00100)
+		SENSOR_3_PORT |= (1<<SENSOR_3);
+	else
+		SENSOR_3_PORT &= ~(1<<SENSOR_3);
+
+	if (number&0b01000)
+		SENSOR_4_PORT |= (1<<SENSOR_4);
+	else
+		SENSOR_4_PORT &= ~(1<<SENSOR_4);
+
+	if (number&0b10000)
+		SENSOR_5_PORT |= (1<<SENSOR_5);
+	else
+		SENSOR_5_PORT &= ~(1<<SENSOR_5);
+
+	/*switch(number)
 	{
 	case 1:
 		SENSOR_1_PORT |= (1<<SENSOR_1);
@@ -21,7 +46,7 @@ void setSensorLeds(char number)
 		break;
 	default:
 		break;
-	}
+	}*/
 
 
 }

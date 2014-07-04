@@ -121,6 +121,9 @@ void WindowUSART::onSetStartLights(DataToWindowRaceUser DTWRU)
 
     }
 
-    serial->flush();
-    serial->write(&temp,1);
+    if (temp)
+    {
+        serial->flush();
+        serial->write(&temp,1);
+    }
 }

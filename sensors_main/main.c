@@ -12,15 +12,12 @@
 
 int main(void)
 {
-	DDRB = 0xff;
+	DDRB = 0b11100000;//5 last bytes: sensors
 	DDRC = 0xff;
-	DDRD = 0b11111100;
+	DDRD = 0b11111100;//2 last bytes: RX,TX
+	PORTB |=0b11111; //pull-up for sensors
 
 
-
-
-
-	setFalstartLed();
     /*DDRB |= 0b11111;
     PORTB = 0;
 
@@ -36,7 +33,7 @@ int main(void)
     while(1)
     {
     	//diody();
-        //USART_Transmit(collectData());
+        USART_Transmit(collectData());
     }
 
 
