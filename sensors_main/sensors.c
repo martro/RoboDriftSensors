@@ -1,7 +1,11 @@
 #include "sensors.h"
+#include "leds.h"
 
 int collectData()
 {
-	return (PINC&0b111111);
+	char data;
+	data=(PINB)&0b11111;
+	setSensorLeds(data);
+	return (data);
 
 }

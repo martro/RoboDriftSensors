@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <vector>
-#include "measurement.h"
+//#include "measurement.h"
 #include "windowusart.h"
 #include "windowraceuser.h"
 #include <QTimer>

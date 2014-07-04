@@ -20,6 +20,7 @@ WindowRaceMain::WindowRaceMain(QWidget *parent) :
     connect(&Window_USART, SIGNAL(connection_ON()),this,SLOT(onconnection_ON()));
     connect(&Window_USART, SIGNAL(connection_OFF()),this,SLOT(onconnection_OFF()));
     connect(&Window_USART,SIGNAL(byteReceived(char)),this,SLOT(onbyteReceived(char)));
+    connect(this, SIGNAL(setStartLights(DataToWindowRaceUser)),&Window_USART,SLOT(onSetStartLights(DataToWindowRaceUser)));
 
     ui->Communication->addWidget(&Window_USART, 0,0);
 }
@@ -126,6 +127,7 @@ void WindowRaceMain::onbyteReceived(char data)
 void WindowRaceMain::onSetData(DataToWindowRaceUser DTWRU)
 {
     emit setDataUserMain(DTWRU);
+    emit setStartLights(DTWRU);
 }
 
 

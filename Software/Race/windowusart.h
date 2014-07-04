@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QSerialPort>
 #include <QMessageBox>
+#include "DataToWindowRaceUser.h"
 
 namespace Ui {
 class WindowUSART;
@@ -21,6 +22,9 @@ signals:
     void byteReceived(char data);
     void connection_ON();
     void connection_OFF();
+
+public slots:
+    void onSetStartLights(DataToWindowRaceUser DTWRU);
 
 private slots:
     void on_pushButton_clicked();
